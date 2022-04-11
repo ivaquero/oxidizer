@@ -70,9 +70,6 @@ sd ".* STARTUP=.*" "export STARTUP=1" $OXIDIZER/custom.sh
 sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $HOME/.zshrc
 
 if [[ $(uname -s) == "Linux" ]]; then
-    if test ! "$(command -v zsh)"; then
-        brew install zsh
-    fi
     echo "export SHELL=$(which zsh)" >>$HOME/.profile
     echo "exec $(which zsh) -l" >>$HOME/.profile
 else
