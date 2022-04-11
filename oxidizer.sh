@@ -11,26 +11,26 @@ Oxygen[oxal]=$OXIDIZER/defaults/alacritty.yml
 Oxygen[oxar]=$OXIDIZER/defaults/aria2.conf
 Oxygen[oxox]=$OXIDIZER/demo-custom.sh
 # plugins
-Oxygen[oxpm]=$OXIDIZER/zsh-plugins/zsh-macos.sh
-Oxygen[oxpub]=$OXIDIZER/zsh-plugins/zsh-ubuntu.sh
-Oxygen[oxpb]=$OXIDIZER/zsh-plugins/zsh-brew.sh
-Oxygen[oxpc]=$OXIDIZER/zsh-plugins/zsh-conda.sh
-Oxygen[oxpcc]=$OXIDIZER/zsh-plugins/zsh-cpp.sh
-Oxygen[oxpdk]=$OXIDIZER/zsh-plugins/zsh-docker.sh
-Oxygen[oxpfm]=$OXIDIZER/zsh-plugins/zsh-formats.sh
-Oxygen[oxpg]=$OXIDIZER/zsh-plugins/zsh-git.sh
-Oxygen[oxphx]=$OXIDIZER/zsh-plugins/zsh-helix.sh
-Oxygen[oxpjl]=$OXIDIZER/zsh-plugins/zsh-julia.sh
-Oxygen[oxplm]=$OXIDIZER/zsh-plugins/zsh-lima.sh
-Oxygen[oxpn]=$OXIDIZER/zsh-plugins/zsh-node.sh
-Oxygen[oxppu]=$OXIDIZER/zsh-plugins/zsh-pueue.sh
-Oxygen[oxprs]=$OXIDIZER/zsh-plugins/zsh-rust.sh
-Oxygen[oxptl]=$OXIDIZER/zsh-plugins/zsh-texlive.sh
-Oxygen[oxpu]=$OXIDIZER/zsh-plugins/zsh-utils.sh
-Oxygen[oxpvi]=$OXIDIZER/zsh-plugins/zsh-vim.sh
-Oxygen[oxpvs]=$OXIDIZER/zsh-plugins/zsh-vscode.sh
-Oxygen[oxpwt]=$OXIDIZER/zsh-plugins/zsh-widgets.sh
-Oxygen[oxpzj]=$OXIDIZER/zsh-plugins/zsh-zellij.sh
+Oxygen[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
+Oxygen[oxpub]=$OXIDIZER/zsh-plugins/ox-ubuntu.sh
+Oxygen[oxpb]=$OXIDIZER/zsh-plugins/ox-brew.sh
+Oxygen[oxpc]=$OXIDIZER/zsh-plugins/ox-conda.sh
+Oxygen[oxpcc]=$OXIDIZER/zsh-plugins/ox-cpp.sh
+Oxygen[oxpdk]=$OXIDIZER/zsh-plugins/ox-docker.sh
+Oxygen[oxpfm]=$OXIDIZER/zsh-plugins/ox-formats.sh
+Oxygen[oxpg]=$OXIDIZER/zsh-plugins/ox-git.sh
+Oxygen[oxphx]=$OXIDIZER/zsh-plugins/ox-helix.sh
+Oxygen[oxpjl]=$OXIDIZER/zsh-plugins/ox-julia.sh
+Oxygen[oxplm]=$OXIDIZER/zsh-plugins/ox-lima.sh
+Oxygen[oxpn]=$OXIDIZER/zsh-plugins/ox-node.sh
+Oxygen[oxppu]=$OXIDIZER/zsh-plugins/ox-pueue.sh
+Oxygen[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
+Oxygen[oxptl]=$OXIDIZER/zsh-plugins/ox-texlive.sh
+Oxygen[oxpu]=$OXIDIZER/zsh-plugins/ox-utils.sh
+Oxygen[oxpvi]=$OXIDIZER/zsh-plugins/ox-vim.sh
+Oxygen[oxpvs]=$OXIDIZER/zsh-plugins/ox-vscode.sh
+Oxygen[oxpwt]=$OXIDIZER/zsh-plugins/ox-widgets.sh
+Oxygen[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
 
 ##########################################################
 # System configuration files
