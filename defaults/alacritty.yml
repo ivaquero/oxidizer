@@ -1,0 +1,256 @@
+live_config_reload: true
+tabspaces: 4
+window.opacity: 0.9
+dynamic_title: false
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: false
+
+# Display the time it takes to redraw each frame.
+render_timer: false
+
+# Shell
+#
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+    # execute
+    - -c
+    - 'zellij attach --index 0 --create'
+
+window:
+  # Specified in number of columns/lines, not pixels. If both are zero this
+  dimensions:
+    columns: 150
+    lines: 47
+
+  # Blank space added around the window in pixels. This padding is not scaled by
+  # DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 10
+    y: 15
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  startup_mode: Windowed
+
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  decorations: none
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 2000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 20
+
+  # Faux Scrolling
+  #
+  # The `faux_multiplier` setting controls the number of lines the terminal
+  # should scroll when the alternate screen buffer is active. This is used
+  # to allow mouse scrolling for applications like `man`.
+  #
+  # Specifying `0` will disable faux scrolling.
+  faux_multiplier: 100
+
+  # Scroll to the bottom when new text is written to the terminal.
+  auto_scroll: true
+
+colors:
+  # Default colors
+  primary:
+    background: '#1e1e1e'
+    foreground: '#cccccc'
+
+  # Selection colors
+  selection:
+    text: CellForeground
+    background: '#565656'
+
+  # Normal colors
+  normal:
+    black: '#000000'
+    red: '#cd3131'
+    green: '#0dbc79'
+    yellow: '#e5e510'
+    blue: '#2472c8'
+    magenta: '#bc3fbc'
+    cyan: '#11a8cd'
+    white: '#e5e5e5'
+
+  # Bright colors
+  bright:
+    black: '#666666'
+    red: '#f14c4c'
+    green: '#23d18b'
+    yellow: '#f5f543'
+    blue: '#3b8eea'
+    magenta: '#d670d6'
+    cyan: '#29b8db'
+    white: '#e5e5e5'
+
+# Font configuration
+font:
+  size: 16
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.
+  glyph_offset:
+    x: 0
+    y: 0
+  normal:
+    family: 'FiraCode Nerd Font'
+    style: Regular
+  bold:
+    family: 'FiraCode Nerd Font'
+    style: Bold
+  italic:
+    family: 'FiraCode Nerd Font'
+    style: Italic
+  bold_italic:
+    family: 'FiraCode Nerd Font'
+    style: Bold Italic
+
+  # This is a global setting and will require a log out or restart to take
+  # effect.
+  use_thin_strokes: true
+
+key_bindings:
+  - { key: C, mods: Command, action: Copy }
+  - { key: V, mods: Command, action: Paste }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: W, mods: Command, action: Quit }
+
+  # shortcuts for zellij, the leader key is control (\x) or alt (\x1b)
+  # ^a~h: \x01~\x08
+  # ^n~o: \x0e~\x0f
+  # ^p~v: \x10~\x16
+
+  # split pane horizontally
+  - { key: Minus, mods: Command, chars: "\x02\"" }
+  # split pane verically
+  - { key: Backslash, mods: Command, chars: "\x02%" }
+  # split pane in h12
+  - { key: LBracket, mods: Command|Alt, chars: "\x02\"" }
+  - { key: LBracket, mods: Command|Alt, chars: "\x02%" }
+  - { key: LBracket, mods: Command|Alt, chars: "\x0ej\x0e" }
+  - { key: LBracket, mods: Command|Alt, chars: "\x0ej\x0e" }
+  # split pane in v12
+  - { key: RBracket, mods: Command|Alt, chars: "\x02%" }
+  - { key: RBracket, mods: Command|Alt, chars: "\x02\"" }
+  - { key: RBracket, mods: Command|Alt, chars: "\x0el\x0e" }
+  # split pane in 22
+  - { key: Backslash, mods: Command|Alt, chars: "\x02%" }
+  - { key: Backslash, mods: Command|Alt, chars: "\x02\"" }
+  - { key: Backslash, mods: Command|Alt, chars: "\x1bh" }
+  - { key: Backslash, mods: Command|Alt, chars: "\x02\"" }
+  # increase / decrease pane size
+  - { key: Minus, mods: Command|Alt, chars: "\x1b-" }
+  - { key: Equals, mods: Command|Alt, chars: "\x1b=" }
+
+  # new tab
+  - { key: T, mods: Command, chars: "\x02c" }
+  # rename tab
+  - { key: M, mods: Command, chars: "\x02," }
+  # move to previous tab
+  - { key: LBracket, mods: Command, chars: "\x02p" }
+  # move to next tab
+  - { key: RBracket, mods: Command, chars: "\x02n" }
+
+  # move the cursor
+  - { key: Left, mods: Command, chars: "\x1bh" }
+  - { key: Down, mods: Command, chars: "\x1bj" }
+  - { key: Up, mods: Command, chars: "\x1bk" }
+  - { key: Right, mods: Command, chars: "\x1bl" }
+
+  # move the pane border
+  - { key: Left, mods: Command|Alt, chars: "\x0eh\x0a" }
+  - { key: Down, mods: Command|Alt, chars: "\x0ej\x0e" }
+  - { key: Up, mods: Command|Alt, chars: "\x0ek\x0e" }
+  - { key: Right, mods: Command|Alt, chars: "\x0el\x0e" }
+
+  # custom actions of files
+  - {
+      key: Comma,
+      mods: Command,
+      chars: 'code $HOME/.config/alacritty/alacritty.yml',
+    }
+
+mouse:
+  # Click settings
+  #
+  # The `double_click` and `triple_click` settings control the time
+  # alacritty should wait for accepting multiple clicks as one double
+  # or triple click.
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: true
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: false
+
+cursor:
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - Block
+  #   - Underline
+  #   - Beam
+  style: Beam
+
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: true
+
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
+
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - Off
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  log_level: Warn
+
+  # Print all received window events.
+  print_events: false

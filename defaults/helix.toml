@@ -1,0 +1,17 @@
+theme = "monokai"
+
+[editor]
+    middle-click-paste     = false
+    line-number            = "absolute"
+    mouse                  = true
+    scroll-lines           = 10
+    scrolloff              = 3
+    completion-trigger-len = 3
+
+    [editor.cursor-shape]
+        insert = "bar"
+        normal = "block"
+        select = "underline"
+
+    [editor.file-picker]
+        hidden = false

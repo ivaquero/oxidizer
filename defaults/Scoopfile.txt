@@ -1,0 +1,16 @@
+bat
+bottom
+fd
+gitui
+lsd
+ripgrep
+pueue
+sd
+starship
+tealdeer
+zoxide
+scoop-completion
+posh-git
+sudo
+busybox
+vscode

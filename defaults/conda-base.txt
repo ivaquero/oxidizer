@@ -1,0 +1,5 @@
+conda-tree
+jupyter_contrib_nbextensions
+mamba
+mypy
+yapf

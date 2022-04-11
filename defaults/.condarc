@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+
+add_pip_as_python_dependency: true
+channel_priority: flexible
+report_errors: false
+ssl_verify: false
+show_channel_urls: true
+rollback_enabled: true
+remote_max_retries: 2
+restore_free_channel: true
