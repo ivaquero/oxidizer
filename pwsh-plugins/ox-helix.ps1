@@ -11,3 +11,9 @@ $global:Element.hxl = "$env:APPDATA/.config/helix/languages.toml"
 # backup files
 $global:Oxide.bkhx = "$env:BACKUP/helix/config.toml"
 $global:Oxide.bkhxl = "$env:BACKUP/helix/languages.toml"
+
+##########################################################
+# main
+##########################################################
+
+function hxt { hx --tutor }

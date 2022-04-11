@@ -39,6 +39,11 @@ $global:Element.ps = $PROFILE
 . $global:Element.ox
 
 $global:Oxide = @{}
+
+if ( !(Test-Path "$env:BACKUP/shell") ) {
+    New-Item -ItemType Directory -Force -Path "$env:BACKUP/shell"
+}
+
 $global:Oxide.bkps = "$env:BACKUP/shell/Profile.ps1"
 $global:Oxide.bkoxi = "$env:BACKUP/shell/oxidizer.ps1"
 $global:Oxide.bkox = "$env:BACKUP/shell/custom.ps1"
@@ -163,7 +168,7 @@ if ($global:STARTUP) {
     startup
 }
 
-if (Get-Command code -errorAction SilentlyContinue) {
+if (Get-Command code -ErrorAction SilentlyContinue) {
     $env:EDITOR = "code"
 }
 

@@ -47,8 +47,8 @@ source $Element[ox]
 
 declare -A Oxide
 
-if [[ ! -d $BACKUP/oxidizer ]]; then
-    mkdir -p $BACKUP/oxidizer
+if [[ ! -d $BACKUP/shell ]]; then
+    mkdir -p $BACKUP/shell
 fi
 
 Oxide[bkzs]=$BACKUP/shell/.zshrc
