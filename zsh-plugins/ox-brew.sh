@@ -21,8 +21,7 @@ export BREW=$(brew --prefix)
 export BREW_DL=$(brew --cache)/downloads
 
 if type brew &>/dev/null; then
-    FPATH="$BREW/share/zsh/site-completions:${FPATH}"
-    FPATH="$BREW/share/zsh/site-s():${FPATH}"
+    FPATH=$BREW/share/zsh-completions:$FPATH
     autoload -Uz compinit
     compinit
 fi
