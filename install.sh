@@ -77,11 +77,14 @@ else
     echo "exec $(which zsh) -l" >>$HOME/.bash_profile
 fi
 
-if test ! "$(command -v vi)"; then
-    brew install neovim
-    export EDITOR="nvim"
-else
-    export EDITOR="vi"
+if test ! "$(command -v code)"; then
+    echo "No VS Code installed. "
+    if test ! "$(command -v nvim)"; then
+        echo "No NeoVim installed"
+    else
+        export EDITOR="vi"
+        eval "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    fi
 fi
 
 printf "🥳 Oxidizer installation complete!\n"

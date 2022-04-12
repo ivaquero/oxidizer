@@ -3,9 +3,10 @@
 ##########################################################
 
 $global:Oxygen = @{}
+$global:Oxygen.oxox = "$env:OXIDIZER/demo-custom.ps1"
 $global:Oxygen.oxal = "$env:OXIDIZER/defaults/alacritty-win.yml"
 $global:Oxygen.oxar = "$env:OXIDIZER/defaults/aria2.conf"
-$global:Oxygen.oxox = "$env:OXIDIZER/demo-custom.ps1"
+$global:Oxygen.oxvi = "$env:OXIDIZER/defaults/.vimrc"
 # plugins
 $global:Oxygen.oxps = "$env:OXIDIZER/pwsh-plugins/ox-scoop.ps1"
 $global:Oxygen.oxpc = "$env:OXIDIZER/pwsh-plugins/ox-conda.ps1"
@@ -49,6 +50,7 @@ $global:Oxide.bkoxi = "$env:BACKUP/shell/oxidizer.ps1"
 $global:Oxide.bkox = "$env:BACKUP/shell/custom.ps1"
 $global:Oxide.bkal = "$env:BACKUP/alacritty.yml"
 $global:Oxide.bkar = "$env:BACKUP/aria2.conf"
+$global:Oxide.bkvi = "$env:BACKUP/.vimrc"
 
 ##########################################################
 # Aliases

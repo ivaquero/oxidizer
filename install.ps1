@@ -2,7 +2,7 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     $env:OXIDIZER = '.'
 }
 
-if (Get-Command scoop -errorAction SilentlyContinue) {
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Host "Scoop Already Installed"
 }
 else {

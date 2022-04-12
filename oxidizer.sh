@@ -7,9 +7,10 @@ fi
 ##########################################################
 
 declare -A Oxygen
+Oxygen[oxox]=$OXIDIZER/demo-custom.sh
 Oxygen[oxal]=$OXIDIZER/defaults/alacritty.yml
 Oxygen[oxar]=$OXIDIZER/defaults/aria2.conf
-Oxygen[oxox]=$OXIDIZER/demo-custom.sh
+Oxygen[oxvi]=$OXIDIZER/defaults/.vimrc
 # plugins
 Oxygen[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
 Oxygen[oxpub]=$OXIDIZER/zsh-plugins/ox-ubuntu.sh
@@ -41,6 +42,7 @@ Element[oxi]=$OXIDIZER/oxidizer.sh
 Element[ox]=$OXIDIZER/custom.sh
 Element[al]=$HOME/.config/alacritty/alacritty.yml
 Element[ar]=$HOME/.aria2/aria2.conf
+Element[vi]=$HOME/.vimrc
 Element[zs]=$HOME/.zshrc
 
 source $Element[ox]
@@ -56,6 +58,7 @@ Oxide[bkoxi]=$BACKUP/shell/oxidizer.sh
 Oxide[bkox]=$BACKUP/shell/custom.sh
 Oxide[bkal]=$BACKUP/alacritty.yml
 Oxide[bkar]=$BACKUP/aria2.conf
+Oxide[bkvi]=$BACKUP/.vimrc
 
 ##########################################################
 # Aliases
