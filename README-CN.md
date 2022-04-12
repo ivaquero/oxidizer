@@ -116,7 +116,7 @@ ef ox
 - [x] pueue
 - [ ] hyperfine
 
-## 10. 插件总结
+### 3.4. 插件总结
 
 | 索引 |      插件       | Linux | macOS | Windows | 必需？ |
 | :--: | :-------------: | :---: | :---: | :-----: | :----: |
@@ -141,11 +141,9 @@ ef ox
 
 [^1]：目前在 Linux 只提供 Ubuntu 的相关快捷操作
 
-## 4. 配置管理
+## 4. 文件管理
 
 ![design](https://raw.githubusercontent.com/ivaquero/blog-bio/master/tutorials/images/cmd/oxidizer-design.png)
-
-### 4.1. 文件管理
 
 - `ff`
   - 通过 `source` 刷新（ 默认：Zsh ）
@@ -196,7 +194,7 @@ ef ox
 |   zellij   |  `zj`  |    `config.yaml`    |
 |   zellij   | `zjl_` |      `layouts`      |
 
-### 4.2. 软件管理
+## 5. 软件管理
 
 - `init_*`
   - 文件：在 `$Oxygen/install` 安装配置文件
@@ -205,7 +203,11 @@ ef ox
 - `back_*`
   - 文件：在 `$BACKUP` 文件夹中备份文件
 
-## 5. 包管理
+### 5.1. VSCode
+
+### 5.2. NeoVim
+
+## 6. 包管理
 
 Oxidizer 致力于为各个包管理器提供统一的接口，以减轻敲击和记忆负担。
 
@@ -282,7 +284,7 @@ bss pu
 | `*dp`  |   depends   |    ✅    |              |          |           |
 | `*dpt` | depend tree |          |              |          |           |
 
-### 5.1. Homebrew 管理
+### 6.1. Homebrew 管理
 
 - [x] 使用 `aria2` 下载 brew cask
 - [x] 使用预下载器安装 Homebrew Casks
@@ -307,7 +309,7 @@ bss pu
 - `bmr`：using brew mirror 使用 brew 镜像
 - `bmrq`：reset brew git source to official repositories 重置 brew 到官方源
 
-### 5.2. Conda 环境管理
+### 6.2. Conda 环境管理
 
 请注意，Conda 插件基于 `mamba` 和 `conda-tree` 包，需要预先安装
 
@@ -315,7 +317,7 @@ bss pu
 conda install -c conda-forge mamba conda-tree
 ```
 
-除了上面提及的 Conda 命令，Conda 插件还提供了 Conda 环境管理的快捷命令，均以 `ce` 开头
+除了上面[[]]提及的 Conda 命令，Conda 插件还提供了 Conda 环境管理的快捷命令，均以 `ce` 开头
 
 - `ceat`：激活环境
   - 变量长度 = 0：激活 `环境`
@@ -329,7 +331,7 @@ conda install -c conda-forge mamba conda-tree
   - 非 `i`：使用 `arm64` 环境
 - `ceep`：导出环境信息，同 `conda env export environment`
 
-## 6. 项目 & 任务管理
+## 7. 项目 & 任务管理
 
 |       |   action    | git [g] | docker <br> container [dkc] | docker <br> image [dki] | lima [lm] | pueue [pu] | brew <br> services [bs] |
 | :---: | :---------: | :-----: | :-------------------------: | :---------------------: | :-------: | :--------: | :---------------------: |
@@ -351,7 +353,7 @@ conda install -c conda-forge mamba conda-tree
 | `*ps` |    push     |   ✅    |                             |           ✅            |           |            |                         |
 | `*if` |    info     |         |             ✅              |                         |    ✅     |            |           ✅            |
 
-### 6.1. Git
+### 7.1. Git
 
 - [x] 删除 `.gitignore` 中的忽略文件 : `gig`
 - [x] 查找 git 产生的大体积文件 `gjk`
@@ -360,15 +362,15 @@ conda install -c conda-forge mamba conda-tree
   - [x] 根据 id 清理 `gcl -i`
   - [x] 根据路径清理 `gcl -p`
 
-### 6.2. Docker
+### 7.2. Docker
 
-### 6.3. Pueue
+### 7.3. Pueue
 
-### 6.4. Homebrew Services
+### 7.4. Homebrew Services
 
-## 7. 工具管理
+## 8. 工具管理
 
-### 7.1. Zellij
+### 8.1. Zellij
 
 - [x] 预定义的界面
 - [x] 集成 Alacritty
@@ -376,7 +378,7 @@ conda install -c conda-forge mamba conda-tree
   - [x] 窗口快捷键
   - [x] 分屏快捷键
 
-### 7.2. Formats
+### 8.2. Formats
 
 - [x] 转换 markdown
   - [x] 转换至含有 Unicode 的 PDF（中文）
@@ -385,13 +387,13 @@ conda install -c conda-forge mamba conda-tree
 mdto [文件名] [格式]
 ```
 
-### 7.3. Widgets
+### 8.3. Widgets
 
 - [x] 天气插件（使用 `wttr/in`）
 
-## 8. 系统管理
+## 9. 系统管理
 
-### 8.1. macOS
+### 9.1. macOS
 
 - `update`：更新系统
 - `clean`：
@@ -401,15 +403,9 @@ mdto [文件名] [格式]
   - `clean cc`：清理缓存
 - `allow`：允许运行非官方来源 App
 
-### 8.2. Linux
+### 9.2. Linux
 
-## 9. 软件管理
-
-### 9.1. VSCode
-
-### 9.2. NeoVim
-
-对 NeoVim，推荐使用纯 Lua 设置。
+## 10. 自定义插件
 
 ## 11. 致谢
 
