@@ -110,11 +110,11 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 - [x] Use `zellij` instead of `tmux` (not support windows)
 - [ ] Use `bottom` instead of `top` or `htop`
 - [ ] Use `dust` instead of `du`
+- [ ] Use `tokei` instead of `cloc`
 
 ### 3.2. Software Replacement
 
-- [ ] Use `Alacritty` instead of `iTerm2` or `Windows Terminal` (Not required, but recommend)
-- [ ] Use `Mdbook` instead of `Gitbook`
+- [ ] Use `Alacritty` instead of `iTerm2` or `Windows Terminal` (Not required, but strongly recommend)
 - [ ] Use `Helix` instead of `NeoVim`
 - [ ] Use `Nushell` instead of `Zsh` or `Powershell`
 
@@ -124,6 +124,8 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [ ] `hyperfine`: Command-line benchmarking tool
+- [ ] `delta`: A syntax-highlighting pager for git, diff, and grep output
+- [ ] `mdbook`: A utility to create modern online books from Markdown files.
 
 ### 3.4. Summary of Plugins
 

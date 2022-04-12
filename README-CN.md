@@ -101,20 +101,21 @@ ef ox
 - [x] 使用 `zellij` 替换 `tmux`（暂不支持 Windows）
 - [ ] 使用 `bottom` 替换 `top` 和 `htop`
 - [ ] 使用 `dust` 替换 `du`
+- [ ] 使用 `tokei` 替换 `cloc`
 
-### 3.2. 终端替换
+### 3.2. 软件替换
 
-- [ ] 使用 `Alacritty` 替换 `iTerm2` 和 `Windows Terminal`（非必需，但推荐）
-- [ ] 使用 `Mdbook` 替换 `Gitbook`
+- [ ] 使用 `Alacritty` 替换 `iTerm2` 和 `Windows Terminal`（非必需，但强烈推荐）
 - [ ] 使用 `Helix` 替换 `NeoVim`
 - [ ] 使用 `Nushell` 替换 `Zsh` or `Powershell`
 
 > 对 `Nushell`：其 nu 语言比较新，会增加学习成本。另外， nu 脚本目前没有任何检查器和格式化器，编写并不方便。
 
-### 3.3. 其他命令行工具
+### 3.3. 其他 Rust 工具
 
-- [x] pueue
-- [ ] hyperfine
+- [x] `pueue`: 命令行并行任务管理器
+- [ ] `hyperfine`
+- [ ] `mdbook`
 
 ### 3.4. 插件总结
 
@@ -317,7 +318,7 @@ bss pu
 conda install -c conda-forge mamba conda-tree
 ```
 
-除了上面[[]]提及的 Conda 命令，Conda 插件还提供了 Conda 环境管理的快捷命令，均以 `ce` 开头
+除了上面[[6. 包管理]]提及的 Conda 命令，Conda 插件还提供了 Conda 环境管理的快捷命令，均以 `ce` 开头
 
 - `ceat`：激活环境
   - 变量长度 = 0：激活 `环境`
