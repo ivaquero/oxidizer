@@ -116,7 +116,7 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 - [ ] Use `Alacritty` instead of `iTerm2` or `Windows Terminal` (Not required, but recommend)
 - [ ] Use `Mdbook` instead of `Gitbook`
 - [ ] Use `Helix` instead of `NeoVim`
-- [ ] use `Nushell` instead of `Zsh` or `Powershell`
+- [ ] Use `Nushell` instead of `Zsh` or `Powershell`
 
 > For `Nushell`: Its nu language is new and will add learning cost. Besides, nu scripts do not have any linter or formatter, which is not convinient for coding.
 
@@ -201,6 +201,7 @@ The table below shows the informatioin of specific configuration files.
 |   neovim   |  `nv`  |     `init.lua`      |
 |   neovim   | `nvp`  |    `plugins.lua`    |
 |   neovim   | `nvv`  |     `init.vim`      |
+|    vim     |  `vi`  |      `.vimrc`       |
 |   vscode   |  `vs`  |   `settings.json`   |
 |   vscode   | `vsk`  | `keybindings.json`  |
 |   vscode   | `vss_` |     `snippets`      |

@@ -188,6 +188,7 @@ ef ox
 |   neovim   |  `vi`  |     `init.lua`      |
 |   neovim   | `vip`  |    `plugins.lua`    |
 |   neovim   | `nvv`  |     `init.vim`      |
+|    vim     |  `vi`  |      `.vimrc`       |
 |   vscode   |  `vs`  |   `settings.json`   |
 |   vscode   | `vsk`  | `keybindings.json`  |
 |   vscode   | `vss_` |     `snippets`      |
