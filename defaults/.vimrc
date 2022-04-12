@@ -69,18 +69,12 @@ Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 Plug 'rhysd/github-complete.vim'
-Plug 'joom/latex-unicoder.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 
 " note-taking
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-
-" language support
-Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -90,10 +84,8 @@ colorscheme monokai
 let g:coc_global_extensions = [
     \ 'coc-lists',
     \ 'coc-pairs',
-    \ 'coc-snippets',
     \ 'coc-git',
     \ 'coc-emmet',
-    \ 'coc-vimtex',
     \ 'coc-css',
     \ 'coc-eslint',
     \ 'coc-jedi',
@@ -101,10 +93,7 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-prettier',
-    \ 'coc-rust-analyzer',
-    \ 'coc-texlab',
     \ 'coc-python',
-    \ 'coc-tsserver',
     \ 'coc-yaml']
 
 " airline
@@ -297,17 +286,3 @@ let g:mkdp_filetypes = ['markdown']     " recognized filetypes
 nmap <C-s> <Plug>MarkdownPreview
 nmap <C-p> <Plug>MarkdownPreviewToggle
 nmap <M-s> <Plug>MarkdownPreviewStop
-
-" latex
-let g:tex_flavor = 'latex'
-let g:vimtex_quickfix_mode = 0
-let g:vimtex_view_general_options = '-r @line @pdf @tex'
-
-let g:vimtex_toc_config = {
-\ 'name' : 'TOC',
-\ 'layers' : ['content', 'todo', 'include'],
-\ 'split_width' : 25,
-\ 'todo_sorted' : 0,
-\ 'show_help' : 1,
-\ 'show_numbers' : 1,
-\}
