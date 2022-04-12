@@ -14,12 +14,12 @@ function init_scoop {
     $file = (cat $env:OXIDIZER/defaults/Scoopfile.txt)
     $num = (cat $env:OXIDIZER/defaults/Scoopfile.txt | Measure-Object -Line).Lines
 
-    pueue group add scoop_init
-    pueue parallel $num -g scoop_init
+    pueue group add init_scoop
+    pueue parallel $num -g init_scoop
 
     Foreach ( $line in $file ) {
         echo "Installing $line"
-        pueue add -g scoop_init "scoop install $line"
+        pueue add -g init_scoop "scoop install $line"
     }
     Start-Sleep –s 3 
     pueue status
@@ -30,12 +30,12 @@ function up_scoop {
     $file = (cat $env:BACKUP/install/Scoopfile.txt)
     $num = (cat $env:BACKUP/install/Scoopfile.txt | Measure-Object -Line).Lines
 
-    pueue group add scoop_update
-    pueue parallel $num -g scoop_update
+    pueue group add up_scoop
+    pueue parallel $num -g up_scoop
 
     Foreach ( $line in $file ) {
         echo "Installing $line"
-        pueue add -g scoop_update "scoop install $line"
+        pueue add -g up_scoop "scoop install $line"
     }
     Start-Sleep –s 3 
     pueue status
@@ -68,6 +68,22 @@ function sup {
     else { scoop update $args }
 }
 
+function sisp {
+    $num = (echo $args | Measure-Object -Line).Lines
+    if ( $num -ge 1 ) {
+        pueue group add scoop_install
+        pueue parallel $num -g scoop_install
+        
+        ForEach ($pkg in $args) {
+            echo "Installing $pkg"
+            pueue add -g scoop_install "scoop install $pkg"
+        }
+        Start-Sleep –s 3 
+        pueue status
+    }
+    else { scoop update * }
+}
+
 function supp {
     $num = (scoop status | Measure-Object -Line).Lines
     if ( $num -ge 1 ) {
@@ -76,7 +92,7 @@ function supp {
         
         ForEach ($pkg in $args) {
             echo "Installing $pkg"
-            pueue add -g scoop_update "scoop install $pkg"
+            pueue add -g scoop_update "scoop update $pkg"
         }
         Start-Sleep –s 3 
         pueue status

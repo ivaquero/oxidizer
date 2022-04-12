@@ -77,7 +77,7 @@ bisp() {
         pueue parallel $n_args -g brew_install
 
         for pkg in $@; do
-            pueue add -g brew_install "brew install $pkg --no-quarantine"
+            pueue add -g brew_install "brew install $pkg"
         done
         sleep 3 && pueue status
     else
@@ -100,11 +100,7 @@ bupp() {
             pueue parallel $num -g brew_upgrade
 
             echo $pkgs | while read line; do
-                local latest=$(brew info $line | rg ": latest")
-                if [[ ${#latest} < 1 ]]; then
-                    echo "install $line"
-                    pueue add -g brew_upgrade "brew upgrade $line"
-                fi
+                pueue add -g brew_upgrade "brew upgrade $line"
             done
             sleep 3 && pueue status
         fi
@@ -197,13 +193,10 @@ alias brisc="bris --cask"
 alias bupc="bup --cask"
 
 bupa() {
-    local pkgs=$(brew outdated --greedy)
-    echo $pkgs | while read line; do
-        local latest=$(brew info $line | rg ": latest")
-        if [[ ${#latest} < 1 ]]; then
-            brew upgrade $line
-        fi
-    done
+    local pkgs=$(brew outdated)
+    local casks=$(brew outdated --greedy-auto-updates)
+    brew upgrade $pkgs
+    brew upgrade $casks
 }
 
 biscp() {
@@ -214,7 +207,7 @@ biscp() {
         pueue parallel $n_args -g brew_install
 
         for pkg in $@; do
-            pueue add -g brew_install "brew install --cask $pkg --no-quarantine"
+            pueue add -g brew_install "brew install --cask $pkg"
         done
         sleep 3 && pueue status
     else
@@ -223,19 +216,25 @@ biscp() {
 }
 
 bupap() {
-    local pkgs=$(brew outdated --greedy)
-    local num=$(echo $pkgs | wc -l | sd " " "")
+    local pkgs=$(brew outdated)
+    local casks=$(brew outdated --greedy-auto-updates)
+
+    local num_pkgs=$(echo $pkgs | wc -l | sd " " "")
+    local num_casks=$(echo $casks | wc -l | sd " " "")
+    local num=$((num_pkgs + num_casks))
+
     if [[ $num > 1 ]]; then
         echo "Trying to update $num pkgs in parallel"
         pueue group add brew_upgrade_greedy
         pueue parallel $num -g brew_upgrade_greedy
 
         echo $pkgs | while read line; do
-            local latest=$(brew info $line | rg ": latest")
-            if [[ ${#latest} < 1 ]]; then
-                echo "upgrade $line"
-                pueue add -g brew_upgrade_greedy "brew upgrade $line --no-quarantine"
-            fi
+            echo "upgrade $line"
+            pueue add -g brew_upgrade_greedy "brew upgrade $line"
+        done
+        echo $casks | while read line; do
+            echo "upgrade $line"
+            pueue add -g brew_upgrade_greedy "brew upgrade $line"
         done
         sleep 3 && pueue status
     else
