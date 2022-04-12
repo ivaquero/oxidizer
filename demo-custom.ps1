@@ -28,7 +28,7 @@ $env:EDITOR_T = "vi"
 # oxpn: ox-node
 # oxprs: ox-rust
 # oxptl: ox-texlive
-# oxpvi: ox-vim
+# oxpnv: ox-neovim
 # oxpvs: ox-vscode
 #
 # other-shortcuts

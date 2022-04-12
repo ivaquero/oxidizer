@@ -147,7 +147,7 @@ Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.
 |  14   |     Formats     |  🕒   |  🕒   |   🕒    |            |
 |  15   |     Widgets     |  🕒   |  🕒   |   🕒    |            |
 |  16   |     Zellij      |  ✅   |  ✅   |   🚫    |            |
-|  17   |       Vim       |       |       |         |            |
+|  17   |     NeoVim      |       |       |         |            |
 |  18   |      Helix      |       |       |         |            |
 
 [^1]: Currently, on Linux only provide with Ubuntu-specific shortcuts.
@@ -198,8 +198,9 @@ The table below shows the informatioin of specific configuration files.
 |   pueue    | `pua`  | `pueue_aliases.yml` |
 |   cargo    |  `cg`  |        `env`        |
 |   cargo    | `cg_`  |      `.cargo`       |
-|    vim     |  `vi`  |     `init.lua`      |
-|    vim     | `vip`  |    `plugins.lua`    |
+|   neovim   |  `nv`  |     `init.lua`      |
+|   neovim   | `nvp`  |    `plugins.lua`    |
+|   neovim   | `nvv`  |     `init.vim`      |
 |   vscode   |  `vs`  |   `settings.json`   |
 |   vscode   | `vsk`  | `keybindings.json`  |
 |   vscode   | `vss_` |     `snippets`      |

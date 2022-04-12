@@ -136,7 +136,7 @@ ef ox
 |  14  |     Formats     |  🕒   |  🕒   |   🕒    |        |
 |  15  |     Widgets     |  🕒   |  🕒   |   🕒    |        |
 |  16  |     Zellij      |  ✅   |  ✅   |   🚫    |        |
-|  17  |       Vim       |       |       |         |        |
+|  17  |     NeoVim      |       |       |         |        |
 |  18  |      Helix      |       |       |         |        |
 
 [^1]：目前在 Linux 只提供 Ubuntu 的相关快捷操作
@@ -185,8 +185,9 @@ ef ox
 |   pueue    | `pua`  | `pueue_aliases.yml` |
 |   cargo    |  `cg`  |        `env`        |
 |   cargo    | `cg_`  |      `.cargo`       |
-|    vim     |  `vi`  |     `init.lua`      |
-|    vim     | `vip`  |    `plugins.lua`    |
+|   neovim   |  `vi`  |     `init.lua`      |
+|   neovim   | `vip`  |    `plugins.lua`    |
+|   neovim   | `nvv`  |     `init.vim`      |
 |   vscode   |  `vs`  |   `settings.json`   |
 |   vscode   | `vsk`  | `keybindings.json`  |
 |   vscode   | `vss_` |     `snippets`      |
