@@ -13,4 +13,3 @@ scoop-completion
 posh-git
 sudo
 busybox
-vscode

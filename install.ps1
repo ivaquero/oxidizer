@@ -45,6 +45,13 @@ ForEach ( $scoop in $scoops ) {
     scoop install $scoop
 }
 
+if (Get-Command code -ErrorAction SilentlyContinue) {
+    Write-Host "VS Code Already Installed"
+}
+else {
+    scoop install vscode 
+}
+
 ###################################################
 # Update Terminal Settings
 ###################################################
@@ -104,3 +111,7 @@ ForEach ( $module in $modules ) {
 }
 
 echo "🥳 Oxidizer installation complete!"
+
+echo "😃 Don't forget to restart your terminal."
+
+. $PROFILE

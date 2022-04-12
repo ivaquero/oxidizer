@@ -91,6 +91,7 @@ ef ox
 
 - [x] 使用 `bat` 替换 `cat`
 - [x] 使用 `fd` 替换 `find`
+- [x] 使用 `gitui` 替换 `lazygit`
 - [x] 使用 `ls --tree` 替换 `tree`
 - [x] 使用 `lsd` 替换 `ls`
 - [x] 使用 `ripgrep` 替换 `grep`
@@ -100,7 +101,6 @@ ef ox
 - [x] 使用 `zellij` 替换 `tmux`（暂不支持 Windows）
 - [ ] 使用 `bottom` 替换 `top` 和 `htop`
 - [ ] 使用 `dust` 替换 `du`
-- [ ] 使用 `gitui` 替换 `lazygit`
 
 ### 3.2. 终端替换
 

@@ -5,6 +5,7 @@ tap "homebrew/services"
 # formulae
 brew "bat"
 brew "fd"
+brew "gitui"
 brew "lsd"
 brew "ripgrep"
 brew "pueue"
