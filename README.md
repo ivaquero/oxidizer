@@ -129,6 +129,8 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 
 Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.sh` to load the plugins by your need.
 
+Of course, you are allowed to write your own plugins, see [[10. Writing A Plugin]] for details.
+
 | index |     Plugin      | Linux | macOS | Windows | required ? |
 | :---: | :-------------: | :---: | :---: | :-----: | :--------: |
 |   1   | Brew <br> Scoop |  ✅   |  ✅   |   ✅    |     ✅     |
@@ -152,11 +154,9 @@ Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.
 
 [^1]: Currently, on Linux only provide with Ubuntu-specific shortcuts.
 
-## 4. Configuration Management
+## 4. File Management
 
 ![design](https://raw.githubusercontent.com/ivaquero/blog-bio/master/tutorials/images/cmd/oxidizer-design.png)
-
-### 4.1. File Management
 
 - `ff`
   - refresh file by `source` (default: Zsh)
@@ -211,7 +211,7 @@ The table below shows the informatioin of specific configuration files.
 
 > `_` 表示文件夹
 
-### 4.2. Software management
+## 5. Software management
 
 - `back_*`
   - file: export package/extension configurations to `$BACKUP` folder
@@ -230,7 +230,15 @@ More specifically
 
 `update_*` and `init_*` work similarly.
 
-## 5. Package Management
+### 5.1. NeoVim
+
+For NeoVim, a pure Lua configuration (using `init.lua` ) is recommended instead of classic Vim configuration (using `init.vim` ).
+
+However, if you would like to the native vim but haven't configure it, you can try Oxidizer's default configuration by `iif vi`.
+
+### 5.2. TeXLive
+
+## 6. Package Management
 
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
@@ -307,7 +315,7 @@ Some of package manager shortcuts are included in corresponding system plugins.
 | `*dp`  |   depends   |    ✅    |              |          |           |
 | `*dpt` | depend tree |          |              |          |           |
 
-### 5.1. Homebrew
+### 6.1. Homebrew
 
 - [x] Integrated Aria2 to download Homebrew Casks
 - [x] Enable Homebrew installation by using pre-download installers
@@ -330,7 +338,7 @@ suffix `a` is for `all` which will force brew to upgrade every cask including on
 - `bmr`: using brew mirror
 - `bmrq`: reset brew git source to official repositories, `q` is for quit.
 
-### 5.2. Conda
+### 6.2. Conda
 
 Note that the conda plugin is based on `mamba` (a parallel version of conda) and `conda-tree`, so you need to install mamba by
 
@@ -338,20 +346,46 @@ Note that the conda plugin is based on `mamba` (a parallel version of conda) and
 conda install -c conda-forge mamba conda-tree
 ```
 
-Besides the shortcuts mentioned above in [[6.]], the Conda plugin also provides with Conda environment management shortcuts which start with `ce`
+Besides the shortcuts mentioned above in [[6. Package Management]], the conda plugin also provides with Conda environment management shortcuts which start with `ce`
 
-- `ceat`: conda activate
+- `ceat`: activate environment
   - `$1` length = 0: activate `base` env
-  - `$1` length = 1 or 2: activate predefined env that you can personalize `Conda_Env` in `custom.sh`
+  - `$1` length = 1 or 2: activate predefined env `Conda_Env`
   - `$1` length > 2: activate new env
-- `cerat`: conda reactivate, works live `ceat`
-- `ceq`: conda deactivate ( `q` is for `kill/quit` )
-- `cecr`: create
-- `cerm`: conda env remove, works live `ceat` but won't remove `base` env
-- `cesd`: conda env change conda-forge subdir
-- `ceep`: conda env export environment
 
-## 6. Project & Task Management
+`Conda_Env` can be personalize in `custom.sh`
+
+For example, if you conda environment name is `hello`, you can set
+
+```bash
+# macOS / Linux
+Conda_Env[h]="hello"
+# Windows
+$global:Conda_Env.h = "hello"
+```
+
+then, you will be able to manipulate the environment by
+
+```bash
+# create environment
+cecr h
+# remove environment
+cerm h
+# update all packages in the specific environment
+cup h
+# list all packages in the specific environment
+cls h
+```
+
+- `cerat`: reactivate environment, works live `ceat`
+- `ceq`: quit environment ( `q` is for `kill/quit` )
+- `cecr`: create
+- `cerm`: remove environment, works live `ceat` but won't remove `base` env
+- `cels`: environment list
+- `cesd`: change environment's conda-forge subdir
+- `ceep`: export environment
+
+## 7. Project & Task Management
 
 Oxidizer's task & system management follows the same phylosopy of package management, _i.e._ to provide unified interfaces to faciliate workflows.
 
@@ -375,7 +409,7 @@ Oxidizer's task & system management follows the same phylosopy of package manage
 | `*ps` |    push     |   ✅    |                             |           ✅            |           |            |                         |
 | `*if` |    info     |         |             ✅              |                         |    ✅     |            |           ✅            |
 
-### 6.1. Git
+### 7.1. Git
 
 - [x] delete ignored files in `.gitignore`: `gig`
 - [x] find fat blob files: `gjk`
@@ -384,15 +418,15 @@ Oxidizer's task & system management follows the same phylosopy of package manage
   - [x] clean files by id `gcl -i`
   - [x] clean files by path `gcl -p`
 
-### 6.2. Docker
+### 7.2. Docker
 
-### 6.3. Pueue
+### 7.3. Pueue
 
-### 6.4. Homebrew Services
+### 7.4. Homebrew Services
 
-## 7. Utils Management
+## 8. Utils Management
 
-### 7.1. Zellij
+### 8.1. Zellij
 
 - [x] Predefined layouts
 - [x] Integrated in Alacritty
@@ -400,7 +434,7 @@ Oxidizer's task & system management follows the same phylosopy of package manage
   - [x] Shortcuts to move the pane border
   - [x] Shortcuts to split the pane
 
-### 7.2. Formats
+### 8.2. Formats
 
 - [x] Convert markdown: `mdto`
   - [x] to PDF with Unicode (for CJK)
@@ -409,7 +443,7 @@ Oxidizer's task & system management follows the same phylosopy of package manage
 mdto [filename] [format]
 ```
 
-### 7.3. Widgets
+### 8.3. Widgets
 
 - [x] Weather report (using wttr/in)
 
@@ -417,9 +451,9 @@ mdto [filename] [format]
 wtr [location]
 ```
 
-## 8. System Management
+## 9. System Management
 
-### 8.1. macOS
+### 9.1. macOS
 
 - `update`: update system
 - `clean`
@@ -429,25 +463,70 @@ wtr [location]
   - `clean log`: clean logs
 - `allow`: allow installation of uncertified apps
 
-### 8.2. Linux
+### 9.2. Linux
 
-## 9. Software Management
+## 10. Writing A Plugin
 
-### 9.1. VSCode
+A plugin in Oxidizer is refered as Oxygen, a key-value object whose key starts with `oxp`.
 
-VSCode is the default code editor, however you may change it in `custom.sh` .
+For a Vim plugin on macOS / Linux, you can write
 
-### 9.2. NeoVim
+```bash
+Oxygen[oxpvi]=plugin_path
+```
 
-For NeoVim, a pure Lua configuration (using `init.lua` ) is recommended instead of classic Vim configuration (using `init.vim` ).
+And add the _key of Oxygen_ into `PLUGINS` object in `custom.sh` like
 
-### 9.3. TeXLive
+```bash
+PLUGINS=(oxp1 oxp2 oxpvi)
+```
 
-## 10. Credits
+For Windows users, do these in a similar way
+
+```powershell
+$global:Oxygen.oxpvi = "plugin_path"
+```
+
+And add it into `PLUGINS` object in `custom.ps1`
+
+### 10.1. Config Files
+
+A system / software / tool configuration file in Oxidizer is refered as Element, set it like what you do with Oxygen
+
+```bash
+# macOS / Linux
+Element[vi]=$HOME/.vimrc
+# Windows
+$global:Element.vi = "$env:USERPROFILE/.vimrc"
+```
+
+If you need to set a folder in Oxygen, plus a `_` as the suffix of the key.
+
+```bash
+# macOS / Linux
+Element[vi_]=$HOME/.vim
+# Windows
+$global:Element.vi_ = "$env:USERPROFILE/vim"
+```
+
+### 10.2. Backup Files
+
+A backup file in Oxidizer is refered as Oxide whose key starts with `bk`, set it like
+
+```bash
+# macOS / Linux
+Oxide[bkvi]=$BACKUP/.vimrc
+# Windows
+$global:Oxide.bkvi = "$env:BACKUP/.vimrc"
+```
+
+Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
+
+## 11. Credits
 
 - [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
 - [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-## 11. License
+## 12. License
 
 This work is released under the MIT license.

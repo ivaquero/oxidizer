@@ -87,7 +87,7 @@ $global:IIF_OBJ = @("ar")
 # predefined conda environments
 # set the length of key < 3
 $global:Conda_Env = @{}
-$global:Conda_Env.k = "kaggle"
+# $global:Conda_Env.h = "hello"
 
 ##########################################################
 # rust configurations

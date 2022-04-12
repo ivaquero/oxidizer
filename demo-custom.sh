@@ -131,7 +131,7 @@ export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
 # predefined conda environments
 # set the length of key <= 3
 declare -A Conda_Env
-Conda_Env[k]="kaggle"
+# Conda_Env[h]="hello"
 
 ##########################################################
 # rust configurations
