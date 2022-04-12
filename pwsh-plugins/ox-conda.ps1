@@ -11,7 +11,6 @@ $global:Oxide.bkc = "$env:BACKUP/.condarc"
 
 function init_conda {
     echo "Initialize Conda using Oxidizer configuration"
-    conda activate base
     $pkgs = cat $env:OXIDIZER/defaults/conda-base.txt
     echo "Installing $pkgs"
     mamba install $pkgs -q
