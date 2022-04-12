@@ -4,6 +4,7 @@ $global:Element.nv = "$env:BASE/.config/nvim/lua/init.lua"
 $global:Element.nvp = "$env:BASE/.config/nvim/lua/plugins.lua"
 
 # backup files
+$global:Oxide.bknvv = "$env:BACKUP/nvim/init.vim"
 $global:Oxide.bknv = "$env:BACKUP/nvim/init.lua"
 $global:Oxide.bknvp = "$env:BACKUP/nvim/plugins.lua"
 
