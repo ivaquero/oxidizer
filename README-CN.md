@@ -1,40 +1,14 @@
-<body>
-    <div align="left">
-        <h1 align="left">Oxidizer.sh</h1>
-        <p>
-            <a>
-                <img
-                    src="https://img.shields.io/github/workflow/status/ivaquero/oxidizer.sh/CI.svg"
-                />
-            </a>
-            <a>
-                <img
-                    src="https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg"
-                />
-            </a>
-            <a>
-                <img
-                    src="https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg"
-                />
-            </a>
-            <a>
-                <img
-                    src="https://img.shields.io/github/license/ivaquero/oxidizer.sh"
-                />
-            </a>
-        </p>
-    </div>
-    <p></p>
-    <div>
-        <p>
-            基于 Rust 工具链的极简 & 可扩展 Dotfile 管理方案（欢迎 PR 和 Fork）
-        </p>
-        <p align="left">
-            <a href="README.md">English</a> |
-            <a href="README-CN.md">简体中文</a>
-        </p>
-    </div>
-</body>
+[![build](https://img.shields.io/github/workflow/status/ivaquero/oxidizer.sh/CI.svg)](https://img.shields.io/github/workflow/status/ivaquero/oxidizer.sh/CI.svg)
+[![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
+[![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
+[![license](https://img.shields.io/github/license/ivaquero/oxidizer.sh)](https://img.shields.io/github/license/ivaquero/oxidizer.sh)
+
+基于 Rust 工具链的极简 & 可扩展 Dotfile 管理方案（欢迎 PR 和 Fork）
+
+<p align="left">
+<a href="README.md">English</a> |
+<a href="README-CN.md">简体中文</a>
+</p>
 
 来一起氧化开发环境吧!
 
