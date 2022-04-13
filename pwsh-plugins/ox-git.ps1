@@ -32,7 +32,6 @@ function gig {
     git rm -rf --cached .
     git add .
     git commit -m '🗑 remove all ignored files'
-    git push
 }
 
 ##########################################################
@@ -94,7 +93,7 @@ function gjk {
     if ([string]::IsNullOrEmpty($num)) { $number = 10 }
     else { $number = $num }
    
-    git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | Where-Object { $_ -like "blob*" } | Sort-Object { [int]($_ -split "\s+")[2] } | Select-Object -last $number
+    git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | Where-Object { $_ -like "blob*" } | Sort-Object { [int]($_ -split "\s+")[2] } | Select-Object -Last $number
 }
 
 function grm() {
