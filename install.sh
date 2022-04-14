@@ -53,12 +53,12 @@ brew bundle install --file $OXIDIZER/defaults/Brewfile
 ###################################################
 
 printf "📦 Adding Oxidizer into $HOME/.zshrc...\n"
-echo '
+echo "
 # Oxidizer
 if [[ -z $OXIDIZER ]]; then
     export OXIDIZER=$HOME/oxidizer
 fi
-source $OXIDIZER/oxidizer.sh' >>$HOME/.zshrc
+source $OXIDIZER/oxidizer.sh" >>$HOME/.zshrc
 
 echo "⚙️ Adding Custom settings..."
 cp $OXIDIZER/demo-custom.sh $OXIDIZER/custom.sh

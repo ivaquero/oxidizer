@@ -25,7 +25,7 @@ up_conda() {
         local conda_env=$1
     fi
     echo "Update Conda Env $conda_env by $BACKUP/install/conda-$conda_env.txt"
-    local pkgs=$(<$BACKUP/install/conda-$conda_env.txt | sd '\n' ' ')
+    local pkgs=$(<$BACKUP/install/conda-$conda_env.txt | sd "\n" " ")
     echo "Installing $pkgs"
     mamba install $pkgs -q
 }
@@ -168,7 +168,7 @@ cesd() {
 
 # export environment: $1=name
 ceep() {
-    os=$(echo $(uname -s) | tr '[:upper:]' '[:lower:]')
+    os=$(echo $(uname -s) | tr "[:upper:]" "[:lower:]")
     arch=$(uname -m)
     if [[ -z $1 ]]; then
         conda_Env=base

@@ -25,7 +25,7 @@ function up_conda {
     else { $cenv = $the_env }
 
     echo "Update Conda Env $cenv by $env:BACKUP/install/conda-$cenv.txt"
-    $pkg = cat $env:BACKUP/install/conda-$cenv.txt | sd '`n' ' '
+    $pkg = cat $env:BACKUP/install/conda-$cenv.txt | sd "`n" " "
     echo "Installing $pkg"
     mamba install $pkg -q
 }

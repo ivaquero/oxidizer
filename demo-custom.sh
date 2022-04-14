@@ -169,7 +169,6 @@ alias ccc="local HISTSIZE=0 && history -p && reset"
 
 # tools
 alias ar="aria2c --dir $DOWNLOAD"
-alias hf="hyperfine"
 
 # global
 #

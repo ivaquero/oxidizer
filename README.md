@@ -111,8 +111,8 @@ Of course, you are allowed to write your own plugins, see [[10. Writing A Plugin
 
 | index | Plugin  | Linux  | macOS | Windows | required ? |
 | :---: | :-----: | :----: | :---: | :-----: | :--------: |
-|   1   |  Brew   |   ✅   |  ✅   |   🚫    |     ✅     |
-|   2   |  Scoop  |   🚫   |  🚫   |   ✅    |     ✅     |
+|   1   |  Brew   |   ✅   |  ✅   |   ❌    |     ✅     |
+|   2   |  Scoop  |   ❌   |  ❌   |   ✅    |     ✅     |
 |   3   | Utility |   ✅   |  ✅   |   ✅    |     ✅     |
 |   4   | System  | ✅[^1] |  ✅   |   ✅    |     ✅     |
 |   5   |  Pueue  |   ✅   |  ✅   |   ✅    |     ✅     |
@@ -127,7 +127,7 @@ Of course, you are allowed to write your own plugins, see [[10. Writing A Plugin
 |  14   | VS Code |   ✅   |  ✅   |   ✅    |            |
 |  15   | Formats |   🕒   |  🕒   |   🕒    |            |
 |  16   | Widgets |   🕒   |  🕒   |   🕒    |            |
-|  17   | Zellij  |   ✅   |  ✅   |   🚫    |            |
+|  17   | Zellij  |   ✅   |  ✅   |   ❌    |            |
 |  18   | NeoVim  |        |       |         |            |
 |  19   |  Helix  |        |       |         |            |
 

@@ -27,7 +27,7 @@ init_vscode() {
 
     <$OXIDIZER/defaults/vscode-exts.txt | while read line; do
         if echo $exts | rg $line; then
-            echo "Extension '$line' is already installed."
+            echo "Extension $line is already installed."
         else
             echo "Installing $line"
             pueue add -g vscode_init "code --install-extension '$line'"
@@ -46,7 +46,7 @@ up_vscode() {
 
     <$BACKUP/install/vscode-exts.txt | while read line; do
         if echo $exts | rg $line; then
-            echo "Extension '$line' is already installed."
+            echo "Extension $line is already installed."
         else
             echo "Installing $line"
             pueue add -g vscode_init "code --install-extension '$line'"
