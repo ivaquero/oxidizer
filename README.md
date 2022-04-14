@@ -109,26 +109,27 @@ Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.
 
 Of course, you are allowed to write your own plugins, see [[10. Writing A Plugin]] for details.
 
-| index |     Plugin      | Linux | macOS | Windows | required ? |
-| :---: | :-------------: | :---: | :---: | :-----: | :--------: |
-|   1   | Brew <br> Scoop |  ✅   |  ✅   |   ✅    |     ✅     |
-|   2   |     Utility     |  ✅   |  ✅   |   ✅    |     ✅     |
-|   3   |   System [^1]   |  ✅   |  ✅   |   ✅    |     ✅     |
-|   4   |      Pueue      |  ✅   |  ✅   |   ✅    |     ✅     |
-|   5   |       Git       |  ✅   |  ✅   |   ✅    |            |
-|   6   |      Conan      |  ✅   |  ✅   |   ✅    |            |
-|   7   |      Conda      |  ✅   |  ✅   |   ✅    |            |
-|   8   |     Docker      |  ✅   |  ✅   |   ✅    |            |
-|   9   |      Julia      |  ✅   |  ✅   |   🕒    |            |
-|  10   |      Node       |  ✅   |  ✅   |   ✅    |            |
-|  11   |      Rust       |  ✅   |  ✅   |   ✅    |            |
-|  12   |     TeXLive     |  ✅   |  ✅   |   ✅    |            |
-|  13   |     VS Code     |  ✅   |  ✅   |   ✅    |            |
-|  14   |     Formats     |  🕒   |  🕒   |   🕒    |            |
-|  15   |     Widgets     |  🕒   |  🕒   |   🕒    |            |
-|  16   |     Zellij      |  ✅   |  ✅   |   🚫    |            |
-|  17   |     NeoVim      |       |       |         |            |
-|  18   |      Helix      |       |       |         |            |
+| index | Plugin  | Linux  | macOS | Windows | required ? |
+| :---: | :-----: | :----: | :---: | :-----: | :--------: |
+|   1   |  Brew   |   ✅   |  ✅   |   🚫    |     ✅     |
+|   2   |  Scoop  |   🚫   |  🚫   |   ✅    |     ✅     |
+|   3   | Utility |   ✅   |  ✅   |   ✅    |     ✅     |
+|   4   | System  | ✅[^1] |  ✅   |   ✅    |     ✅     |
+|   5   |  Pueue  |   ✅   |  ✅   |   ✅    |     ✅     |
+|   6   |   Git   |   ✅   |  ✅   |   ✅    |            |
+|   7   |  Conan  |   ✅   |  ✅   |   ✅    |            |
+|   8   |  Conda  |   ✅   |  ✅   |   ✅    |            |
+|   9   | Docker  |   ✅   |  ✅   |   ✅    |            |
+|  10   |  Julia  |   ✅   |  ✅   |   🕒    |            |
+|  11   |  Node   |   ✅   |  ✅   |   ✅    |            |
+|  12   |  Rust   |   ✅   |  ✅   |   ✅    |            |
+|  13   | TeXLive |   ✅   |  ✅   |   ✅    |            |
+|  14   | VS Code |   ✅   |  ✅   |   ✅    |            |
+|  15   | Formats |   🕒   |  🕒   |   🕒    |            |
+|  16   | Widgets |   🕒   |  🕒   |   🕒    |            |
+|  17   | Zellij  |   ✅   |  ✅   |   🚫    |            |
+|  18   | NeoVim  |        |       |         |            |
+|  19   |  Helix  |        |       |         |            |
 
 [^1]: Currently, on Linux only provide with Ubuntu-specific shortcuts.
 

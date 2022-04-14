@@ -9,23 +9,23 @@ $global:Oxygen.oxal = "$env:OXIDIZER/defaults/alacritty-win.yml"
 $global:Oxygen.oxar = "$env:OXIDIZER/defaults/aria2.conf"
 $global:Oxygen.oxvi = "$env:OXIDIZER/defaults/.vimrc"
 # plugins
-$global:Oxygen.oxps = "$env:OXIDIZER/pwsh-plugins/ox-scoop.ps1"
-$global:Oxygen.oxpc = "$env:OXIDIZER/pwsh-plugins/ox-conda.ps1"
-$global:Oxygen.oxpcc = "$env:OXIDIZER/pwsh-plugins/ox-cpp.ps1"
-$global:Oxygen.oxpdk = "$env:OXIDIZER/pwsh-plugins/ox-docker.ps1"
-$global:Oxygen.oxpfm = "$env:OXIDIZER/pwsh-plugins/ox-formats.ps1"
-$global:Oxygen.oxpg = "$env:OXIDIZER/pwsh-plugins/ox-git.ps1"
-$global:Oxygen.oxphx = "$env:OXIDIZER/pwsh-plugins/ox-helix.ps1"
-$global:Oxygen.oxpjl = "$env:OXIDIZER/pwsh-plugins/ox-julia.ps1"
-$global:Oxygen.oxpn = "$env:OXIDIZER/pwsh-plugins/ox-node.ps1"
-$global:Oxygen.oxpnv = "$env:OXIDIZER/pwsh-plugins/ox-neovim.ps1"
-$global:Oxygen.oxppu = "$env:OXIDIZER/pwsh-plugins/ox-pueue.ps1"
-$global:Oxygen.oxprs = "$env:OXIDIZER/pwsh-plugins/ox-rust.ps1"
-$global:Oxygen.oxptl = "$env:OXIDIZER/pwsh-plugins/ox-texlive.ps1"
-$global:Oxygen.oxput = "$env:OXIDIZER/pwsh-plugins/ox-utils.ps1"
-$global:Oxygen.oxpvs = "$env:OXIDIZER/pwsh-plugins/ox-vscode.ps1"
-$global:Oxygen.oxpwt = "$env:OXIDIZER/pwsh-plugins/ox-widgets.ps1"
-$global:Oxygen.oxpw = "$env:OXIDIZER/pwsh-plugins/ox-windows.ps1"
+$global:Oxygen.oxps = "$env:OXIDIZER/ox-plugins/ox-scoop.ps1"
+$global:Oxygen.oxpc = "$env:OXIDIZER/ox-plugins/ox-conda.ps1"
+$global:Oxygen.oxpcc = "$env:OXIDIZER/ox-plugins/ox-cpp.ps1"
+$global:Oxygen.oxpdk = "$env:OXIDIZER/ox-plugins/ox-docker.ps1"
+$global:Oxygen.oxpfm = "$env:OXIDIZER/ox-plugins/ox-formats.ps1"
+$global:Oxygen.oxpg = "$env:OXIDIZER/ox-plugins/ox-git.ps1"
+$global:Oxygen.oxphx = "$env:OXIDIZER/ox-plugins/ox-helix.ps1"
+$global:Oxygen.oxpjl = "$env:OXIDIZER/ox-plugins/ox-julia.ps1"
+$global:Oxygen.oxpnj = "$env:OXIDIZER/ox-plugins/ox-node.ps1"
+$global:Oxygen.oxpnv = "$env:OXIDIZER/ox-plugins/ox-neovim.ps1"
+$global:Oxygen.oxppu = "$env:OXIDIZER/ox-plugins/ox-pueue.ps1"
+$global:Oxygen.oxprs = "$env:OXIDIZER/ox-plugins/ox-rust.ps1"
+$global:Oxygen.oxptl = "$env:OXIDIZER/ox-plugins/ox-texlive.ps1"
+$global:Oxygen.oxput = "$env:OXIDIZER/ox-plugins/ox-utils.ps1"
+$global:Oxygen.oxpvs = "$env:OXIDIZER/ox-plugins/ox-vscode.ps1"
+$global:Oxygen.oxpwt = "$env:OXIDIZER/ox-plugins/ox-widgets.ps1"
+$global:Oxygen.oxpw = "$env:OXIDIZER/ox-plugins/ox-windows.ps1"
 
 ##########################################################
 # System configuration files
@@ -90,12 +90,16 @@ function zz { z - }
 # PowerShell & Plugins
 ##########################################################
 
-# import pwsh-windows
+# import ox-windows
 . $global:Oxygen.oxpw
-# import pwsh-utils
+# import ox-utils
 . $global:Oxygen.oxput
 # import pueue
 . $global:Oxygen.oxppu
+# import ox-scoop
+if ( [Environment]::OSVersion.VersionString.Contains("Windows") ) {
+    . $global:Oxygen.oxps
+}
 
 ForEach ($plugin in $global:PLUGINS) {
     . $global:Oxygen.$($plugin)

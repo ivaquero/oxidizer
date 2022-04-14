@@ -17,7 +17,6 @@ $env:EDITOR_T = "vi"
 ##########################################################
 
 # toolchain specific (highly recommended)
-# oxps: ox-scoop
 # oxpg: ox-git
 #
 # language & software-specific
@@ -25,16 +24,16 @@ $env:EDITOR_T = "vi"
 # oxpc: ox-conda
 # oxpdk: ox-docker
 # oxpjl: ox-julia
-# oxpn: ox-node
+# oxpnj: ox-node
+# oxpnv: ox-neovim
 # oxprs: ox-rust
 # oxptl: ox-texlive
-# oxpnv: ox-neovim
 # oxpvs: ox-vscode
 #
 # other-shortcuts
-# oxpfm: formats
+# oxpfm: ox-formats
 # oxpwt: ox-widgets
-$global:PLUGINS = @("oxps", "oxpg", "oxpc", "oxpn", "oxpvs", "oxpfm")
+$global:PLUGINS = @("oxpg", "oxpc", "oxpvs", "oxpfm")
 
 ##########################################################
 # register proxy ports

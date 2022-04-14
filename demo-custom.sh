@@ -33,16 +33,16 @@ export EDITOR_T=vi
 # oxphx: ox-helix
 # oxpjl: ox-julia
 # oxplm: ox-lima
-# oxpn: ox-node
+# oxpnj: ox-node
+# oxpnv: ox-neovim
 # oxprs: ox-rust
 # oxptl: ox-texlive
-# oxpnv: ox-neovim
 # oxpvs: ox-vscode
 #
 # other-shortcuts
 # oxpfm: ox-formats
 # oxpwt: ox-widgets
-PLUGINS=(oxpg oxpzj oxpn oxprs oxpvs oxpfm)
+PLUGINS=(oxpg oxpzj oxpc oxpvs oxpfm)
 
 ##########################################################
 # register proxy ports

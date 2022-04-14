@@ -24,7 +24,7 @@ Oxygen[oxpg]=$OXIDIZER/zsh-plugins/ox-git.sh
 Oxygen[oxphx]=$OXIDIZER/zsh-plugins/ox-helix.sh
 Oxygen[oxpjl]=$OXIDIZER/zsh-plugins/ox-julia.sh
 Oxygen[oxplm]=$OXIDIZER/zsh-plugins/ox-lima.sh
-Oxygen[oxpn]=$OXIDIZER/zsh-plugins/ox-node.sh
+Oxygen[oxpnj]=$OXIDIZER/zsh-plugins/ox-node.sh
 Oxygen[oxpnv]=$OXIDIZER/zsh-plugins/ox-neovim.sh
 Oxygen[oxppu]=$OXIDIZER/zsh-plugins/ox-pueue.sh
 Oxygen[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
@@ -86,11 +86,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 declare -a PLUGINS
 
-# import zsh-brew
+# import ox-brew
 source $Oxygen[oxpb]
-# import zsh-utils
+# import ox-utils
 source $Oxygen[oxput]
-# import zsh-pueue
+# import ox-pueue
 source $Oxygen[oxppu]
 
 case $(uname -a) in
