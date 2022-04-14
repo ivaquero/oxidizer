@@ -68,7 +68,7 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 - Unified Interface & Smooth Usage
 - Super-Fast! (Loading time < 0.50 s)
 
-## 3. Oxidizing Progress
+## 3. Oxidization Progress
 
 ### 3.1. Command Line Replacement (Recommand all following)
 
@@ -96,7 +96,7 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 
 > For `Nushell`: Its nu language is new and will add learning cost. Besides, nu scripts do not have any linter or formatter, which is not convinient for coding.
 
-### 3.3. Other Rust Tools
+### 3.3. Other Useful Rust Tools
 
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [ ] `hyperfine`: Command-line benchmarking tool
