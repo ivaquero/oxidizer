@@ -135,8 +135,8 @@ function ef {
     else { $cmd = $env:EDITOR }
 
     switch ( $file ) {
-        { $file -match "ox\w{1,}" } { . $cmd $global:Oxygen.$file }
-        { $file -match "bk\w{1,}" } { . $cmd $global:Oxide.$file }
+        { $file -match "ox[a-z]{1,}" } { . $cmd $global:Oxygen.$file }
+        { $file -match "bk[a-z]{1,}" } { . $cmd $global:Oxide.$file }
         Default { . $cmd $global:Element.$file }
     }
 }

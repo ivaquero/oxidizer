@@ -7,6 +7,7 @@ fi
 ##########################################################
 
 declare -A Oxygen
+Oxygen[oxz]=$OXIDIZER/oxidizer.sh
 Oxygen[oxox]=$OXIDIZER/demo-custom.sh
 Oxygen[oxal]=$OXIDIZER/defaults/alacritty.yml
 Oxygen[oxar]=$OXIDIZER/defaults/aria2.conf
@@ -28,7 +29,7 @@ Oxygen[oxpnv]=$OXIDIZER/zsh-plugins/ox-neovim.sh
 Oxygen[oxppu]=$OXIDIZER/zsh-plugins/ox-pueue.sh
 Oxygen[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
 Oxygen[oxptl]=$OXIDIZER/zsh-plugins/ox-texlive.sh
-Oxygen[oxpu]=$OXIDIZER/zsh-plugins/ox-utils.sh
+Oxygen[oxput]=$OXIDIZER/zsh-plugins/ox-utils.sh
 Oxygen[oxpvs]=$OXIDIZER/zsh-plugins/ox-vscode.sh
 Oxygen[oxpwt]=$OXIDIZER/zsh-plugins/ox-widgets.sh
 Oxygen[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
@@ -38,7 +39,6 @@ Oxygen[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
 ##########################################################
 
 declare -A Element
-Element[oxi]=$OXIDIZER/oxidizer.sh
 Element[ox]=$OXIDIZER/custom.sh
 Element[al]=$HOME/.config/alacritty/alacritty.yml
 Element[ar]=$HOME/.aria2/aria2.conf
@@ -54,7 +54,6 @@ if [[ ! -d $BACKUP/shell ]]; then
 fi
 
 Oxide[bkzs]=$BACKUP/shell/.zshrc
-Oxide[bkoxi]=$BACKUP/shell/oxidizer.sh
 Oxide[bkox]=$BACKUP/shell/custom.sh
 Oxide[bkal]=$BACKUP/alacritty.yml
 Oxide[bkar]=$BACKUP/aria2.conf
@@ -90,7 +89,7 @@ declare -a PLUGINS
 # import zsh-brew
 source $Oxygen[oxpb]
 # import zsh-utils
-source $Oxygen[oxpu]
+source $Oxygen[oxput]
 # import zsh-pueue
 source $Oxygen[oxppu]
 

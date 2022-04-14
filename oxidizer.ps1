@@ -4,6 +4,7 @@
 
 $global:Oxygen = @{}
 $global:Oxygen.oxox = "$env:OXIDIZER/demo-custom.ps1"
+$global:Oxygen.oxz = "$env:OXIDIZER/oxidizer.ps1"
 $global:Oxygen.oxal = "$env:OXIDIZER/defaults/alacritty-win.yml"
 $global:Oxygen.oxar = "$env:OXIDIZER/defaults/aria2.conf"
 $global:Oxygen.oxvi = "$env:OXIDIZER/defaults/.vimrc"
@@ -21,7 +22,7 @@ $global:Oxygen.oxpnv = "$env:OXIDIZER/pwsh-plugins/ox-neovim.ps1"
 $global:Oxygen.oxppu = "$env:OXIDIZER/pwsh-plugins/ox-pueue.ps1"
 $global:Oxygen.oxprs = "$env:OXIDIZER/pwsh-plugins/ox-rust.ps1"
 $global:Oxygen.oxptl = "$env:OXIDIZER/pwsh-plugins/ox-texlive.ps1"
-$global:Oxygen.oxpu = "$env:OXIDIZER/pwsh-plugins/ox-utils.ps1"
+$global:Oxygen.oxput = "$env:OXIDIZER/pwsh-plugins/ox-utils.ps1"
 $global:Oxygen.oxpvs = "$env:OXIDIZER/pwsh-plugins/ox-vscode.ps1"
 $global:Oxygen.oxpwt = "$env:OXIDIZER/pwsh-plugins/ox-widgets.ps1"
 $global:Oxygen.oxpw = "$env:OXIDIZER/pwsh-plugins/ox-windows.ps1"
@@ -31,7 +32,6 @@ $global:Oxygen.oxpw = "$env:OXIDIZER/pwsh-plugins/ox-windows.ps1"
 ##########################################################
 
 $global:Element = @{}
-$global:Element.oxi = "$env:OXIDIZER/oxidizer.ps1"
 $global:Element.ox = "$env:OXIDIZER/custom.ps1"
 $global:Element.al = "$env:SCOOP/persist/alacritty/alacritty.yml"
 $global:Element.ar = "$env:BASE/.aria2/aria2.conf"
@@ -46,7 +46,6 @@ if ( !(Test-Path "$env:BACKUP/shell") ) {
 }
 
 $global:Oxide.bkps = "$env:BACKUP/shell/Profile.ps1"
-$global:Oxide.bkoxi = "$env:BACKUP/shell/oxidizer.ps1"
 $global:Oxide.bkox = "$env:BACKUP/shell/custom.ps1"
 $global:Oxide.bkal = "$env:BACKUP/alacritty.yml"
 $global:Oxide.bkar = "$env:BACKUP/aria2.conf"
@@ -94,7 +93,7 @@ function zz { z - }
 # import pwsh-windows
 . $global:Oxygen.oxpw
 # import pwsh-utils
-. $global:Oxygen.oxpu
+. $global:Oxygen.oxput
 # import pueue
 . $global:Oxygen.oxppu
 
