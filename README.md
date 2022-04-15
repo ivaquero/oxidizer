@@ -120,7 +120,7 @@ Of course, you are allowed to write your own plugins, see [[10. Writing A Plugin
 |   7   |  Conan  |   ✅   |  ✅   |   ✅    |            |
 |   8   |  Conda  |   ✅   |  ✅   |   ✅    |            |
 |   9   | Docker  |   ✅   |  ✅   |   ✅    |            |
-|  10   |  Julia  |   ✅   |  ✅   |   🕒    |            |
+|  10   |  Julia  |   ✅   |  ✅   |   🚧    |            |
 |  11   |  Node   |   ✅   |  ✅   |   ✅    |            |
 |  12   |  Rust   |   ✅   |  ✅   |   ✅    |            |
 |  13   | TeXLive |   ✅   |  ✅   |   ✅    |            |
@@ -130,6 +130,11 @@ Of course, you are allowed to write your own plugins, see [[10. Writing A Plugin
 |  17   | Zellij  |   ✅   |  ✅   |   ❌    |            |
 |  18   | NeoVim  |        |       |         |            |
 |  19   |  Helix  |        |       |         |            |
+
+✅: complete functionality
+🚧: partial functionality
+🕒: basic functionality, needs more features
+❌: not exist
 
 [^1]: Currently, on Linux only provide with Ubuntu-specific shortcuts.
 
@@ -188,7 +193,7 @@ The table below shows the informatioin of specific configuration files.
 |   zellij   |  `zj`  |    `config.yaml`    |
 |   zellij   | `zjl_` |      `layouts`      |
 
-> `_` 表示文件夹
+> `_` denotes folder
 
 ## 5. Software management
 
