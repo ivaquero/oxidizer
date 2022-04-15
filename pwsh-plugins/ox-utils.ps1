@@ -17,7 +17,7 @@ function epf {
             ForEach ( $subfile in $folder ) {
                 $in_file = $global:Element.$file + "\\" + $subfile
                 $out_file = $global:Oxide.$bkfile + "\\" + $subfile
-                Copy-Item -Verbose -Confirm -Path $in_file -Destination $out_file
+                Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
         else {
@@ -25,7 +25,7 @@ function epf {
             if (!(Test-Path $parentpath)) {
                 New-Item -ItemType Directory -Force -Path $parentpath
             }
-            Copy-Item -Verbose -Confirm -Path $global:Element.$file -Destination $global:Oxide.$bkfile
+            Copy-Item -Verbose -Path $global:Element.$file -Destination $global:Oxide.$bkfile
         }
     }
 }
@@ -41,7 +41,7 @@ function ipf {
             ForEach ( $subfile in $folder ) {
                 $in_file = $global:Oxide.$bkfile + "\\" + $subfile
                 $out_file = $global:Element.$file + "\\" + $subfile
-                Copy-Item -Verbose -Confirm -Path $in_file -Destination $out_file
+                Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
         else { 
@@ -49,7 +49,7 @@ function ipf {
             if (!(Test-Path $parentpath)) {
                 New-Item -ItemType Directory -Force -Path $parentpath
             }
-            Copy-Item -Verbose -Confirm -Path $global:Oxide.$bkfile -Destination $global:Element.$file 
+            Copy-Item -Verbose -Path $global:Oxide.$bkfile -Destination $global:Element.$file 
         }
     }
 }
@@ -65,7 +65,7 @@ function iif {
             ForEach ( $subfile in $folder ) {
                 $in_file = $global:Oxygen.$oxfile + "\\" + $subfile
                 $out_file = $global:Element.$file + "\\" + $subfile
-                Copy-Item -Verbose -Confirm -Path $in_file -Destination $out_file
+                Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
         else { 
@@ -73,7 +73,7 @@ function iif {
             if ( !(Test-Path $parentpath) ) {
                 New-Item -ItemType Directory -Force -Path $parentpath
             }
-            Copy-Item -Verbose -Confirm -Path $global:Oxygen.$oxfile -Destination $global:Element.$file
+            Copy-Item -Verbose -Path $global:Oxygen.$oxfile -Destination $global:Element.$file
         }
     }
 }
@@ -90,7 +90,7 @@ function dpf {
             ForEach ( $subfile in $folder ) {
                 $in_file = $global:Oxygen.$oxfile + "\\" + $subfile
                 $out_file = $global:Oxide.$bkfile + "\\" + $subfile
-                Copy-Item -Verbose -Confirm -Path $in_file -Destination $out_file
+                Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
         else { 
@@ -98,7 +98,7 @@ function dpf {
             if ( !(Test-Path $parentpath) ) {
                 New-Item -ItemType Directory -Force -Path $parentpath
             }
-            Copy-Item -Verbose -Confirm -Path $global:Oxygen.$oxfile -Destination $global:Oxide.$bkfile 
+            Copy-Item -Verbose -Path $global:Oxygen.$oxfile -Destination $global:Oxide.$bkfile 
         }
     }
 }

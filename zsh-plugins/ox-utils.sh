@@ -11,13 +11,13 @@ epf() {
             echo "Oxide[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
             for subfile in $(ls $Element[$file]); do
-                cp -R -i -v $Element[$file]/$subfile $Oxide[bk$file]/$subfile
+                cp -R -v $Element[$file]/$subfile $Oxide[bk$file]/$subfile
             done
         else
             if [[ ! -d $(dirname $Oxide[bk$file]) ]]; then
                 mkdir -p $(dirname $Oxide[bk$file])
             fi
-            cp -i -v $Element[$file] $Oxide[bk$file]
+            cp -v $Element[$file] $Oxide[bk$file]
         fi
     done
 }
@@ -29,13 +29,13 @@ ipf() {
         echo "Overwrite $Element[$file] by $Oxide[bk$file]"
         if [[ $file == *_ ]]; then
             for subfile in $(ls $Oxide[bk$file]); do
-                cp -R -i -v $Oxide[bk$file]/$subfile $Element[$file]/$subfile
+                cp -R -v $Oxide[bk$file]/$subfile $Element[$file]/$subfile
             done
         else
             if [[ ! -d $(dirname $Element[$file]) ]]; then
                 mkdir -p $(dirname $Element[$file])
             fi
-            cp -i -v $Oxide[bk$file] $Element[$file]
+            cp -v $Oxide[bk$file] $Element[$file]
         fi
     done
 }
@@ -47,13 +47,13 @@ iif() {
         echo "Overwrite $Element[$file] by $Oxygen[ox$file]"
         if [[ $file == *_ ]]; then
             for subfile in $(ls $Oxygen[ox$file]); do
-                cp -R -i -v $Oxygen[ox$file]/$subfile $Element[$file]/$subfile
+                cp -R -v $Oxygen[ox$file]/$subfile $Element[$file]/$subfile
             done
         else
             if [[ ! -d $(dirname $Element[$file]) ]]; then
                 mkdir -p $(dirname $Element[$file])
             fi
-            cp -i -v $Oxygen[ox$file] $Element[$file]
+            cp -v $Oxygen[ox$file] $Element[$file]
         fi
     done
 }
@@ -65,13 +65,13 @@ dpf() {
         echo "Overwrite $Oxide[bk$file] by $Oxygen[ox$file]"
         if [[ $file == *_ ]]; then
             for subfile in $(ls $Oxygen[ox$file]); do
-                cp -R -i -v $Oxygen[ox$file]/$subfile $Oxide[bk$file]/$subfile
+                cp -R -v $Oxygen[ox$file]/$subfile $Oxide[bk$file]/$subfile
             done
         else
             if [[ ! -d $(dirname $Oxide[bk$file]) ]]; then
                 mkdir -p $(dirname $Oxide[bk$file])
             fi
-            cp -i -v $Oxygen[ox$file] $Oxide[bk$file]
+            cp -v $Oxygen[ox$file] $Oxide[bk$file]
         fi
     done
 }
