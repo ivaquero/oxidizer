@@ -22,7 +22,6 @@ export BREW_DL=$(brew --cache)/downloads
 
 if type brew &>/dev/null; then
     FPATH=$BREW/share/zsh-completions:$FPATH
-    compaudit | xargs chmod g-w
     autoload -Uz compinit && compinit
 fi
 
