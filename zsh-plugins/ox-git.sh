@@ -2,6 +2,8 @@
 # config
 ##########################################################
 
+# oxidizer files
+Oxygen[oxg]=$OXIDIZER/defaults/.gitconfig
 # config files
 Element[g]=$HOME/.gitconfig
 # backup files
