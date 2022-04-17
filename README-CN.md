@@ -87,7 +87,8 @@ ef ox
 
 ### 3.3. 其他实用的 Rust 工具
 
-- [x] `pueue`: 命令行并行任务管理器
+- [x] `pueue`：命令行并行任务管理器
+- [x] `delta`：`git diff` 渲染器
 - [ ] `hyperfine`
 - [ ] `mdbook`
 

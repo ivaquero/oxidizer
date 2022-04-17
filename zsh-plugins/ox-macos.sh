@@ -76,7 +76,7 @@ alias sha2="openssl dgst -sha256"
 ##########################################################
 
 alias appis="mas install"
-alias appus="mas uninstall"
+alias appus="sudo mas uninstall"
 alias appud="mas upgrade"
 alias apph="mas help"
 alias appif="mas info"
