@@ -22,8 +22,8 @@ export BREW_DL=$(brew --cache)/downloads
 
 if type brew &>/dev/null; then
     FPATH=$BREW/share/zsh-completions:$FPATH
-    autoload -Uz compinit
-    compinit
+    compaudit | xargs chmod g-w
+    autoload -Uz compinit && compinit
 fi
 
 if [[ -d "$BREW/share/zsh-syntax-highlighting" ]]; then
