@@ -14,7 +14,7 @@ lms() {
     if [[ -z $1 ]]; then
         limactl start
     elif [[ ${#1} < 4 ]]; then
-        limactl start $Lima[$1]
+        limactl start ${Lima[$1]}
     elif [[ -z $2 ]]; then
         limactl start $1
     else
@@ -24,7 +24,7 @@ lms() {
 
 lmq() {
     if [[ ${#1} < 4 ]]; then
-        limactl stop $Lima[$1]
+        limactl stop ${Lima[$1]}
     else
         limactl stop $1
     fi

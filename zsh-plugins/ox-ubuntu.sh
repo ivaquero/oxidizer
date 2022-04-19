@@ -68,5 +68,5 @@ alias ubck="sudo apt-get check"
 # use host proxy
 wlpx() {
     host_ip=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
-    export ALL_PROXY="https://$host_ip:$Proxy[$1]"
+    export ALL_PROXY="https://$host_ip:${Proxy[$1]}"
 }

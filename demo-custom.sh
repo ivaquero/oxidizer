@@ -153,12 +153,9 @@ declare -A Conda_Env
 # Lima[ar]="archlinux"
 
 ##########################################################
-# zsh
+# common aliases
 ##########################################################
 
-alias tt="\time zsh -i -c exit"
-alias ua="unalias"
-alias uf="unfunction"
 alias wh="which"
 alias e="echo"
 alias ev="eval"
@@ -170,13 +167,23 @@ alias ccc="local HISTSIZE=0 && history -p && reset"
 # tools
 alias ar="aria2c --dir $DOWNLOAD"
 
+##########################################################
+# zsh
+##########################################################
+
+# zmodload zsh/zprof
+# zmodload zsh/mathfunc
+
+# alias tt="\time zsh -i -c exit"
+
+# # turn case sensitivity off
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # global
 #
 # w: wordcount, l: line, w:word
-alias -g gr="| rg"
-alias -g w0="| rg '\s0\.\d+'"
-alias -g wl="| wc -l"
-alias -g ww="| wc -w"
+# alias -g w0="| rg '\s0\.\d+'"
+# alias -g wl="| wc -l"
 
 ##########################################################
 # startup commands

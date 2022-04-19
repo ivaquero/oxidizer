@@ -19,8 +19,8 @@ fi
 ##########################################################
 
 rsmr() {
-    export RUSTUP_DIST_SERVER=https://$Rust_Mirror[$1]/rust-static
-    export RUSTUP_UPDATE_ROOT=https://$Rust_Mirror[$1]/rust-static/rustup
+    export RUSTUP_DIST_SERVER=https://${Rust_Mirror[$1]}/rust-static
+    export RUSTUP_UPDATE_ROOT=https://${Rust_Mirror[$1]}/rust-static/rustup
 }
 
 ##########################################################

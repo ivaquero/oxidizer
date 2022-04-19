@@ -44,8 +44,9 @@ Element[al]=$HOME/.config/alacritty/alacritty.yml
 Element[ar]=$HOME/.aria2/aria2.conf
 Element[vi]=$HOME/.vimrc
 Element[zs]=$HOME/.zshrc
+Element[bs]=$HOME/.bash_profile
 
-source $Element[ox]
+source ${Element[ox]}
 
 declare -A Oxide
 
@@ -78,32 +79,26 @@ alias zz="z -"
 # Zsh & Plugins
 ##########################################################
 
-zmodload zsh/zprof
-zmodload zsh/mathfunc
-
-# turn case sensitivity off
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 declare -a PLUGINS
 
 # import ox-brew
-source $Oxygen[oxpb]
+source ${Oxygen[oxpb]}
 # import ox-utils
-source $Oxygen[oxput]
+source ${Oxygen[oxput]}
 # import ox-pueue
-source $Oxygen[oxppu]
+source ${Oxygen[oxppu]}
 
 case $(uname -a) in
 *Darwin*)
-    source $Oxygen[oxpm]
+    source ${Oxygen[oxpm]}
     ;;
 *Ubuntu* | *WSL*)
-    source $Oxygen[oxpub]
+    source ${Oxygen[oxpub]}
     ;;
 esac
 
 for plugin in $PLUGINS[@]; do
-    source $Oxygen[$plugin]
+    source ${Oxygen[$plugin]}
 done
 
 if [[ ! -d $BACKUP/install ]]; then
@@ -170,7 +165,15 @@ upox() {
 }
 
 if [[ $STARTUP ]]; then
-    eval "$(starship init zsh)"
-    eval "$(zoxide init zsh)"
+    case $SHELL in
+    *zsh)
+        eval "$(starship init zsh)"
+        eval "$(zoxide init zsh)"
+        ;;
+    *bash)
+        eval "$(starship init bash)"
+        eval "$(zoxide init bash)"
+        ;;
+    esac
     startup
 fi

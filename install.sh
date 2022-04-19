@@ -49,16 +49,31 @@ printf "📦 Installing essential Oxidizer toolchains...\n"
 brew bundle install --file $OXIDIZER/defaults/Brewfile
 
 ###################################################
-# Update Zsh Settings
+# Update Shell Settings
 ###################################################
 
-printf "📦 Adding Oxidizer into $HOME/.zshrc...\n"
+case $SHELL in
+*zsh)
+    brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
+    export shell_conf=$HOME/.zshrc
+    ;;
+*bash)
+    bash_v=$(bash --version | head -n1 | cut -d' ' -f4 | cut -d'.' -f1)
+    if [[ bash_v < 5 ]]; then
+        printf "📦 Installing Latest Bash...\n"
+        brew install bash bash_completion
+        export shell_conf=$HOME/.bash_profile
+    fi
+    ;;
+esac
+
+printf "📦 Adding Oxidizer into $shell_conf...\n"
 echo "
 # Oxidizer
 if [[ -z $OXIDIZER ]]; then
     export OXIDIZER=$HOME/oxidizer
 fi
-source $OXIDIZER/oxidizer.sh" >>$HOME/.zshrc
+source $OXIDIZER/oxidizer.sh" >>$shell_conf
 
 echo "⚙️ Adding Custom settings..."
 cp $OXIDIZER/demo-custom.sh $OXIDIZER/custom.sh
@@ -67,15 +82,7 @@ cp $OXIDIZER/demo-custom.sh $OXIDIZER/custom.sh
 sd ".* STARTUP=.*" "export STARTUP=1" $OXIDIZER/custom.sh
 
 # set path of oxidizer
-sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $HOME/.zshrc
-
-if [[ $(uname -s) == "Linux" ]]; then
-    echo "export SHELL=$(which zsh)" >>$HOME/.profile
-    echo "exec $(which zsh) -l" >>$HOME/.profile
-else
-    echo "export SHELL=$(which zsh)" >>$HOME/.bash_profile
-    echo "exec $(which zsh) -l" >>$HOME/.bash_profile
-fi
+sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $shell_conf
 
 if test ! "$(command -v code)"; then
     echo "No VS Code installed. "
@@ -89,6 +96,4 @@ fi
 
 printf "🥳 Oxidizer installation complete!\n"
 
-echo "
-If you have administrator priviledge, you can add zsh to system by 'which zsh | sudo tee -a /etc/shells' and then activate shell by 'sudo chsh -s $(which zsh) ${USER}'
-"
+echo " For Linux users who uses zsh, please run: export SHELL=$(which zsh) and then re-run the installer."

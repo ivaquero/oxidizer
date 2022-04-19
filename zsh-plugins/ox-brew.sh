@@ -20,18 +20,21 @@ fi
 export BREW=$(brew --prefix)
 export BREW_DL=$(brew --cache)/downloads
 
-if type brew &>/dev/null; then
-    FPATH=$BREW/share/zsh-completions:$FPATH
-    autoload -Uz compinit && compinit
-fi
+case $SHELL in
+*zsh)
+    if type brew &>/dev/null; then
+        FPATH=$BREW/share/zsh-completions:$FPATH
+        autoload -Uz compinit && compinit
+    fi
 
-if [[ -d "$BREW/share/zsh-syntax-highlighting" ]]; then
-    source "$BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+    [[ -d "$BREW/share/zsh-syntax-highlighting" ]] && . "$BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-if [[ -d "$BREW/share/zsh-autosuggestions" ]]; then
-    source "$BREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+    [[ -d "$BREW/share/zsh-autosuggestions" ]] && . "$BREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    ;;
+*bash)
+    [[ -r "$BREW/etc/profile.d/bash_completion.sh" ]] && . "$BREW/etc/profile.d/bash_completion.sh"
+    ;;
+esac
 
 ##########################################################
 # config
@@ -149,11 +152,11 @@ alias be="brew edit"
 ##########################################################
 
 bmr() {
-    export HOMEBREW_BREW_GIT_REMOTE="https://$Brew_Mirror[$1]/brew.git"
-    export HOMEBREW_CORE_GIT_REMOTE="https://$Brew_Mirror[$1]/homebrew-core.git"
+    export HOMEBREW_BREW_GIT_REMOTE="https://${Brew_Mirror[$1]}/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://${Brew_Mirror[$1]}/homebrew-core.git"
 
     for tap in core bottles services cask{,-fonts} command-not-found; do
-        brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://$Brew_Mirror[$1]/homebrew-${tap}.git"
+        brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://${Brew_Mirror[$1]}/homebrew-${tap}.git"
     done
     brew update
 }
@@ -280,7 +283,7 @@ alias bsls="brew services list"
 
 bss() {
     if [[ ${#1} < 4 ]]; then
-        brew services start $Brew_Service[$1]
+        brew services start ${Brew_Service[$1]}
     else
         brew services start $1
     fi
@@ -288,7 +291,7 @@ bss() {
 
 bsq() {
     if [[ ${#1} < 4 ]]; then
-        brew services stop $Brew_Service[$1]
+        brew services stop ${Brew_Service[$1]}
     else
         brew services stop $1
     fi
@@ -296,7 +299,7 @@ bsq() {
 
 bsrs() {
     if [[ ${#1} < 4 ]]; then
-        brew services restart $Brew_Service[$1]
+        brew services restart ${Brew_Service[$1]}
     else
         brew services restart $1
     fi

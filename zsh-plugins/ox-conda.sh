@@ -20,7 +20,7 @@ up_conda() {
     if [[ -z $1 ]]; then
         local conda_env=base
     elif [[ ${#1} < 4 ]]; then
-        local conda_env=$Conda_Env[$1]
+        local conda_env=${Conda_Env[$1]}
     else
         local conda_env=$1
     fi
@@ -34,7 +34,7 @@ back_conda() {
     if [[ -z $1 ]]; then
         local conda_env=base
     elif [[ ${#1} < 4 ]]; then
-        local conda_env=$Conda_Env[$1]
+        local conda_env=${Conda_Env[$1]}
     else
         local conda_env=$1
     fi
@@ -83,7 +83,7 @@ cls() {
     if [[ -z $1 ]]; then
         mamba list
     elif [[ ${#1} < 4 ]]; then
-        mamba list -n $Conda_Env[$1]
+        mamba list -n ${Conda_Env[$1]}
     else
         mamba list -n $1
     fi
@@ -95,7 +95,7 @@ clvs() {
     if [[ -z $1 ]]; then
         conda-tree leaves
     elif [[ ${#1} < 4 ]]; then
-        conda-tree -n $Conda_Env[$1] leaves
+        conda-tree -n ${Conda_Env[$1]} leaves
     else
         conda-tree -n $1 leaves
     fi
@@ -125,7 +125,7 @@ ceat() {
     if [[ -z $1 ]]; then
         conda activate base && clear
     elif [[ ${#1} < 4 ]]; then
-        conda activate $Conda_Env[$1] && clear
+        conda activate ${Conda_Env[$1]} && clear
     else
         conda activate $1 && clear
     fi
@@ -140,7 +140,7 @@ cerat() {
 # create environment: $1=name
 cecr() {
     if [[ ${#1} < 4 ]]; then
-        conda create -n $Conda_Env[$1]
+        conda create -n ${Conda_Env[$1]}
     else
         conda create -n $1
     fi
@@ -151,7 +151,7 @@ cecr() {
 cerm() {
     conda deactivate
     if [[ ${#1} < 4 ]]; then
-        conda env remove -n $Conda_Env[$1]
+        conda env remove -n ${Conda_Env[$1]}
     else
         conda env remove -n $1
     fi
@@ -173,7 +173,7 @@ ceep() {
     if [[ -z $1 ]]; then
         conda_Env=base
     elif [[ ${#1} < 4 ]]; then
-        conda_Env=$Conda_Env[$1]
+        conda_Env=${Conda_Env[$1]}
     else
         conda_Env=$1
     fi
