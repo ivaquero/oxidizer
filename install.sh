@@ -73,7 +73,7 @@ echo '
 if [[ -z $OXIDIZER ]]; then
     export OXIDIZER=$HOME/oxidizer
 fi
-. $OXIDIZER/oxidizer.sh' >>$shell_conf
+source $OXIDIZER/oxidizer.sh' >>$shell_conf
 
 echo "⚙️ Adding Custom settings..."
 cp $OXIDIZER/demo-custom.sh $OXIDIZER/custom.sh
@@ -82,7 +82,7 @@ cp $OXIDIZER/demo-custom.sh $OXIDIZER/custom.sh
 sd ".* STARTUP=.*" "export STARTUP=1" $OXIDIZER/custom.sh
 
 # set path of oxidizer
-sd ". OXIDIZER=.*" ". OXIDIZER=$OXIDIZER/oxidizer.sh" $shell_conf
+sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $shell_conf
 
 if test ! "$(command -v code)"; then
     echo "No VS Code installed. "
