@@ -29,8 +29,6 @@ jobs:
           else
             source $HOME/.bash_profile
           fi
-      - name: Browse .zshrc
-        run: cat $HOME/.zshrc
 
   job2:
     name: Test Oxidizer on ${{ matrix.os }}
