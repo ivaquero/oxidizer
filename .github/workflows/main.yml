@@ -24,9 +24,13 @@ jobs:
         run: bash -e install.sh
       - name: Activate Oxidizer
         run: |
+          export OXIDIZER='.'
           if [[ $(uname -s) == "Linux" ]]; then
             cat $HOME/.profile
             . $HOME/.profile
+          else
+            cat $HOME/.zshrc
+            . $HOME/.zshrc
           fi
 
   job2:
