@@ -25,9 +25,11 @@ jobs:
       - name: Activate Oxidizer
         run: |
           if [[ $(uname -s) == "Linux" ]]; then
-            source $HOME/.profile
+            cat $HOME/.profile
+            . $HOME/.profile
           else
-            source $HOME/.zshrc
+            cat $HOME/.zshrc
+            . $HOME/.zshrc
           fi
 
   job2:
