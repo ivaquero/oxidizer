@@ -26,8 +26,6 @@ jobs:
         run: |
           if [[ $(uname -s) == "Linux" ]]; then
             cat $HOME/.profile
-          else
-            cat $HOME/.zshrc
           fi
 
   job2:
