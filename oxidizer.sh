@@ -46,7 +46,7 @@ Element[vi]=$HOME/.vimrc
 Element[zs]=$HOME/.zshrc
 Element[bs]=$HOME/.bash_profile
 
-source ${Element[ox]}
+. ${Element[ox]}
 
 declare -A Oxide
 
@@ -83,23 +83,23 @@ alias zz="z -"
 declare -a PLUGINS
 
 # import ox-brew
-source ${Oxygen[oxpb]}
+. ${Oxygen[oxpb]}
 # import ox-utils
-source ${Oxygen[oxput]}
+. ${Oxygen[oxput]}
 # import ox-pueue
-source ${Oxygen[oxppu]}
+. ${Oxygen[oxppu]}
 
 case $(uname -a) in
 *Darwin*)
-    source ${Oxygen[oxpm]}
+    . ${Oxygen[oxpm]}
     ;;
 *Ubuntu* | *WSL*)
-    source ${Oxygen[oxpub]}
+    . ${Oxygen[oxpub]}
     ;;
 esac
 
 for plugin in $PLUGINS[@]; do
-    source ${Oxygen[$plugin]}
+    . ${Oxygen[$plugin]}
 done
 
 if [[ ! -d $BACKUP/install ]]; then

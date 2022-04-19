@@ -63,7 +63,7 @@ case $SHELL in
         printf "📦 Installing Latest Bash...\n"
         brew install bash bash_completion
     fi
-    export shell_conf=$HOME/.bash_profile
+    export shell_conf=$HOME/.profile
     ;;
 esac
 
@@ -73,7 +73,7 @@ echo "
 if [[ -z $OXIDIZER ]]; then
     export OXIDIZER=$HOME/oxidizer
 fi
-source $OXIDIZER/oxidizer.sh" >>$shell_conf
+. $OXIDIZER/oxidizer.sh" >>$shell_conf
 
 echo "⚙️ Adding Custom settings..."
 cp $OXIDIZER/demo-custom.sh $OXIDIZER/custom.sh

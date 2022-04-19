@@ -84,9 +84,9 @@ dpf() {
 # $@=names
 ff() {
     if [[ -z $1 ]]; then
-        source ${Element[zs]}
+        . ${Element[zs]}
     else
-        source ${Element[$1]}
+        . ${Element[$1]}
     fi
 }
 
@@ -206,7 +206,14 @@ uzf() {
 # $1: name
 ched() {
     sd "EDITOR=.*" "EDITOR=$1" $Element[ox]
-    source ${Element[zs]}
+    case $SHELL in
+    *zsh)
+        . ${Element[zs]}
+        ;;
+    *bash)
+        . ${Element[bs]}
+        ;;
+    esac
 }
 
 ##########################################################
