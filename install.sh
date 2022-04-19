@@ -62,8 +62,8 @@ case $SHELL in
     if [[ bash_v < 5 ]]; then
         printf "📦 Installing Latest Bash...\n"
         brew install bash bash_completion
-        export shell_conf=$HOME/.bash_profile
     fi
+    export shell_conf=$HOME/.bash_profile
     ;;
 esac
 

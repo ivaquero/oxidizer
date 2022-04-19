@@ -55,6 +55,7 @@ if [[ ! -d $BACKUP/shell ]]; then
 fi
 
 Oxide[bkzs]=$BACKUP/shell/.zshrc
+Oxide[bkbs]=$BACKUP/shell/.bash_profile
 Oxide[bkox]=$BACKUP/shell/custom.sh
 Oxide[bkal]=$BACKUP/alacritty.yml
 Oxide[bkar]=$BACKUP/aria2.conf

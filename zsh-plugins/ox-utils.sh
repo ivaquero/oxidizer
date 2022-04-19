@@ -8,7 +8,7 @@ epf() {
     for file in $@; do
         echo "Overwrite ${Oxygen[ox$file]} by ${Element[$file]}"
         if [[ -z ${Oxide[bk$file]} ]]; then
-            echo "${Oxide[bk$file]} does not exist, please define it in custom.sh"
+            echo "Oxide[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
             for subfile in $(ls ${Element[$file]}); do
                 cp -R -v ${Element[$file]}/$subfile ${Oxide[bk$file]}/$subfile
