@@ -1,0 +1,17 @@
+bat
+bottom
+dust
+fd
+gitui
+lsd
+pueue
+ripgrep
+sd
+tealdeer
+zoxide
+scoop-completion
+winget
+posh-git
+psreadline
+sudo
+busybox

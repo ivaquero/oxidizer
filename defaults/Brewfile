@@ -1,0 +1,17 @@
+# taps
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/services"
+# formulae
+brew "bat"
+brew "bottom"
+brew "dust"
+brew "fd"
+brew "gitui"
+brew "hyperfine"
+brew "lsd"
+brew "pueue"
+brew "ripgrep"
+brew "sd"
+brew "tealdeer"
+brew "zoxide"

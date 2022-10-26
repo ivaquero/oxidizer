@@ -1,0 +1,65 @@
+﻿{
+    "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+    "CreationDate": "2022-10-24T16:35:04.499-00:00",
+    "Sources": [
+        {
+            "Packages": [
+                {
+                    "PackageIdentifier": "Microsoft.Edge"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.EdgeWebView2Runtime"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.WindowsTerminal"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2010.x64"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2022.arm64"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2012.x86"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2005.x86"
+                },
+                {
+                    "PackageIdentifier": "QTTabBar.QTTabBar"
+                },
+                {
+                    "PackageIdentifier": "Spice.SpiceWebDAVd"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.DotNet.Runtime.6"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2010.x86"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2012.x64"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.PowerToys"
+                }
+            ],
+            "SourceDetails": {
+                "Argument": "https://cdn.winget.microsoft.com/cache",
+                "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+                "Name": "winget",
+                "Type": "Microsoft.PreIndexed.Package"
+            }
+        }
+    ],
+    "WinGetVersion": "1.4.0-preview"
+}

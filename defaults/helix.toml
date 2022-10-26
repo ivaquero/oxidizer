@@ -1,0 +1,51 @@
+theme = "monokai"
+
+[editor]
+    completion-trigger-len = 2
+    line-number            = "absolute"
+    middle-click-paste     = false
+    mouse                  = true
+    scroll-lines           = 10
+    scrolloff              = 3
+    idle-timeout           = 350
+
+    [editor.cursor-shape]
+        insert = "bar"
+        normal = "block"
+        select = "underline"
+
+    [editor.file-picker]
+        hidden = false
+
+    [editor.statusline]
+        left = ["mode", "spinner"]
+        center = ["file-name"]
+        right = [
+            "diagnostics",
+            "selections",
+            "position",
+            "position-percentage",
+            "file-encoding",
+            "file-line-ending",
+            "file-type",
+        ]
+        separator = "│"
+
+    [editor.whitespace]
+        # render = "all"
+        # or control each character
+        [editor.whitespace.render]
+            space   = "all"
+            tab     = "all"
+            newline = "none"
+
+        [editor.whitespace.characters]
+            space   = "·"
+            nbsp    = "⍽"
+            tab     = "→"
+            newline = "⏎"
+            tabpad  = "·" # Tabs will look like "→···" (depending on tab width)
+
+[editor.indent-guides]
+    render    = true
+    character = "╎"

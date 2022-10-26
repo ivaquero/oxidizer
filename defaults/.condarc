@@ -1,0 +1,19 @@
+# channel
+channels:
+  - conda-forge
+  - pytorch
+
+# solver
+channel_priority: flexible
+pip_interop_enabled: true
+
+# network
+remote_max_retries: 2
+ssl_verify: false
+
+# package
+rollback_enabled: true
+
+# output
+show_channel_urls: true
+report_errors: false

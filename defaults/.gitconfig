@@ -1,0 +1,27 @@
+[credential]
+helper = store
+
+[commit]
+gpgsign = false
+
+[gpg]
+program = gpg
+
+[pull]
+rebase = false
+
+[interactive]
+diffFilter = delta --color-only --features=interactive
+
+[merge]
+conflictstyle = diff3
+
+[diff]
+colorMoved = default
+
+[alias]
+count = rev-list --count HEAD
+publish = push --set-upstream origin master
+
+[http]
+version = HTTP/1.1

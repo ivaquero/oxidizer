@@ -1,0 +1,12 @@
+carlocardella.vscode-texttoolbox
+DavidAnson.vscode-markdownlint
+esbenp.prettier-vscode
+formulahendry.code-runner
+foxundermoon.shell-format
+GitHub.remotehub
+inu1255.easy-snippet
+piotrpalarz.vscode-gitignore-generator
+usernamehw.errorlens
+VisualStudioExptTeam.vscodeintellicode
+YuTengjing.open-in-external-app
+yzhang.markdown-all-in-one
