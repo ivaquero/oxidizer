@@ -38,14 +38,12 @@ ga() {
 gig() {
     git rm -rf --cached .
     git add .
-    git commit -m '🗑 remove all ignored files'
+    git commit -m "🗑 remove all ignored files"
 }
 
 ##########################################################
 # branch & download
 ##########################################################
-
-alias gsw="git switch"
 
 # git clone
 # dl: download

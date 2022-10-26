@@ -40,8 +40,6 @@ function gig {
 # branch & download
 ##########################################################
 
-function gsw { git switch $args }
-
 # git clone
 # dl: download
 function gdl {
