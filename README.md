@@ -115,31 +115,31 @@ Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.
 
 Of course, you are allowed to write your own plugins, see `11. Writing A Plugin` for details.
 
-| index |                      Plugin                       | Linux | macOS | Windows | required ? |
-| :---: | :-----------------------------------------------: | :---: | :---: | :-----: | :--------: |
-|   1   |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |     ✅     |
-|   2   | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |     ✅     |
-|   3   |                      Utility                      |  ✅   |  ✅   |   ✅    |     ✅     |
-|   4   |                      System                       |  ✅¹  |  ✅   |   ✅    |     ✅     |
-|   5   |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |     ✅     |
-|   6   |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |            |
-|   7   |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |            |
-|   8   |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |            |
-|   9   |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |            |
-|  10   |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |            |
-|  11   |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |            |
-|  12   |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |            |
-|  13   |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |            |
-|  14   |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |            |
-|  15   |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |            |
-|  16   |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |            |
-|  17   |                      Formats                      |  🕒   |  🕒   |   🕒    |            |
-|  18   |                      Widgets                      |  🕒   |  🕒   |   🕒    |            |
-|  19   |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |            |
-|  20   | [Bitwarden](https://github.com/bitwarden/clients) |  ✅   |  ✅   |   ✅    |            |
-|  21   |  [Podman](https://github.com/containers/podman)   |  🕒   |  🕒   |   🕒    |            |
-|  22   |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |     ❌     |
-|  23   |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |            |
+|  |                       Plugin                        | Linux | macOS | Windows | Autoload？ |
+| :--: | :-----------------------------------------------: | :---: | :---: | :-----: | :----: |
+|  1   |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |   ✅   |
+|  2   | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |   ✅   |
+|  3   |                      Utility                      |  ✅   |  ✅   |   ✅    |   ✅   |
+|  4   |                      System                       |  ✅¹  |  ✅   |   ✅    |   ✅   |
+|  5   |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |   ✅   |
+|  6   |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |        |
+|  7   | [Bitwarden](https://github.com/bitwarden/clients) |  ✅   |  ✅   |   ✅    |        |
+|  8   |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |        |
+|  9   |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |        |
+|  10  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |        |
+|  11  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |        |
+|  12  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |        |
+|  13  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |        |
+|  14  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |        |
+|  15  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |        |
+|  16  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |        |
+|  17  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |        |
+|  18  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |        |
+|  19  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |        |
+|  20  |                      Formats                      |  🕒   |  🕒   |   🕒    |        |
+|  21  |                      Widgets                      |  🕒   |  🕒   |   🕒    |        |
+|  22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |        |
+|  23  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |        |
 
 ✅: complete functionality
 🚧: partial functionality
@@ -391,25 +391,25 @@ cls h
 Oxidizer's task & service management follows the same phylosopy of package management, _i.e._ to provide unified interfaces to faciliate workflows.
 
 |        |    action    | docker<br>container [dc] | podman<br>container [pc] | pueue [pu] | brew<br>services [bs] | espanso [es] |
-|:------:|:------------:|:------------------------:|:------------------------:|:----------:|:---------------------:|:------------:|
-|  `*h`  |     help     |            ✅            |            ✅            |     ✅     |           ✅          |      ✅      |
-|  `*df` |     diff     |            ✅            |            ✅            |            |                       |
-|  `*cl` |     clean    |            ✅            |            ✅            |     ✅     |           ✅          |
-|  `*ls` |     list     |            ✅            |            ✅            |            |           ✅          |
-|  `*st` |    status    |            ✅            |            ✅            |     ✅     |                       |      ✅      |
-|  `*s`  |     start    |            ✅            |            ✅            |     ✅     |           ✅          |      ✅      |
-|  `*rs` |    restart   |            ✅            |            ✅            |     ✅     |           ✅          |      ✅      |
-|  `*pa` |     pause    |            ✅            |            ✅            |     ✅     |                       |
-| `*upa` |    unpause   |            ✅            |            ✅            |            |                       |
-|  `*pa` |     pause    |            ✅            |            ✅            |     ✅     |                       |
-|  `*q`  |  kill / stop |            ✅            |            ✅            |     ✅     |           ✅          |      ✅      |
-|  `*rt` |     reset    |                          |                          |     ✅     |                       |
+| :----: | :----------: | :----------------------: | :----------------------: | :--------: | :-------------------: | :----------: |
+|  `*h`  |     help     |            ✅            |            ✅            |     ✅     |          ✅           |      ✅      |
+| `*df`  |     diff     |            ✅            |            ✅            |            |                       |
+| `*cl`  |    clean     |            ✅            |            ✅            |     ✅     |          ✅           |
+| `*ls`  |     list     |            ✅            |            ✅            |            |          ✅           |
+| `*st`  |    status    |            ✅            |            ✅            |     ✅     |                       |      ✅      |
+|  `*s`  |    start     |            ✅            |            ✅            |     ✅     |          ✅           |      ✅      |
+| `*rs`  |   restart    |            ✅            |            ✅            |     ✅     |          ✅           |      ✅      |
+| `*pa`  |    pause     |            ✅            |            ✅            |     ✅     |                       |
+| `*upa` |   unpause    |            ✅            |            ✅            |            |                       |
+| `*pa`  |    pause     |            ✅            |            ✅            |     ✅     |                       |
+|  `*q`  | kill / stop  |            ✅            |            ✅            |     ✅     |          ✅           |      ✅      |
+| `*rt`  |    reset     |                          |                          |     ✅     |                       |
 |  `*a`  | add / create |            ✅            |            ✅            |     ✅     |                       |      ✅      |
-|  `*rm` |    remove    |            ✅            |            ✅            |     ✅     |                       |
+| `*rm`  |    remove    |            ✅            |            ✅            |     ✅     |                       |
 |  `*e`  |     edit     |                          |                          |     ✅     |                       |      ✅      |
-|  `*if` |     info     |            ✅            |                          |            |           ✅          |
-|  `*r`  |      run     |            ✅            |            ✅            |            |                       |              |
-|  `*at` |    attach    |            ✅            |            ✅            |            |                       |              |
+| `*if`  |     info     |            ✅            |                          |            |          ✅           |
+|  `*r`  |     run      |            ✅            |            ✅            |            |                       |              |
+| `*at`  |    attach    |            ✅            |            ✅            |            |                       |              |
 
 ### 7.1. Pueue
 
@@ -420,16 +420,16 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 ## 8. Project Management
 
 |       | action | git [g] | docker<br>image [di] | podman<br>image [pi] |
-|:-----:|:------:|:-------:|:--------------------:|:--------------------:|
-| `*ii` |  init  |    ✅   |                      |                      |
-| `*df` |  diff  |    ✅   |                      |          ✅          |
-| `*cl` |  clean |    ✅   |                      |          ✅          |
+| :---: | :----: | :-----: | :------------------: | :------------------: |
+| `*ii` |  init  |   ✅    |                      |                      |
+| `*df` |  diff  |   ✅    |                      |          ✅          |
+| `*cl` | clean  |   ✅    |                      |          ✅          |
 | `*ls` |  list  |         |          ✅          |          ✅          |
-| `*st` | status |    ✅   |                      |                      |
-|  `*a` |   add  |    ✅   |                      |                      |
+| `*st` | status |   ✅    |                      |                      |
+| `*a`  |  add   |   ✅    |                      |                      |
 | `*rm` | remove |         |          ✅          |          ✅          |
-| `*pl` |  pull  |    ✅   |          ✅          |          ✅          |
-| `*ps` |  push  |    ✅   |          ✅          |          ✅          |
+| `*pl` |  pull  |   ✅    |          ✅          |          ✅          |
+| `*ps` |  push  |   ✅    |          ✅          |          ✅          |
 
 ### 8.1. Git
 
