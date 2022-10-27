@@ -2,6 +2,13 @@
 # config
 ##########################################################
 
+back_lima() {
+    if [[ ${#1} < 4 ]]; then
+        cp ${Lima[$1]}
+    else
+    fi
+}
+
 ##########################################################
 # management
 ##########################################################
@@ -27,8 +34,11 @@ lmq() {
     fi
 }
 
+lmr() {
+    lima nerdctl run -d --name nginx -p 8080:80 nginx:$1
+}
+
 alias lmls="limactl list"
-alias lmlst="limactl start --list-templates"
 alias lmrm="limactl delete"
 alias lmcl="limactl prune"
 
@@ -43,6 +53,5 @@ alias lme="limactl edit"
 alias lsrt="limactl factory-reset"
 
 # specific
-alias lmsh="limactl shell"
 alias lmcp="limactl copy"
-alias lmcpl="limactl completion"
+alias lmsh="limactl shell"

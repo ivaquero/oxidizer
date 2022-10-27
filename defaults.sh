@@ -26,6 +26,7 @@ export EDITOR_T=vi
 # oxpg: ox-git
 #
 # language & software-specific
+# oxpf: ox-flatpak
 # oxpc: ox-conda
 # oxpcc: ox-cpp
 # oxpdk: ox-docker
@@ -39,7 +40,6 @@ export EDITOR_T=vi
 # oxptl: ox-texlive
 # oxpvs: ox-vscode
 # oxplm: ox-lima
-# oxpf: ox-flatpak
 # oxpzj: ox-zellij
 #
 # other-shortcuts

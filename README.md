@@ -405,9 +405,8 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 | `*a`  |     add     |                           |           |     ✅     |                         |       ✅       |
 | `*rm` |   remove    |            ✅             |    ✅     |     ✅     |                         |
 | `*e`  |    edit     |                           |    ✅     |     ✅     |                         |       ✅       |
-| `*pl` |    pull     |                           |           |            |                         |
-| `*ps` |    push     |                           |           |            |                         |
 | `*if` |    info     |            ✅             |    ✅     |            |           ✅            |
+| `*r`  |     run     |                           |    ✅     |            |                         |                |
 
 ### 7.1. Pueue
 
