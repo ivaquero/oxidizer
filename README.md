@@ -137,7 +137,7 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 |  18   |                      Widgets                      |  🕒   |  🕒   |   🕒    |            |
 |  19   |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |            |
 |  20   | [Bitwarden](https://github.com/bitwarden/clients) |  ✅   |  ✅   |   ✅    |            |
-|  21   |      [Lima](https://github.com/lima-vm/lima)      |  ❌   |  ✅   |   ❌    |            |
+|  21   |  [Podman](https://github.com/containers/podman)   |  🕒   |  🕒   |   🕒    |            |
 |  22   |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |     ❌     |
 |  23   |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |            |
 
