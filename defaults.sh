@@ -161,6 +161,7 @@ Conda_Env[b]="base"
 # declare -A Lima
 # Lima[ub]="ubuntu"
 # Lima[ar]="archlinux"
+# Oxide[bklmd]=$BACKUP/lima/default.yml
 
 ##########################################################
 # common aliases
