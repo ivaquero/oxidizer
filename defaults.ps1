@@ -37,7 +37,11 @@ $env:EDITOR_T = "vi"
 # oxpfm: ox-formats
 # oxpwg: ox-widgets
 # oxpbw: ox-bitwarden
-$Global:PLUGINS = @("oxpc", "oxpvs", "oxpfm")
+$Global:PLUGINS = @(
+    "oxpc",
+    "oxpvs",
+    "oxpfm"
+)
 
 ##########################################################
 # register proxy ports

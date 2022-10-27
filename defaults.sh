@@ -46,7 +46,12 @@ export EDITOR_T=vi
 # oxpfm: ox-formats
 # oxpwg: ox-widgets
 # oxpbw: ox-bitwarden
-PLUGINS=(oxpg oxpc oxpvs oxpfm)
+PLUGINS=(
+    oxpc
+    oxpg
+    oxpfm
+    oxpvs
+)
 
 ##########################################################
 # register proxy ports
