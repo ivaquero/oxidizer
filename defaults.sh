@@ -66,7 +66,7 @@ Proxy[v]=1080
 # select software configuration objects
 ##########################################################
 
-# options: brew, conda, julia, node, texlive, vscode, espanso
+# options: brew, conda, julia, node, texlive, vscode, espanso, lima
 declare -a INIT_OBJ
 export INIT_OBJ=(brew)
 
