@@ -1,5 +1,4 @@
-function dif { docker info }
-function dsc { docker search $args }
+function dkif { docker info }
 
 ##########################################################
 # containers
@@ -11,20 +10,21 @@ function dcat { docker container attach $args }
 function dcs { docker container start $args }
 function dcrs { docker container restart $args }
 function dcst { docker container stats $args }
-function dcrm { docker container rm $args }
 function dcpa { docker container pause $args }
 function dcupa { docker container unpause $args }
 function dcq { docker container kill $args }
 function dcup { docker container update $args }
 function dcdf { docker container diff $args }
 function dccl { docker container prune $args }
-function dccr { docker container create --name $args }
+function dca { docker container create --name $args }
+function dcrm { docker container rm $args }
 function dcr { docker container run -it --name $args }
 
 ##########################################################
 # images
 ##########################################################
 
+function disc { docker search $args }
 function di { docker image $args }
 function dils { docker image ls }
 function dirm { docker image rm $args }

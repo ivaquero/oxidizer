@@ -1,5 +1,4 @@
-alias dif="docker info"
-alias dsc="docker search"
+alias dkif="docker info"
 
 ##########################################################
 # containers
@@ -11,20 +10,21 @@ alias dcat="docker container attach"
 alias dcs="docker container start"
 alias dcrs="docker container restart"
 alias dcst="docker container stats"
-alias dcrm="docker container rm"
 alias dcpa="docker container pause"
 alias dcupa="docker container unpause"
 alias dcq="docker container kill"
 alias dcup="docker container update"
 alias dcdf="docker container diff"
 alias dccl="docker container prune"
-alias dccr="docker container create --name"
+alias dca="docker container create --name"
+alias dcrm="docker container rm"
 alias dcr="docker container run -it --name"
 
 ##########################################################
 # images
 ##########################################################
 
+alias disc="docker search"
 alias di="docker image"
 alias dils="docker image ls"
 alias dirm="docker image rm"
