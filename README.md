@@ -390,23 +390,23 @@ cls h
 
 Oxidizer's task & service management follows the same phylosopy of package management, _i.e._ to provide unified interfaces to faciliate workflows.
 
-|       |   action    | docker<br> container [dc] | lima [lm] | pueue [pu] | brew <br> services [bs] | espanso [es]｜ |
-| :---: | :---------: | :-----------------------: | :-------: | :--------: | :---------------------: | :------------: |
-| `*h`  |    help     |                           |    ✅     |     ✅     |           ✅            |
-| `*df` |    diff     |            ✅             |           |            |                         |
-| `*cl` |    clean    |            ✅             |    ✅     |     ✅     |           ✅            |
-| `*ls` |    list     |            ✅             |    ✅     |            |           ✅            |
-| `*st` |   status    |                           |           |     ✅     |                         |       ✅       |
-| `*s`  |    start    |            ✅             |    ✅     |     ✅     |           ✅            |       ✅       |
-| `*rs` |   restart   |            ✅             |           |     ✅     |           ✅            |       ✅       |
-| `*pa` |    pause    |            ✅             |           |     ✅     |                         |
-| `*q`  | kill / stop |            ✅             |    ✅     |     ✅     |           ✅            |       ✅       |
-| `*rt` |    reset    |                           |    ✅     |     ✅     |                         |
-| `*a`  |     add     |                           |           |     ✅     |                         |       ✅       |
-| `*rm` |   remove    |            ✅             |    ✅     |     ✅     |                         |
-| `*e`  |    edit     |                           |    ✅     |     ✅     |                         |       ✅       |
-| `*if` |    info     |            ✅             |    ✅     |            |           ✅            |
-| `*r`  |     run     |                           |    ✅     |            |                         |                |
+|       |   action    | docker<br>container [dc] | podman<br>container [pc] | pueue [pu] | brew<br>services [bs] | espanso [es]｜ |
+| :---: | :---------: | :----------------------: | :----------------------: | :--------: | :-------------------: | :------------: |
+| `*h`  |    help     |                          |            ✅            |     ✅     |          ✅           |
+| `*df` |    diff     |            ✅            |                          |            |                       |
+| `*cl` |    clean    |            ✅            |                          |     ✅     |          ✅           |
+| `*ls` |    list     |            ✅            |            ✅            |            |          ✅           |
+| `*st` |   status    |                          |                          |     ✅     |                       |       ✅       |
+| `*s`  |    start    |            ✅            |                          |     ✅     |          ✅           |       ✅       |
+| `*rs` |   restart   |            ✅            |                          |     ✅     |          ✅           |       ✅       |
+| `*pa` |    pause    |            ✅            |                          |     ✅     |                       |
+| `*q`  | kill / stop |            ✅            |                          |     ✅     |          ✅           |       ✅       |
+| `*rt` |    reset    |                          |                          |     ✅     |                       |
+| `*a`  |     add     |                          |                          |     ✅     |                       |       ✅       |
+| `*rm` |   remove    |            ✅            |                          |     ✅     |                       |
+| `*e`  |    edit     |                          |                          |     ✅     |                       |       ✅       |
+| `*if` |    info     |            ✅            |            ✅            |            |          ✅           |
+| `*r`  |     run     |                          |            ✅            |            |                       |                |
 
 ### 7.1. Pueue
 
@@ -416,17 +416,17 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 
 ## 8. Project Management
 
-|       | action | git [g] | docker <br> image [di] |
-| :---: | :----: | :-----: | :--------------------: |
-| `*ii` |  init  |   ✅    |                        |
-| `*df` |  diff  |   ✅    |                        |
-| `*cl` | clean  |   ✅    |                        |
-| `*ls` |  list  |         |           ✅           |
-| `*st` | status |   ✅    |                        |
-| `*a`  |  add   |   ✅    |                        |
-| `*rm` | remove |         |           ✅           |
-| `*pl` |  pull  |   ✅    |           ✅           |
-| `*ps` |  push  |   ✅    |           ✅           |
+|       | action | git [g] | docker<br>image [di] | podman<br>image [pi] |
+| :---: | :----: | :-----: | :------------------: | -------------------- |
+| `*ii` |  init  |   ✅    |                      |                      |
+| `*df` |  diff  |   ✅    |                      |                      |
+| `*cl` | clean  |   ✅    |                      |                      |
+| `*ls` |  list  |         |          ✅          |                      |
+| `*st` | status |   ✅    |                      |                      |
+| `*a`  |  add   |   ✅    |                      |                      |
+| `*rm` | remove |         |          ✅          |                      |
+| `*pl` |  pull  |   ✅    |          ✅          |                      |
+| `*ps` |  push  |   ✅    |          ✅          |                      |
 
 ### 8.1. Git
 

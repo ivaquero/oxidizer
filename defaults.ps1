@@ -28,6 +28,7 @@ $env:EDITOR_T = "vi"
 # oxpjl: ox-julia
 # oxpjn: ox-jupyter
 # oxpnj: ox-node
+# oxppd: ox-podman
 # oxprb: ox-ruby
 # oxprs: ox-rust
 # oxptl: ox-texlive
@@ -111,13 +112,17 @@ $Global:Conda_Env.b = "base"
 # rust configurations
 ##########################################################
 
-# rust mirrors for faster download, use `rsmr` to use
-$Global:Rust_Mirror = @{}
-$Global:Rust_Mirror.ts = "mirrors.tuna.tsinghua.edu.cn"
-$Global:Rust_Mirror.zk = "mirrors.ustc.edu.cn"
+# # rust mirrors for faster download, use `rsmr` to use
+# $Global:Rust_Mirror = @{}
+# $Global:Rust_Mirror.ts = "mirrors.tuna.tsinghua.edu.cn"
+# $Global:Rust_Mirror.zk = "mirrors.ustc.edu.cn"
 
 ##########################################################
-# powerShell
+# podman configurations
+##########################################################
+
+##########################################################
+# common aliases
 ##########################################################
 
 # alternatives
@@ -141,11 +146,6 @@ function z.. { z ..\.. }
 function zz { z - }
 function hf { hyperfine $args }
 function ar { aria2c --dir $env:DOWNLOAD $args }
-
-##########################################################
-# powerShell
-##########################################################
-
 function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
 
 ##########################################################

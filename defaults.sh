@@ -35,11 +35,11 @@ export EDITOR_T=vi
 # oxpjl: ox-julia
 # oxpjn: ox-jupyter
 # oxpnj: ox-node
+# oxppd: ox-podman
 # oxprb: ox-ruby
 # oxprs: ox-rust
 # oxptl: ox-texlive
 # oxpvs: ox-vscode
-# oxplm: ox-lima
 # oxpzj: ox-zellij
 #
 # other-shortcuts
@@ -66,7 +66,7 @@ Proxy[v]=1080
 # select software configuration objects
 ##########################################################
 
-# options: brew, conda, julia, node, texlive, vscode, espanso, lima
+# options: brew, conda, julia, node, texlive, vscode, espanso
 declare -a INIT_OBJ
 export INIT_OBJ=(brew)
 
@@ -153,15 +153,8 @@ Conda_Env[b]="base"
 # Rust_Mirror[zk]="mirrors.ustc.edu.cn"
 
 ##########################################################
-# lima configurations
+# podman configurations
 ##########################################################
-
-# # predefined lima instances
-# # set the length of key <= 3
-# declare -A Lima
-# Lima[ub]="ubuntu"
-# Lima[ar]="archlinux"
-# Oxide[bklmd]=$BACKUP/lima/default.yml
 
 ##########################################################
 # common aliases
