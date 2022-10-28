@@ -9,7 +9,7 @@ printf "📦 Installing Oxidizer\n"
 ###################################################
 
 if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
-    echo "Please use install-arm64.sh for installation on Linux-aarch64. Closing..."
+    echo "Oxidizer does't support Linux on ARM yet. Closing..."
     sleep 5
     exit 1
 fi

@@ -27,12 +27,6 @@ export OXIDIZER=$HOME/oxidizer
 git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git $OXIDIZER && bash $OXIDIZER/install.sh
 ```
 
-For Linux-on-Arm
-
-```bash
-git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git $OXIDIZER && bash $OXIDIZER/install-aarch64.sh
-```
-
 Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux. For China mainland users, you may set `BREW_CN` variable to install Homebrew through domestic mirror
 
 ```bash
@@ -99,8 +93,9 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 
 - [ ] Use `WezTerm` or `Alacritty` instead of `iTerm2` or `Windows Terminal`
 - [ ] Use `Helix` instead of `NeoVim`
-- [ ] Use `Nushell` instead of `Zsh` or `Powershell`
 - [ ] Use `Zellij` instead of `TMux`
+
+> `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 
 ### 3.3. Other Useful Rust Tools
 
@@ -115,31 +110,31 @@ Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.
 
 Of course, you are allowed to write your own plugins, see `11. Writing A Plugin` for details.
 
-|  |                       Plugin                        | Linux | macOS | Windows | Autoload？ |
-| :--: | :-----------------------------------------------: | :---: | :---: | :-----: | :----: |
-|  1   |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |   ✅   |
-|  2   | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |   ✅   |
-|  3   |                      Utility                      |  ✅   |  ✅   |   ✅    |   ✅   |
-|  4   |                      System                       |  ✅¹  |  ✅   |   ✅    |   ✅   |
-|  5   |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |   ✅   |
-|  6   |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |        |
-|  7   | [Bitwarden](https://github.com/bitwarden/clients) |  ✅   |  ✅   |   ✅    |        |
-|  8   |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |        |
-|  9   |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |        |
-|  10  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |        |
-|  11  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |        |
-|  12  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |        |
-|  13  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |        |
-|  14  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |        |
-|  15  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |        |
-|  16  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |        |
-|  17  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |        |
-|  18  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |        |
-|  19  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |        |
-|  20  |                      Formats                      |  🕒   |  🕒   |   🕒    |        |
-|  21  |                      Widgets                      |  🕒   |  🕒   |   🕒    |        |
-|  22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |        |
-|  23  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |        |
+|     |                      Plugin                       | Linux | macOS | Windows | Autoload？ |
+| :-: | :-----------------------------------------------: | :---: | :---: | :-----: | :--------: |
+|  1  |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |     ✅     |
+|  2  | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |     ✅     |
+|  3  |                      Utility                      |  ✅   |  ✅   |   ✅    |     ✅     |
+|  4  |                      System                       |  ✅¹  |  ✅   |   ✅    |     ✅     |
+|  5  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |     ✅     |
+|  6  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |            |
+|  7  | [Bitwarden](https://github.com/bitwarden/clients) |  ✅   |  ✅   |   ✅    |            |
+|  8  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |            |
+|  9  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |            |
+| 10  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |            |
+| 11  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |            |
+| 12  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |            |
+| 13  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |            |
+| 14  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |            |
+| 15  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |            |
+| 16  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |            |
+| 17  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |            |
+| 18  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |            |
+| 19  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |            |
+| 20  |                      Formats                      |  🕒   |  🕒   |   🕒    |            |
+| 21  |                      Widgets                      |  🕒   |  🕒   |   🕒    |            |
+| 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |            |
+| 23  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |            |
 
 ✅: complete functionality
 🚧: partial functionality
