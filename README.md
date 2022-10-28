@@ -291,7 +291,7 @@ Some of package manager shortcuts are included in corresponding system plugins.
 - `ox-flatpak` [oxpf]: optional
 
 |        |   action    | mas [m] | apt [a] | flatpak [f] | winget [w] | wsl [wl] |
-| :----: | :---------: | :-----: | :-----: | :---------: | :--------: | :------: | --- |
+| :----: | :---------: | :-----: | :-----: | :---------: | :--------: | :------: |
 |  `*h`  |    help     |   ✅    |   ✅    |             |     ✅     |          |
 | `*is`  |   install   |   ✅    |   ✅    |     ✅      |     ✅     |    ✅    |
 | `*us`  |  uninstall  |   ✅    |   ✅    |     ✅      |     ✅     |          |
@@ -305,9 +305,9 @@ Some of package manager shortcuts are included in corresponding system plugins.
 | `*st`  |   status    |   ✅    |         |             |            |          |
 | `*ck`  |    check    |         |   ✅    |     ✅      |            |          |
 | `*dp`  |   depends   |         |   ✅    |             |            |          |
-| `*xa`  |  add repo   |         |         |     ✅      |            |          |     |
-| `*xrm` | remove repo |         |         |     ✅      |            |          |     |
-| `*xls` |  list repo  |         |         |     ✅      |            |          |     |
+| `*xa`  |  add repo   |         |         |     ✅      |            |          |
+| `*xrm` | remove repo |         |         |     ✅      |            |          |
+| `*xls` |  list repo  |         |         |     ✅      |            |          |
 
 ### 6.1. Homebrew
 
