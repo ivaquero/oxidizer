@@ -42,8 +42,8 @@ function gig {
 # dl: download
 function gdl {
     param ( $url, $mode )
-    Switch ( $mode ) {
-        a { git clone $url }
+    switch ( $mode ) {
+        -a { git clone $url }
         Default { git clone --depth 1 $url }
     }
 }
@@ -56,11 +56,11 @@ function gf { git filter-repo $args }
 
 # clean files
 function gcl {
-    Switch ( $args[1] ) {
-        s { git filter-repo --strip-blobs-bigger-than $args[2] }
-        i { git filter-repo --strip-blobs-with-ids $args[2] }
-        p { git filter-repo --invert-paths --path-glob $args[2] }
-        a {
+    switch ( $args[1] ) {
+        -s { git filter-repo --strip-blobs-bigger-than $args[2] }
+        -i { git filter-repo --strip-blobs-with-ids $args[2] }
+        -p { git filter-repo --invert-paths --path-glob $args[2] }
+        -a {
             git checkout --orphan new
             git add -A
             git commit -am "🎉 New Start"

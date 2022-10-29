@@ -18,14 +18,14 @@ function font { param ( $the_font ) $env:Font = $the_font }
 function mdto {
     param ( $file, $format, $the_font)
     $name = (Get-Item $file).BaseName
-    Switch ( $format ) {
-        pdf {
+    switch ( $format ) {
+        --pdf {
             pandoc $file -o ($name + "." + $format) --pdf-engine=xelatex -V CJKmainfont=$the_font
         }
-        html {
+        --html {
             pandoc $file -o ($name + "." + $format) --standalone --mathjax --shift-heading-level-by=-1
         }
-        docx {
+        --docx {
             pandoc $file -o ($name + "." + $format)
         }
         default {

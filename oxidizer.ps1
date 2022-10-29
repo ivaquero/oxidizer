@@ -31,7 +31,6 @@ $Global:Oxygen.oxprs = "$env:OXIDIZER\pwsh-plugins\ox-rust.ps1"
 $Global:Oxygen.oxptl = "$env:OXIDIZER\pwsh-plugins\ox-texlive.ps1"
 $Global:Oxygen.oxput = "$env:OXIDIZER\pwsh-plugins\ox-utils.ps1"
 $Global:Oxygen.oxpvs = "$env:OXIDIZER\pwsh-plugins\ox-vscode.ps1"
-$Global:Oxygen.oxpwg = "$env:OXIDIZER\pwsh-plugins\ox-widgets.ps1"
 
 ##########################################################
 # System configuration files

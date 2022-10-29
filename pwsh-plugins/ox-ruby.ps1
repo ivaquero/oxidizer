@@ -11,7 +11,7 @@ function rbis { gem install }
 function rbus { gem uninstall }
 function rbup { gem update }
 
-function rbls() {
+function rbls {
     if ([string]::IsNullOrEmpty($the_env)) { gem list --local }
     else { gem list }
 }

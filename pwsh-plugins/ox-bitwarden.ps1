@@ -5,10 +5,10 @@
 function bwsc {
     param ( $cmd, $obj )
     switch ( $cmd ) {
-        h { bw get --help }
-        u { bw get username $obj }
-        p { bw get password $obj }
-        n { bw get notes $obj }
+        -h { bw get --help }
+        -u { bw get username $obj }
+        -p { bw get password $obj }
+        -n { bw get notes $obj }
         Default { bw get item $obj --pretty }
     }
 }
@@ -16,7 +16,7 @@ function bwsc {
 function bwe {
     param ( $cmd, $obj )
     switch ( $cmd ) {
-        f { bw edit folder $obj }
+        -f { bw edit folder $obj }
         Default { bw edit item $obj }
     }
 }
@@ -24,7 +24,7 @@ function bwe {
 function bwrm {
     param ( $cmd, $obj )
     switch ( $cmd ) {
-        f { bw delete folder $obj }
+        -f { bw delete folder $obj }
         Default { bw delete item $obj }
     }
 }

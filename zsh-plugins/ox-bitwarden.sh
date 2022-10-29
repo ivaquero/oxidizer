@@ -5,16 +5,16 @@
 # $1=object
 bwsc() {
     case $2 in
-    h)
+    -h)
         bw get --help
         ;;
-    u)
+    -u)
         bw get username $1
         ;;
-    p)
+    -p)
         bw get password $1
         ;;
-    n)
+    -n)
         bw get notes $1
         ;;
     *)
@@ -26,7 +26,7 @@ bwsc() {
 # $1=object
 bwe() {
     case $2 in
-    f)
+    -f)
         bw edit folder $1
         ;;
     *)
@@ -38,7 +38,7 @@ bwe() {
 # $1=object
 bwrm() {
     case $2 in
-    f)
+    -f)
         bw delete folder $1
         ;;
     *)

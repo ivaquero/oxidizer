@@ -17,13 +17,22 @@ function cn { conan $args }
 function cnh { conan help }
 function cnis { conan install $args }
 function cnus { conan remove $args }
-function cnsc { conan search $args }
-function cnscr { conan search -r=conancenter $args }
+function cnsc {
+    switch ( $pkg ) {
+        -r { conan search -r=conancenter $pkg }
+        Default { conan search $pkg }
+    }
+}
+function cnsc {
+    switch ( $pkg ) {
+        -r { conan remote list }
+    }
+}
 function cnif { conan inspect $args }
 function cndl { conan download $args }
+
 # specific
 function cncf { conan config }
-function cnrmls { conan remote list }
 
 ##########################################################
 # project

@@ -68,22 +68,22 @@ alias crdp="mamba repoquery whoneeds"
 # clean packages
 ccl() {
     case $1 in
-    l)
+    -l)
         conda clean --logfiles
         ;;
-    i)
+    -i)
         conda clean --index-cache
         ;;
-    p)
+    -p)
         conda clean --packages
         ;;
-    t)
+    -t)
         conda clean --tarballs
         ;;
-    f)
+    -f)
         conda clean --force-pkgs-dirs
         ;;
-    a)
+    -a)
         conda clean --all
         ;;
     *)

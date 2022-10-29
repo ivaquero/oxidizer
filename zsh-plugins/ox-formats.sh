@@ -19,13 +19,13 @@ chft() {
 # $1: input file, $2: output format, $3: font
 mdto() {
     case $2 in
-    pdf)
+    --pdf)
         pandoc $1 -o ${1%%.*}.$2 --pdf-engine=xelatex -V CJKmainfont=$Font
         ;;
-    html)
+    --html)
         pandoc $1 -o ${1%%.*}.$2 --standalone --mathjax --shift-heading-level-by=-1
         ;;
-    docx)
+    --docx)
         pandoc $1 -o ${1%%.*}.$2
         ;;
     *)

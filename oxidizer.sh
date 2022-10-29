@@ -33,7 +33,6 @@ Oxygen[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
 Oxygen[oxptl]=$OXIDIZER/zsh-plugins/ox-texlive.sh
 Oxygen[oxput]=$OXIDIZER/zsh-plugins/ox-utils.sh
 Oxygen[oxpvs]=$OXIDIZER/zsh-plugins/ox-vscode.sh
-Oxygen[oxpwg]=$OXIDIZER/zsh-plugins/ox-widgets.sh
 Oxygen[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
 
 ##########################################################

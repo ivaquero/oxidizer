@@ -18,7 +18,7 @@ if ( !(Test-Path "$env:BACKUP\rust") ) {
 ##########################################################
 
 function rsmr {
-    param ( $mirror)
+    param ( $mirror )
     $env:RUSTUP_DIST_SERVER = "https://$Global:Rust_Mirror.$mirror/rust-static"
     $env:RUSTUP_UPDATE_ROOT = "https://$Global:Rust_Mirror.$mirror/rust-static/rustup"
 }

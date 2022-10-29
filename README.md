@@ -134,9 +134,8 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 | 18  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |            |
 | 19  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |            |
 | 20  |                      Formats                      |  🕒   |  🕒   |   🕒    |            |
-| 21  |                      Widgets                      |  🕒   |  🕒   |   🕒    |            |
-| 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |            |
-| 23  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |            |
+| 21  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |            |
+| 22  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |            |
 
 ✅: complete functionality
 🚧: partial functionality
@@ -447,14 +446,6 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 
 ```bash
 mdto [filename] [format]
-```
-
-### 9.2. Widgets
-
-- [x] Weather report (using wttr/in)
-
-```bash
-wtr [location]
 ```
 
 ## 10. System Management

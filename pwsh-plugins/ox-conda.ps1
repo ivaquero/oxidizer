@@ -77,13 +77,13 @@ function crdp { mamba repoquery whoneeds $pkg }
 # clean packages
 function ccl {
     param ( $cmd )
-    Switch ($cmd) {
-        l { conda clean --logfiles }
-        i { conda clean --index-cache }
-        p { conda clean --packages }
-        t { conda clean --tarballs }
-        f { conda clean --force-pkgs-dirs }
-        a { conda clean --all }
+    switch ($cmd) {
+        -l { conda clean --logfiles }
+        -i { conda clean --index-cache }
+        -p { conda clean --packages }
+        -t { conda clean --tarballs }
+        -f { conda clean --force-pkgs-dirs }
+        -a { conda clean --all }
         Default {
             conda clean --packages
             conda clean --tarballs

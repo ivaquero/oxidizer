@@ -16,13 +16,31 @@ Oxide[bkcnr]=$BACKUP/conan/remote.json
 alias cnh="conan help"
 alias cnis="conan install"
 alias cnus="conan remove"
-alias cnsc="conan search"
-alias cnscr="conan search -r=conancenter"
+
+cnsc() {
+    case $1 in
+    -r)
+        conan search -r=conancenter $1
+        ;;
+    *)
+        conan search
+        ;;
+    esac
+}
+
+cnls() {
+    case $1 in
+    -r)
+        conan remote list
+        ;;
+    esac
+}
+
 alias cnif="conan inspect"
 alias cndl="conan download"
+
 # specific
 alias cncf="conan config"
-alias cnrmls="conan remote list"
 
 ##########################################################
 # project
