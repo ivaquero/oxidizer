@@ -83,10 +83,10 @@ declare -a UP_OBJ
 export UP_OBJ=(brew)
 
 # backup file path
+Oxide[bkox]=$BACKUP/shell/custom.sh
 Oxide[bkb]=$BACKUP/install/Brewfile
 Oxide[bkzs]=$BACKUP/shell/.zshrc
 Oxide[bkbs]=$BACKUP/shell/.bash_profile
-Oxide[bkox]=$BACKUP/shell/custom.sh
 # Oxide[bkwz]=$BACKUP/terminal/wezterm.lua
 # Oxide[bkvi]=$BACKUP/.vimrc
 

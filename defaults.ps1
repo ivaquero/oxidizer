@@ -70,10 +70,10 @@ $Global:UP_OBJ = @("scoop")
 # backup file path
 $env:BACKUP = "$HOME\Documents\backup"
 
+$Global:Oxide.bkox = "$env:BACKUP\shell\custom.ps1"
 $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
 $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
-$Global:Oxide.bkox = "$env:BACKUP\shell\custom.ps1"
 # $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
 
 ##########################################################
