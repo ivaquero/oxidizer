@@ -18,13 +18,13 @@ function cnh { conan help }
 function cnis { conan install $args }
 function cnus { conan remove $args }
 function cnsc {
-    switch ( $pkg ) {
+    Switch ( $pkg ) {
         -r { conan search -r=conancenter $pkg }
         Default { conan search $pkg }
     }
 }
 function cnsc {
-    switch ( $pkg ) {
+    Switch ( $pkg ) {
         -r { conan remote list }
     }
 }

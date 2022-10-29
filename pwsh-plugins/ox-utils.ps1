@@ -121,7 +121,7 @@ function bf {
     else {
         $cmd = "cat"
     }
-    switch ( $file ) {
+    Switch ( $file ) {
         { $file -match "ox\w{1,}" } { . $cmd $Global:Oxygen.$file }
         { $file -match "bk\w{1,}" } { . $cmd $Global:Oxide.$file }
         Default { . $cmd $Global:Element.$file }
@@ -134,7 +134,7 @@ function ef {
     if ( $mode -eq "-t" ) { $cmd = $env:EDITOR_T }
     else { $cmd = $env:EDITOR }
 
-    switch ( $file ) {
+    Switch ( $file ) {
         { $file -match "ox[a-z]{1,}" } { . $cmd $Global:Oxygen.$file }
         { $file -match "bk[a-z]{1,}" } { . $cmd $Global:Oxide.$file }
         Default { . $cmd $Global:Element.$file }

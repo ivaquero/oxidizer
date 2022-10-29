@@ -18,7 +18,7 @@ function font { param ( $the_font ) $env:Font = $the_font }
 function mdto {
     param ( $file, $format, $the_font)
     $name = (Get-Item $file).BaseName
-    switch ( $format ) {
+    Switch ( $format ) {
         --pdf {
             pandoc $file -o ($name + "." + $format) --pdf-engine=xelatex -V CJKmainfont=$the_font
         }

@@ -141,14 +141,13 @@ function du { dust $args }
 # shortcuts
 function e { Write-Output $args }
 function rr { Remove-Item -Recurse $args }
-function c { clear }
+function c { Clear-Host }
 
 # tools
 function z. { z .. }
 function z.. { z ..\.. }
 function zz { z - }
 function hf { hyperfine $args }
-function ar { aria2c --dir $env:DOWNLOAD $args }
 function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
 
 ##########################################################
@@ -160,18 +159,18 @@ function weaher {
     param ( $loc, $mode )
     case $mode in
     -a
-    { curl wttr.in/$loc }
+    { Invoke-WebRequest wttr.in/$loc }
     -d
-    { curl v2d.wttr.in/$loc }
+    { Invoke-WebRequest v2d.wttr.in/$loc }
     -n
-    { curl v2d.wttr.in/$loc }
+    { Invoke-WebRequest v2d.wttr.in/$loc }
     -g
-    { curl v3.wttr.in/$loc }
+    { Invoke-WebRequest v3.wttr.in/$loc }
     -h {
         Write-Output "param 1:`n city: new+york`n airport(codes): muc `n resort: ~Eiffel+Tower`n ip address: @github.com`n help: :help"
         Write-Output "param 2:`n a: all`n d: day `n n: night`n g: {geographical`n f: format"
     }
-    default { curl v2.wttr.in/$loc }
+    default { Invoke-WebRequest v2.wttr.in/$loc }
 }
 
 ##########################################################

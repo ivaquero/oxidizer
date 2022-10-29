@@ -42,7 +42,7 @@ function gig {
 # dl: download
 function gdl {
     param ( $url, $mode )
-    switch ( $mode ) {
+    Switch ( $mode ) {
         -a { git clone $url }
         Default { git clone --depth 1 $url }
     }
@@ -56,7 +56,7 @@ function gf { git filter-repo $args }
 
 # clean files
 function gcl {
-    switch ( $args[1] ) {
+    Switch ( $args[1] ) {
         -s { git filter-repo --strip-blobs-bigger-than $args[2] }
         -i { git filter-repo --strip-blobs-with-ids $args[2] }
         -p { git filter-repo --invert-paths --path-glob $args[2] }
