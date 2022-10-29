@@ -121,24 +121,6 @@ ef() {
 }
 
 ##########################################################
-# Change Defaults
-##########################################################
-
-# change editor
-# $1: name
-ched() {
-    sd "EDITOR=.*" "EDITOR=$1" $Element[ox]
-    case $SHELL in
-    *zsh)
-        . ${Element[zs]}
-        ;;
-    *bash)
-        . ${Element[bs]}
-        ;;
-    esac
-}
-
-##########################################################
 # Proxy Utils
 ##########################################################
 
@@ -153,4 +135,4 @@ pxls() {
     echo ${https_proxy} ${http_proxy} ${all_proxy}
 }
 
-alias upx="unset https_proxy; unset http_proxy; unset all_proxy"
+alias pxq="unset https_proxy; unset http_proxy; unset all_proxy"

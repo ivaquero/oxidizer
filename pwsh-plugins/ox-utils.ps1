@@ -142,16 +142,6 @@ function ef {
 }
 
 ##########################################################
-# Change defaults
-##########################################################
-
-# change editor
-function ched {
-    param ( $editor )
-    sd "EDITOR = .*" "EDITOR = $editor" $Global:Element.ox
-}
-
-##########################################################
 # Proxy utils
 ##########################################################
 
@@ -163,4 +153,10 @@ function px {
     $env:all_proxy = "socks5://127.0.0.1:$port"
 }
 
-function upx { $env:https_proxy = ''; $env:http_proxy = ''; $env:all_proxy = '' }
+function pxls {
+    Write-Output $env:https_proxy
+    Write-Output $env:http_proxy
+    Write-Output $env:all_proxy
+}
+
+function pxq { $env:https_proxy = ''; $env:http_proxy = ''; $env:all_proxy = '' }

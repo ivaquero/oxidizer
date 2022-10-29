@@ -8,7 +8,21 @@
 # basic settings
 ##########################################################
 
-# default editor, can be changed by function `ched()`
+# change editor
+# $1: name
+che() {
+    sd "EDITOR=.*" "EDITOR=\"$1\"" $Element[ox]
+    case $SHELL in
+    *zsh)
+        . ${Element[zs]}
+        ;;
+    *bash)
+        . ${Element[bs]}
+        ;;
+    esac
+}
+
+# default editor, can be changed by function `che()`
 export EDITOR="code"
 # terminal editor
 export EDITOR_T="vi"

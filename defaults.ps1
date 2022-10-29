@@ -8,7 +8,13 @@
 # basic settings
 ##########################################################
 
-# default editor, can be changed by function `ched()`
+# change editor
+function che {
+    param ( $editor )
+    sd "EDITOR = .*" "EDITOR = \"$editor\"" $Global:Element.ox
+}
+
+# default editor, can be changed by function `che()`
 $env:EDITOR = "code"
 # terminal editor
 $env:EDITOR_T = "vi"
