@@ -10,7 +10,6 @@ declare -A Oxygen
 # defaults
 Oxygen[oxd]=$OXIDIZER/defaults.sh
 Oxygen[oxwz]=$OXIDIZER/defaults/wezterm.lua
-Oxygen[oxar]=$OXIDIZER/defaults/aria2.conf
 # plugins
 Oxygen[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
 Oxygen[oxpa]=$OXIDIZER/zsh-plugins/ox-apt.sh
@@ -45,11 +44,8 @@ declare -A Element
 
 Element[ox]=$OXIDIZER/custom.sh
 Element[wz]=$HOME/.config/wezterm/wezterm.lua
-Element[ar]=$HOME/.aria2/aria2.conf
-Element[vi]=$HOME/.vimrc
 Element[zs]=$HOME/.zshrc
 Element[bs]=$HOME/.bash_profile
-Element[al]=$HOME/.config/alacritty/alacritty.yml
 
 declare -A Oxide
 

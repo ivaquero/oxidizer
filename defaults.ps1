@@ -1,11 +1,12 @@
+# conventions
+#
+# uppercase for globvariables
+# lowercase for locvariables
+# titlecase for arrays
+
 ##########################################################
 # basic settings
 ##########################################################
-
-# donwload path: works for brew-aria2 function
-$env:DOWNLOAD = "$HOME\Documents"
-# backup folder
-$env:BACKUP = "$env:DOWNLOAD\backup"
 
 # default editor, can be changed by function `ched()`
 $env:EDITOR = "code"
@@ -63,13 +64,13 @@ $Global:BACK_OBJ = @("scoop")
 $Global:UP_OBJ = @("scoop")
 
 # backup file path
+$env:BACKUP = "$HOME\Documents\backup"
+
 $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
 $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 $Global:Oxide.bkox = "$env:BACKUP\shell\custom.ps1"
 # $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
-# $Global:Oxide.bkar = "$env:BACKUP\aria2.conf"
-# $Global:Oxide.bkvi = "$env:BACKUP\.vimrc"
 
 ##########################################################
 # select export and import configurations
@@ -91,11 +92,9 @@ $Global:EPF_OBJ = @("ox", "vs", "vsk", "vss_")
 
 # file to be copied from oxidizer\defaults
 # wz: wezterm
-# ar: aria2
 # pu: pueue
 # pua: pueue_aliases
-$Global:IIF_OBJ = @("ar")
-# $Global:IIF_OBJ = @("ar","wz")
+$Global:IIF_OBJ = @("pu", "pua")
 
 ##########################################################
 # register conda environments
@@ -151,6 +150,10 @@ function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
 ##########################################################
 # startup & daily commands
 ##########################################################
+
+
+# donwload path
+$env:DOWNLOAD = "$HOME\Download"
 
 $Global:STARTUP = 1
 

@@ -4,6 +4,7 @@
 
 # oxidizer files
 Oxygen[oxpu]=$OXIDIZER/defaults/pueue.yml
+Oxygen[oxpua]=$OXIDIZER/defaults/pueue_aliases.yml
 
 # config files
 if [[ $MACOS ]]; then

@@ -8,15 +8,10 @@
 # basic settings
 ##########################################################
 
-# donwload path: works for function `bdl()` that use aria2 to donwload brew casks
-export DOWNLOAD=$HOME/Documents
-# backup folder
-export BACKUP=$DOWNLOAD/backup
-
 # default editor, can be changed by function `ched()`
-export EDITOR=code
+export EDITOR="code"
 # terminal editor
-export EDITOR_T=vi
+export EDITOR_T="vi"
 
 ##########################################################
 # select ox-plugins
@@ -83,7 +78,10 @@ Oxide[bkbs]=$BACKUP/shell/.bash_profile
 Oxide[bkox]=$BACKUP/shell/custom.sh
 # Oxide[bkwz]=$BACKUP/terminal/wezterm.lua
 # Oxide[bkvi]=$BACKUP/.vimrc
-# Oxide[bkar]=$BACKUP/aria2.conf
+
+# system file
+Element[vi]=$HOME/.vimrc
+# Element[al]=$HOME/.config/alacritty/alacritty.yml
 
 ##########################################################
 # select export and import configurations
@@ -99,20 +97,18 @@ Oxide[bkox]=$BACKUP/shell/custom.sh
 # vsk: vscode's keybindings.json
 # vss_: vscode's snippets folder
 declare -a EPF_OBJ
-EPF_OBJ=(ox ar oxp zj)
+EPF_OBJ=(ox)
 
 # files to be import from backup folder
 declare -a IPF_OBJ
-# IPF_OBJ=(ox ar oxp zj)
+IPF_OBJ=(ox)
 
 # file to be copied from oxidizer/defaults
 declare -a IIF_OBJ
 # wz: wezterm
-# ar: aria2
 # pu: pueue
 # pua: pueue_aliases
-IIF_OBJ=(ar)
-# IIF_OBJ=(ar wz)
+IIF_OBJ=(pu pua)
 
 ##########################################################
 # brew configurations
@@ -183,7 +179,6 @@ alias z.="z .."
 alias z..="z ../.."
 alias zz="z -"
 alias hf="hyperfine"
-alias ar="aria2c --dir $DOWNLOAD"
 
 ##########################################################
 # shell

@@ -11,7 +11,6 @@ $Global:Oxygen = @{}
 $Global:Oxygen.oxd = "$env:OXIDIZER\defaults.ps1"
 $Global:Oxygen.oxz = "$env:OXIDIZER\oxidizer.ps1"
 $Global:Oxygen.oxwz = "$env:OXIDIZER\defaults\wezterm.lua"
-$Global:Oxygen.oxar = "$env:OXIDIZER\defaults\aria2.conf"
 # plugins
 $Global:Oxygen.oxps = "$env:OXIDIZER\pwsh-plugins\ox-scoop.ps1"
 $Global:Oxygen.oxpw = "$env:OXIDIZER\pwsh-plugins\ox-windows.ps1"
@@ -42,8 +41,6 @@ $Global:Element = @{}
 
 $Global:Element.ox = "$env:OXIDIZER\custom.ps1"
 $Global:Element.wz = "$env:SCOOP\persist\wezterm\wezterm.lua"
-$Global:Element.ar = "$HOME\.aria2\aria2.conf"
-$Global:Element.vi = "$HOME\.vimrc"
 $Global:Element.ps = $PROFILE
 
 $Global:Oxide = @{}

@@ -3,7 +3,7 @@
 ##########################################################
 
 # oxidizer files
-$Global:Oxygen.oxw = "$env:OXIDIZER\defaults\Wingetfile.json"
+$Global:Oxide.oxw = "$env:BACKUP\install\Wingetfile.json"
 
 function open { param ( $path ) explorer $path }
 

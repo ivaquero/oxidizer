@@ -1,3 +1,5 @@
+using Base: require
+
 # Oxidizer.sh
 
 [![CI](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml)
@@ -177,7 +179,6 @@ The table below lists the informatioin of specific configuration files:
 |    zsh     |  `zs`  |      `.zshrc`       |
 | powershell |  `ps`  |    `Profile.ps1`    |
 |  wezterm   |  `wz`  |    `wezterm.lua`    |
-|   aria2    |  `ar`  |    `aria2.conf`     |
 |   conda    |  `c`   |     `.condarc`      |
 |    git     |  `g`   |    `.gitconfig`     |
 |    git     |  `gi`  |    `.gitignore`     |
@@ -311,7 +312,7 @@ Some of package manager shortcuts are included in corresponding system plugins.
 
 ### 6.1. Homebrew
 
-- [x] Integrated Aria2 to download Homebrew Casks
+- [x] Integrated `aria2` to download Homebrew Casks (require `aria2` indstalled)
 - [x] Enable Homebrew installation by using pre-download installers
 
 - `bis`: brew install
