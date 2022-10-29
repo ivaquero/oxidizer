@@ -67,7 +67,7 @@ $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
 $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 $Global:Oxide.bkox = "$env:BACKUP\shell\custom.ps1"
-# $Global:Oxide.bkwz = "$env:BACKUP\wezterm.lua"
+# $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
 # $Global:Oxide.bkar = "$env:BACKUP\aria2.conf"
 # $Global:Oxide.bkvi = "$env:BACKUP\.vimrc"
 

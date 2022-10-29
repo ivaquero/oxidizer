@@ -2,13 +2,11 @@
 # config
 ##########################################################
 
-# oxidizer files
-Oxygen[oxg]=$OXIDIZER/defaults/.gitconfig
 # config files
 Element[g]=$HOME/.gitconfig
 # backup files
-Oxide[bkg]=$BACKUP/.gitconfig
-Oxide[bkgi]=$BACKUP/.gitignore
+Oxide[bkg]=$BACKUP/git/.gitconfig
+Oxide[bkgi]=$BACKUP/git/.gitignore
 
 export GPG_TTY=$(tty)
 
