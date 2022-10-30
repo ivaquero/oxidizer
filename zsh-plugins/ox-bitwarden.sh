@@ -1,5 +1,19 @@
 ##########################################################
-# main
+# config
+##########################################################
+
+up_bitwarden() {
+    bw import $@
+}
+
+back_bitwarden() {
+    bw export $@
+}
+
+alias bwcf="bw config"
+
+##########################################################
+# query
 ##########################################################
 
 # $1=object
@@ -23,10 +37,23 @@ bwsc() {
     esac
 }
 
+alias bwst="bw status --pretty"
+alias bwh="bw --help"
+
+##########################################################
+# project management
+##########################################################
+
+alias bwpl="bw sync"
+
+##########################################################
+# item management
+##########################################################
+
 # $1=object
 bwe() {
     case $2 in
-    -f)
+    -d)
         bw edit folder $1
         ;;
     *)
@@ -38,7 +65,7 @@ bwe() {
 # $1=object
 bwrm() {
     case $2 in
-    -f)
+    -d)
         bw delete folder $1
         ;;
     *)
@@ -47,6 +74,5 @@ bwrm() {
     esac
 }
 
-alias bwh="bw --help"
-alias bwst="bw status --pretty"
-alias bwsy="bw sync"
+alias bwa="bw create"
+alias bwls="bw list"

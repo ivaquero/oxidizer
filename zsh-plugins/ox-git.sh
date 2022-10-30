@@ -11,27 +11,17 @@ Oxide[bkgi]=$BACKUP/git/.gitignore
 export GPG_TTY=$(tty)
 
 ##########################################################
-# main
+# query
+##########################################################
+
+alias gst="git status"
+alias gcf="git config"
+
+##########################################################
+# project management
 ##########################################################
 
 alias gii="git init"
-alias gdf="git diff"
-alias gpl="git pull"
-alias gps="git push"
-alias gst="git status"
-alias gcm="git commit"
-
-# ui
-alias gui="gitui"
-
-# git add
-ga() {
-    if [ -z $1 ]; then
-        git add .
-    else
-        git add $1
-    fi
-}
 
 gig() {
     git rm -rf --cached .
@@ -39,9 +29,8 @@ gig() {
     git commit -m "🗑 remove all ignored files"
 }
 
-##########################################################
-# branch & download
-##########################################################
+# ui
+alias gui="gitui"
 
 # git clone
 # dl: download
@@ -50,6 +39,24 @@ gdl() {
     -a) git clone $1 ;;
     *) git clone --depth 1 $1 ;;
     esac
+}
+
+##########################################################
+# item management
+##########################################################
+
+alias gdf="git diff"
+alias gpl="git pull"
+alias gps="git push"
+alias gcm="git commit"
+
+# git add
+ga() {
+    if [ -z $1 ]; then
+        git add .
+    else
+        git add $1
+    fi
 }
 
 ##########################################################

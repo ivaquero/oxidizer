@@ -59,7 +59,7 @@ case $SHELL in
     export shell_conf=$HOME/.zshrc
     ;;
 *bash)
-    if [[ $(bash --version | head -n1 | cut -d' ' -f4 | cut -d'.' -f1) ]] <5; then
+    if [[ $(bash --version | head -n1 | cut -d' ' -f4 | cut -d'.' -f1) < 5 ]]; then
         printf "📦 Installing latest Bash...\n"
         brew install bash bash-completion
     fi

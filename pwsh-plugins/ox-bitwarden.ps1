@@ -1,5 +1,12 @@
 ##########################################################
-# main
+# config
+##########################################################
+function up_bitwarden { bw import $args }
+function back_bitwarden { bw export $args }
+function bwcf { bw config $args }
+
+##########################################################
+# query
 ##########################################################
 
 function bwsc {
@@ -12,6 +19,19 @@ function bwsc {
         Default { bw get item $obj --pretty }
     }
 }
+
+function bwst { bw status --pretty }
+function bwh { bw --help }
+
+##########################################################
+# project management
+##########################################################
+
+function bwpl { bw sync }
+
+##########################################################
+# item management
+##########################################################
 
 function bwe {
     param ( $cmd, $obj )
@@ -29,6 +49,5 @@ function bwrm {
     }
 }
 
-function bwsy { bw sync }
-function bwh { bw --help }
-function bwst { bw status --pretty }
+function bwa { bw create $args }
+function bwls { bw list $args }

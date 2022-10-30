@@ -23,7 +23,7 @@ up_conda() {
     if [ -z $1 ]; then
         local conda_env=base
         local conda_file=${Oxide[bkceb]}
-    elif [ ${#1} ] <4; then
+    elif [[ ${#1} < 4 ]]; then
         local conda_env=${Conda_Env[$1]}
         local conda_file=${Oxide[bkce$1]}
     else

@@ -9,34 +9,25 @@ $Global:Oxide.bkg = "$env:BACKUP\git\.gitconfig"
 $Global:Oxide.bkgi = "$env:BACKUP\git\.gitignore"
 
 ##########################################################
-# main
+# query & setting
+##########################################################
+
+function gst { git status $args }
+function gcf { git config $args }
+
+##########################################################
+# project management
 ##########################################################
 
 function gii { git init $args }
-function gdf { git diff $args }
-function gpl { git pull $args }
-function gps { git push $args }
-function gst { git status $args }
-function gcm { git commit $args }
-
-# ui
-function gui { gitui }
-
-# git add
-function ga {
-    if ([string]::IsNullOrEmpty($args)) { git add . }
-    else { git add $args }
-}
-
 function gig {
     git rm -rf --cached .
     git add .
     git commit -m "🗑 remove all ignored files"
 }
 
-##########################################################
-# branch & download
-##########################################################
+# ui
+function gui { gitui }
 
 # git clone
 # dl: download
@@ -46,6 +37,21 @@ function gdl {
         -a { git clone $url }
         Default { git clone --depth 1 $url }
     }
+}
+
+##########################################################
+# item management
+##########################################################
+
+function gdf { git diff $args }
+function gpl { git pull $args }
+function gps { git push $args }
+function gcm { git commit $args }
+
+# git add
+function ga {
+    if ([string]::IsNullOrEmpty($args)) { git add . }
+    else { git add $args }
 }
 
 ##########################################################
