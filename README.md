@@ -119,7 +119,7 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 |  3  |                      System                       |  ✅¹  |  ✅   |   ✅    |     ✅     |
 |  4  |                      Utility                      |  ✅   |  ✅   |   ✅    |     ✅     |
 |  5  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |     ✅     |
-|  6  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |     ✅    |            |
+|  6  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |            |
 |  7  |                      Formats                      |  🕒   |  🕒   |   🕒    |            |
 |  8  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |            |
 |  9  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |            |
@@ -145,8 +145,6 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 > ¹: Currently, on Linux only provide with Debian-family shortcuts.
 
 Oxidizer uses Homebrew or Scoop to manage packages and softwares to bypass the requirement of administrator privilege.
-
-For Linux users, apart from `flatpak`, you can also try to add Homebrew tap [Hombrew-Linux](https://github.com/ivaquero/homebrew-linux/) to install GUI Applications.
 
 ## 4. File Management
 
@@ -415,17 +413,17 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 ## 8. Project & Software Management
 
 |       | action | git [g] | docker<br>image [di] | podman<br>image [pi] | bitwarden [bw] |
-|:-----:|:------:|:-------:|:--------------------:|:--------------------:|:--------------:|
-| `*ii` |  init  |    ✅   |                      |                      |                |
-| `*df` |  diff  |    ✅   |                      |          ✅          |                |
-| `*cl` |  clean |    ✅   |                      |          ✅          |                |
-| `*ls` |  list  |         |          ✅          |          ✅          |         ✅       |
-| `*st` | status |    ✅   |                      |                      |                |
-|  `*a` |   add  |    ✅   |                      |                      |       ✅       |
+| :---: | :----: | :-----: | :------------------: | :------------------: | :------------: |
+| `*ii` |  init  |   ✅    |                      |                      |                |
+| `*df` |  diff  |   ✅    |                      |          ✅          |                |
+| `*cl` | clean  |   ✅    |                      |          ✅          |                |
+| `*ls` |  list  |         |          ✅          |          ✅          |       ✅       |
+| `*st` | status |   ✅    |                      |                      |                |
+| `*a`  |  add   |   ✅    |                      |                      |       ✅       |
 | `*rm` | remove |         |          ✅          |          ✅          |       ✅       |
-| `*pl` |  pull  |    ✅   |          ✅          |          ✅          |          ✅      |
-| `*ps` |  push  |    ✅   |          ✅          |          ✅          |                |
-|   `*cf`    |  config      |   ✅      |                      |                      |             ✅   |
+| `*pl` |  pull  |   ✅    |          ✅          |          ✅          |       ✅       |
+| `*ps` |  push  |   ✅    |          ✅          |          ✅          |                |
+| `*cf` | config |   ✅    |                      |                      |       ✅       |
 
 ### 8.1. Git
 
