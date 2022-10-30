@@ -251,9 +251,23 @@ weather() {
 # startup commands
 ##########################################################
 
+# donwload path: works for function `bdl()`
+export DOWNLOAD=$HOME/Download
+
 export STARTUP=1
 
 startup() {
     # start directory
     cd $HOME
+}
+
+# pueue demo
+upp() {
+    pueue group add up_all
+    pueue parallel 3 -g up_all
+    pueue add -g up_all 'brew update && brew upgrade'
+    pueue add -g up_all 'conda update --all --yes'
+    pueue add -g up_all 'tlmgr update --all'
+    # or use predefined items in pueue_aliase
+    # pueue add -g up_all 'tlup'
 }

@@ -9,7 +9,7 @@ Oxygen[oxpua]=$OXIDIZER/defaults/pueue_aliases.yml
 # config files
 if [[ $MACOS ]]; then
     Element[pu]=$HOME/Library/Preferences/pueue/pueue.yml
-    Element[pual]=$HOME/Library/Preferences/pueue/pueue_aliases.yml
+    Element[pua]=$HOME/Library/Preferences/pueue/pueue_aliases.yml
 fi
 
 # backup files

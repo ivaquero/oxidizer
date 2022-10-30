@@ -177,11 +177,21 @@ function weaher {
 # startup & daily commands
 ##########################################################
 
-
 # donwload path
 $env:DOWNLOAD = "$HOME\Download"
 
 $Global:STARTUP = 1
 
 function startup {
+}
+
+# pueue demo
+function upp {
+    pueue group add up_all
+    pueue parallel 3 -g up_all
+    pueue add -g up_all 'scoop update *; scoop upgrade'
+    pueue add -g up_all 'conda update --all --yes'
+    pueue add -g up_all 'tlmgr update --all'
+    # or use predefined items in pueue_aliase
+    # pueue add -g up_all 'tlup'
 }

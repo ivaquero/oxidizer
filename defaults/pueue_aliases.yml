@@ -1,5 +1,5 @@
-bups: 'brew update'
-bup: 'brew upgrade'
+bup: 'brew update && brew upgrade'
+sup: 'scoop update *; scoop update'
 cup: 'conda update --all --yes'
 jlup: 'julia --eval "using Pkg; Pkg.update()"'
 nupg: 'npm update -g'
