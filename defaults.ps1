@@ -103,6 +103,25 @@ $Global:EPF_OBJ = @('ox', 'vs', 'vsk', 'vss_')
 $Global:IIF_OBJ = @('pu', 'pua')
 
 ##########################################################
+# pueue settings
+##########################################################
+
+# backup files
+$Global:Oxide.bkpu = "$env:BACKUP\pueue\pueue.yml"
+$Global:Oxide.bkpua = "$env:BACKUP\pueue\pueue_aliases.yml"
+
+# pueue demo
+function upp {
+    pueue group add up_all
+    pueue parallel 3 -g up_all
+    pueue add -g up_all 'scoop update *; scoop upgrade'
+    pueue add -g up_all 'conda update --all --yes'
+    pueue add -g up_all 'tlmgr update --all'
+    # or use predefined items in pueue_aliase
+    # pueue add -g up_all 'tlup'
+}
+
+##########################################################
 # conda settings
 ##########################################################
 
@@ -120,6 +139,14 @@ $Global:Conda_Env.b = 'base'
 ##########################################################
 # rust settings
 ##########################################################
+
+# if ( !(Test-Path "$env:BACKUP\rust") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\rust"
+# }
+
+# # backup files
+# $Global:Oxide.bkcg = "$env:BACKUP\rust\env.ps1"
+# $Global:Oxide.bkcg_ = "$env:BACKUP\rust"
 
 # # rust mirrors for faster download, use `rsmr` to use
 # $Global:Rust_Mirror = @{}
@@ -205,13 +232,3 @@ $Global:STARTUP = 1
 function startup {
 }
 
-# pueue demo
-function upp {
-    pueue group add up_all
-    pueue parallel 3 -g up_all
-    pueue add -g up_all 'scoop update *; scoop upgrade'
-    pueue add -g up_all 'conda update --all --yes'
-    pueue add -g up_all 'tlmgr update --all'
-    # or use predefined items in pueue_aliase
-    # pueue add -g up_all 'tlup'
-}

@@ -5,13 +5,6 @@
 # config files
 $Global:Element.cg = "$HOME\.cargo\env"
 $Global:Element.cg_ = "$HOME\.cargo"
-# backup files
-$Global:Oxide.bkcg = "$env:BACKUP\rust\env.ps1"
-$Global:Oxide.bkcg_ = "$env:BACKUP\rust"
-
-if ( !(Test-Path "$env:BACKUP\rust") ) {
-    New-Item -ItemType Directory -Force -Path "$env:BACKUP\rust"
-}
 
 ##########################################################
 # mirrors

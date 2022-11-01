@@ -6,14 +6,6 @@
 Element[cg]=$HOME/.cargo/env
 Element[cg_]=$HOME/.cargo
 
-# backup files
-Oxide[bkcg]=$BACKUP/rust/env.sh
-Oxide[bkcg_]=$BACKUP/rust
-
-if [ ! -d $BACKUP/rust ]; then
-    mkdir -p $BACKUP/rust
-fi
-
 ##########################################################
 # mirrors
 ##########################################################

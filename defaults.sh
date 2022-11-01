@@ -144,6 +144,25 @@ Brew_Service[pu]="pueue"
 Brew_Service[mys]="mysql"
 
 ##########################################################
+# pueue settings
+##########################################################
+
+# backup files
+Oxide[bkpu]=$BACKUP/pueue/pueue.yml
+Oxide[bkpua]=$BACKUP/pueue/pueue_aliases.yml
+
+# pueue demo
+upp() {
+    pueue group add up_all
+    pueue parallel 3 -g up_all
+    pueue add -g up_all 'brew update && brew upgrade'
+    pueue add -g up_all 'conda update --all --yes'
+    pueue add -g up_all 'tlmgr update --all'
+    # or use predefined items in pueue_aliase
+    # pueue add -g up_all 'tlup'
+}
+
+##########################################################
 # conda settings
 ##########################################################
 
@@ -160,6 +179,14 @@ Conda_Env[b]="base"
 ##########################################################
 # rust settings
 ##########################################################
+
+# if [ ! -d $BACKUP/rust ]; then
+#     mkdir -p $BACKUP/rust
+# fi
+
+# # backup files
+# Oxide[bkcg]=$BACKUP/rust/env.sh
+# Oxide[bkcg_]=$BACKUP/rust
 
 # rust mirrors for faster download, use `rsmr` to use
 # declare -A Rust_Mirror
@@ -280,15 +307,4 @@ export STARTUP=1
 startup() {
     # start directory
     cd $HOME
-}
-
-# pueue demo
-upp() {
-    pueue group add up_all
-    pueue parallel 3 -g up_all
-    pueue add -g up_all 'brew update && brew upgrade'
-    pueue add -g up_all 'conda update --all --yes'
-    pueue add -g up_all 'tlmgr update --all'
-    # or use predefined items in pueue_aliase
-    # pueue add -g up_all 'tlup'
 }

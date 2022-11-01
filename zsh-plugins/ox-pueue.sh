@@ -12,10 +12,6 @@ if [[ $MACOS ]]; then
     Element[pua]=$HOME/Library/Preferences/pueue/pueue_aliases.yml
 fi
 
-# backup files
-Oxide[bkpu]=$BACKUP/pueue/pueue.yml
-Oxide[bkpua]=$BACKUP/pueue/pueue_aliases.yml
-
 ##########################################################
 # management
 ##########################################################

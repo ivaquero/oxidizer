@@ -8,9 +8,6 @@ $Global:Oxygen.oxpua = "$env:OXIDIZER\defaults\pueue_aliases.yml"
 # config files
 $Global:Element.pu = "$env:APPDATA\pueue\pueue.yml"
 $Global:Element.pua = "$env:APPDATA\Preferences\pueue\pueue_aliases.yml"
-# backup files
-$Global:Oxide.bkpu = "$env:BACKUP\pueue\pueue.yml"
-$Global:Oxide.bkpua = "$env:BACKUP\pueue\pueue_aliases.yml"
 
 ##########################################################
 # management
