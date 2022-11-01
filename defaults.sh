@@ -100,7 +100,7 @@ Element[vi]=$HOME/.vimrc
 # Element[al]=$HOME/.config/alacritty/alacritty.yml
 
 ##########################################################
-# select export and import configurations
+# select export and import settings
 ##########################################################
 
 # files to be exported to backup folder
@@ -127,7 +127,7 @@ declare -a IIF_OBJ
 IIF_OBJ=(pu pua)
 
 ##########################################################
-# brew configurations
+# brew settings
 ##########################################################
 
 export HOMEBREW_NO_AUTO_UPDATE=true
@@ -145,18 +145,21 @@ Brew_Service[pu]="pueue"
 Brew_Service[mys]="mysql"
 
 ##########################################################
-# register conda environments
+# conda settings
 ##########################################################
+
+# backup files
+Oxide[bkc]=$BACKUP/conda/.condarc
 
 # predefined conda environments
 # set the length of key <= 3
 declare -A Conda_Env
+
 Conda_Env[b]="base"
 # conda env stats with bkce, and should be consistent with Conda_Env
-# Oxide[bkceb]=$BACKUP/conda/conda-base.txt
 
 ##########################################################
-# rust configurations
+# rust settings
 ##########################################################
 
 # rust mirrors for faster download, use `rsmr` to use
@@ -165,7 +168,7 @@ Conda_Env[b]="base"
 # Rust_Mirror[zk]="mirrors.ustc.edu.cn"
 
 ##########################################################
-# podman configurations
+# podman settings
 ##########################################################
 
 ##########################################################

@@ -7,14 +7,10 @@ $Global:Oxygen.oxc = "$env:OXIDIZER\defaults\.condarc"
 $Global:Oxygen.oxce = "$env:OXIDIZER\defaults\conda-base.txt"
 # config files
 $Global:Element.c = "$HOME\.condarc"
-# backup files
-$Global:Oxide.bkc = "$env:BACKUP\conda\.condarc"
-
-$Global:Conda_Env.b = "base"
 
 function init_conda {
-    Write-Output "Initialize Conda by Oxidizer configuration"
-    $pkgs = cat $Global:Oxygen.oxce | sd "`n" " "
+    Write-Output 'Initialize Conda by Oxidizer configuration'
+    $pkgs = cat $Global:Oxygen.oxce | sd "`n" ' '
     Write-Output "Installing $pkgs"
     Invoke-Expression "mamba install $pkgs"
 }
@@ -22,7 +18,7 @@ function init_conda {
 function up_conda {
     param ( $the_env, $the_file )
     if ([string]::IsNullOrEmpty( $the_env )) {
-        $cenv = "base"
+        $cenv = 'base'
         $conda_file = "$Global:Oxide.bkceb"
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
@@ -35,7 +31,7 @@ function up_conda {
     }
 
     Write-Output "Update Conda Env $cenv by $conda_file"
-    $pkg = cat $conda_file | sd "`n" " "
+    $pkg = cat $conda_file | sd "`n" ' '
     Write-Output "Installing $pkg"
     Invoke-Expression "mamba install $pkgs"
 }
@@ -43,7 +39,7 @@ function up_conda {
 function back_conda {
     param ( $the_env, $the_file )
     if ([string]::IsNullOrEmpty( $the_env )) {
-        $cenv = "base"
+        $cenv = 'base'
         $conda_file = "$Global:Oxide.bkceb"
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
@@ -57,7 +53,7 @@ function back_conda {
 
     Write-Output "Backup Conda Env $cenv to $conda_file"
     $pkg = $(conda tree -n $cenv leaves)
-    $pkg.Replace("[',\[\]]", "") | sd " " "`n" | Out-File -FilePath "$conda_file"
+    $pkg.Replace("[',\[\]]", '') | sd ' ' "`n" | Out-File -FilePath "$conda_file"
 }
 
 ##########################################################
@@ -137,11 +133,11 @@ function clv {
 
 function cmt {
     param ( $the_env )
-    $num_total = (cls $the_env | Measure-Object -Line).Line
+    $num_total = (Clear-Host $the_env | Measure-Object -Line).Line
     Write-Output "total: $num_total"
-    $num_immature = (cls $the_env | rg "\s0\.\d" | Measure-Object -Line).Line
+    $num_immature = (Clear-Host $the_env | rg '\s0\.\d' | Measure-Object -Line).Line
     $ratio = $num_immature / $num_total * 100
-    $mature_rate = "{0:N0}" -f $(100 - $ratio)
+    $mature_rate = '{0:N0}' -f $(100 - $ratio)
     Write-Output "mature rate: $mature_rate %"
 }
 
@@ -219,7 +215,7 @@ function ceep {
 # rename environment
 function cern {
     param ( $old, $new )
-    if ( $old.contains("\") ) { conda rename --prefix $old $new }
+    if ( $old.contains('\') ) { conda rename --prefix $old $new }
     else { conda rename --name $old $new }
 }
 function cels { conda env list }

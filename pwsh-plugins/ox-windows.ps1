@@ -2,9 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
-$Global:Oxide.oxw = "$env:BACKUP\install\Wingetfile.json"
-
 function open { param ( $path ) explorer $path }
 
 ##########################################################

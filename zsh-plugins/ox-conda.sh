@@ -7,10 +7,6 @@ Oxygen[oxc]=$OXIDIZER/defaults/.condarc
 Oxygen[oxce]=$OXIDIZER/defaults/conda-base.txt
 # config files
 Element[c]=$HOME/.condarc
-# backup files
-Oxide[bkc]=$BACKUP/conda/.condarc
-
-Conda_Env[b]="base"
 
 init_conda() {
     echo "Initialize Conda by Oxidizer configuration"
