@@ -86,9 +86,6 @@ export UP_OBJ=(brew)
 export BACKUP=$HOME/Documents/backup
 
 Oxide[bkox]=$BACKUP/custom.sh
-Oxide[bkg]=$BACKUP/.gitconfig
-
-Oxide[bkb]=$BACKUP/install/Brewfile
 Oxide[bkzs]=$BACKUP/shell/.zshrc
 Oxide[bkbs]=$BACKUP/shell/.bash_profile
 # Oxide[bkwz]=$BACKUP/terminal/wezterm.lua
@@ -126,11 +123,29 @@ declare -a IIF_OBJ
 IIF_OBJ=(pu pua)
 
 ##########################################################
+# git settings
+##########################################################
+
+# backup files
+Oxide[bkg]=$BACKUP/.gitconfig
+Oxide[bkgi]=$BACKUP/git/.gitignore
+
+##########################################################
+# helix settings
+##########################################################
+
+# # backup files
+# Oxide[bkhx]=$BACKUP/helix/config.toml
+# Oxide[bkhxl]=$BACKUP/helix/languages.toml
+
+##########################################################
 # brew settings
 ##########################################################
 
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_ENV_HINTS=true
+
+Oxide[bkb]=$BACKUP/install/Brewfile
 
 # brew mirrors for faster download, use `bmr` to use
 # declare -A Brew_Mirror

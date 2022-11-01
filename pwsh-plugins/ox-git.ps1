@@ -4,8 +4,6 @@
 
 # config files
 $Global:Element.g = "$HOME\.gitconfig"
-# backup files
-$Global:Oxide.bkgi = "$env:BACKUP\git\.gitignore"
 
 ##########################################################
 # query & setting

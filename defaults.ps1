@@ -71,7 +71,6 @@ $Global:UP_OBJ = @('scoop')
 $env:BACKUP = "$HOME\Documents\backup"
 
 $Global:Oxide.bkox = "$env:BACKUP\custom.ps1"
-$Global:Oxide.bkg = "$env:BACKUP\.gitconfig"
 
 $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
@@ -101,6 +100,22 @@ $Global:EPF_OBJ = @('ox', 'vs', 'vsk', 'vss_')
 # pu: pueue
 # pua: pueue_aliases
 $Global:IIF_OBJ = @('pu', 'pua')
+
+##########################################################
+# git settings
+##########################################################
+
+# backup files
+$Global:Oxide.bkg = "$env:BACKUP\.gitconfig"
+$Global:Oxide.bkgi = "$env:BACKUP\git\.gitignore"
+
+##########################################################
+# helix settings
+##########################################################
+
+# # backup files
+# $Global:Oxide.bkhx = "$env:BACKUP\helix\config.toml"
+# $Global:Oxide.bkhxl = "$env:BACKUP\helix\languages.toml"
 
 ##########################################################
 # pueue settings
