@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxs = "$env:OXIDIZER\defaults\Scoopfile.txt"
 
 Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)\modules\scoop-completion" -ErrorAction SilentlyContinue

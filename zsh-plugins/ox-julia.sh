@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxjl]=$OXIDIZER/defaults/julia-pkgs.txt
 # config files
 Element[jl]=$HOME/.julia/config/startup.jl

@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxjl = "$env:OXIDIZER\defaults\julia-pkgs.txt"
 # config files
 $Global:Element.jls = "$HOME\.julia\config\startup.jl"

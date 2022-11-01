@@ -2,10 +2,7 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxtl]=$OXIDIZER/defaults/texlive-pkgs.txt
-# backup files
-Oxide[bktl]=$BACKUP/tex/texlive-pkgs.txt
 
 if [ $(uname -s) = "Darwin" ]; then
     export texlive=/usr/local/texlive

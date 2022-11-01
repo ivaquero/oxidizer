@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxvsx]=$OXIDIZER/defaults/vscode-exts.txt
 # config files
 # use `_` as a suffix flag for directory

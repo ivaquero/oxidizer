@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxc]=$OXIDIZER/defaults/.condarc
 Oxygen[oxce]=$OXIDIZER/defaults/conda-base.txt
 # config files

@@ -2,13 +2,10 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxtl = "$env:OXIDIZER\defaults\texlive-pkgs.txt"
-# backup files
-$Global:Oxide.bktl = "$env:BACKUP\tex\texlive-pkgs.txt"
 
 function init_texlive {
-    Write-Output "Initialize TeXLive using Oxidizer configuration"
+    Write-Output 'Initialize TeXLive using Oxidizer configuration'
     $file = (cat $Global:Oxygen.oxtl)
     $num = (cat $Global:Oxygen.oxtl | Measure-Object -Line).Lines
 
@@ -41,7 +38,7 @@ function up_texlive {
 
 function back_texlive {
     Write-Output "Backup TeXLive to $($Global:Oxide.bktl)"
-    tlmgr list --only-installed | rg --only-matching "collection-\w+" | rg --invert-match "basic" | Out-File -FilePath "$($Global:Oxide.bktl)"
+    tlmgr list --only-installed | rg --only-matching 'collection-\w+' | rg --invert-match 'basic' | Out-File -FilePath "$($Global:Oxide.bktl)"
 }
 
 ##########################################################

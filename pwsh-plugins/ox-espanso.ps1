@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxesx = "$env:OXIDIZER\defaults\espanso-pkg.txt"
 # config files
 $Global:APPHOME.es = "$env:APPDATA\espanso"

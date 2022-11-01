@@ -5,9 +5,6 @@
 # config files
 $Global:Element.cn = "$env:BASE\.conan\profiles\default"
 $Global:Element.cnr = "$env:BASE\.conan\remote.json"
-# backup files
-$Global:Oxide.bkcn = "$env:backup\conan\default"
-$Global:Oxide.bkcnr = "$env:backup\conan\remote.json"
 
 ##########################################################
 # packages

@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxzj]=$OXIDIZER/defaults/zellij.yml
 
 # config files

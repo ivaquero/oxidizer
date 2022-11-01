@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxhx]=$OXIDIZER/defaults/helix.toml
 # config files
 Element[hx]=$HOME/.config/helix/config.toml

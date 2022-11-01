@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxc = "$env:OXIDIZER\defaults\.condarc"
 $Global:Oxygen.oxce = "$env:OXIDIZER\defaults\conda-base.txt"
 # config files

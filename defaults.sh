@@ -134,7 +134,6 @@ Oxide[bkgi]=$BACKUP/git/.gitignore
 # helix settings
 ##########################################################
 
-# # backup files
 # Oxide[bkhx]=$BACKUP/helix/config.toml
 # Oxide[bkhxl]=$BACKUP/helix/languages.toml
 
@@ -199,7 +198,6 @@ Conda_Env[b]="base"
 #     mkdir -p $BACKUP/rust
 # fi
 
-# # backup files
 # Oxide[bkcg]=$BACKUP/rust/env.sh
 # Oxide[bkcg_]=$BACKUP/rust
 
@@ -212,7 +210,6 @@ Conda_Env[b]="base"
 # espanso settings
 ##########################################################
 
-# # backup files
 # Oxide[bkes]=$BACKUP/espanso/config/default.yml
 # Oxide[bkesm]=$BACKUP/espanso/match/base.yml
 # Oxide[bkesx]=$BACKUP/install/espanso-pkgs.txt
@@ -225,7 +222,6 @@ Conda_Env[b]="base"
 #     mkdir -p $BACKUP/julia
 # fi
 
-# # backup files
 # Oxide[bkjl]=$BACKUP/julia/julia-pkgs.txt
 # Oxide[bkjls]=$BACKUP/julia/startup.jl
 
@@ -237,7 +233,6 @@ Conda_Env[b]="base"
 #     mkdir -p $BACKUP/vscode
 # fi
 
-# # backup files
 # # Oxide[bkvs]=$BACKUP/vscode/settings.json
 # Oxide[bkvsk]=$BACKUP/vscode/keybindings.json
 # Oxide[bkvss_]=$BACKUP/vscode/snippets
@@ -246,6 +241,18 @@ Conda_Env[b]="base"
 ##########################################################
 # podman settings
 ##########################################################
+
+##########################################################
+# other settings
+##########################################################
+
+# # conan
+# Oxide[bkcn]=$BACKUP/conan/default
+# Oxide[bkcnr]=$BACKUP/conan/remote.json
+# # nodejs
+# Oxide[bknj]=$BACKUP/javascript/node-pkgs.txt
+# # texlive
+# Oxide[bktl]=$BACKUP/tex/texlive-pkgs.txt
 
 ##########################################################
 # common aliases

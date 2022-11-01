@@ -2,29 +2,26 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxnj = "$env:OXIDIZER\defaults\node-pkgs.txt"
-# backup files
-$Global:Oxide.bknj = "$env:BACKUP\javascript\node-pkgs.txt"
 
 function init_node {
-    Write-Output "Initialize Node by Oxidizer configuration"
-    $pkgs = (cat $Global:Oxygen.oxnj | sd "`n" " ")
+    Write-Output 'Initialize Node by Oxidizer configuration'
+    $pkgs = (cat $Global:Oxygen.oxnj | sd "`n" ' ')
     Write-Output "Installing $pkgs"
     Invoke-Expression "npm install -g $pkgs --force"
 }
 
 function up_node {
     Write-Output "Update Node by $($Global:Oxide.bknj)"
-    $pkgs = (cat $Global:Oxide.bknj | sd "`n" " ")
+    $pkgs = (cat $Global:Oxide.bknj | sd "`n" ' ')
     Write-Output "Installing $pkgs"
     Invoke-Expression "npm install -g $pkgs --force"
 }
 
 function back_node {
     Write-Output "Backup Node to $($Global:Oxide.bknj)"
-    $pkgs = $(npm list --depth 0 -g | rg --multiline --only-matching "[\s][@a-z].*[a-z]")
-    $pkgs.Replace(" ", "").Replace("npm ", "") | sd "`n" " " | Out-File -FilePath "$($Global:Oxide.bknj)"
+    $pkgs = $(npm list --depth 0 -g | rg --multiline --only-matching '[\s][@a-z].*[a-z]')
+    $pkgs.Replace(' ', '').Replace('npm ', '') | sd "`n" ' ' | Out-File -FilePath "$($Global:Oxide.bknj)"
 }
 
 ##########################################################

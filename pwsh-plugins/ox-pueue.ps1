@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 $Global:Oxygen.oxpu = "$env:OXIDIZER\defaults\pueue.yml"
 $Global:Oxygen.oxpua = "$env:OXIDIZER\defaults\pueue_aliases.yml"
 # config files

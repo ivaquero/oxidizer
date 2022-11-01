@@ -5,9 +5,6 @@
 # config files
 Element[cn]=$HOME/.conan/profiles/default
 Element[cnr]=$HOME/.conan/remote.json
-# backup files
-Oxide[bkcn]=$BACKUP/conan/default
-Oxide[bkcnr]=$BACKUP/conan/remote.json
 
 ##########################################################
 # packages

@@ -113,7 +113,6 @@ $Global:Oxide.bkgi = "$env:BACKUP\git\.gitignore"
 # helix settings
 ##########################################################
 
-# # backup files
 # $Global:Oxide.bkhx = "$env:BACKUP\helix\config.toml"
 # $Global:Oxide.bkhxl = "$env:BACKUP\helix\languages.toml"
 
@@ -159,7 +158,6 @@ $Global:Conda_Env.b = 'base'
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\rust"
 # }
 
-# # backup files
 # $Global:Oxide.bkcg = "$env:BACKUP\rust\env.ps1"
 # $Global:Oxide.bkcg_ = "$env:BACKUP\rust"
 
@@ -172,7 +170,6 @@ $Global:Conda_Env.b = 'base'
 # espanso settings
 ##########################################################
 
-# # backup files
 # $Global:Oxide.bkes = "$env:BACKUP\espanso\config\default.yml"
 # $Global:Oxide.bkesm = "$env:BACKUP\espanso\match\base.yml"
 # $Global:Oxide.bkesx = "$env:BACKUP\espanso\espanso-pkg.txt"
@@ -185,7 +182,6 @@ $Global:Conda_Env.b = 'base'
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\julia"
 # }
 
-# # backup files
 # $Global:Oxide.bkjl = "$env:BACKUP\julia\julia-pkgs.txt"
 # $Global:Oxide.bkjls = "$env:BACKUP\julia\startup.jl"
 
@@ -197,7 +193,6 @@ $Global:Conda_Env.b = 'base'
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\vscode"
 # }
 
-# # backup files
 # $Global:Oxide.bkvsk = "$env:BACKUP\vscode\settings.json"
 # $Global:Oxide.bkvsk = "$env:BACKUP\vscode\keybindings.json"
 # $Global:Oxide.bkvss_ = "$env:BACKUP\vscode\snippets"
@@ -206,6 +201,18 @@ $Global:Conda_Env.b = 'base'
 ##########################################################
 # podman configurations
 ##########################################################
+
+##########################################################
+# podman configurations
+##########################################################
+
+# # cnn
+# $Global:Oxide.bkcn = "$env:backup\conan\default"
+# $Global:Oxide.bkcnr = "$env:backup\conan\remote.json"
+# # nodejs
+# $Global:Oxide.bknj = "$env:BACKUP\javascript\node-pkgs.txt"
+# # texlive
+# $Global:Oxide.bktl = "$env:BACKUP\tex\texlive-pkgs.txt"
 
 ##########################################################
 # common aliases

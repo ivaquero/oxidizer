@@ -2,10 +2,7 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxnj]=$OXIDIZER/defaults/node-pkgs.txt
-# backup files
-Oxide[bknj]=$BACKUP/javascript/node-pkgs.txt
 
 init_node() {
     echo "Initialize Node by Oxidizer configuration"

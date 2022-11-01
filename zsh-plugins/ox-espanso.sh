@@ -2,7 +2,6 @@
 # config
 ##########################################################
 
-# oxidizer files
 Oxygen[oxesx]=$OXIDIZER/defaults/espanso-pkgs.txt
 # config files
 Element[es]=$APPDATA/espanso/config/default.yml
