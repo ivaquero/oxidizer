@@ -1,11 +1,11 @@
 # Oxidizer.sh
 
 [![CI](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml)
-[![license](https://img.shields.io/github/license/ivaquero/oxidizer.sh)](https://github.com/ivaquero/oxidizer.sh/blob/master/LICENSE)
+[![licence](https://img.shields.io/github/license/ivaquero/oxidizer.sh)](https://github.com/ivaquero/oxidizer.sh/blob/master/LICENSE)
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
-Minimalistic & Extensible Dotfile Management Solution using Rust Toolchains (PRs and Forks are welcome !)
+Minimalistic & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks are welcome !)
 
 <p align="left">
 <a href="README.md">English</a> |
@@ -48,7 +48,7 @@ Note that Scoop is an essential dependency for Oxidizer on Windows. For China ma
 $env:scoop_mirror = 1
 ```
 
-> for Cmder users, you need to remove the `-Options ReadOnly` from `Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly` in the last line of `%CMDER_ROOT%\vendor\profile.ps1`.
+> For Cmder users, you need to remove the `-Options ReadOnly` from `Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly` in the last line of `%CMDER_ROOT%\vendor\profile.ps1`.
 
 After installation, you might personalize your preference in `custom.sh` or `custom.ps1`, check [defaults.sh](https://github.com/ivaquero/oxidizer.sh/blob/master/defaults.sh) or [defaults.ps1](https://github.com/ivaquero/oxidizer.sh/blob/master/defaults.ps1). Open `custom.sh` or `custom.ps1` by following command
 
@@ -60,7 +60,7 @@ To keep up the updates, simply use `upox` function.
 
 ## 2. Philosophy
 
-Oxidizer is origenally designed for **non-administrator** users. It quickly sets up a minimal but powerful coding environment, and it aims to provide with following features:
+Oxidizer is originally designed for **non-administrator** users. It quickly sets up a minimal but powerful coding environment, and it aims to provide with following features:
 
 - Cross-Platform (Mainly Rust Tool chains)
 - Minimal dependencies & Minimal Installation
@@ -86,6 +86,7 @@ Oxidizer is origenally designed for **non-administrator** users. It quickly sets
 - [x] Use `bottom` instead of `top` or `htop`
 - [x] Use `dust` instead of `du`
 - [ ] Use `tokei` instead of `cloc`
+- [ ] Use `tere` instead of `ranger`
 - [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
 - [ ] Use `tectonic` instead of `xetex` or `xelatex`
 
@@ -110,30 +111,30 @@ Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.
 
 Of course, you are allowed to write your own plugins, see `11. Writing A Plugin` for details.
 
-|     |                      Plugin                       | Linux | macOS | Windows | Autoload？ |
-| :-: | :-----------------------------------------------: | :---: | :---: | :-----: | :--------: |
-|  1  |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |     ✅     |
-|  2  | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |     ✅     |
-|  3  |                      System                       |  ✅¹  |  ✅   |   ✅    |     ✅     |
-|  4  |                      Utility                      |  ✅   |  ✅   |   ✅    |     ✅     |
-|  5  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |     ✅     |
-|  6  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |            |
-|  7  |                      Formats                      |  🕒   |  🕒   |   🕒    |            |
-|  8  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |            |
-|  9  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |            |
-| 10  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |            |
-| 11  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |            |
-| 12  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |            |
-| 13  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |            |
-| 14  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |            |
-| 15  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |            |
-| 16  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |            |
-| 17  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |            |
-| 18  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |            |
-| 19  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |            |
-| 20  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |            |
-| 21  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |            |
-| 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |            |
+|     |                      Plugin                       | Linux | macOS | Windows | Autoload? |
+| :-: | :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
+|  1  |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
+|  2  | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
+|  3  |                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
+|  4  |                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
+|  5  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
+|  6  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
+|  7  |                      Formats                      |  🕒   |  🕒   |   🕒    |           |
+|  8  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |           |
+|  9  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
+| 10  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
+| 11  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
+| 12  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
+| 13  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
+| 14  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
+| 15  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
+| 16  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
+| 17  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
+| 18  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
+| 19  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
+| 20  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
+| 21  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
+| 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
 
 ✅: complete functionality
 🚧: partial functionality
@@ -142,7 +143,7 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 
 > ¹: Currently, on Linux only provide with Debian-family shortcuts.
 
-Oxidizer uses Homebrew or Scoop to manage packages and softwares to bypass the requirement of administrator privilege.
+Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypass the requirement of administrator privilege.
 
 ## 4. File Management
 
@@ -166,39 +167,39 @@ For example, if you want to edit `~/.zshrc`, you can type `ef zs`.
 
 When you use `epf zs`, `~/.zshrc` will be copied and save in `$BACKUP/shell` folder, where `$BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in `1. Get Started`, you can open `custom.sh` simply by `ef ox`.
 
-The table below lists the informatioin of specific configuration files:
+The table below lists the information of specific configuration files:
 
-|   Origin   | Abbr.  | Corresponding File  |
-| :--------: | :----: | :-----------------: |
-|  oxidizer  |  `ox`  |     `custom.sh`     |
-|    zsh     |  `zs`  |      `.zshrc`       |
-| powershell |  `ps`  |    `Profile.ps1`    |
-|  wezterm   |  `wz`  |    `wezterm.lua`    |
-|   conda    |  `c`   |     `.condarc`      |
-|    git     |  `g`   |    `.gitconfig`     |
-|    git     |  `gi`  |    `.gitignore`     |
-|   conan    |  `cn`  |      `default`      |
-|   conan    | `cnr`  |    `remote.json`    |
-|  espanso   |  `es`  |    `default.yml`    |
-|  espanso   | `esm`  |  `match/base.yml`   |
-|  espanso   | `esx`  |   `espanso-pkgs`    |
-|   helix    |  `hx`  |    `config.toml`    |
-|   helix    | `hxl`  |  `languages.toml`   |
-|   julia    |  `jl`  |  `julia-pkgs.txt`   |
-|   julia    | `jls`  |    `startup.jl`     |
-|   julia    | `jlp`  |   `Project.toml`    |
-|   julia    | `jlm`  |   `Manifest.toml`   |
-|   latex    |  `tl`  |   `texlive-pkgs`    |
-|    node    |  `nj`  |   `node-pkgs.txt`   |
-|   pueue    |  `pu`  |     `pueue.yml`     |
-|   pueue    | `pua`  | `pueue_aliases.yml` |
-|   cargo    |  `cg`  |        `env`        |
-|   cargo    | `cg_`  |      `.cargo`       |
-|   vscode   |  `vs`  |   `settings.json`   |
-|   vscode   | `vsk`  | `keybindings.json`  |
-|   vscode   | `vss_` |     `snippets`      |
-|   vscode   | `vsx`  |  `vscode-pkgs.txt`  |
-|   winget   |  `w`   |    `winget.json`    |
+|   Origin   | Abbreviation | Corresponding File  |
+| :--------: | :----------: | :-----------------: |
+|  oxidizer  |     `ox`     |     `custom.sh`     |
+|    zsh     |     `zs`     |      `.zshrc`       |
+| powershell |     `ps`     |    `Profile.ps1`    |
+|  wezterm   |     `wz`     |    `wezterm.lua`    |
+|   conda    |     `c`      |     `.condarc`      |
+|    git     |     `g`      |    `.gitconfig`     |
+|    git     |     `gi`     |    `.gitignore`     |
+|   conan    |     `cn`     |      `default`      |
+|   conan    |    `cnr`     |    `remote.json`    |
+|  espanso   |     `es`     |    `default.yml`    |
+|  espanso   |    `esm`     |  `match/base.yml`   |
+|  espanso   |    `esx`     |   `espanso-pkgs`    |
+|   helix    |     `hx`     |    `config.toml`    |
+|   helix    |    `hxl`     |  `languages.toml`   |
+|   julia    |     `jl`     |  `julia-pkgs.txt`   |
+|   julia    |    `jls`     |    `startup.jl`     |
+|   julia    |    `jlp`     |   `Project.toml`    |
+|   julia    |    `jlm`     |   `Manifest.toml`   |
+|   latex    |     `tl`     |   `texlive-pkgs`    |
+|    node    |     `nj`     |   `node-pkgs.txt`   |
+|   pueue    |     `pu`     |     `pueue.yml`     |
+|   pueue    |    `pua`     | `pueue_aliases.yml` |
+|   cargo    |     `cg`     |        `env`        |
+|   cargo    |    `cg_`     |      `.cargo`       |
+|   vscode   |     `vs`     |   `settings.json`   |
+|   vscode   |    `vsk`     | `keybindings.json`  |
+|   vscode   |    `vss_`    |     `snippets`      |
+|   vscode   |    `vsx`     |  `vscode-pkgs.txt`  |
+|   winget   |     `w`      |    `winget.json`    |
 
 > `_` denotes folder
 
@@ -228,7 +229,7 @@ More specifically
 
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
-|        |   action    | brew [b] | scoop [s] | conda [c] | npm [n] | cargo [cg] | rustup [rs] | gem [rb] | julia [jl] | conan [cn] | tlmgr [tl] |
+|        |   Action    | brew [b] | scoop [s] | conda [c] | npm [n] | cargo [cg] | rustup [rs] | gem [rb] | julia [jl] | conan [cn] | tlmgr [tl] |
 | :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | -------- | :--------: | :--------: | :--------: |
 |  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      | ✅       |     ✅     |     ✅     |     ✅     |
 | `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |          |            |            |            |
@@ -257,9 +258,9 @@ Particularly, Oxidizer provides with two groups of experimental functions with s
 
 For example, when you have more than 1 packages to install, instead of using `bis [pkg1] [pkg1]`, you can use `bisp [pkg1] [pkg1]` then the packages will be downloaded and installed in parallel.
 
-Similary, `biscp`, `bupp`, `bupap` are the parallel version of `bisc`, `bup`, `bupa`, respectively.
+Similarly, `biscp`, `bupp`, `bupap` are the parallel version of `bisc`, `bup`, `bupa`, respectively.
 
-Before using parallel functions, pueue service need to be enabled by
+Before using parallel functions, `pueue` service need to be enabled by
 
 ```bash
 # All OS
@@ -270,7 +271,7 @@ bss pu
 
 Some package managers also have functionality of project management
 
-|       | action  | brew [b] | scoop [s] | conda [c] | npm [n] | cargo [cg] | rustup [rs] | julia [jl] | conan [cn] | flatpak [f] |
+|       | Action  | brew [b] | scoop [s] | conda [c] | npm [n] | cargo [cg] | rustup [rs] | julia [jl] | conan [cn] | flatpak [f] |
 | :---: | :-----: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: | ----------- |
 | `*ii` |  init   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     | ✅          |
 | `*b`  |  build  |          |           |           |         |     ✅     |             |     ✅     |     ✅     | ✅          |
@@ -279,14 +280,14 @@ Some package managers also have functionality of project management
 | `*ts` |  test   |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |             |
 | `*pb` | publish |          |           |           |   ✅    |     ✅     |             |            |            |             |
 
-Some of package manager shortcuts are included in corresponding system plugins.
+Some of the package managers shortcuts are included in corresponding system plugins.
 
-- `ox-macos` [oxpm]: auto-loaded, contains `mas`.
-- `ox-apt` [oxpa]: auto-loaded
-- `ox-windows` [oxpw]: auto-loaded, contains `winget`, `wsl`
+- `ox-macos` [oxpm]: autoloaded, contains `mas`.
+- `ox-apt` [oxpa]: autoloaded
+- `ox-windows` [oxpw]: autoloaded, contains `winget`, `wsl`
 - `ox-flatpak` [oxpf]: optional
 
-|        |   action    | mas [m] | apt [a] | flatpak [f] | winget [w] | wsl [wl] |
+|        |   Action    | mas [m] | apt [a] | flatpak [f] | winget [w] | wsl [wl] |
 | :----: | :---------: | :-----: | :-----: | :---------: | :--------: | :------: |
 |  `*h`  |    help     |   ✅    |   ✅    |             |     ✅     |          |
 | `*is`  |   install   |   ✅    |   ✅    |     ✅      |     ✅     |    ✅    |
@@ -307,7 +308,7 @@ Some of package manager shortcuts are included in corresponding system plugins.
 
 ### 6.1. Homebrew
 
-- [x] Integrated `aria2` to download Homebrew Casks (require `aria2` indstalled)
+- [x] Integrated `aria2` to download Homebrew Casks (require `aria2` installed)
 - [x] Enable Homebrew installation by using pre-download installers
 
 - `bis`: brew install
@@ -343,9 +344,9 @@ Besides the shortcuts mentioned above in `6. Package Management`, the conda plug
   - `$1` length = 1 or 2: activate predefined env `Conda_Env`
   - `$1` length > 2: activate new env
 
-`Conda_Env` can be personalize in `custom.sh`
+`Conda_Env` can be personalized in `custom.sh`
 
-For example, if you conda environment name is `hello`, you can set
+For example, assume your environment's name is `hello`, you can set
 
 ```bash
 # macOS / Linux
@@ -368,20 +369,20 @@ cls h
 ```
 
 - `cerat`: reactivate environment, works live `ceat`
-- `ceq`: quit environment ( `q` is for `kill/quit` )
+- `ceq`: quit environment (`q` is for `kill/quit`)
 - `cecr`: create
 - `cerm`: remove environment, works live `ceat` but won't remove `base` env
 - `cels`: environment list
 - `cedf`: compare packages between conda environments
-- `cern`: renames an existing environment.
-- `cesd`: change environment's conda-forge subdir
+- `cern`: renames an existing environment
+- `cesd`: change environment's `conda-forge subdir`
 - `ceep`: export environment
 
 ## 7. Service Management
 
-Oxidizer's task & service management follows the same phylosopy of package management, _i.e._ to provide unified interfaces to faciliate workflows.
+Oxidizer's task & service management follows the same philosophy of package management, _i.e._ to provide unified interfaces to facilitate workflows.
 
-|        |    action    | pueue [pu] | espanso [es] | docker<br>container [dc] | podman<br>container [pc] | brew<br>services [bs] |
+|        |    Action    | pueue [pu] | espanso [es] | docker<br>container [dc] | podman<br>container [pc] | brew<br>services [bs] |
 | :----: | :----------: | :--------: | :----------: | :----------------------: | :----------------------: | :-------------------: |
 |  `*h`  |     help     |     ✅     |      ✅      |            ✅            |            ✅            |          ✅           |
 | `*df`  |     diff     |            |              |            ✅            |            ✅            |
@@ -410,7 +411,7 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 
 ## 8. Project & Software Management
 
-|       | action | git [g] | docker<br>image [di] | podman<br>image [pi] | bitwarden [bw] |
+|       | Action | git [g] | docker<br>image [di] | podman<br>image [pi] | bitwarden [bw] |
 | :---: | :----: | :-----: | :------------------: | :------------------: | :------------: |
 | `*ii` |  init  |   ✅    |                      |                      |                |
 | `*df` |  diff  |   ✅    |                      |          ✅          |                |
@@ -434,7 +435,7 @@ Oxidizer's task & service management follows the same phylosopy of package manag
 
 ### 8.2. Docker image
 
-## 9. Utils Management
+## 9. Utility Management
 
 ### 9.1. Formats
 
@@ -452,15 +453,15 @@ mdto [filename] [format]
 - `update`: update system
 - `clean`
   - `clean`: empty trash
-  - `clean bdl`: clean homebrew downloaded files
+  - `clean bdl`: clean `Homebrew` downloaded files
   - `clean cc`: clean cache files in `$HOME/Library/Caches/`
   - `clean log`: clean logs
-  - `clean vs`: clean VSCode cache files
+  - `clean vs`: clean `VSCode` cache files
 - `allow`: allow installation of uncertified apps
 
 ## 11. Writing A Plugin
 
-A plugin in Oxidizer is refered as Oxygen, a key-value object whose key starts with `oxp`.
+A plugin in Oxidizer is referred as Oxygen, a key-value object whose key starts with `oxp`.
 
 For a Vim plugin on macOS / Linux, you can write
 
@@ -474,7 +475,7 @@ And add the _key of Oxygen_ into `PLUGINS` object in `custom.sh` like
 PLUGINS=(oxp1 oxp2 oxpvi)
 ```
 
-For Windows users, do these in a similar way
+For Windows users, do these similarly
 
 ```powershell
 $Global:Oxygen.oxpvi = "plugin_path"
@@ -484,7 +485,7 @@ And add it into `PLUGINS` object in `custom.ps1`
 
 ### 11.1. Config Files
 
-A system / software / tool configuration file in Oxidizer is refered as Element, set it like what you do with Oxygen
+A system / software / tool configuration file in Oxidizer is referred as Element, set it like what you do with Oxygen
 
 ```bash
 # macOS / Linux
@@ -504,7 +505,7 @@ $Global:Element.vi_ = "$HOME/vim"
 
 ### 11.2. Backup Files
 
-A backup file in Oxidizer is refered as Oxide whose key starts with `bk`, set it like
+A backup file in Oxidizer is referred as Oxide whose key starts with `bk`, set it like
 
 ```bash
 # macOS / Linux
@@ -520,6 +521,6 @@ Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, 
 - [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
 - [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-## 13. License
+## 13. Licence
 
-This work is released under the GPL-v3 license.
+This work is released under the GPL-v3 licence.
