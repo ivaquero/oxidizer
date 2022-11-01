@@ -83,7 +83,11 @@ declare -a UP_OBJ
 export UP_OBJ=(brew)
 
 # backup file path
-Oxide[bkox]=$BACKUP/shell/custom.sh
+export BACKUP=$HOME/Documents/backup
+
+Oxide[bkox]=$BACKUP/custom.sh
+# Oxide[bkvs]=$BACKUP/vscode.json
+
 Oxide[bkb]=$BACKUP/install/Brewfile
 Oxide[bkzs]=$BACKUP/shell/.zshrc
 Oxide[bkbs]=$BACKUP/shell/.bash_profile

@@ -15,7 +15,6 @@ $Global:Element.vs = "$($Global:APPHOME.vs)\settings.json"
 $Global:Element.vsk = "$($Global:APPHOME.vs)\keybindings.json"
 $Global:Element.vss_ = "$($Global:APPHOME.vs)\snippets"
 # backup files
-$Global:Oxide.bkvs = "$env:BACKUP\vscode\settings.json"
 $Global:Oxide.bkvsk = "$env:BACKUP\vscode\keybindings.json"
 $Global:Oxide.bkvss_ = "$env:BACKUP\vscode\snippets"
 $Global:Oxide.bkvsx = "$env:BACKUP\vscode\vscode-exts.txt"
@@ -25,7 +24,7 @@ if ( !(Test-Path "$env:BACKUP\vscode") ) {
 }
 
 function init_vscode {
-    Write-Output "Initialize VSCode extensions by Oxidizer configuration"
+    Write-Output 'Initialize VSCode extensions by Oxidizer configuration'
     $exts = (code --list-extensions)
     $file = (cat $Global:Oxygen.oxvsx)
     $num = (cat $Global:Oxygen.oxvsx | Measure-Object -Line).Lines
@@ -86,4 +85,4 @@ function vsls { code --list-extensions }
 ##########################################################
 
 # shell
-if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path pwsh)" }
+if ($env:TERM_PROGRAM -eq 'vscode') { . "$(code --locate-shell-integration-path pwsh)" }

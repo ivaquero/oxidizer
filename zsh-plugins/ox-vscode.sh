@@ -10,7 +10,6 @@ Element[vs]=$APPDATA/Code/User/settings.json
 Element[vsk]=$APPDATA/Code/User/keybindings.json
 Element[vss_]=$APPDATA/Code/User/snippets
 # backup files
-Oxide[bkvs]=$BACKUP/vscode/settings.json
 Oxide[bkvsk]=$BACKUP/vscode/keybindings.json
 Oxide[bkvss_]=$BACKUP/vscode/snippets
 Oxide[bkvsx]=$BACKUP/vscode/vscode-exts.txt

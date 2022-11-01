@@ -11,13 +11,13 @@
 # change editor
 function che {
     param ( $editor )
-    sd "EDITOR = .*" "EDITOR = \"$editor\"" $Global:Element.ox
+    sd 'EDITOR = .*' 'EDITOR = \'$editor\"" $Global:Element.ox
 }
 
 # default editor, can be changed by function `che()`
-$env:EDITOR = "code"
+$env:EDITOR = 'code'
 # terminal editor
-$env:EDITOR_T = "vi"
+$env:EDITOR_T = 'vi'
 
 ##########################################################
 # select ox-plugins
@@ -45,8 +45,8 @@ $env:EDITOR_T = "vi"
 # oxpfm: ox-formats
 # oxpbw: ox-bitwarden
 $Global:PLUGINS = @(
-    "oxpg",
-    "oxpfm"
+    'oxpg',
+    'oxpfm'
 )
 
 ##########################################################
@@ -55,22 +55,24 @@ $Global:PLUGINS = @(
 
 # c: clash, v: v2ray
 $Global:Proxy = @{}
-$Global:Proxy.c = "7890"
-$Global:Proxy.v = "1080"
+$Global:Proxy.c = '7890'
+$Global:Proxy.v = '1080'
 
 ##########################################################
 # select initial and backup configurations
 ##########################################################
 
 # options: scoop, conda, julia, node, texlive, vscode, espanso
-$Global:INIT_OBJ = @("scoop")
-$Global:BACK_OBJ = @("scoop")
-$Global:UP_OBJ = @("scoop")
+$Global:INIT_OBJ = @('scoop')
+$Global:BACK_OBJ = @('scoop')
+$Global:UP_OBJ = @('scoop')
 
 # backup file path
 $env:BACKUP = "$HOME\Documents\backup"
 
-$Global:Oxide.bkox = "$env:BACKUP\shell\custom.ps1"
+$Global:Oxide.bkox = "$env:BACKUP\custom.ps1"
+# $Global:Oxide.bkvs = "$env:BACKUP\vscode.json"
+
 $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
 $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
@@ -89,7 +91,7 @@ $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 # vs: vscode's settings.json
 # vsk: vscode's keybindings.json
 # vss_: vscode's snippets folder
-$Global:EPF_OBJ = @("ox", "vs", "vsk", "vss_")
+$Global:EPF_OBJ = @('ox', 'vs', 'vsk', 'vss_')
 
 # files to be import from backup folder
 # $Global:IPF_OBJ = @("ox", "vs", "vsk", "vss_")
@@ -98,7 +100,7 @@ $Global:EPF_OBJ = @("ox", "vs", "vsk", "vss_")
 # wz: wezterm
 # pu: pueue
 # pua: pueue_aliases
-$Global:IIF_OBJ = @("pu", "pua")
+$Global:IIF_OBJ = @('pu', 'pua')
 
 ##########################################################
 # register conda environments
@@ -107,7 +109,7 @@ $Global:IIF_OBJ = @("pu", "pua")
 # predefined conda environments
 # set the length of key < 3
 $Global:Conda_Env = @{}
-$Global:Conda_Env.b = "base"
+$Global:Conda_Env.b = 'base'
 # conda env stats with bkce, and should be consistent with Conda_Env
 # $Global:Oxide.bkceb = "$env:BACKUP\conda\conda-base.txt"
 
