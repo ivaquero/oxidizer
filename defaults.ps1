@@ -72,7 +72,6 @@ $env:BACKUP = "$HOME\Documents\backup"
 
 $Global:Oxide.bkox = "$env:BACKUP\custom.ps1"
 $Global:Oxide.bkg = "$env:BACKUP\.gitconfig"
-# $Global:Oxide.bkvs = "$env:BACKUP\vscode.jsonc"
 
 $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
@@ -126,6 +125,20 @@ $Global:Conda_Env.b = 'base'
 # $Global:Rust_Mirror = @{}
 # $Global:Rust_Mirror.ts = "mirrors.tuna.tsinghua.edu.cn"
 # $Global:Rust_Mirror.zk = "mirrors.ustc.edu.cn"
+
+##########################################################
+# vscode settings
+##########################################################
+
+# if ( !(Test-Path "$env:BACKUP\vscode") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\vscode"
+# }
+
+# # backup files
+# $Global:Oxide.bkvsk = "$env:BACKUP\vscode\settings.json"
+# $Global:Oxide.bkvsk = "$env:BACKUP\vscode\keybindings.json"
+# $Global:Oxide.bkvss_ = "$env:BACKUP\vscode\snippets"
+# $Global:Oxide.bkvsx = "$env:BACKUP\vscode\vscode-exts.txt"
 
 ##########################################################
 # podman configurations

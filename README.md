@@ -1,5 +1,3 @@
-using Base: require
-
 # Oxidizer.sh
 
 [![CI](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml)

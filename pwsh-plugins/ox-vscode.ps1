@@ -14,14 +14,6 @@ if ( !(Test-Path "$Global:APPHOME.vs") ) {
 $Global:Element.vs = "$($Global:APPHOME.vs)\settings.json"
 $Global:Element.vsk = "$($Global:APPHOME.vs)\keybindings.json"
 $Global:Element.vss_ = "$($Global:APPHOME.vs)\snippets"
-# backup files
-$Global:Oxide.bkvsk = "$env:BACKUP\vscode\keybindings.json"
-$Global:Oxide.bkvss_ = "$env:BACKUP\vscode\snippets"
-$Global:Oxide.bkvsx = "$env:BACKUP\vscode\vscode-exts.txt"
-
-if ( !(Test-Path "$env:BACKUP\vscode") ) {
-    New-Item -ItemType Directory -Force -Path "$env:BACKUP\vscode"
-}
 
 function init_vscode {
     Write-Output 'Initialize VSCode extensions by Oxidizer configuration'

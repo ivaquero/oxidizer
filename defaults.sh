@@ -87,7 +87,6 @@ export BACKUP=$HOME/Documents/backup
 
 Oxide[bkox]=$BACKUP/custom.sh
 Oxide[bkg]=$BACKUP/.gitconfig
-# Oxide[bkvs]=$BACKUP/vscode.jsonc
 
 Oxide[bkb]=$BACKUP/install/Brewfile
 Oxide[bkzs]=$BACKUP/shell/.zshrc
@@ -166,6 +165,20 @@ Conda_Env[b]="base"
 # declare -A Rust_Mirror
 # Rust_Mirror[ts]="mirrors.tuna.tsinghua.edu.cn"
 # Rust_Mirror[zk]="mirrors.ustc.edu.cn"
+
+##########################################################
+# vscode settings
+##########################################################
+
+# if [ ! -d $BACKUP/vscode ]; then
+#     mkdir -p $BACKUP/vscode
+# fi
+
+# # backup files
+# # Oxide[bkvs]=$BACKUP/vscode/settings.json
+# Oxide[bkvsk]=$BACKUP/vscode/keybindings.json
+# Oxide[bkvss_]=$BACKUP/vscode/snippets
+# Oxide[bkvsx]=$BACKUP/vscode/vscode-exts.txt
 
 ##########################################################
 # podman settings

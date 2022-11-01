@@ -9,14 +9,6 @@ Oxygen[oxvsx]=$OXIDIZER/defaults/vscode-exts.txt
 Element[vs]=$APPDATA/Code/User/settings.json
 Element[vsk]=$APPDATA/Code/User/keybindings.json
 Element[vss_]=$APPDATA/Code/User/snippets
-# backup files
-Oxide[bkvsk]=$BACKUP/vscode/keybindings.json
-Oxide[bkvss_]=$BACKUP/vscode/snippets
-Oxide[bkvsx]=$BACKUP/vscode/vscode-exts.txt
-
-if [ ! -d $BACKUP/vscode ]; then
-    mkdir -p $BACKUP/vscode
-fi
 
 init_vscode() {
     echo "Initialize VSCode extensions by Oxidizer configuration"
