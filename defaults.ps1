@@ -72,7 +72,7 @@ $env:BACKUP = "$HOME\Documents\backup"
 
 $Global:Oxide.bkox = "$env:BACKUP\custom.ps1"
 $Global:Oxide.bkg = "$env:BACKUP\.gitconfig"
-# $Global:Oxide.bkvs = "$env:BACKUP\vscode.json"
+# $Global:Oxide.bkvs = "$env:BACKUP\vscode.jsonc"
 
 $Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
 $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"

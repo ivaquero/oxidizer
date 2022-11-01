@@ -87,7 +87,7 @@ export BACKUP=$HOME/Documents/backup
 
 Oxide[bkox]=$BACKUP/custom.sh
 Oxide[bkg]=$BACKUP/.gitconfig
-# Oxide[bkvs]=$BACKUP/vscode.json
+# Oxide[bkvs]=$BACKUP/vscode.jsonc
 
 Oxide[bkb]=$BACKUP/install/Brewfile
 Oxide[bkzs]=$BACKUP/shell/.zshrc
