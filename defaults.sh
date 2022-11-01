@@ -86,6 +86,7 @@ export UP_OBJ=(brew)
 export BACKUP=$HOME/Documents/backup
 
 Oxide[bkox]=$BACKUP/custom.sh
+Oxide[bkg]=$BACKUP/.gitconfig
 # Oxide[bkvs]=$BACKUP/vscode.json
 
 Oxide[bkb]=$BACKUP/install/Brewfile

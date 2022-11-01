@@ -5,7 +5,6 @@
 # config files
 Element[g]=$HOME/.gitconfig
 # backup files
-Oxide[bkg]=$BACKUP/git/.gitconfig
 Oxide[bkgi]=$BACKUP/git/.gitignore
 
 export GPG_TTY=$(tty)
