@@ -169,6 +169,27 @@ $Global:Conda_Env.b = 'base'
 # $Global:Rust_Mirror.zk = "mirrors.ustc.edu.cn"
 
 ##########################################################
+# espanso settings
+##########################################################
+
+# # backup files
+# $Global:Oxide.bkes = "$env:BACKUP\espanso\config\default.yml"
+# $Global:Oxide.bkesm = "$env:BACKUP\espanso\match\base.yml"
+# $Global:Oxide.bkesx = "$env:BACKUP\espanso\espanso-pkg.txt"
+
+##########################################################
+# julia settings
+##########################################################
+
+# if ( !(Test-Path "$env:BACKUP\julia") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\julia"
+# }
+
+# # backup files
+# $Global:Oxide.bkjl = "$env:BACKUP\julia\julia-pkgs.txt"
+# $Global:Oxide.bkjls = "$env:BACKUP\julia\startup.jl"
+
+##########################################################
 # vscode settings
 ##########################################################
 

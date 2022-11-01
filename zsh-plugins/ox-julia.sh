@@ -8,13 +8,6 @@ Oxygen[oxjl]=$OXIDIZER/defaults/julia-pkgs.txt
 Element[jl]=$HOME/.julia/config/startup.jl
 Element[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
 Element[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
-# backup files
-Oxide[bkjl]=$BACKUP/julia/julia-pkgs.txt
-Oxide[bkjls]=$BACKUP/julia/startup.jl
-
-if [ ! -d $BACKUP/julia ]; then
-    mkdir -p $BACKUP/julia
-fi
 
 init_julia() {
     echo "Initialize Julia by Oxidizer configuration"

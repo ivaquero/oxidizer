@@ -6,18 +6,11 @@
 $Global:Oxygen.oxjl = "$env:OXIDIZER\defaults\julia-pkgs.txt"
 # config files
 $Global:Element.jls = "$HOME\.julia\config\startup.jl"
-$Global:Element.jlm = "$HOME\.julia\environments\v$(julia -v | rg --only-matching "\d.\d")\Manifest.toml"
-$Global:Element.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matching "\d.\d")\Project.toml"
-# backup files
-$Global:Oxide.bkjl = "$env:BACKUP\julia\julia-pkgs.txt"
-$Global:Oxide.bkjls = "$env:BACKUP\julia\startup.jl"
-
-if ( !(Test-Path "$env:BACKUP\julia") ) {
-    New-Item -ItemType Directory -Force -Path "$env:BACKUP\julia"
-}
+$Global:Element.jlm = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Manifest.toml"
+$Global:Element.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Project.toml"
 
 function init_julia {
-    Write-Output "Initialize Julia by Oxidizer configuration"
+    Write-Output 'Initialize Julia by Oxidizer configuration'
     $pkgs = (cat $Global:Oxygen.bkjl | sd '`n' '\", \"')
     $pkgs_vec = Write-Output [`"$pkgs`"] | sd '\[' '[\"' | sd ', \"]' ']'
     Write-Output "Installing ($pkgs_vec)"
@@ -35,7 +28,7 @@ function up_julia {
 
 function back_julia {
     Write-Output "Backup Julia to $($Global:Oxide.bkjl)"
-    cat $Global:Element.jlp | rg --only-matching "\w.*=" | sd "[= ]" " " | Out-File -FilePath "$($Global:Oxide.bkjl)"
+    cat $Global:Element.jlp | rg --only-matching '\w.*=' | sd '[= ]' ' ' | Out-File -FilePath "$($Global:Oxide.bkjl)"
 }
 
 ##########################################################
@@ -79,7 +72,7 @@ function jlus {
 # update packages
 function jlup {
     if ([string]::IsNullOrEmpty($args)) {
-        julia --eval "using Pkg; Pkg.update()"
+        julia --eval 'using Pkg; Pkg.update()'
     }
     else {
         $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
@@ -91,17 +84,17 @@ function jlup {
 
 # list leave packages
 function jllv {
-    cat $Global:Element.jlp | rg --only-matching "\w+ =" | sd " =" " "
+    cat $Global:Element.jlp | rg --only-matching '\w+ =' | sd ' =' ' '
 }
 
 # list packages
 function jlls {
-    cat $Global:Element.jlm | rg --only-matching "deps\.\w+" | sd "deps\." ""
+    cat $Global:Element.jlm | rg --only-matching 'deps\.\w+' | sd 'deps\.' ''
 }
 
 # dependencies of package
 function jldp {
-    local cmd=$(Write-Output "using PkgDependency; PkgDependency.tree(\"$1\")")
+    local cmd=$(Write-Output 'using PkgDependency; PkgDependency.tree(\'$1\")")
     Write-Output "$cmd"
     julia --eval "$cmd"
 }
@@ -123,11 +116,11 @@ function jlupn {
 
 # calculate mature rate
 function jlmt {
-    $num_total = (cat $Global:Element.jlm | rg "\[\[" | Measure-Object -Line).Line
+    $num_total = (cat $Global:Element.jlm | rg '\[\[' | Measure-Object -Line).Line
     Write-Output "total: $num_total"
     $num_immature = (cat $Global:Element.jlm | rg '\"0\.' | Measure-Object -Line).Line
     $ratio = $num_immature / $num_total * 100
-    $mature_rate = "{ 0:N0 }" -f $(100 - $ratio)
+    $mature_rate = '{ 0:N0 }' -f $(100 - $ratio)
     Write-Output "mature rate: $mature_rate %"
 }
 

@@ -209,6 +209,27 @@ Conda_Env[b]="base"
 # Rust_Mirror[zk]="mirrors.ustc.edu.cn"
 
 ##########################################################
+# espanso settings
+##########################################################
+
+# # backup files
+# Oxide[bkes]=$BACKUP/espanso/config/default.yml
+# Oxide[bkesm]=$BACKUP/espanso/match/base.yml
+# Oxide[bkesx]=$BACKUP/install/espanso-pkgs.txt
+
+##########################################################
+# julia settings
+##########################################################
+
+# if [ ! -d $BACKUP/julia ]; then
+#     mkdir -p $BACKUP/julia
+# fi
+
+# # backup files
+# Oxide[bkjl]=$BACKUP/julia/julia-pkgs.txt
+# Oxide[bkjls]=$BACKUP/julia/startup.jl
+
+##########################################################
 # vscode settings
 ##########################################################
 

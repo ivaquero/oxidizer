@@ -12,15 +12,11 @@ if ( !(Test-Path "$Global:APPHOME.es") ) {
 
 $Global:Element.es = "$($Global:APPHOME.es)\config\default.yml"
 $Global:Element.esm = "$($Global:APPHOME.es)\match\base.yml"
-# backup files
-$Global:Oxide.bkes = "$env:BACKUP\espanso\config\default.yml"
-$Global:Oxide.bkesm = "$env:BACKUP\espanso\match\base.yml"
-$Global:Oxide.bkesx = "$env:BACKUP\espanso\espanso-pkg.txt"
 
 function init_espanso {
-    Write-Output "Initialize Espanso using Oxidizer configuration"
+    Write-Output 'Initialize Espanso using Oxidizer configuration'
     $pkgs = (espanso package list)
-    $file = (cat $Global:Oxygen.oxesx | sd " " "")
+    $file = (cat $Global:Oxygen.oxesx | sd ' ' '')
     Foreach ( $line in $file ) {
         if (Write-Output $pkgs | rg $line) {
             Write-Output "Extension $line is already installed."
@@ -35,7 +31,7 @@ function init_espanso {
 function up_espanso {
     Write-Output "Update Espanso by $($Global:Oxide.bkesx)"
     $pkgs = (espanso package list)
-    $file = (cat $Global:Oxide.bkesx | sd " " "")
+    $file = (cat $Global:Oxide.bkesx | sd ' ' '')
     Foreach ( $line in $file ) {
         if (Write-Output $pkgs | rg $line) {
             Write-Output "Extension $line is already installed."
@@ -49,7 +45,7 @@ function up_espanso {
 
 function back_espanso {
     Write-Output "Backup Espanso to $($Global:Oxide.bkesx)"
-    espanso package list | rg --only-matching "\w+.*\w\s-" | rg --only-matching "\w+.*\w" | Out-File -FilePath "$($Global:Oxide.bkesx)"
+    espanso package list | rg --only-matching '\w+.*\w\s-' | rg --only-matching '\w+.*\w' | Out-File -FilePath "$($Global:Oxide.bkesx)"
 }
 
 ##########################################################
@@ -63,7 +59,7 @@ function esls { espanso package list }
 function esup {
     param ( $pkg )
     if ([string]::IsNullOrEmpty($pkg)) {
-        $pkgs = $(espanso package list | rg --only-matching "\w+.*\w\s-" | rg --only-matching "\w+.*\w")
+        $pkgs = $(espanso package list | rg --only-matching '\w+.*\w\s-' | rg --only-matching '\w+.*\w')
         ForEach ( $line in $pkgs ) {
             espanso package update $line
         }
