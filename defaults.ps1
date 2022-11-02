@@ -139,16 +139,17 @@ function upp {
 # conda settings
 ##########################################################
 
-# backup files
-$Global:Oxide.bkc = "$env:BACKUP\conda\.condarc"
+# # backup files
+# $Global:Oxide.bkc = "$env:BACKUP\conda\.condarc"
 
-# predefined conda environments
-# set the length of key < 3
-$Global:Conda_Env = @{}
+# # predefined conda environments
+# # set the length of key < 3
+# $Global:Conda_Env = @{}
 
-$Global:Conda_Env.b = 'base'
-# conda env stats with bkce, and should be consistent with Conda_Env
-# $Global:Oxide.bkceb = "$env:BACKUP\conda\conda-base.txt"
+# $Global:Conda_Env.b = 'base'
+
+# # conda env stats with bkce, and should be consistent with Conda_Env
+# # $Global:Oxide.bkceb = "$env:BACKUP\conda\conda-base.txt"
 
 ##########################################################
 # rust settings

@@ -180,15 +180,17 @@ upp() {
 # conda settings
 ##########################################################
 
-# backup files
-Oxide[bkc]=$BACKUP/conda/.condarc
+# # backup files
+# Oxide[bkc]=$BACKUP/conda/.condarc
 
-# predefined conda environments
-# set the length of key <= 3
-declare -A Conda_Env
+# # predefined conda environments
+# # set the length of key <= 3
+# declare -A Conda_Env
 
-Conda_Env[b]="base"
-# conda env stats with bkce, and should be consistent with Conda_Env
+# Conda_Env[b]="base"
+
+# # conda env stats with bkce, and should be consistent with Conda_Env
+# Oxide[bkceb]=$BACKUP/conda/conda-base.txt
 
 ##########################################################
 # rust settings
