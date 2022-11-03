@@ -20,7 +20,7 @@ function gii { git init $args }
 function gig {
     git rm -rf --cached .
     git add .
-    git commit -m '🗑 remove all ignored files'
+    git commit -m "🗑 remove all ignored files"
 }
 
 # ui
@@ -66,7 +66,7 @@ function gcl {
         -a {
             git checkout --orphan new
             git add -A
-            git commit -am '🎉 New Start'
+            git commit -am "🎉 New Start"
             if ([string]::IsNullOrEmpty($args[2])) { $branch = master }
             else { $branch = $args[2] }
             git branch -D $branch

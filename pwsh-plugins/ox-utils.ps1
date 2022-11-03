@@ -15,8 +15,8 @@ function epf {
         elseif ( $file.EndsWith("_") ) {
             $folder = ls $Global:Element.$file
             ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Element.$file + "\\" + $subfile
-                $out_file = $Global:Oxide.$bkfile + "\\" + $subfile
+                $in_file = $Global:Element.$file + '\\' + $subfile
+                $out_file = $Global:Oxide.$bkfile + '\\' + $subfile
                 Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
@@ -39,8 +39,8 @@ function ipf {
         if ( $file.EndsWith("_") ) {
             $folder = ls $Global:Oxide.$bkfile
             ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Oxide.$bkfile + "\\" + $subfile
-                $out_file = $Global:Element.$file + "\\" + $subfile
+                $in_file = $Global:Oxide.$bkfile + '\\' + $subfile
+                $out_file = $Global:Element.$file + '\\' + $subfile
                 Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
@@ -63,8 +63,8 @@ function iif {
         if ( $file.EndsWith("_") ) {
             $folder = ls $Global:Oxygen.$oxfile
             ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Oxygen.$oxfile + "\\" + $subfile
-                $out_file = $Global:Element.$file + "\\" + $subfile
+                $in_file = $Global:Oxygen.$oxfile + '\\' + $subfile
+                $out_file = $Global:Element.$file + '\\' + $subfile
                 Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
@@ -88,8 +88,8 @@ function dpf {
         if ( $file.EndsWith("_") ) {
             $folder = ls $Global:Oxygen.$oxfile
             ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Oxygen.$oxfile + "\\" + $subfile
-                $out_file = $Global:Oxide.$bkfile + "\\" + $subfile
+                $in_file = $Global:Oxygen.$oxfile + '\\' + $subfile
+                $out_file = $Global:Oxide.$bkfile + '\\' + $subfile
                 Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
