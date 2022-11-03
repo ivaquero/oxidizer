@@ -2,24 +2,6 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxtl = "$env:OXIDIZER\defaults\texlive-pkgs.txt"
-
-function init_texlive {
-    Write-Output 'Initialize TeXLive using Oxidizer configuration'
-    $file = (cat $Global:Oxygen.oxtl)
-    $num = (cat $Global:Oxygen.oxtl | Measure-Object -Line).Lines
-
-    pueue group add texlive_init
-    pueue parallel $num -g texlive_init
-
-    Foreach ( $line in $file ) {
-        Write-Output "Installing $line"
-        pueue add -g texlive_init "tlmgr install $line"
-    }
-    Start-Sleep -s 3
-    pueue status
-}
-
 function up_texlive {
     Write-Output "Update TeXLive by $($Global:Oxide.bktl)"
     $file = (cat $Global:Oxide.bktl)

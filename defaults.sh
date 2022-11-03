@@ -72,15 +72,16 @@ Proxy[v]=1080
 # select software configuration objects
 ##########################################################
 
-# options: brew, conda, julia, node, texlive, vscode, espanso
+# options: brew, conda, vscode, espanso
 declare -a INIT_OBJ
 export INIT_OBJ=(brew)
 
-declare -a BACK_OBJ
-export BACK_OBJ=(brew)
-
+# options: brew, conda, vscode, espanso, julia, texlive, node
 declare -a UP_OBJ
 export UP_OBJ=(brew)
+
+declare -a BACK_OBJ
+export BACK_OBJ=(brew)
 
 # backup file path
 export BACKUP=$HOME/Documents/backup

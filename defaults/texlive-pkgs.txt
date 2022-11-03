@@ -1,3 +1,0 @@
-collection-fontsrecommended
-collection-latex
-collection-latexrecommended

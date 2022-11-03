@@ -2,15 +2,6 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxnj = "$env:OXIDIZER\defaults\node-pkgs.txt"
-
-function init_node {
-    Write-Output 'Initialize Node by Oxidizer configuration'
-    $pkgs = (cat $Global:Oxygen.oxnj | sd "`n" ' ')
-    Write-Output "Installing $pkgs"
-    Invoke-Expression "npm install -g $pkgs --force"
-}
-
 function up_node {
     Write-Output "Update Node by $($Global:Oxide.bknj)"
     $pkgs = (cat $Global:Oxide.bknj | sd "`n" ' ')

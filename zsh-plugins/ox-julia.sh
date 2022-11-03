@@ -2,8 +2,6 @@
 # config
 ##########################################################
 
-Oxygen[oxjl]=$OXIDIZER/defaults/julia-pkgs.txt
-# config files
 Element[jl]=$HOME/.julia/config/startup.jl
 Element[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
 Element[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml

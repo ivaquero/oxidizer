@@ -2,20 +2,9 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxjl = "$env:OXIDIZER\defaults\julia-pkgs.txt"
-# config files
 $Global:Element.jls = "$HOME\.julia\config\startup.jl"
 $Global:Element.jlm = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Manifest.toml"
 $Global:Element.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Project.toml"
-
-function init_julia {
-    Write-Output 'Initialize Julia by Oxidizer configuration'
-    $pkgs = (cat $Global:Oxygen.bkjl | sd '`n' '\", \"')
-    $pkgs_vec = Write-Output [`"$pkgs`"] | sd '\[' '[\"' | sd ', \"]' ']'
-    Write-Output "Installing ($pkgs_vec)"
-    $cmd = Write-Output "using Pkg; Pkg.add($pkgs_vec)"
-    julia --eval $cmd
-}
 
 function up_julia {
     Write-Output "Update Julia by $($Global:Oxide.bkjl)"

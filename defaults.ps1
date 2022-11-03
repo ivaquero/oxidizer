@@ -62,10 +62,12 @@ $Global:Proxy.v = '1080'
 # select initial and backup configurations
 ##########################################################
 
-# options: scoop, conda, julia, node, texlive, vscode, espanso
+# options: scoop, conda, vscode, espanso
 $Global:INIT_OBJ = @('scoop')
-$Global:BACK_OBJ = @('scoop')
+
+# options: scoop, conda, vscode, espanso, julia, texlive, node
 $Global:UP_OBJ = @('scoop')
+$Global:BACK_OBJ = @('scoop')
 
 # backup file path
 $env:BACKUP = "$HOME\Documents\backup"
