@@ -312,6 +312,22 @@ case $SHELL in
 esac
 
 ##########################################################
+# starship
+##########################################################
+
+# case $SHELL in
+# *zsh)
+#     eval "$(starship init zsh)"
+#     ;;
+# *bash)
+#     eval "$(starship init bash)"
+#     ;;
+# esac
+
+# export STARSHIP_CONFIG=$HOME/.config/starship.toml
+# Element[ss]=$STARSHIP_CONFIG
+
+##########################################################
 # weather
 ##########################################################
 

@@ -241,6 +241,15 @@ function zz { z - }
 function hf { hyperfine $args }
 function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
 
+# ##########################################################
+# # starship
+# ##########################################################
+
+# Invoke-Expression (&starship init powershell)
+
+# $env:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
+# $Global:Element.ss = $env:STARSHIP_CONFIG
+
 ##########################################################
 # weather
 ##########################################################
