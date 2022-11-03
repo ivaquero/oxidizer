@@ -231,3 +231,6 @@ test/
 
 ### Vuejs ###
 # Recommended template: Node.gitignore
+
+# nushell
+*/*.nu
