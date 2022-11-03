@@ -9,7 +9,7 @@ Minimalistic & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks a
 
 <p align="left">
 <a href="README.md">English</a> |
-<a href="README-CN.md">简体中文</a>
+<a href="https://github.com/ivaquero/oxidizer.sh/wiki/%E4%B8%AD%E6%96%87">简体中文</a>
 </p>
 
 Let's Oxidize Development Environments
