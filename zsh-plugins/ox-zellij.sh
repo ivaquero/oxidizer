@@ -2,20 +2,11 @@
 # config
 ##########################################################
 
-Oxygen[oxzj]=$OXIDIZER/defaults/zellij.yml
+export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
 
-# config files
 # use `_` as a suffix flag for directory
-Element[zj]=$ZELLIJ_CONFIG_DIR/config.yaml
+Element[zj]=$ZELLIJ_CONFIG_DIR/config.kdl
 Element[zjl_]=$ZELLIJ_CONFIG_DIR/layouts
-
-# backup files
-Oxide[bkzj]=$BACKUP/zellij/config.yaml
-Oxide[bkzjl_]=$BACKUP/zellij/layouts
-
-if [ ! -d $BACKUP/zellij ]; then
-    mkdir -p $BACKUP/zellij
-fi
 
 ##########################################################
 # main
@@ -23,10 +14,41 @@ fi
 
 alias zj="zellij"
 alias zjh="zellij help"
-alias zjls="zellij list-sessions"
+alias zje="zellij edit"
 alias zjck="zellij setup --check"
 
-zja() {
+zjs() {
+    case $1 in
+    bs)
+        zellij setup --generate-auto-start=bash >>~/.bash_profile
+        ;;
+    zs)
+        zellij setup --generate-auto-start=zsh >>~/.zshrc
+        ;;
+    esac
+}
+
+zjcf() {
+    case $1 in
+    -p)
+        zellij setup --dump-config
+        ;;
+    -l)
+        zellij setup --dump-layout $2
+        ;;
+    *)
+        zellij setup --dump-config >~/.config/zellij/config.kdl
+        ;;
+    esac
+}
+
+##########################################################
+# sessions
+##########################################################
+
+alias zjls="zellij list-sessions"
+
+zjat() {
     if [ -z $1 ]; then
         zellij attach --index 0
     elif [[ ${#1} < 3 ]]; then
@@ -43,3 +65,5 @@ zjq() {
         zellij kill-session $1
     fi
 }
+
+alias zjr="zellij run"

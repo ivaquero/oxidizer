@@ -58,7 +58,7 @@ ef ox
 
 To keep up the updates, simply use `upox` function.
 
-## 2. Philosophy
+## 1. Philosophy
 
 Oxidizer is originally designed for **non-administrator** users. It quickly sets up a minimal but powerful coding environment, and it aims to provide with following features:
 
@@ -68,9 +68,9 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - Unified Interface & Smooth Usage
 - Super-Fast! (Loading time < 1 s)
 
-## 3. Oxidization Progress
+## 2. Oxidization Progress
 
-### 3.1. Command Line Replacement
+### 2.1. Command Line Replacement
 
 ☑️ means required in the installation.
 
@@ -89,7 +89,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
 - [ ] Use `tectonic` instead of `xetex` or `xelatex`
 
-### 3.2. Software Replacement
+### 2.2. Software Replacement
 
 - [ ] Use `WezTerm` or `Alacritty` instead of `iTerm2` or `Windows Terminal`
 - [ ] Use `Helix` instead of `NeoVim`
@@ -98,14 +98,14 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 > `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 
-### 3.3. Other Useful Rust Tools
+### 2.3. Other Useful Rust Tools
 
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [x] `hyperfine`: Command-line benchmarking tool
 - [ ] `navi`: An interactive cheatsheet tool for the command-line
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
-### 3.4. Summary of Plugins
+### 2.4. Summary of Plugins
 
 Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.sh` to load the plugins by your need.
 
@@ -145,7 +145,7 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 
 Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypass the requirement of administrator privilege.
 
-## 4. File Management
+## 3. File Management
 
 ![design](https://raw.githubusercontent.com/ivaquero/blog-bio/master/tutorials/images/cmd/oxidizer-design.png)
 
@@ -200,10 +200,12 @@ The table below lists the information of specific configuration files:
 |   vscode   |    `vss_`    |     `snippets`      |
 |   vscode   |    `vsx`     |  `vscode-pkgs.txt`  |
 |   winget   |     `w`      |    `winget.json`    |
+|   zellij   |     `zj`     |    `config.kdl`     |
+|   zellij   |    `zjl_`    |      `layouts`      |
 
-> `_` denotes folder
+> `_` denotes a folder
 
-## 5. Software management
+## 4. Software management
 
 - `init_*`
   - file: install packages/extensions by Oxidizer defaults
@@ -214,9 +216,9 @@ The table below lists the information of specific configuration files:
 
 `init_*` works for `brew`, `scoop`, `conda`, `vscode`, `espanso`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `espanso`, `julia`, `texlive`, `node`.
 
-### 5.1. TeXLive
+### 4.1. TeXLive
 
-## 6. Package Management
+## 5. Package Management
 
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
@@ -297,7 +299,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*xrm` | remove repo |         |         |     ✅      |            |          |
 | `*xls` |  list repo  |         |         |     ✅      |            |          |
 
-### 6.1. Homebrew
+### 1. Homebrew
 
 - [x] Integrated `aria2` to download Homebrew Casks (require `aria2` installed)
 - [x] Enable Homebrew installation by using pre-download installers
@@ -320,7 +322,7 @@ suffix `a` is for `all` which will force brew to upgrade every cask including on
 - `bmr`: using brew mirror
 - `bmrq`: reset brew git source to official repositories, `q` is for quit.
 
-### 6.2. Conda
+### 2. Conda
 
 Note that the conda plugin is based on `mamba` (a parallel version of conda) and `conda-tree`, so you need to install mamba by
 
@@ -369,7 +371,7 @@ cls h
 - `cesd`: change environment's `conda-forge subdir`
 - `ceep`: export environment
 
-## 7. Service Management
+## 1. Service Management
 
 Oxidizer's task & service management follows the same philosophy of package management, _i.e._ to provide unified interfaces to facilitate workflows.
 
@@ -394,13 +396,13 @@ Oxidizer's task & service management follows the same philosophy of package mana
 |  `*r`  |     run      |            |              |            ✅            |            ✅            |                       |
 | `*at`  |    attach    |            |              |            ✅            |            ✅            |                       |
 
-### 7.1. Pueue
+### 1.1. Pueue
 
-### 7.2. Espanso
+### 1.2. Espanso
 
-### 7.3. Homebrew Services
+### 1.3. Homebrew Services
 
-## 8. Project & Software Management
+## 2. Project & Software Management
 
 |       | Action | git [g] | docker<br>image [di] | podman<br>image [pi] | bitwarden [bw] |
 | :---: | :----: | :-----: | :------------------: | :------------------: | :------------: |
@@ -415,7 +417,7 @@ Oxidizer's task & service management follows the same philosophy of package mana
 | `*ps` |  push  |   ✅    |          ✅          |          ✅          |                |
 | `*cf` | config |   ✅    |                      |                      |       ✅       |
 
-### 8.1. Git
+### 2.1. Git
 
 - [x] delete ignored files in `.gitignore`: `gig`
 - [x] find fat blob files: `gjk`
@@ -424,11 +426,13 @@ Oxidizer's task & service management follows the same philosophy of package mana
   - [x] clean files by id `gcl -i`
   - [x] clean files by path `gcl -p`
 
-### 8.2. Docker image
+### 2.2. Docker/Podman image
 
-## 9. Utility Management
+### 2.3. Zellij
 
-### 9.1. Formats
+## 3. Utility Management
+
+### 3.1. Formats
 
 - [x] Convert markdown: `mdto`
   - [x] to PDF with Unicode (for CJK)
@@ -437,9 +441,9 @@ Oxidizer's task & service management follows the same philosophy of package mana
 mdto [filename] [format]
 ```
 
-## 10. System Management
+## 4. System Management
 
-### 10.1. macOS & Linux
+### 4.1. macOS & Linux
 
 - `update`: update system
 - `clean`
@@ -450,7 +454,7 @@ mdto [filename] [format]
   - `clean vs`: clean `VSCode` cache files
 - `allow`: allow installation of uncertified apps
 
-## 11. Writing A Plugin
+## 5. Writing A Plugin
 
 A plugin in Oxidizer is referred as Oxygen, a key-value object whose key starts with `oxp`.
 
@@ -474,7 +478,7 @@ $Global:Oxygen.oxpvi = "plugin_path"
 
 And add it into `PLUGINS` object in `custom.ps1`
 
-### 11.1. Config Files
+### 5.1. Config Files
 
 A system / software / tool configuration file in Oxidizer is referred as Element, set it like what you do with Oxygen
 
@@ -494,7 +498,7 @@ Element[vi_]=$HOME/.vim
 $Global:Element.vi_ = "$HOME/vim"
 ```
 
-### 11.2. Backup Files
+### 1. Backup Files
 
 A backup file in Oxidizer is referred as Oxide whose key starts with `bk`, set it like
 
@@ -507,11 +511,11 @@ $Global:Oxide.bkvi = "$env:BACKUP/.vimrc"
 
 Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
 
-## 12. Credits
+## 1. Credits
 
 - [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
 - [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-## 13. Licence
+## 2. Licence
 
 This work is released under the GPL-v3 licence.

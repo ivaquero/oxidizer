@@ -132,6 +132,17 @@ Oxide[bkg]=$BACKUP/.gitconfig
 Oxide[bkgi]=$BACKUP/git/.gitignore
 
 ##########################################################
+# zellij settings
+##########################################################
+
+# if [ ! -d $BACKUP/zellij ]; then
+#     mkdir -p $BACKUP/zellij
+# fi
+
+# Oxide[bkzj]=$BACKUP/zellij/config.yaml
+# Oxide[bkzjl_]=$BACKUP/zellij/layouts
+
+##########################################################
 # helix settings
 ##########################################################
 
