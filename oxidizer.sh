@@ -14,7 +14,7 @@ Oxygen[oxwz]=$OXIDIZER/defaults/wezterm.lua
 Oxygen[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
 Oxygen[oxpa]=$OXIDIZER/zsh-plugins/ox-apt.sh
 Oxygen[oxpb]=$OXIDIZER/zsh-plugins/ox-brew.sh
-Oxygen[oxpzp]=$OXIDIZER/zsh-plugins/ox-zap.sh
+Oxygen[oxpza]=$OXIDIZER/zsh-plugins/ox-zap.sh
 Oxygen[oxpg]=$OXIDIZER/zsh-plugins/ox-git.sh
 Oxygen[oxpc]=$OXIDIZER/zsh-plugins/ox-conda.sh
 Oxygen[oxpbw]=$OXIDIZER/zsh-plugins/ox-bitwarden.sh
@@ -97,7 +97,7 @@ case $(uname -a) in
     ;;
 *Ubuntu* | *Debian* | *WSL*)
     . ${Oxygen[oxpa]}
-    . ${Oxygen[oxpzp]}
+    . ${Oxygen[oxpza]}
     ;;
 esac
 
