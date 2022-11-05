@@ -278,26 +278,27 @@ Some of the package managers shortcuts are included in corresponding system plug
 - `ox-macos` [oxpm]: autoloaded, contains `mas`.
 - `ox-apt` [oxpa]: autoloaded
 - `ox-windows` [oxpw]: autoloaded, contains `winget`, `wsl`
+- `ox-zap` [oxzp]: autoloaded
 - `ox-flatpak` [oxpf]: optional
 
-|        |   Action    | mas [m] | apt [a] | flatpak [f] | winget [w] | wsl [wl] |
-| :----: | :---------: | :-----: | :-----: | :---------: | :--------: | :------: |
-|  `*h`  |    help     |   ✅    |   ✅    |             |     ✅     |          |
-| `*is`  |   install   |   ✅    |   ✅    |     ✅      |     ✅     |    ✅    |
-| `*us`  |  uninstall  |   ✅    |   ✅    |     ✅      |     ✅     |          |
-| `*up`  |   update    |   ✅    |   ✅    |             |     ✅     |          |
-| `*ups` | update self |         |   ✅    |             |     ✅     |          |
-| `*ls`  |    list     |         |   ✅    |     ✅      |     ✅     |    ✅    |
-| `*lv`  |   leaves    |         |         |             |            |          |
-| `*sc`  |   search    |   ✅    |   ✅    |     ✅      |            |          |
-| `*cl`  |    clean    |         |   ✅    |             |            |          |
-| `*if`  |    info     |   ✅    |   ✅    |     ✅      |     ✅     |          |
-| `*st`  |   status    |   ✅    |         |             |            |          |
-| `*ck`  |    check    |         |   ✅    |     ✅      |            |          |
-| `*dp`  |   depends   |         |   ✅    |             |            |          |
-| `*xa`  |  add repo   |         |         |     ✅      |            |          |
-| `*xrm` | remove repo |         |         |     ✅      |            |          |
-| `*xls` |  list repo  |         |         |     ✅      |            |          |
+|        |   Action    | mas [m] | apt [a] | zap [zp] | flatpak [f] | winget [w] | wsl [wl] |
+| :----: | :---------: | :-----: | :-----: | :------: | :---------: | :--------: | :------: |
+|  `*h`  |    help     |   ✅    |   ✅    |          |             |     ✅     |    ✅    |
+| `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅      |     ✅     |    ✅    |
+| `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅      |     ✅     |          |
+| `*up`  |   update    |   ✅    |   ✅    |          |             |     ✅     |    ✅    |
+| `*ups` | update self |         |   ✅    |          |             |     ✅     |    ✅    |
+| `*ls`  |    list     |         |   ✅    |    ✅    |     ✅      |     ✅     |    ✅    |
+| `*lv`  |   leaves    |         |         |          |             |            |          |
+| `*sc`  |   search    |   ✅    |   ✅    |          |     ✅      |            |          |
+| `*cl`  |    clean    |         |   ✅    |          |             |            |          |
+| `*if`  |    info     |   ✅    |   ✅    |          |     ✅      |     ✅     |          |
+| `*st`  |   status    |   ✅    |         |          |             |            |          |
+| `*ck`  |    check    |         |   ✅    |          |     ✅      |            |          |
+| `*dp`  |   depends   |         |   ✅    |          |             |            |          |
+| `*xa`  |  add repo   |         |         |          |     ✅      |            |          |
+| `*xrm` | remove repo |         |         |          |     ✅      |            |          |
+| `*xls` |  list repo  |         |         |          |     ✅      |            |          |
 
 ### 1. Homebrew
 

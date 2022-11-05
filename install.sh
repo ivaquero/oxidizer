@@ -9,7 +9,9 @@ printf "📦 Installing Oxidizer\n"
 ###################################################
 
 if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
-    echo "Oxidizer does't support Linux on ARM yet. Closing..."
+    echo "Oxidizer only support limited functionality on Linux-on-ARM yet."
+    printf "📦 Installing Zap to Manage AppImage Packages...\n"
+    curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
     sleep 5
     exit 1
 fi
@@ -38,6 +40,9 @@ else
     printf "📦 Activating Homebrew on Linux...\n"
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    printf "📦 Installing Zap to Manage AppImage Packages...\n"
+    curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
 fi
 
 ###################################################

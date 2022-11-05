@@ -35,7 +35,7 @@ export EDITOR_T="vi"
 # oxpg: ox-git
 #
 # language & software-specific
-# oxpf: ox-flatpak
+# oxpzp: ox-zap
 # oxpc: ox-conda
 # oxpcc: ox-cpp
 # oxpdk: ox-docker
