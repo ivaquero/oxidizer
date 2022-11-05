@@ -161,16 +161,27 @@ function replace {
 
 # proxy
 function px {
-    param ( $port )
+    param ( $the_port )
+    if ( $( $the_port | Measure-Object -Character).Character -lt 2 ) {
+        $port = $Global:Proxy.$the_port
+    }
+    else {
+        $port = $the_port
+    }
     $env:https_proxy = "http://127.0.0.1:$port"
     $env:http_proxy = "http://127.0.0.1:$port"
     $env:all_proxy = "socks5://127.0.0.1:$port"
+    Write-Output "https_proxy: $env:https_proxy"
+    Write-Output "http_proxy: $env:http_proxy"
+    Write-Output "all_proxy: $env:all_proxy"
+
 }
 
-function pxls {
-    Write-Output $env:https_proxy
-    Write-Output $env:http_proxy
-    Write-Output $env:all_proxy
+function pxq {
+    $env:https_proxy = ''
+    $env:http_proxy = ''
+    $env:all_proxy = ''
+    Write-Output "https_proxy: $env:https_proxy"
+    Write-Output "http_proxy: $env:http_proxy"
+    Write-Output "all_proxy: $env:all_proxy"
 }
-
-function pxq { $env:https_proxy = ''; $env:http_proxy = ''; $env:all_proxy = '' }

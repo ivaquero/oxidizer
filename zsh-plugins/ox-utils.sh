@@ -221,15 +221,26 @@ rename() {
 # Proxy Utils
 ##########################################################
 
-# px=proxy, u=unset
+# px=proxy
 px() {
-    export https_proxy=http://127.0.0.1:${Proxy[$1]}
-    export http_proxy=http://127.0.0.1:${Proxy[$1]}
-    export all_proxy=socks5://127.0.0.1:${Proxy[$1]}
+    if [[ ${#1} < 3 ]]; then
+        local port = Proxy[$1]
+    else
+        local port = $1
+    fi
+    export https_proxy=http://127.0.0.1:$port
+    export http_proxy=http://127.0.0.1:$port
+    export all_proxy=socks5://127.0.0.1:$port
+    echo "https_proxy: ${https_proxy}"
+    echo "http_proxy: ${http_proxy}"
+    echo "all_proxy: ${all_proxy}"
 }
 
-pxls() {
-    echo ${https_proxy} ${http_proxy} ${all_proxy}
+pxq() {
+    unset https_proxy
+    unset http_proxy
+    unset all_proxy
+    echo "https_proxy: ${https_proxy}"
+    echo "http_proxy: ${http_proxy}"
+    echo "all_proxy: ${all_proxy}"
 }
-
-alias pxq="unset https_proxy; unset http_proxy; unset all_proxy"
