@@ -405,18 +405,18 @@ Oxidizer's task & service management follows the same philosophy of package mana
 
 ## 2. Project & Software Management
 
-|       | Action | git [g] | docker<br>image [di] | podman<br>image [pi] | bitwarden [bw] |
-| :---: | :----: | :-----: | :------------------: | :------------------: | :------------: |
-| `*ii` |  init  |   ✅    |                      |                      |                |
-| `*df` |  diff  |   ✅    |                      |          ✅          |                |
-| `*cl` | clean  |   ✅    |                      |          ✅          |                |
-| `*ls` |  list  |         |          ✅          |          ✅          |       ✅       |
-| `*st` | status |   ✅    |                      |                      |                |
-| `*a`  |  add   |   ✅    |                      |                      |       ✅       |
-| `*rm` | remove |         |          ✅          |          ✅          |       ✅       |
-| `*pl` |  pull  |   ✅    |          ✅          |          ✅          |       ✅       |
-| `*ps` |  push  |   ✅    |          ✅          |          ✅          |                |
-| `*cf` | config |   ✅    |                      |                      |       ✅       |
+|       | Action | git [g] | git tag [gt] | docker<br>image [di] | podman<br>image [pi] | bitwarden [bw] |
+| :---: | :----: | :-----: | :----------: | :------------------: | :------------------: | :------------: |
+| `*ii` |  init  |   ✅    |              |                      |                      |                |
+| `*df` |  diff  |   ✅    |              |                      |          ✅          |                |
+| `*cl` | clean  |   ✅    |      ✅      |                      |          ✅          |                |
+| `*ls` |  list  |         |      ✅      |          ✅          |          ✅          |       ✅       |
+| `*st` | status |   ✅    |              |                      |                      |                |
+| `*a`  |  add   |   ✅    |      ✅      |                      |                      |       ✅       |
+| `*rm` | remove |         |      ✅      |          ✅          |          ✅          |       ✅       |
+| `*pl` |  pull  |   ✅    |              |          ✅          |          ✅          |       ✅       |
+| `*ps` |  push  |   ✅    |              |          ✅          |          ✅          |                |
+| `*cf` | config |   ✅    |              |                      |                      |       ✅       |
 
 ### 2.1. Git
 

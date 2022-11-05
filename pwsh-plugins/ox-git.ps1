@@ -98,7 +98,9 @@ function gjk {
 # tag
 ##########################################################
 
-function gtrm {
-    git tag --delete $args
-    git push --delete origin $args
-}
+function gt { git tag $args }
+function gtls { git tag --list }
+function gta { git tag --annotate $args }
+function gtrm { git tag --delete $args }
+function gte { git tag --edit $args }
+function gtcl { git tag --cleanup $args }

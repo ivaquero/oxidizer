@@ -113,7 +113,9 @@ gjk() {
 # tag
 ##########################################################
 
-gtrm() {
-    git tag --delete $@
-    git push --delete origin $@
-}
+alias gt="git tag"
+alias gtls="git tag --list"
+alias gta="git tag --annotate"
+alias gtrm="git tag --delete"
+alias gte="git tag --edit"
+alias gtcl="git tag --cleanup"
