@@ -168,20 +168,15 @@ function px {
     else {
         $port = $the_port
     }
+    Write-Output "using port $Global:Proxy.$the_port"
     $env:https_proxy = "http://127.0.0.1:$port"
     $env:http_proxy = "http://127.0.0.1:$port"
     $env:all_proxy = "socks5://127.0.0.1:$port"
-    Write-Output "https_proxy: $env:https_proxy"
-    Write-Output "http_proxy: $env:http_proxy"
-    Write-Output "all_proxy: $env:all_proxy"
-
 }
 
 function pxq {
+    Write-Output 'unset all proxies'
     $env:https_proxy = ''
     $env:http_proxy = ''
     $env:all_proxy = ''
-    Write-Output "https_proxy: $env:https_proxy"
-    Write-Output "http_proxy: $env:http_proxy"
-    Write-Output "all_proxy: $env:all_proxy"
 }

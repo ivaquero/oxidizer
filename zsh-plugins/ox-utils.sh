@@ -224,23 +224,19 @@ rename() {
 # px=proxy
 px() {
     if [[ ${#1} < 3 ]]; then
-        local port = Proxy[$1]
+        local port=$Proxy[$1]
     else
-        local port = $1
+        local port=$1
     fi
+    echo "using port $port"
     export https_proxy=http://127.0.0.1:$port
     export http_proxy=http://127.0.0.1:$port
     export all_proxy=socks5://127.0.0.1:$port
-    echo "https_proxy: ${https_proxy}"
-    echo "http_proxy: ${http_proxy}"
-    echo "all_proxy: ${all_proxy}"
 }
 
 pxq() {
+    echo 'unset all proxies'
     unset https_proxy
     unset http_proxy
     unset all_proxy
-    echo "https_proxy: ${https_proxy}"
-    echo "http_proxy: ${http_proxy}"
-    echo "all_proxy: ${all_proxy}"
 }
