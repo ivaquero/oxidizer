@@ -115,25 +115,25 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 | :-: | :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
 |  1  |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
 |  2  | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
-|  3  |                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
-|  4  |                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
-|  5  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
-|  6  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
-|  7  |                      Formats                      |  🕒   |  🕒   |   🕒    |           |
-|  8  |          [Flatpak](https://flatpak.org)           |  ✅   |  ❌   |   ❌    |           |
-|  9  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
-| 10  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
-| 11  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
-| 12  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
-| 13  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
-| 14  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
-| 15  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
-| 16  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
-| 17  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
-| 18  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
-| 19  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
-| 20  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
-| 21  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
+|  3  |     [Zap](https://github.com/srevinsaju/zap)      |  ✅   |  ❌   |   ❌    |    ✅     |
+|  4  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
+|  5  |                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
+|  6  |                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
+|  7  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
+|  8  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
+|  9  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
+| 10  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
+| 11  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
+| 12  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
+| 13  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
+| 14  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
+| 15  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
+| 16  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
+| 17  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
+| 18  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
+| 19  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
+| 20  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
+| 21  |                      Formats                      |  🕒   |  🕒   |   🕒    |           |
 | 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
 
 ✅: complete functionality
@@ -264,14 +264,14 @@ bss pu
 
 Some package managers also have functionality of project management
 
-|       | Action  | brew [b] | scoop [s] | conda [c] | npm [n] | cargo [cg] | rustup [rs] | julia [jl] | conan [cn] | flatpak [f] |
-| :---: | :-----: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: | ----------- |
-| `*ii` |  init   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     | ✅          |
-| `*b`  |  build  |          |           |           |         |     ✅     |             |     ✅     |     ✅     | ✅          |
-| `*r`  |   run   |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            | ✅          |
-| `*e`  |  edit   |    ✅    |           |           |   ✅    |            |             |            |            |             |
-| `*ts` |  test   |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |             |
-| `*pb` | publish |          |           |           |   ✅    |     ✅     |             |            |            |             |
+|       | Action  | brew [b] | scoop [s] | conda [c] | npm [n] | cargo [cg] | rustup [rs] | julia [jl] | conan [cn] |
+| :---: | :-----: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: |
+| `*ii` |  init   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
+| `*b`  |  build  |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
+| `*r`  |   run   |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
+| `*e`  |  edit   |    ✅    |           |           |   ✅    |            |             |            |            |
+| `*ts` |  test   |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
+| `*pb` | publish |          |           |           |   ✅    |     ✅     |             |            |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
@@ -279,26 +279,25 @@ Some of the package managers shortcuts are included in corresponding system plug
 - `ox-apt` [oxpa]: autoloaded
 - `ox-windows` [oxpw]: autoloaded, contains `winget`, `wsl`
 - `ox-zap` [oxzp]: autoloaded
-- `ox-flatpak` [oxpf]: optional
 
-|        |   Action    | mas [m] | apt [a] | zap [zp] | flatpak [f] | winget [w] | wsl [wl] |
-| :----: | :---------: | :-----: | :-----: | :------: | :---------: | :--------: | :------: |
-|  `*h`  |    help     |   ✅    |   ✅    |          |             |     ✅     |    ✅    |
-| `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅      |     ✅     |    ✅    |
-| `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅      |     ✅     |          |
-| `*up`  |   update    |   ✅    |   ✅    |          |             |     ✅     |    ✅    |
-| `*ups` | update self |         |   ✅    |          |             |     ✅     |    ✅    |
-| `*ls`  |    list     |         |   ✅    |    ✅    |     ✅      |     ✅     |    ✅    |
-| `*lv`  |   leaves    |         |         |          |             |            |          |
-| `*sc`  |   search    |   ✅    |   ✅    |          |     ✅      |            |          |
-| `*cl`  |    clean    |         |   ✅    |          |             |            |          |
-| `*if`  |    info     |   ✅    |   ✅    |          |     ✅      |     ✅     |          |
-| `*st`  |   status    |   ✅    |         |          |             |            |          |
-| `*ck`  |    check    |         |   ✅    |          |     ✅      |            |          |
-| `*dp`  |   depends   |         |   ✅    |          |             |            |          |
-| `*xa`  |  add repo   |         |         |          |     ✅      |            |          |
-| `*xrm` | remove repo |         |         |          |     ✅      |            |          |
-| `*xls` |  list repo  |         |         |          |     ✅      |            |          |
+|        |   Action    | mas [m] | apt [a] | zap [zp] | winget [w] | wsl [wl] |
+| :----: | :---------: | :-----: | :-----: | :------: | :--------: | :------: |
+|  `*h`  |    help     |   ✅    |   ✅    |          |     ✅     |    ✅    |
+| `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
+| `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅     |          |
+| `*up`  |   update    |   ✅    |   ✅    |          |     ✅     |    ✅    |
+| `*ups` | update self |         |   ✅    |          |     ✅     |    ✅    |
+| `*ls`  |    list     |         |   ✅    |    ✅    |     ✅     |    ✅    |
+| `*lv`  |   leaves    |         |         |          |            |          |
+| `*sc`  |   search    |   ✅    |   ✅    |          |            |          |
+| `*cl`  |    clean    |         |   ✅    |          |            |          |
+| `*if`  |    info     |   ✅    |   ✅    |          |     ✅     |          |
+| `*st`  |   status    |   ✅    |         |          |            |          |
+| `*ck`  |    check    |         |   ✅    |          |            |          |
+| `*dp`  |   depends   |         |   ✅    |          |            |          |
+| `*xa`  |  add repo   |         |         |          |            |          |
+| `*xrm` | remove repo |         |         |          |            |          |
+| `*xls` |  list repo  |         |         |          |            |          |
 
 ### 1. Homebrew
 
