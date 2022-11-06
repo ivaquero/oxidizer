@@ -168,7 +168,7 @@ function px {
     else {
         $port = $the_port
     }
-    Write-Output "using port $Global:Proxy.$the_port"
+    Write-Output "using port $($Global:Proxy.$the_port)"
     $env:https_proxy = "http://127.0.0.1:$port"
     $env:http_proxy = "http://127.0.0.1:$port"
     $env:all_proxy = "socks5://127.0.0.1:$port"

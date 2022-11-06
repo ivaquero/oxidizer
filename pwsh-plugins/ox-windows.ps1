@@ -10,8 +10,8 @@ function open { param ( $path ) explorer $path }
 
 function clean {
     param ( $obj )
-    switch ($obj) {
-        sd { Remove-Item -Recurse -Confirm $env:SCOOP\cache }
+    switch ( $obj ) {
+        sdl { Remove-Item -Recurse -Confirm $env:SCOOP\cache }
         Default { Clear-RecycleBin -Confirm }
     }
 }
@@ -64,7 +64,6 @@ function wxa { param ( $repo ) winget source add $repo }
 function wxrm { param ( $repo ) winget source remove $repo }
 function wxls { param ( $repo ) winget source list }
 
-
 ##########################################################
 # wsl
 ##########################################################
@@ -77,7 +76,7 @@ function wlis {
 function wlls { wsl -l -v }
 function wllso { wsl -l -o }
 
-function wlsv {
+function wlv {
     param ( $ver )
     switch ($ver) {
         { $ver -eq 2 } { 1 }
