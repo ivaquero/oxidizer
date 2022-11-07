@@ -13,9 +13,11 @@ if test ! "$(command -v brew)"; then
     if [ $BREW_CN ]; then
         /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
     elif [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
-        echo "Note that Oxidizer only support limited functionality on Linux-on-ARM yet."
+        echo "\n ⚠️ Note that Oxidizer only support limited functionality on Linux-on-ARM yet."
         export HOMEBREW_CORE_GIT_REMOTE=https://github.com/gromgit/homebrew-core-aarch64_linux
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        sleep 5
+        exit
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
