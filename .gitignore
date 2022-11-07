@@ -234,3 +234,5 @@ test/
 
 # nushell
 */*.nu
+# markdown
+*-CN.md

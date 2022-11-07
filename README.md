@@ -1,7 +1,7 @@
-# Oxidizer.sh
+# Oxidizer
 
-[![CI](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer.sh/actions/workflows/main.yml)
-[![licence](https://img.shields.io/github/license/ivaquero/oxidizer.sh)](https://github.com/ivaquero/oxidizer.sh/blob/master/LICENSE)
+[![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
+[![licence](https://img.shields.io/github/license/ivaquero/oxidizer)](https://github.com/ivaquero/oxidizer/blob/master/LICENSE)
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
@@ -9,7 +9,7 @@ Minimalistic & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks a
 
 <p align="left">
 <a href="README.md">English</a> |
-<a href="https://github.com/ivaquero/oxidizer.sh/wiki/%E4%B8%AD%E6%96%87">简体中文</a>
+<a href="https://github.com/ivaquero/oxidizer/wiki/%E4%B8%AD%E6%96%87">简体中文</a>
 </p>
 
 Let's Oxidize Development Environments
@@ -21,7 +21,7 @@ Let's Oxidize Development Environments
 For macOS / Linux (Intel)
 
 ```bash
-git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git && bash oxidizer/install.sh
+git clone --depth=1 https://github.com/ivaquero/oxidizer.git && bash oxidizer/install.sh
 
 # customize path for Oxidizer
 export OXIDIZER=$HOME/oxidizer
@@ -38,7 +38,7 @@ export BREW_CN=1
 For Windows
 
 ```powershell
-git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git; . oxidizer\install.ps1
+git clone --depth=1 https://github.com/ivaquero/oxidizer.git; . oxidizer\install.ps1
 
 # customize path for Oxidizer
 $env:OXIDIZER = "$HOME\oxidizer"
@@ -52,7 +52,7 @@ $env:scoop_mirror = 1
 
 > For Cmder users, you need to remove the `-Options ReadOnly` from `Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly` in the last line of `%CMDER_ROOT%\vendor\profile.ps1`.
 
-After installation, you might personalize your preference in `custom.sh` or `custom.ps1`, check [defaults.sh](https://github.com/ivaquero/oxidizer.sh/blob/master/defaults.sh) or [defaults.ps1](https://github.com/ivaquero/oxidizer.sh/blob/master/defaults.ps1). Open `custom.sh` or `custom.ps1` by following command
+After installation, you might personalize your preference in `custom.sh` or `custom.ps1`, check [defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh) or [defaults.ps1](https://github.com/ivaquero/oxidizer/blob/master/defaults.ps1). Open `custom.sh` or `custom.ps1` by following command
 
 ```shellscript
 ef ox
