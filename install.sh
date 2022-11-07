@@ -8,18 +8,14 @@ printf "📦 Installing Oxidizer\n"
 # Install Homebrew
 ###################################################
 
-if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
-    echo "Oxidizer only support limited functionality on Linux-on-ARM yet."
-    printf "📦 Installing Zap to Manage AppImage Packages...\n"
-    curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
-    sleep 5
-    exit 1
-fi
-
 if test ! "$(command -v brew)"; then
     printf "📦 Homebrew not installed. Installing."
     if [ $BREW_CN ]; then
         /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+    elif [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
+        echo "Note that Oxidizer only support limited functionality on Linux-on-ARM yet."
+        export HOMEBREW_CORE_GIT_REMOTE=https://github.com/gromgit/homebrew-core-aarch64_linux
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
@@ -51,6 +47,15 @@ fi
 
 printf "📦 Installing essential Oxidizer toolchains...\n"
 brew bundle install --file $OXIDIZER/defaults/Brewfile
+
+###################################################
+# Install Zap
+###################################################
+
+if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
+    printf "📦 Installing Zap to Manage AppImage Packages...\n"
+    curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
+fi
 
 ###################################################
 # Update Shell Settings

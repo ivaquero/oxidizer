@@ -21,10 +21,10 @@ Let's Oxidize Development Environments
 For macOS / Linux (Intel)
 
 ```bash
-# define path for Oxidizer
-export OXIDIZER=$HOME/oxidizer
+git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git && bash oxidizer/install.sh
 
-git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git $OXIDIZER && bash $OXIDIZER/install.sh
+# customize path for Oxidizer
+export OXIDIZER=$HOME/oxidizer
 ```
 
 Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux. For China mainland users, you may set `BREW_CN` variable to install Homebrew through domestic mirror
@@ -33,13 +33,15 @@ Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux. For
 export BREW_CN=1
 ```
 
+> Note that Oxidizer only support limited functionality on Linux-on-ARM yet.
+
 For Windows
 
 ```powershell
-# define path for Oxidizer
-$env:OXIDIZER = "$HOME\oxidizer"
+git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git; . oxidizer\install.ps1
 
-git clone --depth=1 https://github.com/ivaquero/oxidizer.sh.git $env:OXIDIZER; . $env:OXIDIZER\install.ps1
+# customize path for Oxidizer
+$env:OXIDIZER = "$HOME\oxidizer"
 ```
 
 Note that Scoop is an essential dependency for Oxidizer on Windows. For China mainland users, you may set `SCOOP_CN` variable to install Scoop through domestic mirror
