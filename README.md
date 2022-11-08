@@ -14,7 +14,7 @@ Simple & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks are wel
 
 Let's Oxidize Development Environments
 
-!`oxidizer`(https://raw.githubusercontent.com/ivaquero/blog-bio/master/tutorials/images/cmd/oxidizer.png)
+![oxidizer](https://raw.githubusercontent.com/ivaquero/blog-bio/master/tutorials/images/cmd/oxidizer.png)
 
 ## 1. Get Started
 
