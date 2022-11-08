@@ -6,12 +6,12 @@
 # packages
 ##########################################################
 
-alias rbh="gem help"
-alias rbis="gem install"
-alias rbus="gem uninstall"
-alias rbup="gem update"
+alias gmh="gem help"
+alias gmis="gem install"
+alias gmus="gem uninstall"
+alias gmup="gem update"
 
-rbls() {
+gmls() {
     if [ -z $1 ]; then
         gem list --local
     else
@@ -23,4 +23,8 @@ rbls() {
 # project
 ##########################################################
 
-alias rbb="gem build"
+alias gmb="gem build"
+
+##########################################################
+# rbenv
+##########################################################

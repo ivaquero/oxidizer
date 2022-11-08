@@ -6,12 +6,12 @@
 # packages
 ##########################################################
 
-function rbh { gem help }
-function rbis { gem install }
-function rbus { gem uninstall }
-function rbup { gem update }
+function gmh { gem help }
+function gmis { gem install }
+function gmus { gem uninstall }
+function gmup { gem update }
 
-function rbls {
+function gmls {
     if ([string]::IsNullOrEmpty($the_env)) { gem list --local }
     else { gem list }
 }
@@ -20,4 +20,9 @@ function rbls {
 # project
 ##########################################################
 
-function rbb { gem build }
+function gmb { gem build }
+
+##########################################################
+# rbenv
+##########################################################
+
