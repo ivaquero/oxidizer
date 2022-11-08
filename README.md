@@ -5,7 +5,7 @@
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
-Minimalistic & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks are welcome !)
+Simple & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks are welcome !)
 
 <p align="left">
 <a href="README.md">English</a> |
