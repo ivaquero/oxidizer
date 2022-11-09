@@ -6,7 +6,7 @@ $Global:Oxygen.oxesx = "$env:OXIDIZER\defaults\espanso-pkg.txt"
 # config files
 $Global:APPHOME.es = "$env:APPDATA\espanso"
 if ( !(Test-Path "$Global:APPHOME.es") ) {
-    $Global:APPHOME.es = "$env:SCOOP\apps\espanso\current\.espanso"
+    $Global:APPHOME.es = "$env:SCOOP\persist\espanso\.espanso"
 }
 
 $Global:Element.es = "$($Global:APPHOME.es)\config\default.yml"

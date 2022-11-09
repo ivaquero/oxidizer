@@ -79,6 +79,10 @@ $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
 $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 # $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
 
+# system file
+# $Global:Element.vi = "$HOME/.vimrc"
+# $Global:Element.al = "$env:SCOOP\persist\alacritty\alacritty.yml"
+
 ##########################################################
 # select export and import configurations
 ##########################################################
