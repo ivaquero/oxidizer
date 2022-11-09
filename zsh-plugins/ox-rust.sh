@@ -20,12 +20,22 @@ rsmr() {
 ##########################################################
 
 alias cgh="cargo help"
+alias cgls="cargo --list"
 alias cgis="cargo install"
 alias cgus="cargo uninstall"
 alias cgup="cargo update"
 alias cgcl="cargo clean"
 alias cgsc="cargo search"
 alias cgck="cargo check"
+alias cgcf="cargo config"
+
+cgif() {
+    if [ -z $1 ]; then
+        cargo info
+    else
+        cargo $1 info
+    fi
+}
 
 ##########################################################
 # project
@@ -34,6 +44,7 @@ alias cgck="cargo check"
 alias cgb="cargo build"
 alias cgr="cargo run"
 alias cgts="cargo test"
+alias cgfx="cargo fix"
 alias cgpb="cargo publish"
 
 cgii() {

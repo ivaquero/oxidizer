@@ -24,10 +24,21 @@ function cg { cargo }
 function cgh { cargo help }
 function cgis { cargo install $args }
 function cgus { cargo uninstall $args }
+function cgls { cargo --list }
 function cgup { cargo update $args }
 function cgcl { cargo clean }
 function cgsc { cargo search $args }
 function cgck { cargo check }
+function cgcf { cargo config $args }
+
+function cgif {
+    param ( $pkg )
+    if ([string]::IsNullOrEmpty( $pkg )) {
+        cargo info
+    }
+    else
+    { cargo $pkg info }
+}
 
 ##########################################################
 # project
@@ -36,7 +47,9 @@ function cgck { cargo check }
 function cgb { cargo build $args }
 function cgr { cargo run $args }
 function cgts { cargo test $args }
+function cgfx { cargo fix $args }
 function cgpb { cargo publish $args }
+
 
 function cgii {
     if ([string]::IsNullOrEmpty($args)) { cargo new $args }

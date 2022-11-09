@@ -236,7 +236,7 @@ Oxidizer aims to provide a unified interface for all package manager-related com
 | `*lv`  |   leaves    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |     ✅     |            |            |
 | `*sc`  |   search    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |            |     ✅     |            |
 | `*cl`  |    clean    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |     ✅     |            |            |
-| `*if`  |    info     |    ✅    |    ✅     |    ✅     |   ✅    |            |             |          |            |     ✅     |     ✅     |
+| `*if`  |    info     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |            |     ✅     |     ✅     |
 | `*st`  |   status    |    ✅    |    ✅     |           |   ✅    |            |             |          |     ✅     |            |            |
 | `*ck`  |    check    |    ✅    |    ✅     |           |   ✅    |     ✅     |     ✅      |          |            |            |     ✅     |
 | `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
@@ -273,6 +273,7 @@ Some package managers also have functionality of project management
 | `*r`  |   run   |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
 | `*e`  |  edit   |    ✅    |           |           |   ✅    |            |             |            |            |
 | `*ts` |  test   |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
+| `*fx` |   fix   |          |           |           |   ✅    |     ✅     |             |            |            |
 | `*pb` | publish |          |           |           |   ✅    |     ✅     |             |            |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
