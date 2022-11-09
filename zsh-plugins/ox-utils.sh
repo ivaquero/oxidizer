@@ -10,9 +10,8 @@ epf() {
         if [ -z ${Oxide[bk$file]} ]; then
             echo "Oxide[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
-            for subfile in $(ls ${Element[$file]}); do
-                cp -R -v ${Element[$file]}/$subfile ${Oxide[bk$file]}/$subfile
-            done
+            rm -rf ${Oxide[bk$file]}
+            cp -R -v ${Element[$file]} ${Oxide[bk$file]}
         else
             if [ ! -d $(dirname ${Oxide[bk$file]}) ]; then
                 mkdir -p $(dirname ${Oxide[bk$file]})
@@ -45,16 +44,10 @@ ipf() {
 iif() {
     for file in $@; do
         echo "Overwrite ${Element[$file]} by ${Oxygen[ox$file]}"
-        if [[ $file == *_ ]]; then
-            for subfile in $(ls ${Oxygen[ox$file]}); do
-                cp -R -v ${Oxygen[ox$file]}/$subfile ${Element[$file]}/$subfile
-            done
-        else
-            if [ ! -d $(dirname ${Element[$file]}) ]; then
-                mkdir -p $(dirname ${Element[$file]})
-            fi
-            cp -v ${Oxygen[ox$file]} ${Element[$file]}
+        if [ ! -d $(dirname ${Element[$file]}) ]; then
+            mkdir -p $(dirname ${Element[$file]})
         fi
+        cp -v ${Oxygen[ox$file]} ${Element[$file]}
     done
 }
 
@@ -63,16 +56,10 @@ iif() {
 dpf() {
     for file in $@; do
         echo "Overwrite ${Oxide[bk$file]} by ${Oxygen[ox$file]}"
-        if [[ $file == *_ ]]; then
-            for subfile in $(ls ${Oxygen[ox$file]}); do
-                cp -R -v ${Oxygen[ox$file]}/$subfile ${Oxide[bk$file]}/$subfile
-            done
-        else
-            if [ ! -d $(dirname ${Oxide[bk$file]}) ]; then
-                mkdir -p $(dirname ${Oxide[bk$file]})
-            fi
-            cp -v ${Oxygen[ox$file]} ${Oxide[bk$file]}
+        if [ ! -d $(dirname ${Oxide[bk$file]}) ]; then
+            mkdir -p $(dirname ${Oxide[bk$file]})
         fi
+        cp -v ${Oxygen[ox$file]} ${Oxide[bk$file]}
     done
 }
 

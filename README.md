@@ -94,9 +94,9 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [x] Use `bottom` instead of `top` or `htop`
 - [x] Use `gitui` instead of `lazygit`
 - [ ] Use `wezTerm` or `alacritty` instead of `iterm2` or `windows terminal`
+- [ ] Use `broot` instead of `ranger`
 - [ ] Use `helix` instead of `neovim`
 - [ ] Use `zellij` instead of `tmux` (Not support Windows yet)
-- [ ] Use `joshuto` instead of `ranger` (Not support Windows yet)
 
 > `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 

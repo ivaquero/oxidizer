@@ -13,12 +13,10 @@ function epf {
             Write-Output "$Global:Oxide.$bkfile does not exist, please define it in custom.ps1"
         }
         elseif ( $file.EndsWith("_") ) {
-            $folder = ls $Global:Element.$file
-            ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Element.$file + '\\' + $subfile
-                $out_file = $Global:Oxide.$bkfile + '\\' + $subfile
-                Copy-Item -Verbose -Path $in_file -Destination $out_file
-            }
+            $in_folder = $Global:Element.$file
+            $out_folder = $Global:Oxide.$bkfile
+            Remove-Item -Recurse $out_folder
+            Copy-Item -Verbose -Force -Path $in_folder -Destination $out_folder
         }
         else {
             $parentpath = ( Get-Item $Global:Element.$file ).DirectoryName
@@ -60,21 +58,11 @@ function iif {
     $files = $args
     ForEach ( $file in $files ) {
         $oxfile = "ox" + $file
-        if ( $file.EndsWith("_") ) {
-            $folder = ls $Global:Oxygen.$oxfile
-            ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Oxygen.$oxfile + '\\' + $subfile
-                $out_file = $Global:Element.$file + '\\' + $subfile
-                Copy-Item -Verbose -Path $in_file -Destination $out_file
-            }
+        $parentpath = ( Get-Item $Global:Element.$file ).DirectoryName
+        if ( !(Test-Path $parentpath) ) {
+            New-Item -ItemType Directory -Force -Path $parentpath
         }
-        else {
-            $parentpath = ( Get-Item $Global:Element.$file ).DirectoryName
-            if ( !(Test-Path $parentpath) ) {
-                New-Item -ItemType Directory -Force -Path $parentpath
-            }
-            Copy-Item -Verbose -Path $Global:Oxygen.$oxfile -Destination $Global:Element.$file
-        }
+        Copy-Item -Verbose -Path $Global:Oxygen.$oxfile -Destination $Global:Element.$file
     }
 }
 
@@ -85,21 +73,11 @@ function dpf {
     ForEach ( $file in $files ) {
         $oxfile = "ox" + $file
         $bkfile = "bk" + $file
-        if ( $file.EndsWith("_") ) {
-            $folder = ls $Global:Oxygen.$oxfile
-            ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Oxygen.$oxfile + '\\' + $subfile
-                $out_file = $Global:Oxide.$bkfile + '\\' + $subfile
-                Copy-Item -Verbose -Path $in_file -Destination $out_file
-            }
+        $parentpath = ( Get-Item $Global:Oxide.$bkfile ).DirectoryName
+        if ( !(Test-Path $parentpath) ) {
+            New-Item -ItemType Directory -Force -Path $parentpath
         }
-        else {
-            $parentpath = ( Get-Item $Global:Oxide.$bkfile ).DirectoryName
-            if ( !(Test-Path $parentpath) ) {
-                New-Item -ItemType Directory -Force -Path $parentpath
-            }
-            Copy-Item -Verbose -Path $Global:Oxygen.$oxfile -Destination $Global:Oxide.$bkfile
-        }
+        Copy-Item -Verbose -Path $Global:Oxygen.$oxfile -Destination $Global:Oxide.$bkfile
     }
 }
 
