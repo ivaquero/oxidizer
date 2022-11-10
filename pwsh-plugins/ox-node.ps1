@@ -4,7 +4,7 @@
 
 function up_node {
     Write-Output "Update Node by $($Global:Oxide.bknj)"
-    $pkgs = (cat $Global:Oxide.bknj | sd "`n" ' ')
+    $pkgs = (cat $($Global:Oxide.bknj) | sd "`n" ' ')
     Write-Output "Installing $pkgs"
     Invoke-Expression "npm install -g $pkgs --force"
 }

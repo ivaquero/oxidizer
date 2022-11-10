@@ -43,7 +43,7 @@ esac
 init_brew() {
     echo "Initialize Brew by Oxidizer configuration"
     brew_pkgs=$(cat $OXIDIZER/defaults/Brewfile.txt | sd "\n" "")
-    brew install brew_pkgs
+    brew install $brew_pkgs
 }
 
 up_brew() {

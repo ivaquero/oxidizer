@@ -12,24 +12,14 @@ Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
 
 function init_scoop {
     Write-Output "Initialize Scoop by Oxidizer configuration"
-    $file = (cat $Global:Oxygen.oxs)
-    $num = (cat $Global:Oxygen.oxs | Measure-Object -Line).Lines
-
-    pueue group add init_scoop
-    pueue parallel $num -g init_scoop
-
-    Foreach ( $line in $file ) {
-        Write-Output "Installing $line"
-        pueue add -g init_scoop "scoop install $line"
-    }
-    Start-Sleep -s 3
-    pueue status
+    $scoop_pkgs = (cat $($Global:Oxygen.oxs) | sd "\n" "")
+    scoop install $scoop_pkgs
 }
 
 function up_scoop {
     Write-Output "Update Scoop by $($Global:Oxide.bks)"
-    $file = (cat $Global:Oxide.bks)
-    $num = (cat $Global:Oxide.bks | Measure-Object -Line).Lines
+    $file = (cat $($Global:Oxide.bks))
+    $num = (cat $($Global:Oxide.bks) | Measure-Object -Line).Lines
 
     pueue group add up_scoop
     pueue parallel $num -g up_scoop
