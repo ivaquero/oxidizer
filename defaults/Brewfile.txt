@@ -1,0 +1,12 @@
+bat
+btm
+dust
+fd
+gitui
+hyperfine
+lsd
+pueue
+rg
+sd
+tealdeer
+zoxide

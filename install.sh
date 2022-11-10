@@ -43,18 +43,26 @@ else
     curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
 fi
 
+brew tap "homebrew/services"
+brew tap "homebrew/bundle"
+
 ###################################################
 # Install Packages
 ###################################################
 
 printf "📦 Installing essential Oxidizer toolchains...\n"
-brew bundle install --file $OXIDIZER/defaults/Brewfile
+
+for pkg in $(cat defaults/Brewfile.txt); do
+    if test ! "$(command -v brew)"; then
+        brew install $pkg
+    fi
+done
 
 ###################################################
 # Install Zap
 ###################################################
 
-if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
+if [ $(uname -s) = "Linux" ]; then
     printf "📦 Installing Zap to Manage AppImage Packages...\n"
     curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
 fi

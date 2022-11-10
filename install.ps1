@@ -37,10 +37,15 @@ ForEach ( $bucket in $scoopBuckets ) {
     scoop bucket add $bucket
 }
 
-$scoops = Get-Content "$env:OXIDIZER\defaults\Scoopfile.txt"
+$pkgs = Get-Content "$env:OXIDIZER\defaults\Scoopfile.txt"
 
-ForEach ( $scoop in $scoops ) {
-    scoop install $scoop
+ForEach ( $pkg in $pkgs ) {
+    if (Get-Command $pkg -ErrorAction SilentlyContinue) {
+        Write-Host "$pkg Already Installed"
+    }
+    else {
+        scoop install $pkg
+    }
 }
 
 if (Get-Command code -ErrorAction SilentlyContinue) {
