@@ -193,7 +193,7 @@ bmrq() {
 # bundle
 ##########################################################
 
-Oxygen[oxb]=$OXIDIZER/defaults/Brewfile
+Oxygen[oxb]=$OXIDIZER/defaults/Brewfile.txt
 # backup files
 export HOMEBREW_BUNDLE_FILE=${Oxide[bkb]}
 

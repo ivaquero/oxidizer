@@ -53,7 +53,7 @@ brew tap "homebrew/bundle"
 printf "📦 Installing essential Oxidizer toolchains...\n"
 
 for pkg in $(cat defaults/Brewfile.txt); do
-    if test ! "$(command -v brew)"; then
+    if test ! "$(command -v $pkg)"; then
         brew install $pkg
     fi
 done
