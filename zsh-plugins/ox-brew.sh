@@ -42,7 +42,8 @@ esac
 
 init_brew() {
     echo "Initialize Brew by Oxidizer configuration"
-    brew bundle --file ${Oxygen[oxpb]}
+    brew_pkgs=$(cat $OXIDIZER/defaults/Brewfile.txt | sd "\n" "")
+    brew install brew_pkgs
 }
 
 up_brew() {
@@ -193,7 +194,6 @@ bmrq() {
 # bundle
 ##########################################################
 
-Oxygen[oxb]=$OXIDIZER/defaults/Brewfile.txt
 # backup files
 export HOMEBREW_BUNDLE_FILE=${Oxide[bkb]}
 

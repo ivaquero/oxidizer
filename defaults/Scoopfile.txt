@@ -1,11 +1,11 @@
 bat
-btm
+bottom
 dust
 fd
 gitui
 lsd
 pueue
-rg
+ripgrep
 sd
 tealdeer
 zoxide

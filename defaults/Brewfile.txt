@@ -1,12 +1,12 @@
 bat
-btm
+bottom
 dust
 fd
 gitui
 hyperfine
 lsd
 pueue
-rg
+ripgrep
 sd
 tealdeer
 zoxide
