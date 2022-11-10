@@ -15,3 +15,4 @@ posh-git
 psreadline
 sudo
 busybox
+vscode

@@ -40,30 +40,19 @@ ForEach ( $bucket in $scoopBuckets ) {
 $pkgs = Get-Content "$env:OXIDIZER\defaults\Scoopfile.txt"
 
 ForEach ( $pkg in $pkgs ) {
-    if (Get-Command $pkg -ErrorAction SilentlyContinue) {
+    switch ( $pkg ) {
+        bottom { $cmd = 'btm' }
+        ripgrep { $cmd = 'rg' }
+        Default { $cmd = $pkg }
+    }
+    if (Get-Command $cmd -ErrorAction SilentlyContinue) {
         Write-Host "$pkg Already Installed"
     }
     else {
+        Write-Host "Installing $pkg"
         scoop install $pkg
     }
 }
-
-if (Get-Command code -ErrorAction SilentlyContinue) {
-    Write-Host "VS Code Already Installed"
-}
-else {
-    scoop install vscode
-}
-
-###################################################
-# Update Terminal Settings
-###################################################
-
-if ( !(Test-Path "$env:SCOOP\persist\wezterm" ) ) {
-    New-Item -ItemType Directory -Force -Path "$env:SCOOP\persist\wezterm"
-}
-
-Copy-Item -Verbose -Path "$env:OXIDIZER\defaults\wezterm.lua" -Destination "$env:SCOOP\persist\wezterm\wezterm.lua"
 
 ###################################################
 # Update PowerShell Settings

@@ -72,7 +72,7 @@ function crdp { mamba repoquery whoneeds $pkg }
 # clean packages
 function ccl {
     param ( $cmd )
-    switch ($cmd) {
+    switch ( $cmd ) {
         -l { conda clean --logfiles }
         -i { conda clean --index-cache }
         -p { conda clean --packages }
@@ -103,7 +103,6 @@ Remove-Item alias:clv -Force -ErrorAction SilentlyContinue
 # $1=name
 function cls {
     param ( $the_env )
-
     if ([string]::IsNullOrEmpty( $the_env )) {
         mamba list
     }
