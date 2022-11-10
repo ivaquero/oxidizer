@@ -10,14 +10,12 @@ printf "📦 Installing Oxidizer\n"
 
 if test ! "$(command -v brew)"; then
     printf "📦 Homebrew not installed. Installing.\n"
-    if [ $BREW_CN ]; then
-        /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
-    elif [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
-        echo "⚠️ Note that Oxidizer only support limited functionality on Linux-on-ARM yet."
-        export HOMEBREW_CORE_GIT_REMOTE=https://github.com/gromgit/homebrew-core-aarch64_linux
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
+        echo "⚠️ Oxidizer doesn't support limited Linux-on-ARM yet."
         sleep 5
         exit
+    elif [ $BREW_CN ]; then
+        /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
@@ -74,8 +72,15 @@ done
 ###################################################
 
 if [ $(uname -s) = "Linux" ]; then
+    printf "📦 Adding Tap linuxbrew/fonts...\n"
+    brew tap "linuxbrew/fonts"
     printf "📦 Installing Zap to Manage AppImage Packages...\n"
     curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
+else
+    printf "📦 Adding Tap homebrew/cask...\n"
+    brew tap "homebrew/cask"
+    printf "📦 Adding Tap homebrew/cask-fonts...\n"
+    brew tap "homebrew/cask-fonts"
 fi
 
 ###################################################
@@ -129,15 +134,11 @@ sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $shell_conf
 # Editor
 ###################################################
 
-if test ! "$(command -v code)"; then
-    echo "No VS Code installed. "
-
-    if test ! "$(command -v nvim)"; then
-        echo "No NeoVim installed"
-        export EDITOR="vi"
-    else
-        export EDITOR="nvim"
-    fi
+if test ! "$(command -v nvim)"; then
+    echo "⚙️ Using Vim as Default Terminal Editor"
+    export EDITOR="vi"
+else
+    export EDITOR="nvim"
 fi
 
 printf "🎉 Oxidizer installation complete!\n"
