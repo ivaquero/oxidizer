@@ -9,7 +9,7 @@ $Global:Element.c = "$HOME\.condarc"
 
 function init_conda {
     Write-Output 'Initialize Conda by Oxidizer configuration'
-    $pkgs = cat $Global:Oxygen.oxce | sd "`n" ' '
+    $pkgs = cat $($Global:Oxygen.oxce) | sd "`n" ' '
     Write-Output "Installing $pkgs"
     Invoke-Expression "mamba install $pkgs"
 }

@@ -17,8 +17,8 @@ $Global:Element.vss_ = "$($Global:APPHOME.vs)\snippets"
 function init_vscode {
     Write-Output 'Initialize VSCode extensions by Oxidizer configuration'
     $exts = (code --list-extensions)
-    $file = (cat $Global:Oxygen.oxvsx)
-    $num = (cat $Global:Oxygen.oxvsx | Measure-Object -Line).Lines
+    $file = (cat $($Global:Oxygen.oxvsx))
+    $num = (cat $($Global:Oxygen.oxvsx) | Measure-Object -Line).Lines
 
     pueue group add vscode_update
     pueue parallel $num -g vscode_update
@@ -39,8 +39,8 @@ function init_vscode {
 function up_vscode {
     Write-Output "Update VSCode extensions by $($Global:Oxide.bkvsx)"
     $exts = (code --list-extensions)
-    $file = (cat $Global:Oxide.bkvsx)
-    $num = (cat $Global:Oxide.bkvsx | Measure-Object -Line).Lines
+    $file = (cat $($Global:Oxide.bkvsx))
+    $num = (cat $($Global:Oxide.bkvsx) | Measure-Object -Line).Lines
 
     pueue group add vscode_update
     pueue parallel $num -g vscode_update

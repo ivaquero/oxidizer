@@ -15,7 +15,7 @@ $Global:Element.esm = "$($Global:APPHOME.es)\match\base.yml"
 function init_espanso {
     Write-Output 'Initialize Espanso using Oxidizer configuration'
     $pkgs = (espanso package list)
-    $file = (cat $Global:Oxygen.oxesx | sd ' ' '')
+    $file = (cat $($Global:Oxygen.oxesx) | sd ' ' '')
     Foreach ( $line in $file ) {
         if (Write-Output $pkgs | rg $line) {
             Write-Output "Extension $line is already installed."
@@ -30,7 +30,7 @@ function init_espanso {
 function up_espanso {
     Write-Output "Update Espanso by $($Global:Oxide.bkesx)"
     $pkgs = (espanso package list)
-    $file = (cat $Global:Oxide.bkesx | sd ' ' '')
+    $file = (cat $($Global:Oxide.bkesx) | sd ' ' '')
     Foreach ( $line in $file ) {
         if (Write-Output $pkgs | rg $line) {
             Write-Output "Extension $line is already installed."

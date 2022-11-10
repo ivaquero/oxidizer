@@ -4,8 +4,8 @@
 
 function up_texlive {
     Write-Output "Update TeXLive by $($Global:Oxide.bktl)"
-    $file = (cat $Global:Oxide.bktl)
-    $num = (cat $Global:Oxide.bktl | Measure-Object -Line).Lines
+    $file = (cat $($Global:Oxide.bktl))
+    $num = (cat $($Global:Oxide.bktl) | Measure-Object -Line).Lines
 
     pueue group add texlive_update
     pueue parallel $num -g texlive_update

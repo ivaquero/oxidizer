@@ -8,7 +8,7 @@ $Global:Element.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matchin
 
 function up_julia {
     Write-Output "Update Julia by $($Global:Oxide.bkjl)"
-    $pkgs = (cat $Global:Oxide.bkjl | sd '`n' '\", \"')
+    $pkgs = (cat $($Global:Oxide.bkjl) | sd '`n' '\", \"')
     $pkgs_vec = Write-Output [`"$pkgs`"] | sd '\[' '[\"' | sd ', \"]' ']'
     $cmd = Write-Output "using Pkg; Pkg.add($pkgs_vec)"
     julia --eval `"$cmd`"
