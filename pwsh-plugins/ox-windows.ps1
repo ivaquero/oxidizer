@@ -73,6 +73,8 @@ function wlis {
     else { wsl --install -d $args }
 }
 
+function wlus { wslconfig /u $args }
+
 function wlls { wsl -l -v }
 function wllso { wsl -l -o }
 
@@ -83,4 +85,18 @@ function wlv {
         Default { 2 }
     }
     wsl --set-version $ver
+}
+
+
+function wlcl {
+    param ( $sys )
+    switch ( $sys ) {
+        kali { $file = "C:\Users\Ci\AppData\Local\Packages\KaliLinux.54290C8133FEE_ey8k8hqnwqnmg\LocalState\ext4.vhdx" }
+        Default { $file = "C:\Users\Ci\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\ext4.vhdx" }
+    }
+    diskpart
+    Select-Object vdisk file=$file
+    attach vdisk readonly
+    compact vdisk
+    detach vdisk
 }

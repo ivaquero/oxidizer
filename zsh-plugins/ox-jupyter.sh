@@ -1,8 +1,16 @@
 ##########################################################
+# config
+##########################################################
+
+Element[jn]="$HOME/.jupyter/jupyter_notebook_config.py"
+
+##########################################################
 # main
 ##########################################################
 
+alias jnh="jupyter --help"
 alias jn="jupyter notebook"
+alias jncf="jupyter notebook --generate-config"
 alias jnl="jupyter lab"
 
 ##########################################################
@@ -11,6 +19,7 @@ alias jnl="jupyter lab"
 
 alias jnk="jupyter kernelspec"
 alias jnkls="jupyter kernelspec list"
+alias jnkis="jupyter kernelspec install"
 alias jnkus="jupyter kernelspec remove"
 
 ##########################################################

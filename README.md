@@ -115,28 +115,28 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 
 |     |                      Plugin                       | Linux | macOS | Windows | Autoload? |
 | :-: | :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
-|  1  |     `Brew`(https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
-|  2  | `Scoop`(https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
-|  3  |     `Zap`(https://github.com/srevinsaju/zap)      |  ✅   |  ❌   |   ❌    |    ✅     |
-|  4  |     `Pueue`(https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
+|  1  |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
+|  2  | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
+|  3  |     [Zap](https://github.com/srevinsaju/zap)      |  ✅   |  ❌   |   ❌    |    ✅     |
+|  4  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
 |  5  |                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
 |  6  |                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
-|  7  |            `Git`(https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
-|  8  | `Bitwarden`(https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
-|  9  |    `Conan`(https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
-| 10  |      `Conda`(https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
-| 11  |           `Docker`(https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
-| 12  |    `Julia`(https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
-| 13  |   `Jupyter`(https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
-| 14  |      `Node`(https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
-| 15  |  `Podman`(https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
-| 16  |          `Ruby`(https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
-| 17  |     `Rust`(https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
-| 18  |   `Espanso`(https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
-| 19  |        `TeXLive`(https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
-| 20  |   `VSCode`(https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
+|  7  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
+|  8  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
+|  9  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
+| 10  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
+| 11  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
+| 12  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
+| 13  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
+| 14  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
+| 15  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
+| 16  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
+| 17  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
+| 18  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
+| 19  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
+| 20  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
 | 21  |                      Formats                      |  🕒   |  🕒   |   🕒    |           |
-| 22  |  `Helix`(https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
+| 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
 
 ✅: complete functionality
 🚧: partial functionality
@@ -171,39 +171,40 @@ When you use `epf zs`, `~/.zshrc` will be copied and save in `$BACKUP/shell` fol
 
 The table below lists the information of specific configuration files:
 
-|   Origin   | Abbreviation | Corresponding File  |
-| :--------: | :----------: | :-----------------: |
-|  oxidizer  |     `ox`     |     `custom.sh`     |
-|    zsh     |     `zs`     |      `.zshrc`       |
-| powershell |     `ps`     |    `Profile.ps1`    |
-|  wezterm   |     `wz`     |    `wezterm.lua`    |
-|   conda    |     `c`      |     `.condarc`      |
-|    git     |     `g`      |    `.gitconfig`     |
-|    git     |     `gi`     |    `.gitignore`     |
-|   conan    |     `cn`     |      `default`      |
-|   conan    |    `cnr`     |    `remote.json`    |
-|  espanso   |     `es`     |    `default.yml`    |
-|  espanso   |    `esm`     |  `match/base.yml`   |
-|  espanso   |    `esx`     |   `espanso-pkgs`    |
-|   helix    |     `hx`     |    `config.toml`    |
-|   helix    |    `hxl`     |  `languages.toml`   |
-|   julia    |     `jl`     |  `julia-pkgs.txt`   |
-|   julia    |    `jls`     |    `startup.jl`     |
-|   julia    |    `jlp`     |   `Project.toml`    |
-|   julia    |    `jlm`     |   `Manifest.toml`   |
-|   latex    |     `tl`     |   `texlive-pkgs`    |
-|    node    |     `nj`     |   `node-pkgs.txt`   |
-|   pueue    |     `pu`     |     `pueue.yml`     |
-|   pueue    |    `pua`     | `pueue_aliases.yml` |
-|   cargo    |     `cg`     |        `env`        |
-|   cargo    |    `cg_`     |      `.cargo`       |
-|   vscode   |     `vs`     |   `settings.json`   |
-|   vscode   |    `vsk`     | `keybindings.json`  |
-|   vscode   |    `vss_`    |     `snippets`      |
-|   vscode   |    `vsx`     |  `vscode-pkgs.txt`  |
-|   winget   |     `w`      |    `winget.json`    |
-|   zellij   |     `zj`     |    `config.kdl`     |
-|   zellij   |    `zjl_`    |      `layouts`      |
+|   Origin   | Abbreviation |      Corresponding File      |
+| :--------: | :----------: | :--------------------------: |
+|  oxidizer  |     `ox`     |         `custom.sh`          |
+|    zsh     |     `zs`     |           `.zshrc`           |
+| powershell |     `ps`     |        `Profile.ps1`         |
+|  wezterm   |     `wz`     |        `wezterm.lua`         |
+|   conda    |     `c`      |          `.condarc`          |
+|    git     |     `g`      |         `.gitconfig`         |
+|    git     |     `gi`     |         `.gitignore`         |
+|   conan    |     `cn`     |          `default`           |
+|   conan    |    `cnr`     |        `remote.json`         |
+|  espanso   |     `es`     |        `default.yml`         |
+|  espanso   |    `esm`     |       `match/base.yml`       |
+|  espanso   |    `esx`     |        `espanso-pkgs`        |
+|   helix    |     `hx`     |        `config.toml`         |
+|   helix    |    `hxl`     |       `languages.toml`       |
+|   julia    |     `jl`     |       `julia-pkgs.txt`       |
+|   julia    |    `jls`     |         `startup.jl`         |
+|   julia    |    `jlp`     |        `Project.toml`        |
+|   julia    |    `jlm`     |       `Manifest.toml`        |
+|  jupyter   |     `jn`     | `jupyter_notebook_config.py` |
+|   latex    |     `tl`     |        `texlive-pkgs`        |
+|    node    |     `nj`     |       `node-pkgs.txt`        |
+|   pueue    |     `pu`     |         `pueue.yml`          |
+|   pueue    |    `pua`     |     `pueue_aliases.yml`      |
+|   cargo    |     `cg`     |            `env`             |
+|   cargo    |    `cg_`     |           `.cargo`           |
+|   vscode   |     `vs`     |       `settings.json`        |
+|   vscode   |    `vsk`     |      `keybindings.json`      |
+|   vscode   |    `vss_`    |          `snippets`          |
+|   vscode   |    `vsx`     |      `vscode-pkgs.txt`       |
+|   winget   |     `w`      |        `winget.json`         |
+|   zellij   |     `zj`     |         `config.kdl`         |
+|   zellij   |    `zjl_`    |          `layouts`           |
 
 > `_` denotes a folder
 
@@ -287,13 +288,13 @@ Some of the package managers shortcuts are included in corresponding system plug
 | :----: | :---------: | :-----: | :-----: | :------: | :--------: | :------: |
 |  `*h`  |    help     |   ✅    |   ✅    |          |     ✅     |    ✅    |
 | `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅     |          |
+| `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*up`  |   update    |   ✅    |   ✅    |          |     ✅     |    ✅    |
 | `*ups` | update self |         |   ✅    |          |     ✅     |    ✅    |
 | `*ls`  |    list     |         |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*lv`  |   leaves    |         |         |          |            |          |
 | `*sc`  |   search    |   ✅    |   ✅    |          |            |          |
-| `*cl`  |    clean    |         |   ✅    |          |            |          |
+| `*cl`  |    clean    |         |   ✅    |          |            |    ✅    |
 | `*if`  |    info     |   ✅    |   ✅    |          |     ✅     |          |
 | `*st`  |   status    |   ✅    |         |          |            |          |
 | `*ck`  |    check    |         |   ✅    |          |            |          |

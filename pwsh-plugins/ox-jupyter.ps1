@@ -2,8 +2,9 @@
 # main
 ##########################################################
 
-function jn { jupyter notebook }
-function jn { jupyter lab }
+function jnh { jupyter --help }
+function jn { jupyter notebook $args }
+function jn { jupyter lab $args }
 
 ##########################################################
 # kernelspec
@@ -11,6 +12,7 @@ function jn { jupyter lab }
 
 function jnk { jupyter kernelspec $args }
 function jnkls { jupyter kernelspec list }
+function jnkis { jupyter kernelspec install $args }
 function jnkus { jupyter kernelspec remove $args }
 
 ##########################################################
