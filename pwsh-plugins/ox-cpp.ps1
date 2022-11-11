@@ -11,7 +11,7 @@ $Global:Element.cnr = "$env:BASE\.conan\remote.json"
 ##########################################################
 
 function cn { conan $args }
-function cnh { conan help }
+function cnh { conan help $args }
 function cnis { conan install $args }
 function cnus { conan remove $args }
 function cnsc {

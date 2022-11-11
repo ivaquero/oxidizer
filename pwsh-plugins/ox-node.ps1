@@ -19,21 +19,21 @@ function back_node {
 # packages
 ##########################################################
 
-function nh { npm help }
+function nh { npm help $args }
 function ncf { npm config $args }
 function nis { npm install $args }
 function nus { npm uninstall $args }
 function nisg { npm install -g $args }
 function nusg { npm uninstall -g $args }
-function nup { npm update }
-function nupg { npm update -g }
+function nup { npm update $args }
+function nupg { npm update -g $args }
 function nst { npm outdated }
-function nls { npm list }
-function nlsg { npm list -g }
+function nls { npm list $args }
+function nlsg { npm list -g $args }
 function nlv { npm list --depth 0 }
 function nlvg { npm list --depth 0 -g }
 function nck { npm doctor }
-function nsc { npm search }
+function nsc { npm search $args }
 function ncl { npm cache clean -f }
 function nif { npm info }
 

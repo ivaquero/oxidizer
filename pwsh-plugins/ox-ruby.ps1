@@ -6,7 +6,7 @@
 # packages
 ##########################################################
 
-function gmh { gem help }
+function gmh { gem help $args }
 function gmis { gem install }
 function gmus { gem uninstall }
 function gmup { gem update }

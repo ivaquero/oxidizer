@@ -27,13 +27,12 @@ function back_texlive {
 # packages
 ##########################################################
 
-function tl { tlmgr }
 function tlup { tlmgr update --all }
 function tlups { tlmgr update --all --self }
 function tlck { tlmgr check }
 function tlis { tlmgr install $args }
 function tlus { tlmgr remove $args }
-function tllsa { tlmgr list }
+function tllsa { tlmgr list $args }
 function tlls { tlmgr list --only-installed }
 function tlif { tlmgr info $args }
 function tlifc { tlmgr info collections }

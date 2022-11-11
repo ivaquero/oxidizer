@@ -20,8 +20,7 @@ function rsmr {
 # packages
 ##########################################################
 
-function cg { cargo }
-function cgh { cargo help }
+function cgh { cargo help $args }
 function cgis { cargo install $args }
 function cgus { cargo uninstall $args }
 function cgls { cargo --list }
@@ -60,7 +59,7 @@ function cgii {
 # rustup
 ##########################################################
 
-function rsh { rustup help }
+function rsh { rustup help $args }
 function rsis { rustup component add $args }
 function rsus { rustup component remove $args }
 function rsls { rustup component list }

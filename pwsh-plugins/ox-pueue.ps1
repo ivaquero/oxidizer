@@ -25,6 +25,6 @@ function puq { pueue kill $args }
 # main
 ##########################################################
 
-function puh { pueue help }
+function puh { pueue help $args }
 function pue { pueue edit $args }
 function purs { pueue reset }

@@ -69,7 +69,7 @@ function back_vscode {
 
 function vsis { code --install-extension $args }
 function vsus { code --uninstall-extension $args }
-function vsls { code --list-extensions }
+function vsls { code --list-extensions $args }
 
 ##########################################################
 # integration

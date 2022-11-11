@@ -82,5 +82,5 @@ function esq { espanso stop }
 ##########################################################
 function esa { param ( $path ) New-Item -Force -Path $path.yml }
 function es { espanso $args }
-function esh { espanso help }
+function esh { espanso help $args }
 function ese { espanso edit $args }
