@@ -50,15 +50,6 @@ $Global:PLUGINS = @(
 )
 
 ##########################################################
-# register proxy ports
-##########################################################
-
-# c: clash, v: v2ray
-$Global:Proxy = @{}
-$Global:Proxy.c = '7890'
-$Global:Proxy.v = '1080'
-
-##########################################################
 # select initial and backup configurations
 ##########################################################
 
@@ -87,6 +78,15 @@ $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 # }
 
 # $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
+
+##########################################################
+# register proxy ports
+##########################################################
+
+# c: clash, v: v2ray
+$Global:Proxy = @{}
+$Global:Proxy.c = '7890'
+$Global:Proxy.v = '1080'
 
 ##########################################################
 # select export and import configurations

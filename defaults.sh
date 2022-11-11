@@ -59,15 +59,6 @@ PLUGINS=(
 )
 
 ##########################################################
-# register proxy ports
-##########################################################
-
-declare -A Proxy
-# c: clash, v: v2ray
-Proxy[c]=7890
-Proxy[v]=1080
-
-##########################################################
 # select software configuration objects
 ##########################################################
 
@@ -94,6 +85,18 @@ Oxide[bkbs]=$BACKUP/shell/.bash_profile
 # system file
 Element[vi]=$HOME/.vimrc
 # Element[al]=$HOME/.config/alacritty/alacritty.yml
+
+##########################################################
+# register proxy ports
+##########################################################
+
+declare -A Proxy
+# c: clash, v: v2ray
+Proxy[c]=7890
+Proxy[v]=1080
+
+Element[cv]="$HOME/.config/clash-verge/verge.yaml"
+Oxide[bkcv]="$BACKUP/app/verge.yaml"
 
 ##########################################################
 # select export and import settings
