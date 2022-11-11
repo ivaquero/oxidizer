@@ -2,9 +2,6 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxpu = "$env:OXIDIZER\defaults\pueue.yml"
-$Global:Oxygen.oxpua = "$env:OXIDIZER\defaults\pueue_aliases.yml"
-# config files
 $Global:Element.pu = "$env:APPDATA\pueue\pueue.yml"
 $Global:Element.pua = "$env:APPDATA\Preferences\pueue\pueue_aliases.yml"
 

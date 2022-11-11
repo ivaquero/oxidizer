@@ -2,10 +2,6 @@
 # config
 ##########################################################
 
-Oxygen[oxpu]=$OXIDIZER/defaults/pueue.yml
-Oxygen[oxpua]=$OXIDIZER/defaults/pueue_aliases.yml
-
-# config files
 if [[ $MACOS ]]; then
     Element[pu]=$HOME/Library/Preferences/pueue/pueue.yml
     Element[pua]=$HOME/Library/Preferences/pueue/pueue_aliases.yml
