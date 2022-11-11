@@ -27,6 +27,7 @@ alias cgup="cargo update"
 alias cgcl="cargo clean"
 alias cgsc="cargo search"
 alias cgck="cargo check"
+alias cgdp="cargo tree"
 alias cgcf="cargo config"
 
 cgif() {

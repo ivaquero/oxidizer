@@ -242,7 +242,7 @@ Oxidizer aims to provide a unified interface for all package manager-related com
 | `*ck`  |    check    |    ✅    |    ✅     |           |   ✅    |     ✅     |     ✅      |          |            |            |     ✅     |
 | `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
 | `*upn` |    unpin    |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
-| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |            |             |          |     ✅     |            |            |
+| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |          |     ✅     |            |            |
 | `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |          |            |
 | `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |          |            |
 | `*xls` |  list repo  |          |           |    ✅     |         |            |             |          |            |
@@ -267,15 +267,15 @@ bss pu
 
 Some package managers also have functionality of project management
 
-|       | Action  | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` |
-| :---: | :-----: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: |
-| `*ii` |  init   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
-| `*b`  |  build  |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
-| `*r`  |   run   |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
-| `*e`  |  edit   |    ✅    |           |           |   ✅    |            |             |            |            |
-| `*ts` |  test   |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
-| `*fx` |   fix   |          |           |           |   ✅    |     ✅     |             |            |            |
-| `*pb` | publish |          |           |           |   ✅    |     ✅     |             |            |            |
+|       |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` |
+| :---: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: |
+| `*ii` | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
+| `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
+| `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
+| `*e`  |    edit     |    ✅    |           |           |   ✅    |            |             |            |            |
+| `*ts` |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
+| `*fx` |     fix     |          |           |           |   ✅    |     ✅     |             |            |            |
+| `*pb` |   publish   |          |           |           |   ✅    |     ✅     |             |            |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 

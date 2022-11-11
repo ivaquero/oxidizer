@@ -28,6 +28,7 @@ function cgup { cargo update $args }
 function cgcl { cargo clean }
 function cgsc { cargo search $args }
 function cgck { cargo check }
+function cgdp { cargo tree $args }
 function cgcf { cargo config $args }
 
 function cgif {
