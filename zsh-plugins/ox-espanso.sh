@@ -2,41 +2,16 @@
 # config
 ##########################################################
 
-Oxygen[oxesx]=$OXIDIZER/defaults/espanso-pkgs.txt
-# config files
 Element[es]=$APPDATA/espanso/config/default.yml
 Element[esx]=$APPDATA/espanso/match/base.yml
 Element[esx_]=$APPDATA/espanso/match/packages
 
-init_espanso() {
-    echo "Initialize Espanso by Oxidizer configuration"
-    local pkgs=$(espanso package list)
-    cat ${Oxygen[oxesx]} | sd " " "" | while read line; do
-        if echo $exts | rg $line; then
-            echo "Package $line is already installed."
-        else
-            echo "Installing $line"
-            espanso package install $line
-        fi
-    done
-}
-
 up_espanso() {
-    echo "Update Espanso by ${Oxide[bkesx]}"
-    local pkgs=$(espanso package list)
-    cat ${Oxide[bkesx]} | sd " " "" | while read line; do
-        if echo $exts | rg $line; then
-            echo "Package $line is already installed."
-        else
-            echo "Installing $line"
-            espanso package install $line
-        fi
-    done
+    ipf esx esx_
 }
 
 back_espanso() {
-    echo "Backup Espanso to ${Oxide[bkesx]}"
-    espanso package list | rg --only-matching "\w+.*\w\s-" | rg --only-matching "\w+.*\w" >${Oxide[bkesx]}
+    epf esx esx_
 }
 
 ##########################################################

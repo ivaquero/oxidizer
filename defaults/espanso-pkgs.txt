@@ -1,5 +1,0 @@
-greek-letters-improved
-math-symbols
-mac-symbols
-all-emojis
-get-ip

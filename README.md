@@ -217,7 +217,7 @@ The table below lists the information of specific configuration files:
 - `back_*`
   - file: export package/extension info to `$BACKUP` folder
 
-`init_*` works for `brew`, `scoop`, `conda`, `vscode`, `espanso`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `espanso`, `julia`, `texlive`, `node`.
+`init_*` works for `brew`, `scoop`, `conda`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `espanso`, `julia`, `texlive`, `node`.
 
 ### 5.1. TeXLive
 

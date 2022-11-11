@@ -2,8 +2,6 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxesx = "$env:OXIDIZER\defaults\espanso-pkg.txt"
-# config files
 $Global:APPHOME.es = "$env:APPDATA\espanso"
 if ( !(Test-Path "$Global:APPHOME.es") ) {
     $Global:APPHOME.es = "$env:SCOOP\persist\espanso\.espanso"
@@ -13,39 +11,12 @@ $Global:Element.es = "$($Global:APPHOME.es)\config\default.yml"
 $Global:Element.esx = "$($Global:APPHOME.es)\match\base.yml"
 $Global:Element.esx_ = "$($Global:APPHOME.es)\match\packages"
 
-function init_espanso {
-    Write-Output 'Initialize Espanso using Oxidizer configuration'
-    $pkgs = (espanso package list)
-    $file = (cat $($Global:Oxygen.oxesx) | sd ' ' '')
-    Foreach ( $line in $file ) {
-        if (Write-Output $pkgs | rg $line) {
-            Write-Output "Extension $line is already installed."
-        }
-        else {
-            Write-Output "Installing $line"
-            Invoke-Expression "espanso package install $line"
-        }
-    }
-}
-
 function up_espanso {
-    Write-Output "Update Espanso by $($Global:Oxide.bkesx)"
-    $pkgs = (espanso package list)
-    $file = (cat $($Global:Oxide.bkesx) | sd ' ' '')
-    Foreach ( $line in $file ) {
-        if (Write-Output $pkgs | rg $line) {
-            Write-Output "Extension $line is already installed."
-        }
-        else {
-            Write-Output "Installing $line"
-            Invoke-Expression "espanso package install $line"
-        }
-    }
+    ipf esx esx_
 }
 
 function back_espanso {
-    Write-Output "Backup Espanso to $($Global:Oxide.bkesx)"
-    espanso package list | rg --only-matching '\w+.*\w\s-' | rg --only-matching '\w+.*\w' | Out-File -FilePath "$($Global:Oxide.bkesx)"
+    epf esx esx_
 }
 
 ##########################################################
