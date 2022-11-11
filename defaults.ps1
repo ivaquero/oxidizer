@@ -183,8 +183,8 @@ function upp {
 ##########################################################
 
 # $Global:Oxide.bkes = "$env:BACKUP\espanso\config\default.yml"
-# $Global:Oxide.bkesm = "$env:BACKUP\espanso\match\base.yml"
-# $Global:Oxide.bkesx = "$env:BACKUP\espanso\espanso-pkg.txt"
+# $Global:Oxide.bkesx = "$env:BACKUP\espanso\match\base.yml"
+# $Global:Oxide.bkesx_ = "$env:BACKUP\espanso\match\packages"
 
 ##########################################################
 # julia settings

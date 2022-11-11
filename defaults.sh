@@ -224,8 +224,8 @@ upp() {
 ##########################################################
 
 # Oxide[bkes]=$BACKUP/espanso/config/default.yml
-# Oxide[bkesm]=$BACKUP/espanso/match/base.yml
-# Oxide[bkesx]=$BACKUP/install/espanso-pkgs.txt
+# Oxide[bkesx]=$BACKUP/espanso/match/base.yml
+# Oxide[bkesx_]=$BACKUP/espanso/match/packages
 
 ##########################################################
 # julia settings

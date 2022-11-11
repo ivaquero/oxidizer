@@ -10,7 +10,8 @@ if ( !(Test-Path "$Global:APPHOME.es") ) {
 }
 
 $Global:Element.es = "$($Global:APPHOME.es)\config\default.yml"
-$Global:Element.esm = "$($Global:APPHOME.es)\match\base.yml"
+$Global:Element.esx = "$($Global:APPHOME.es)\match\base.yml"
+$Global:Element.esx_ = "$($Global:APPHOME.es)\match\packages"
 
 function init_espanso {
     Write-Output 'Initialize Espanso using Oxidizer configuration'

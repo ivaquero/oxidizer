@@ -183,8 +183,8 @@ The table below lists the information of specific configuration files:
 |   conan    |     `cn`     |          `default`           |
 |   conan    |    `cnr`     |        `remote.json`         |
 |  espanso   |     `es`     |        `default.yml`         |
-|  espanso   |    `esm`     |       `match/base.yml`       |
-|  espanso   |    `esx`     |        `espanso-pkgs`        |
+|  espanso   |    `esx`     |       `match/base.yml`       |
+|  espanso   |    `esx_`    |       `match/packages`       |
 |   helix    |     `hx`     |        `config.toml`         |
 |   helix    |    `hxl`     |       `languages.toml`       |
 |   julia    |     `jl`     |       `julia-pkgs.txt`       |

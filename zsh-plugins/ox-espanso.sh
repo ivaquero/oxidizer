@@ -5,7 +5,8 @@
 Oxygen[oxesx]=$OXIDIZER/defaults/espanso-pkgs.txt
 # config files
 Element[es]=$APPDATA/espanso/config/default.yml
-Element[esm]=$APPDATA/espanso/match/base.yml
+Element[esx]=$APPDATA/espanso/match/base.yml
+Element[esx_]=$APPDATA/espanso/match/packages
 
 init_espanso() {
     echo "Initialize Espanso by Oxidizer configuration"
