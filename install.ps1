@@ -43,6 +43,8 @@ ForEach ( $pkg in $pkgs ) {
     switch ( $pkg ) {
         bottom { $cmd = 'btm' }
         ripgrep { $cmd = 'rg' }
+        tealdeer { $cmd = 'tldr' }
+        zoxide { $cmd = 'z' }
         Default { $cmd = $pkg }
     }
     if (Get-Command $cmd -ErrorAction SilentlyContinue) {

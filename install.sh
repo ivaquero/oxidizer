@@ -58,6 +58,12 @@ for pkg in $(cat defaults/Brewfile.txt); do
     bottom)
         cmd='btm'
         ;;
+    tealdear)
+        cmd='tldr'
+        ;;
+    zoxide)
+        cmd='z'
+        ;;
     *)
         cmd=$pkg
         ;;
