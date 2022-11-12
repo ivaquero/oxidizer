@@ -6,15 +6,6 @@ Element[jl]=$HOME/.julia/config/startup.jl
 Element[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
 Element[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
 
-init_julia() {
-    echo "Initialize Julia by Oxidizer configuration"
-    local pkgs=[\"$(cat $OXIDIZER/defaults/julia.txt | sd '\n' '", "')\"]
-    local pkgs_vec=$(echo $pkgs | sd ', ""' '')
-    echo "Installing $pkgs_vec"
-    local cmd=$(echo 'using Pkg; Pkg.add(,,)' | sd ',,' "$pkgs_vec")
-    julia --eval "$cmd"
-}
-
 up_julia() {
     echo "Update Julia by ${Oxide[bkjl]}"
     local pkgs=[\"$(cat ${Oxide[bkjl]} | sd '\n' '", "')\"]

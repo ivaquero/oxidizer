@@ -2,8 +2,12 @@
 # text
 ##########################################################
 
-function pdlsi { pandoc --list-input-formats }
-function pdlso { pandoc --list-input-formats }
+function pdls {
+    Write-Output 'input-formats\n'
+    pandoc --list-input-formats
+    Write-Output 'output-formats\n'
+    pandoc --list-output-formats
+}
 
 if ([string]::IsNullOrEmpty($env:Font)) {
     $env:Font = "Arial Unicode MS"

@@ -49,10 +49,10 @@ alias cgfx="cargo fix"
 alias cgpb="cargo publish"
 
 cgii() {
-    if [ ! -d $1 ]; then
-        cargo new
-    else
+    if [ -z $1 ]; then
         cargo init
+    else
+        cargo new $@
     fi
 }
 

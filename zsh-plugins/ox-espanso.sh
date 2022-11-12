@@ -47,7 +47,7 @@ alias esq="espanso stop"
 ##########################################################
 
 esa() {
-    touch $APPDATA/espanso/$1.yml
+    touch $APPDATA/espanso/match/$1.yml
 }
 
 alias es="espanso"

@@ -50,10 +50,9 @@ function cgts { cargo test $args }
 function cgfx { cargo fix $args }
 function cgpb { cargo publish $args }
 
-
 function cgii {
-    if ([string]::IsNullOrEmpty($args)) { cargo new $args }
-    else { cargo init $args }
+    if ([string]::IsNullOrEmpty($args)) { cargo init $args }
+    else { cargo new $args }
 }
 
 ##########################################################

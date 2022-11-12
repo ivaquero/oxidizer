@@ -52,7 +52,7 @@ function esq { espanso stop }
 ##########################################################
 # main
 ##########################################################
-function esa { param ( $path ) New-Item -Force -Path $path.yml }
+function esa { param ( $path ) New-Item -Force -Path $($Global:APPHOME.es)\match\$path.yml }
 function es { espanso $args }
 function esh { espanso help $args }
 function ese { espanso edit $args }

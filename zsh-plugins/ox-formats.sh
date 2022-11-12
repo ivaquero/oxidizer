@@ -2,8 +2,12 @@
 # text
 ##########################################################
 
-alias pdlsi="pandoc --list-input-formats"
-alias pdlso="pandoc --list-output-formats"
+pdls() {
+    echo 'input-formats\n'
+    pandoc --list-input-formats
+    echo 'output-formats\n'
+    pandoc --list-output-formats
+}
 
 [ -z $Font ] && export Font="Arial Unicode MS"
 

@@ -2,15 +2,6 @@
 # config
 ##########################################################
 
-Oxygen[oxnj]=$OXIDIZER/defaults/node-pkgs.txt
-
-init_node() {
-    echo "Initialize Node by Oxidizer configuration"
-    local pkgs=$(cat ${Oxygen[oxnj]} | sd "\n" " ")
-    echo "Installing $pkgs"
-    eval "npm install -g $pkgs --force"
-}
-
 up_node() {
     echo "Update Node by ${Oxide[bknj]}"
     local pkgs=$(cat ${Oxide[bknj]} | sd "\n" " ")

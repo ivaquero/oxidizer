@@ -20,7 +20,7 @@ cnsc() {
         conan search -r=conancenter $1
         ;;
     *)
-        conan search
+        conan search $1
         ;;
     esac
 }

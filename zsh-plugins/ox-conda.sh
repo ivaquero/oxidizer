@@ -190,10 +190,30 @@ cerm() {
 
 # change environment: $1=name, i=intel
 cesd() {
-    if [[ $1 == i ]]; then
-        conda env config vars set CONDA_SUBDIR=osx-64
+    if [ $(uname -s) = "Darwin" ]; then
+        case $1 in
+        i*)
+            conda env config vars set CONDA_SUBDIR=osx-64
+            ;;
+        a*)
+            conda env config vars set CONDA_SUBDIR=osx-arm64
+            ;;
+        esac
     else
-        conda env config vars set CONDA_SUBDIR=$1
+        case $1 in
+        i*)
+            conda env config vars set CONDA_SUBDIR=linux-64
+            ;;
+        a*)
+            conda env config vars set CONDA_SUBDIR=linux-aarch64
+            ;;
+        p*)
+            conda env config vars set CONDA_SUBDIR=linux-ppc64le
+            ;;
+        s*)
+            conda env config vars set CONDA_SUBDIR=linux-s390x
+            ;;
+        esac
     fi
 }
 
