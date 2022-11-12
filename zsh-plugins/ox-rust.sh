@@ -2,18 +2,8 @@
 # config
 ##########################################################
 
-# config files
-Element[cg]=$HOME/.cargo/env
-Element[cg_]=$HOME/.cargo
-
-##########################################################
-# mirrors
-##########################################################
-
-rsmr() {
-    export RUSTUP_DIST_SERVER=https://${Rust_Mirror[$1]}/rust-static
-    export RUSTUP_UPDATE_ROOT=https://${Rust_Mirror[$1]}/rust-static/rustup
-}
+Element[cg]=$HOME/.cargo/config.toml
+Element[rs]=$HOME/.rustup/settings.toml
 
 ##########################################################
 # packages

@@ -170,13 +170,8 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\rust"
 # }
 
-# $Global:Oxide.bkcg = "$env:BACKUP\rust\env.ps1"
-# $Global:Oxide.bkcg_ = "$env:BACKUP\rust"
-
-# # rust mirrors for faster download, use `rsmr` to use
-# $Global:Rust_Mirror = @{}
-# $Global:Rust_Mirror.ts = "mirrors.tuna.tsinghua.edu.cn"
-# $Global:Rust_Mirror.zk = "mirrors.ustc.edu.cn"
+# $Global:Oxide.bkcg = "$env:BACKUP\rust\config.toml"
+# $Global:Oxide.bkrs = "$env:BACKUP\rust\settings.toml"
 
 ##########################################################
 # espanso settings

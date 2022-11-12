@@ -2,19 +2,8 @@
 # config
 ##########################################################
 
-# config files
-$Global:Element.cg = "$HOME\.cargo\env"
-$Global:Element.cg_ = "$HOME\.cargo"
-
-##########################################################
-# mirrors
-##########################################################
-
-function rsmr {
-    param ( $mirror )
-    $env:RUSTUP_DIST_SERVER = "https://$Global:Rust_Mirror.$mirror/rust-static"
-    $env:RUSTUP_UPDATE_ROOT = "https://$Global:Rust_Mirror.$mirror/rust-static/rustup"
-}
+$Global:Element.cg = "$HOME\.cargo\config.toml"
+$Global:Element.rs = "$HOME\.rustup\settings.toml"
 
 ##########################################################
 # packages

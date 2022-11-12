@@ -196,8 +196,8 @@ The table below lists the information of specific configuration files:
 |    node    |     `nj`     |       `node-pkgs.txt`        |
 |   pueue    |     `pu`     |         `pueue.yml`          |
 |   pueue    |    `pua`     |     `pueue_aliases.yml`      |
-|   cargo    |     `cg`     |            `env`             |
-|   cargo    |    `cg_`     |           `.cargo`           |
+|   cargo    |     `cg`     |        `config.toml`         |
+|   rustup   |     `rs`     |       `settings.toml`        |
 |   vscode   |     `vs`     |       `settings.json`        |
 |   vscode   |    `vsk`     |      `keybindings.json`      |
 |   vscode   |    `vss_`    |          `snippets`          |

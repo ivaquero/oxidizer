@@ -214,13 +214,8 @@ upp() {
 #     mkdir -p $BACKUP/rust
 # fi
 
-# Oxide[bkcg]=$BACKUP/rust/env.sh
-# Oxide[bkcg_]=$BACKUP/rust
-
-# rust mirrors for faster download, use `rsmr` to use
-# declare -A Rust_Mirror
-# Rust_Mirror[ts]="mirrors.tuna.tsinghua.edu.cn"
-# Rust_Mirror[zk]="mirrors.ustc.edu.cn"
+# Oxide[bkcg]=$BACKUP/rust/config.toml
+# Oxide[bkrs]=$BACKUP/rust/settings.toml
 
 ##########################################################
 # espanso settings
