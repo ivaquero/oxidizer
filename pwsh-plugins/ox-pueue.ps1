@@ -3,7 +3,7 @@
 ##########################################################
 
 $Global:Element.pu = "$env:APPDATA\pueue\pueue.yml"
-$Global:Element.pua = "$env:APPDATA\Preferences\pueue\pueue_aliases.yml"
+$Global:Element.pua = "$env:APPDATA\pueue\pueue_aliases.yml"
 
 ##########################################################
 # management

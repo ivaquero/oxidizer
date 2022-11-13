@@ -70,12 +70,13 @@ $Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
 $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 
 # system file
-# $Global:Element.vi = "$HOME/.vimrc"
+# $Global:Element.vi = "$HOME\.vimrc"
 # $Global:Element.al = "$env:SCOOP\persist\alacritty\alacritty.yml"
 
 # if ( !(Test-Path "$env:SCOOP\persist\wezterm" ) ) {
 #     New-Item -ItemType Directory -Force -Path "$env:SCOOP\persist\wezterm"
 # }
+# $Global:Element.wz = "$env:SCOOP\persist\persist\wezterm.lua"
 
 # $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
 
