@@ -27,6 +27,7 @@ Oxygen[oxpjl]=$OXIDIZER/zsh-plugins/ox-julia.sh
 Oxygen[oxpjn]=$OXIDIZER/zsh-plugins/ox-jupyter.sh
 Oxygen[oxpnj]=$OXIDIZER/zsh-plugins/ox-node.sh
 Oxygen[oxppd]=$OXIDIZER/zsh-plugins/ox-podman.sh
+Oxygen[oxppg]=$OXIDIZER/zsh-plugins/ox-postgresql.sh
 Oxygen[oxppu]=$OXIDIZER/zsh-plugins/ox-pueue.sh
 Oxygen[oxprb]=$OXIDIZER/zsh-plugins/ox-ruby.sh
 Oxygen[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
