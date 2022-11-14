@@ -43,6 +43,7 @@ alias nif="npm info"
 alias nii="npm init"
 alias nr="npm run"
 alias nts="npm test"
+alias nau="npm audit"
 alias nfx="npm audit fix"
 alias npb="npm publish"
 

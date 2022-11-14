@@ -1,3 +1,4 @@
+
 # Oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
@@ -20,7 +21,7 @@ Let's Oxidize Development Environments
 
 For macOS / Linux (Intel)
 
-```bash
+```sh
 git clone --depth=1 https://github.com/ivaquero/oxidizer.git && bash oxidizer/install.sh
 
 # customize path for Oxidizer
@@ -29,7 +30,7 @@ export OXIDIZER=$HOME/oxidizer
 
 Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux. For China mainland users, you may set `BREW_CN` variable to install Homebrew through domestic mirror
 
-```bash
+```sh
 export BREW_CN=1
 ```
 
@@ -258,7 +259,7 @@ Similarly, `biscp`, `bupp`, `bupap` are the parallel version of `bisc`, `bup`, `
 
 Before using parallel functions, `pueue` service need to be enabled by
 
-```bash
+```sh
 # All OS
 pueued -d
 # or macOS / Linux
@@ -274,7 +275,8 @@ Some package managers also have functionality of project management
 | `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
 | `*e`  |    edit     |    ✅    |           |           |   ✅    |            |             |            |            |
 | `*ts` |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
-| `*fx` |     fix     |          |           |           |   ✅    |     ✅     |             |            |            |
+| `*au` |    audit    |    ✅    |           |           |   ✅    |            |             |            |            |
+| `*fx` |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |            |
 | `*pb` |   publish   |          |           |           |   ✅    |     ✅     |             |            |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
@@ -330,7 +332,7 @@ suffix `a` is for `all` which will force brew to upgrade every cask including on
 
 Note that the conda plugin is based on `mamba` (a parallel version of conda) and `conda-tree`, so you need to install mamba by
 
-```bash
+```sh
 conda install -c conda-forge mamba conda-tree
 ```
 
@@ -345,7 +347,7 @@ Besides the shortcuts mentioned above in `6. Package Management`, the conda plug
 
 For example, assume your environment's name is `hello`, you can set
 
-```bash
+```sh
 # macOS / Linux
 Conda_Env[h]="hello"
 # Windows
@@ -354,7 +356,7 @@ $Global:Conda_Env.h = "hello"
 
 then, you will be able to manipulate the environment by
 
-```bash
+```sh
 # create environment
 cecr h
 # remove environment
@@ -441,7 +443,7 @@ Oxidizer's task & service management follows the same philosophy of package mana
 - [x] Convert markdown: `mdto`
   - [x] to PDF with Unicode (for CJK)
 
-```bash
+```sh
 mdto `filename` `format`
 ```
 
@@ -464,13 +466,13 @@ A plugin in Oxidizer is referred as Oxygen, a key-value object whose key starts 
 
 For a Vim plugin on macOS / Linux, you can write
 
-```bash
+```sh
 Oxygen`oxpvi`=plugin_path
 ```
 
 And add the _key of Oxygen_ into `PLUGINS` object in `custom.sh` like
 
-```bash
+```sh
 PLUGINS=(oxp1 oxp2 oxpvi)
 ```
 
@@ -486,7 +488,7 @@ And add it into `PLUGINS` object in `custom.ps1`
 
 A system / software / tool configuration file in Oxidizer is referred as Element, set it like what you do with Oxygen
 
-```bash
+```sh
 # macOS / Linux
 Element[vi]=$HOME/.vimrc
 # Windows
@@ -495,7 +497,7 @@ $Global:Element.vi = "$HOME/.vimrc"
 
 If you need to set a folder in Oxygen, plus a `_` as the suffix of the key.
 
-```bash
+```sh
 # macOS / Linux
 Element[vi_]=$HOME/.vim
 # Windows
@@ -506,7 +508,7 @@ $Global:Element.vi_ = "$HOME/vim"
 
 A backup file in Oxidizer is referred as Oxide whose key starts with `bk`, set it like
 
-```bash
+```sh
 # macOS / Linux
 Oxide[bkvi]=$BACKUP/.vimrc
 # Windows
@@ -523,3 +525,4 @@ Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, 
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
+

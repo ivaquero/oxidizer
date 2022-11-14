@@ -144,19 +144,21 @@ alias bpn="brew pin"
 alias bupn="brew unpin"
 
 ##########################################################
-# extension
-##########################################################
-
-alias bxa="brew tap"
-alias bxrm="brew untap"
-
-##########################################################
 # project
 ##########################################################
 
 alias bii="brew create"
 alias bts="brew test"
 alias be="brew edit"
+alias bau="brew audit"
+alias bfx="brew style --fix"
+
+##########################################################
+# extension
+##########################################################
+
+alias bxa="brew tap"
+alias bxrm="brew untap"
 
 ##########################################################
 # mirrors

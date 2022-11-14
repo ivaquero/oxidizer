@@ -49,6 +49,7 @@ function nfx {
 function nii { npm init $args }
 function nr { npm run $args }
 function nts { npm test $args }
+function nau { npm audit $args }
 function nfx { npm audit fix $args }
 function npb { npm publish $args }
 
