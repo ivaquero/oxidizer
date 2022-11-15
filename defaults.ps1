@@ -71,13 +71,13 @@ $Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
 
 # system file
 # $Global:Element.vi = "$HOME\.vimrc"
-# $Global:Element.al = "$env:SCOOP\persist\alacritty\alacritty.yml"
+# $Global:Element.al = "$env:APPDATA\alacritty\alacritty.yml"
+# $Global:Element.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
-# if ( !(Test-Path "$env:SCOOP\persist\wezterm" ) ) {
-#     New-Item -ItemType Directory -Force -Path "$env:SCOOP\persist\wezterm"
+# if ( !(Test-Path "$env:BACKUP\terminal" ) ) {
+#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\terminal"
 # }
-# $Global:Element.wz = "$env:SCOOP\persist\persist\wezterm.lua"
-
+# $Global:Oxide.bkal = "$env:BACKUP\terminal\alacritty.yml"
 # $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
 
 ##########################################################

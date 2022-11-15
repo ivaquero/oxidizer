@@ -4,10 +4,10 @@
 
 $Global:APPHOME.es = "$env:APPDATA\espanso"
 if ( !(Test-Path "$Global:APPHOME.es") ) {
-    $Global:APPHOME.es = "$env:SCOOP\persist\espanso\.espanso"
+    $Global:APPHOME.es = "$env:SCOOP\apps\espanso\current\.espanso"
 }
 
-$Global:Element.es = "$($Global:APPHOME.es)\config\default.yml"
+$Global:Element.es = "$($Global:APPHOME.es)\default.yml"
 $Global:Element.esx = "$($Global:APPHOME.es)\match\base.yml"
 $Global:Element.esx_ = "$($Global:APPHOME.es)\match\packages"
 
@@ -46,7 +46,7 @@ function esup {
 
 function ess { espanso start }
 function esr { espanso restart }
-function ess { espanso status }
+function esst { espanso status }
 function esq { espanso stop }
 
 ##########################################################
