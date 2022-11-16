@@ -5,7 +5,7 @@
 # binaries
 export OPEN=nautilus
 
-Element[sc]="/etc/apt/sources.list"
+OX_ELEMENT[sc]="/etc/apt/sources.list"
 
 ##########################################################
 # main

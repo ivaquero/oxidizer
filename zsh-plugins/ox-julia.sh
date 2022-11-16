@@ -2,9 +2,9 @@
 # config
 ##########################################################
 
-Element[jl]=$HOME/.julia/config/startup.jl
-Element[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
-Element[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
+OX_ELEMENT[jl]=$HOME/.julia/config/startup.jl
+OX_ELEMENT[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
+OX_ELEMENT[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
 
 up_julia() {
     echo "Update Julia by ${OX_OXIDE[bkjl]}"
@@ -16,7 +16,7 @@ up_julia() {
 
 back_julia() {
     echo "Backup Julia to ${OX_OXIDE[bkjl]}"
-    cat ${Element[jlp]} | rg --only-matching "\w.*=" | sd "[= ]" "" >${OX_OXIDE[bkjl]}
+    cat ${OX_ELEMENT[jlp]} | rg --only-matching "\w.*=" | sd "[= ]" "" >${OX_OXIDE[bkjl]}
 }
 
 ##########################################################
@@ -59,12 +59,12 @@ jlup() {
 
 # list leave packages
 jllv() {
-    cat ${Element[jlp]} | rg --only-matching "\w+ =" | sd " =" " "
+    cat ${OX_ELEMENT[jlp]} | rg --only-matching "\w+ =" | sd " =" " "
 }
 
 # list packages
 jlls() {
-    cat ${Element[jlm]} | rg --only-matching "deps\.\w+" | sd "deps\." ""
+    cat ${OX_ELEMENT[jlm]} | rg --only-matching "deps\.\w+" | sd "deps\." ""
 }
 
 # dependencies of package
@@ -90,9 +90,9 @@ jlupn() {
 
 # calculate mature rate
 jlmt() {
-    local num_total=$(cat ${Element[jlm]} | rg "version =" | wc -l)
+    local num_total=$(cat ${OX_ELEMENT[jlm]} | rg "version =" | wc -l)
     echo "total: $num_total"
-    local num_immature=$(cat ${Element[jlm]} | rg '"0\.' | wc -l)
+    local num_immature=$(cat ${OX_ELEMENT[jlm]} | rg '"0\.' | wc -l)
     local mature_rate=$((100 - num_immature * 100 / num_total))
     echo "mature rate: $mature_rate %"
 }

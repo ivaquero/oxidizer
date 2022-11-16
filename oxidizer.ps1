@@ -46,16 +46,16 @@ $Global:OX_OXIDE = @{}
 
 . $Global:OX_ELEMENT.ox
 
-if ( !(Test-Path "$env:BACKUP\shell") ) {
-    New-Item -ItemType Directory -Force -Path "$env:BACKUP\shell"
+if ( !(Test-Path "$env:OX_BACKUP\shell") ) {
+    New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\shell"
 }
 
-if ( !(Test-Path "$env:BACKUP\install") ) {
-    New-Item -ItemType Directory -Force -Path "$env:BACKUP\install"
+if ( !(Test-Path "$env:OX_BACKUP\install") ) {
+    New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\install"
 }
 
-if ( !(Test-Path "$env:BACKUP\apps") ) {
-    New-Item -ItemType Directory -Force -Path "$env:BACKUP\apps"
+if ( !(Test-Path "$env:OX_BACKUP\apps") ) {
+    New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\apps"
 }
 
 $Global:APPHOME = @{}

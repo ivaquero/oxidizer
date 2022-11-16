@@ -6,17 +6,17 @@
 # $@=names
 epf() {
     for file in $@; do
-        echo "Overwrite ${OX_OXIDE[bk$file]} by ${Element[$file]}"
+        echo "Overwrite ${OX_OXIDE[bk$file]} by ${OX_ELEMENT[$file]}"
         if [ -z ${OX_OXIDE[bk$file]} ]; then
             echo "OX_OXIDE[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
             rm -rf ${OX_OXIDE[bk$file]}
-            cp -R -v ${Element[$file]} ${OX_OXIDE[bk$file]}
+            cp -R -v ${OX_ELEMENT[$file]} ${OX_OXIDE[bk$file]}
         else
             if [ ! -d $(dirname ${OX_OXIDE[bk$file]}) ]; then
                 mkdir -p $(dirname ${OX_OXIDE[bk$file]})
             fi
-            cp -v ${Element[$file]} ${OX_OXIDE[bk$file]}
+            cp -v ${OX_ELEMENT[$file]} ${OX_OXIDE[bk$file]}
         fi
     done
 }
@@ -25,16 +25,16 @@ epf() {
 # $@=names
 ipf() {
     for file in $@; do
-        echo "Overwrite ${Element[$file]} by ${OX_OXIDE[bk$file]}"
+        echo "Overwrite ${OX_ELEMENT[$file]} by ${OX_OXIDE[bk$file]}"
         if [[ $file == *_ ]]; then
             for subfile in $(ls ${OX_OXIDE[bk$file]}); do
-                cp -R -v ${OX_OXIDE[bk$file]}/$subfile ${Element[$file]}/$subfile
+                cp -R -v ${OX_OXIDE[bk$file]}/$subfile ${OX_ELEMENT[$file]}/$subfile
             done
         else
-            if [ ! -d $(dirname ${Element[$file]}) ]; then
-                mkdir -p $(dirname ${Element[$file]})
+            if [ ! -d $(dirname ${OX_ELEMENT[$file]}) ]; then
+                mkdir -p $(dirname ${OX_ELEMENT[$file]})
             fi
-            cp -v ${OX_OXIDE[bk$file]} ${Element[$file]}
+            cp -v ${OX_OXIDE[bk$file]} ${OX_ELEMENT[$file]}
         fi
     done
 }
@@ -43,11 +43,11 @@ ipf() {
 # $@=names
 iif() {
     for file in $@; do
-        echo "Overwrite ${Element[$file]} by ${OX_OXYGEN[ox$file]}"
-        if [ ! -d $(dirname ${Element[$file]}) ]; then
-            mkdir -p $(dirname ${Element[$file]})
+        echo "Overwrite ${OX_ELEMENT[$file]} by ${OX_OXYGEN[ox$file]}"
+        if [ ! -d $(dirname ${OX_ELEMENT[$file]}) ]; then
+            mkdir -p $(dirname ${OX_ELEMENT[$file]})
         fi
-        cp -v ${OX_OXYGEN[ox$file]} ${Element[$file]}
+        cp -v ${OX_OXYGEN[ox$file]} ${OX_ELEMENT[$file]}
     done
 }
 
@@ -71,9 +71,9 @@ dpf() {
 # $@=names
 ff() {
     if [ -z $1 ]; then
-        . ${Element[zs]}
+        . ${OX_ELEMENT[zs]}
     else
-        . ${Element[$1]}
+        . ${OX_ELEMENT[$1]}
     fi
 }
 
@@ -88,7 +88,7 @@ bf() {
     case $1 in
     ox[a-z]*) $cmd ${OX_OXYGEN[$1]} ;;
     bk[a-z]*) $cmd ${OX_OXIDE[$1]} ;;
-    *) $cmd ${Element[$1]} ;;
+    *) $cmd ${OX_ELEMENT[$1]} ;;
     esac
 }
 
@@ -103,7 +103,7 @@ ef() {
     case $1 in
     ox[a-z]*) $cmd ${OX_OXYGEN[$1]} ;;
     bk[a-z]*) $cmd ${OX_OXIDE[$1]} ;;
-    *) $cmd ${Element[$1]} ;;
+    *) $cmd ${OX_ELEMENT[$1]} ;;
     esac
 }
 

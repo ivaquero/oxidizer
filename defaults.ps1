@@ -60,24 +60,24 @@ $Global:OX_UPDATE_PROG = @('scoop')
 $Global:OX_BACKUP_PROG = @('scoop')
 
 # backup file path
-$env:BACKUP = "$HOME\Documents\backup"
+$env:OX_BACKUP = "$HOME\Documents\backup"
 
-$Global:OX_OXIDE.bkox = "$env:BACKUP\custom.ps1"
+$Global:OX_OXIDE.bkox = "$env:OX_BACKUP\custom.ps1"
 
-$Global:OX_OXIDE.bks = "$env:BACKUP\install\Scoopfile.txt"
-$Global:OX_OXIDE.bkw = "$env:BACKUP\install\Wingetfile.json"
-$Global:OX_OXIDE.bkps = "$env:BACKUP\shell\Profile.ps1"
+$Global:OX_OXIDE.bks = "$env:OX_BACKUP\install\Scoopfile.txt"
+$Global:OX_OXIDE.bkw = "$env:OX_BACKUP\install\Wingetfile.json"
+$Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 
 # system file
 # $Global:OX_ELEMENT.vi = "$HOME\.vimrc"
 # $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
 # $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
-# if ( !(Test-Path "$env:BACKUP\terminal" ) ) {
-#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\terminal"
+# if ( !(Test-Path "$env:OX_BACKUP\terminal" ) ) {
+#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\terminal"
 # }
-# $Global:OX_OXIDE.bkal = "$env:BACKUP\terminal\alacritty.yml"
-# $Global:OX_OXIDE.bkwz = "$env:BACKUP\terminal\wezterm.lua"
+# $Global:OX_OXIDE.bkal = "$env:OX_BACKUP\terminal\alacritty.yml"
+# $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
 
 ##########################################################
 # register proxy ports
@@ -117,23 +117,23 @@ $Global:OX_INIT_FILE = @('pu', 'pua')
 ##########################################################
 
 # backup files
-$Global:OX_OXIDE.bkg = "$env:BACKUP\.gitconfig"
-$Global:OX_OXIDE.bkgi = "$env:BACKUP\git\.gitignore"
+$Global:OX_OXIDE.bkg = "$env:OX_BACKUP\.gitconfig"
+$Global:OX_OXIDE.bkgi = "$env:OX_BACKUP\git\.gitignore"
 
 ##########################################################
 # helix settings
 ##########################################################
 
-# $Global:OX_OXIDE.bkhx = "$env:BACKUP\helix\config.toml"
-# $Global:OX_OXIDE.bkhxl = "$env:BACKUP\helix\languages.toml"
+# $Global:OX_OXIDE.bkhx = "$env:OX_BACKUP\helix\config.toml"
+# $Global:OX_OXIDE.bkhxl = "$env:OX_BACKUP\helix\languages.toml"
 
 ##########################################################
 # pueue settings
 ##########################################################
 
 # backup files
-$Global:OX_OXIDE.bkpu = "$env:BACKUP\pueue\pueue.yml"
-$Global:OX_OXIDE.bkpua = "$env:BACKUP\pueue\pueue_aliases.yml"
+$Global:OX_OXIDE.bkpu = "$env:OX_BACKUP\pueue\pueue.yml"
+$Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 
 # pueue demo
 function upp {
@@ -151,59 +151,59 @@ function upp {
 ##########################################################
 
 # # backup files
-# $Global:OX_OXIDE.bkc = "$env:BACKUP\conda\.condarc"
+# $Global:OX_OXIDE.bkc = "$env:OX_BACKUP\conda\.condarc"
 
 # # predefined conda environments
 # # set the length of key < 3
-# $Global:Conda_Env = @{}
+# $Global:OX_CONDA_ENV = @{}
 
-# $Global:Conda_Env.b = 'base'
+# $Global:OX_CONDA_ENV.b = 'base'
 
-# # conda env stats with bkce, and should be consistent with Conda_Env
-# # $Global:OX_OXIDE.bkceb = "$env:BACKUP\conda\conda-base.txt"
+# # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
+# # $Global:OX_OXIDE.bkceb = "$env:OX_BACKUP\conda\conda-base.txt"
 
 ##########################################################
 # rust settings
 ##########################################################
 
-# if ( !(Test-Path "$env:BACKUP\rust") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\rust"
+# if ( !(Test-Path "$env:OX_BACKUP\rust") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\rust"
 # }
 
-# $Global:OX_OXIDE.bkcg = "$env:BACKUP\rust\config.toml"
-# $Global:OX_OXIDE.bkrs = "$env:BACKUP\rust\settings.toml"
+# $Global:OX_OXIDE.bkcg = "$env:OX_BACKUP\rust\config.toml"
+# $Global:OX_OXIDE.bkrs = "$env:OX_BACKUP\rust\settings.toml"
 
 ##########################################################
 # espanso settings
 ##########################################################
 
-# $Global:OX_OXIDE.bkes = "$env:BACKUP\espanso\config\default.yml"
-# $Global:OX_OXIDE.bkesx = "$env:BACKUP\espanso\match\base.yml"
-# $Global:OX_OXIDE.bkesx_ = "$env:BACKUP\espanso\match\packages"
+# $Global:OX_OXIDE.bkes = "$env:OX_BACKUP\espanso\config\default.yml"
+# $Global:OX_OXIDE.bkesx = "$env:OX_BACKUP\espanso\match\base.yml"
+# $Global:OX_OXIDE.bkesx_ = "$env:OX_BACKUP\espanso\match\packages"
 
 ##########################################################
 # julia settings
 ##########################################################
 
-# if ( !(Test-Path "$env:BACKUP\julia") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\julia"
+# if ( !(Test-Path "$env:OX_BACKUP\julia") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\julia"
 # }
 
-# $Global:OX_OXIDE.bkjl = "$env:BACKUP\julia\julia-pkgs.txt"
-# $Global:OX_OXIDE.bkjls = "$env:BACKUP\julia\startup.jl"
+# $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\julia-pkgs.txt"
+# $Global:OX_OXIDE.bkjls = "$env:OX_BACKUP\julia\startup.jl"
 
 ##########################################################
 # vscode settings
 ##########################################################
 
-# if ( !(Test-Path "$env:BACKUP\vscode") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:BACKUP\vscode"
+# if ( !(Test-Path "$env:OX_BACKUP\vscode") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\vscode"
 # }
 
-# $Global:OX_OXIDE.bkvsk = "$env:BACKUP\vscode\settings.json"
-# $Global:OX_OXIDE.bkvsk = "$env:BACKUP\vscode\keybindings.json"
-# $Global:OX_OXIDE.bkvss_ = "$env:BACKUP\vscode\snippets"
-# $Global:OX_OXIDE.bkvsx = "$env:BACKUP\vscode\vscode-exts.txt"
+# $Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\settings.json"
+# $Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\keybindings.json"
+# $Global:OX_OXIDE.bkvss_ = "$env:OX_BACKUP\vscode\snippets"
+# $Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
 
 ##########################################################
 # podman configurations
@@ -217,9 +217,9 @@ function upp {
 # $Global:OX_OXIDE.bkcn = "$env:backup\conan\default"
 # $Global:OX_OXIDE.bkcnr = "$env:backup\conan\remote.json"
 # # nodejs
-# $Global:OX_OXIDE.bknj = "$env:BACKUP\javascript\node-pkgs.txt"
+# $Global:OX_OXIDE.bknj = "$env:OX_BACKUP\javascript\node-pkgs.txt"
 # # texlive
-# $Global:OX_OXIDE.bktl = "$env:BACKUP\tex\texlive-pkgs.txt"
+# $Global:OX_OXIDE.bktl = "$env:OX_BACKUP\tex\texlive-pkgs.txt"
 
 ##########################################################
 # common aliases

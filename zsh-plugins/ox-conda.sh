@@ -5,7 +5,7 @@
 OX_OXYGEN[oxc]=$OXIDIZER/defaults/.condarc
 OX_OXYGEN[oxce]=$OXIDIZER/defaults/conda-base.txt
 # config files
-Element[c]=$HOME/.condarc
+OX_ELEMENT[c]=$HOME/.condarc
 
 init_conda() {
     echo "Initialize Conda by Oxidizer configuration"
@@ -19,7 +19,7 @@ up_conda() {
         local conda_env=base
         local conda_file=${OX_OXIDE[bkceb]}
     elif [[ ${#1} < 4 ]]; then
-        local conda_env=${Conda_Env[$1]}
+        local conda_env=${OX_CONDA_ENV[$1]}
         local conda_file=${OX_OXIDE[bkce$1]}
     else
         local conda_env=$1
@@ -36,7 +36,7 @@ back_conda() {
         local conda_env=base
         local conda_file=${OX_OXIDE[bkceb]}
     elif [[ ${#1} < 4 ]]; then
-        local conda_env=${Conda_Env[$1]}
+        local conda_env=${OX_CONDA_ENV[$1]}
         local conda_file=${OX_OXIDE[bkce$1]}
     else
         local conda_env=$1
@@ -106,7 +106,7 @@ cls() {
     if [ -z $1 ]; then
         conda list
     elif [[ ${#1} < 4 ]]; then
-        conda list -n ${Conda_Env[$1]}
+        conda list -n ${OX_CONDA_ENV[$1]}
     else
         conda list -n $1
     fi
@@ -118,7 +118,7 @@ clv() {
     if [ -z $1 ]; then
         conda-tree leaves
     elif [[ ${#1} < 4 ]]; then
-        conda-tree -n ${Conda_Env[$1]} leaves
+        conda-tree -n ${OX_CONDA_ENV[$1]} leaves
     else
         conda-tree -n $1 leaves
     fi
@@ -156,7 +156,7 @@ ceat() {
     if [ -z $1 ]; then
         conda activate base && clear
     elif [[ ${#1} < 3 ]]; then
-        conda activate ${Conda_Env[$1]}
+        conda activate ${OX_CONDA_ENV[$1]}
     else
         conda activate $1 && clear
     fi
@@ -171,7 +171,7 @@ cerat() {
 # create environment: $1=name
 cecr() {
     if [[ ${#1} < 3 ]]; then
-        conda create -n ${Conda_Env[$1]}
+        conda create -n ${OX_CONDA_ENV[$1]}
     else
         conda create -n $1
     fi
@@ -182,7 +182,7 @@ cecr() {
 cerm() {
     conda deactivate
     if [[ ${#1} < 3 ]]; then
-        conda env remove -n ${Conda_Env[$1]}
+        conda env remove -n ${OX_CONDA_ENV[$1]}
     else
         conda env remove -n $1
     fi
@@ -224,7 +224,7 @@ ceep() {
     if [ -z $1 ]; then
         conda_Env=base
     elif [[ ${#1} < 3 ]]; then
-        conda_Env=${Conda_Env[$1]}
+        conda_Env=${OX_CONDA_ENV[$1]}
     else
         conda_Env=$1
     fi

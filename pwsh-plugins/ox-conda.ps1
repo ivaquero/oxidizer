@@ -21,7 +21,7 @@ function up_conda {
         $conda_file = "$Global:OX_OXIDE.bkceb"
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        $cenv = $Global:Conda_Env.$the_env
+        $cenv = $Global:OX_CONDA_ENV.$the_env
         $conda_file = "$Global:OX_OXIDE.bkce$the_env"
     }
     else {
@@ -42,7 +42,7 @@ function back_conda {
         $conda_file = "$Global:OX_OXIDE.bkceb"
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        $cenv = $Global:Conda_Env.$the_env
+        $cenv = $Global:OX_CONDA_ENV.$the_env
         $conda_file = "$Global:OX_OXIDE.bkce$the_env"
     }
     else {
@@ -107,7 +107,7 @@ function cls {
         mamba list
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        mamba list -n $Global:Conda_Env.$the_env
+        mamba list -n $Global:OX_CONDA_ENV.$the_env
     }
     else {
         mamba list -n $the_env
@@ -122,7 +122,7 @@ function clv {
         conda-tree leaves
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        conda-tree -n $Global:Conda_Env.$the_env leaves
+        conda-tree -n $Global:OX_CONDA_ENV.$the_env leaves
     }
     else {
         conda-tree -n $the_env leaves
@@ -165,7 +165,7 @@ function ceat {
         conda activate base; clear
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        conda activate $Global:Conda_Env.$the_env; clear
+        conda activate $Global:OX_CONDA_ENV.$the_env; clear
     }
     else {
         conda activate $the_env; clear
@@ -184,7 +184,7 @@ function cecr {
     param ( $the_env )
 
     if ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        conda create -n $Global:Conda_Env.$the_env
+        conda create -n $Global:OX_CONDA_ENV.$the_env
     }
     else {
         conda create -n $the_env
@@ -196,7 +196,7 @@ function cecr {
 function cerm {
     param ( $the_env )
     conda deactivate
-    if ( $( $the_env | Measure-Object -Character).Character -lt 2 ) { conda env remove -n $Global:Conda_Env.$the_env }
+    if ( $( $the_env | Measure-Object -Character).Character -lt 2 ) { conda env remove -n $Global:OX_CONDA_ENV.$the_env }
     else { conda env remove -n $the_env }
 }
 
@@ -204,9 +204,9 @@ function cerm {
 function ceep {
     param ( $the_env )
     if ([string]::IsNullOrEmpty( $the_env )) { $cenv = base }
-    elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) { $cenv = $Global:Conda_Env.$the_env }
+    elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) { $cenv = $Global:OX_CONDA_ENV.$the_env }
     else { $cenv = $1 }
-    conda env export -n $cenv -f $env:BACKUP\install\$cenv-win.yml
+    conda env export -n $cenv -f $env:OX_BACKUP\install\$cenv-win.yml
 }
 
 # rename environment

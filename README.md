@@ -167,7 +167,7 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
 
 For example, if you want to edit `~/.zshrc`, you can type `ef zs`.
 
-When you use `epf zs`, `~/.zshrc` will be copied and save in `$BACKUP/shell` folder, where `$BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in `1. Get Started`, you can open `custom.sh` simply by `ef ox`.
+When you use `epf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in `1. Get Started`, you can open `custom.sh` simply by `ef ox`.
 
 The table below lists the information of specific configuration files:
 
@@ -214,9 +214,9 @@ The table below lists the information of specific configuration files:
 - `init_*`
   - file: install packages/extensions by Oxidizer defaults
 - `up_*`
-  - file: install packages/extensions by predefined files in `$BACKUP`
+  - file: install packages/extensions by predefined files in `$OX_BACKUP`
 - `back_*`
-  - file: export package/extension info to `$BACKUP` folder
+  - file: export package/extension info to `$OX_BACKUP` folder
 
 `init_*` works for `brew`, `scoop`, `conda`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `espanso`, `julia`, `texlive`, `node`.
 
@@ -340,18 +340,18 @@ Besides the shortcuts mentioned above in `6. Package Management`, the conda plug
 
 - `ceat`: activate environment
   - `$1` length = 0: activate `base` env
-  - `$1` length = 1 or 2: activate predefined env `Conda_Env`
+  - `$1` length = 1 or 2: activate predefined env `OX_CONDA_ENV`
   - `$1` length > 2: activate new env
 
-`Conda_Env` can be personalized in `custom.sh`
+`OX_CONDA_ENV` can be personalized in `custom.sh`
 
 For example, assume your environment's name is `hello`, you can set
 
 ```sh
 # macOS / Linux
-Conda_Env[h]="hello"
+OX_CONDA_ENV[h]="hello"
 # Windows
-$Global:Conda_Env.h = "hello"
+$Global:OX_CONDA_ENV.h = "hello"
 ```
 
 then, you will be able to manipulate the environment by
@@ -486,11 +486,11 @@ And add it into `PLUGINS` object in `custom.ps1`
 
 ### 11.1. Config Files
 
-A system / software / tool configuration file in Oxidizer is referred as Element, set it like what you do with OX_OXYGEN
+A system / software / tool configuration file in Oxidizer is referred as `OX_ELEMENT`, set it like what you do with `OX_OXYGEN`
 
 ```sh
 # macOS / Linux
-Element[vi]=$HOME/.vimrc
+OX_ELEMENT[vi]=$HOME/.vimrc
 # Windows
 $Global:OX_ELEMENT.vi = "$HOME/.vimrc"
 ```
@@ -499,7 +499,7 @@ If you need to set a folder in OX*OXYGEN, plus a `*` as the suffix of the key.
 
 ```sh
 # macOS / Linux
-Element[vi_]=$HOME/.vim
+OX_ELEMENT[vi_]=$HOME/.vim
 # Windows
 $Global:OX_ELEMENT.vi_ = "$HOME/vim"
 ```
@@ -510,12 +510,12 @@ A backup file in Oxidizer is referred as OX_OXIDE whose key starts with `bk`, se
 
 ```sh
 # macOS / Linux
-OX_OXIDE[bkvi]=$BACKUP/.vimrc
+OX_OXIDE[bkvi]=$OX_BACKUP/.vimrc
 # Windows
-$Global:OX_OXIDE.bkvi = "$env:BACKUP/.vimrc"
+$Global:OX_OXIDE.bkvi = "$env:OX_BACKUP/.vimrc"
 ```
 
-Do remember the key in OX_OXYGEN, Element, OX_OXIDE must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
+Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
 
 ## 12. Credits
 

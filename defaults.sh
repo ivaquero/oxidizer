@@ -10,13 +10,13 @@
 # change editor
 # $1: name
 che() {
-    sd "EDITOR=\'.*\'" "EDITOR=\'$1\'" $Element[ox]
+    sd "EDITOR=\'.*\'" "EDITOR=\'$1\'" $OX_ELEMENT[ox]
     case $SHELL in
     *zsh)
-        . ${Element[zs]}
+        . ${OX_ELEMENT[zs]}
         ;;
     *bash)
-        . ${Element[bs]}
+        . ${OX_ELEMENT[bs]}
         ;;
     esac
 }
@@ -75,16 +75,16 @@ export OX_BACKUP_PROG=(brew)
 # backup file path
 export BACKUP=$HOME/Documents/backup
 
-OX_OXIDE[bkox]=$BACKUP/custom.sh
-OX_OXIDE[bkzs]=$BACKUP/shell/.zshrc
-OX_OXIDE[bkbs]=$BACKUP/shell/.bash_profile
-OX_OXIDE[bksc]=$BACKUP/install/source.list
-# OX_OXIDE[bkwz]=$BACKUP/terminal/wezterm.lua
-# OX_OXIDE[bkvi]=$BACKUP/.vimrc
+OX_OXIDE[bkox]=$OX_BACKUP/custom.sh
+OX_OXIDE[bkzs]=$OX_BACKUP/shell/.zshrc
+OX_OXIDE[bkbs]=$OX_BACKUP/shell/.bash_profile
+OX_OXIDE[bksc]=$OX_BACKUP/install/source.list
+# OX_OXIDE[bkwz]=$OX_BACKUP/terminal/wezterm.lua
+# OX_OXIDE[bkvi]=$OX_BACKUP/.vimrc
 
 # system file
-Element[vi]=$HOME/.vimrc
-# Element[al]=$HOME/.config/alacritty/alacritty.yml
+OX_ELEMENT[vi]=$HOME/.vimrc
+# OX_ELEMENT[al]=$HOME/.config/alacritty/alacritty.yml
 
 ##########################################################
 # register proxy ports
@@ -95,8 +95,8 @@ declare -A OX_PROXY
 OX_PROXY[c]=7890
 OX_PROXY[v]=1080
 
-Element[cv]="$HOME/.config/clash-verge/verge.yaml"
-OX_OXIDE[bkcv]="$BACKUP/app/verge.yaml"
+OX_ELEMENT[cv]="$HOME/.config/clash-verge/verge.yaml"
+OX_OXIDE[bkcv]="$OX_BACKUP/app/verge.yaml"
 
 ##########################################################
 # select export and import settings
@@ -130,26 +130,26 @@ OX_INIT_FILE=(pu pua)
 ##########################################################
 
 # backup files
-OX_OXIDE[bkg]=$BACKUP/.gitconfig
-OX_OXIDE[bkgi]=$BACKUP/git/.gitignore
+OX_OXIDE[bkg]=$OX_BACKUP/.gitconfig
+OX_OXIDE[bkgi]=$OX_BACKUP/git/.gitignore
 
 ##########################################################
 # zellij settings
 ##########################################################
 
-# if [ ! -d $BACKUP/zellij ]; then
-#     mkdir -p $BACKUP/zellij
+# if [ ! -d $OX_BACKUP/zellij ]; then
+#     mkdir -p $OX_BACKUP/zellij
 # fi
 
-# OX_OXIDE[bkzj]=$BACKUP/zellij/config.yaml
-# OX_OXIDE[bkzjl_]=$BACKUP/zellij/layouts
+# OX_OXIDE[bkzj]=$OX_BACKUP/zellij/config.yaml
+# OX_OXIDE[bkzjl_]=$OX_BACKUP/zellij/layouts
 
 ##########################################################
 # helix settings
 ##########################################################
 
-# OX_OXIDE[bkhx]=$BACKUP/helix/config.toml
-# OX_OXIDE[bkhxl]=$BACKUP/helix/languages.toml
+# OX_OXIDE[bkhx]=$OX_BACKUP/helix/config.toml
+# OX_OXIDE[bkhxl]=$OX_BACKUP/helix/languages.toml
 
 ##########################################################
 # brew settings
@@ -158,7 +158,7 @@ OX_OXIDE[bkgi]=$BACKUP/git/.gitignore
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_ENV_HINTS=true
 
-OX_OXIDE[bkb]=$BACKUP/install/Brewfile
+OX_OXIDE[bkb]=$OX_BACKUP/install/Brewfile
 
 # brew mirrors for faster download, use `bmr` to use
 # declare -A homebrew_mirror
@@ -177,8 +177,8 @@ homebrew_service[mys]="mysql"
 ##########################################################
 
 # backup files
-OX_OXIDE[bkpu]=$BACKUP/pueue/pueue.yml
-OX_OXIDE[bkpua]=$BACKUP/pueue/pueue_aliases.yml
+OX_OXIDE[bkpu]=$OX_BACKUP/pueue/pueue.yml
+OX_OXIDE[bkpua]=$OX_BACKUP/pueue/pueue_aliases.yml
 
 # pueue demo
 upp() {
@@ -196,59 +196,59 @@ upp() {
 ##########################################################
 
 # # backup files
-# OX_OXIDE[bkc]=$BACKUP/conda/.condarc
+# OX_OXIDE[bkc]=$OX_BACKUP/conda/.condarc
 
 # # predefined conda environments
 # # set the length of key <= 3
-# declare -A Conda_Env
+# declare -A OX_CONDA_ENV
 
-# Conda_Env[b]="base"
+# OX_CONDA_ENV[b]="base"
 
-# # conda env stats with bkce, and should be consistent with Conda_Env
-# OX_OXIDE[bkceb]=$BACKUP/conda/conda-base.txt
+# # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
+# OX_OXIDE[bkceb]=$OX_BACKUP/conda/conda-base.txt
 
 ##########################################################
 # rust settings
 ##########################################################
 
-# if [ ! -d $BACKUP/rust ]; then
-#     mkdir -p $BACKUP/rust
+# if [ ! -d $OX_BACKUP/rust ]; then
+#     mkdir -p $OX_BACKUP/rust
 # fi
 
-# OX_OXIDE[bkcg]=$BACKUP/rust/config.toml
-# OX_OXIDE[bkrs]=$BACKUP/rust/settings.toml
+# OX_OXIDE[bkcg]=$OX_BACKUP/rust/config.toml
+# OX_OXIDE[bkrs]=$OX_BACKUP/rust/settings.toml
 
 ##########################################################
 # espanso settings
 ##########################################################
 
-# OX_OXIDE[bkes]=$BACKUP/espanso/config/default.yml
-# OX_OXIDE[bkesx]=$BACKUP/espanso/match/base.yml
-# OX_OXIDE[bkesx_]=$BACKUP/espanso/match/packages
+# OX_OXIDE[bkes]=$OX_BACKUP/espanso/config/default.yml
+# OX_OXIDE[bkesx]=$OX_BACKUP/espanso/match/base.yml
+# OX_OXIDE[bkesx_]=$OX_BACKUP/espanso/match/packages
 
 ##########################################################
 # julia settings
 ##########################################################
 
-# if [ ! -d $BACKUP/julia ]; then
-#     mkdir -p $BACKUP/julia
+# if [ ! -d $OX_BACKUP/julia ]; then
+#     mkdir -p $OX_BACKUP/julia
 # fi
 
-# OX_OXIDE[bkjl]=$BACKUP/julia/julia-pkgs.txt
-# OX_OXIDE[bkjls]=$BACKUP/julia/startup.jl
+# OX_OXIDE[bkjl]=$OX_BACKUP/julia/julia-pkgs.txt
+# OX_OXIDE[bkjls]=$OX_BACKUP/julia/startup.jl
 
 ##########################################################
 # vscode settings
 ##########################################################
 
-# if [ ! -d $BACKUP/vscode ]; then
-#     mkdir -p $BACKUP/vscode
+# if [ ! -d $OX_BACKUP/vscode ]; then
+#     mkdir -p $OX_BACKUP/vscode
 # fi
 
-# # OX_OXIDE[bkvs]=$BACKUP/vscode/settings.json
-# OX_OXIDE[bkvsk]=$BACKUP/vscode/keybindings.json
-# OX_OXIDE[bkvss_]=$BACKUP/vscode/snippets
-# OX_OXIDE[bkvsx]=$BACKUP/vscode/vscode-exts.txt
+# # OX_OXIDE[bkvs]=$OX_BACKUP/vscode/settings.json
+# OX_OXIDE[bkvsk]=$OX_BACKUP/vscode/keybindings.json
+# OX_OXIDE[bkvss_]=$OX_BACKUP/vscode/snippets
+# OX_OXIDE[bkvsx]=$OX_BACKUP/vscode/vscode-exts.txt
 
 ##########################################################
 # podman settings
@@ -259,12 +259,12 @@ upp() {
 ##########################################################
 
 # # conan
-# OX_OXIDE[bkcn]=$BACKUP/conan/default
-# OX_OXIDE[bkcnr]=$BACKUP/conan/remote.json
+# OX_OXIDE[bkcn]=$OX_BACKUP/conan/default
+# OX_OXIDE[bkcnr]=$OX_BACKUP/conan/remote.json
 # # nodejs
-# OX_OXIDE[bknj]=$BACKUP/javascript/node-pkgs.txt
+# OX_OXIDE[bknj]=$OX_BACKUP/javascript/node-pkgs.txt
 # # texlive
-# OX_OXIDE[bktl]=$BACKUP/tex/texlive-pkgs.txt
+# OX_OXIDE[bktl]=$OX_BACKUP/tex/texlive-pkgs.txt
 
 ##########################################################
 # common aliases
@@ -335,7 +335,7 @@ esac
 # esac
 
 # export STARSHIP_CONFIG=$HOME/.config/starship.toml
-# Element[ss]=$STARSHIP_CONFIG
+# OX_ELEMENT[ss]=$STARSHIP_CONFIG
 
 ##########################################################
 # weather

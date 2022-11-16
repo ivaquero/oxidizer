@@ -3,11 +3,11 @@
 ##########################################################
 
 if [ $(uname -s) = "Darwin" ]; then
-    Element[pu]=$HOME/Library/Preferences/pueue/pueue.yml
-    Element[pua]=$HOME/Library/Preferences/pueue/pueue_aliases.yml
+    OX_ELEMENT[pu]=$HOME/Library/Preferences/pueue/pueue.yml
+    OX_ELEMENT[pua]=$HOME/Library/Preferences/pueue/pueue_aliases.yml
 else
-    Element[pu]=$HOME/.config/pueue/pueue.yml
-    Element[pua]=$HOME/.config/pueue/pueue_aliases.yml
+    OX_ELEMENT[pu]=$HOME/.config/pueue/pueue.yml
+    OX_ELEMENT[pua]=$HOME/.config/pueue/pueue_aliases.yml
 fi
 
 ##########################################################

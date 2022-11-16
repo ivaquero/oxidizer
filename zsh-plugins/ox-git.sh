@@ -3,7 +3,7 @@
 ##########################################################
 
 # config files
-Element[g]=$HOME/.gitconfig
+OX_ELEMENT[g]=$HOME/.gitconfig
 
 export GPG_TTY=$(tty)
 

@@ -39,27 +39,27 @@ OX_OXYGEN[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
 # System configuration files
 ##########################################################
 
-declare -A Element
+declare -A OX_ELEMENT
 
-Element[ox]=$OXIDIZER/custom.sh
-Element[wz]=$HOME/.config/wezterm/wezterm.lua
-Element[zs]=$HOME/.zshrc
-Element[bs]=$HOME/.bash_profile
+OX_ELEMENT[ox]=$OXIDIZER/custom.sh
+OX_ELEMENT[wz]=$HOME/.config/wezterm/wezterm.lua
+OX_ELEMENT[zs]=$HOME/.zshrc
+OX_ELEMENT[bs]=$HOME/.bash_profile
 
 declare -A OX_OXIDE
 
-. ${Element[ox]}
+. ${OX_ELEMENT[ox]}
 
-if [ ! -d $BACKUP/shell ]; then
-    mkdir -p $BACKUP/shell
+if [ ! -d $OX_BACKUP/shell ]; then
+    mkdir -p $OX_BACKUP/shell
 fi
 
-if [ ! -d $BACKUP/install ]; then
-    mkdir -p $BACKUP/install
+if [ ! -d $OX_BACKUP/install ]; then
+    mkdir -p $OX_BACKUP/install
 fi
 
-if [ ! -d $BACKUP/apps ]; then
-    mkdir -p $BACKUP/apps
+if [ ! -d $OX_BACKUP/apps ]; then
+    mkdir -p $OX_BACKUP/apps
 fi
 
 ##########################################################

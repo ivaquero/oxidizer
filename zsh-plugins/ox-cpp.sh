@@ -3,8 +3,8 @@
 ##########################################################
 
 # config files
-Element[cn]=$HOME/.conan/profiles/default
-Element[cnr]=$HOME/.conan/remote.json
+OX_ELEMENT[cn]=$HOME/.conan/profiles/default
+OX_ELEMENT[cnr]=$HOME/.conan/remote.json
 
 ##########################################################
 # packages

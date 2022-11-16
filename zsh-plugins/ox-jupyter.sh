@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-Element[jn]="$HOME/.jupyter/jupyter_notebook_config.py"
+OX_ELEMENT[jn]="$HOME/.jupyter/jupyter_notebook_config.py"
 
 ##########################################################
 # main
