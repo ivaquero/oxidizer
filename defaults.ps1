@@ -213,7 +213,7 @@ function upp {
 # podman configurations
 ##########################################################
 
-# # cnn
+# # conan
 # $Global:OX_OXIDE.bkcn = "$env:backup\conan\default"
 # $Global:OX_OXIDE.bkcnr = "$env:backup\conan\remote.json"
 # # nodejs

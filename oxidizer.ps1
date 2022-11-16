@@ -36,7 +36,7 @@ $Global:OX_OXYGEN.oxpvs = "$env:OXIDIZER\pwsh-plugins\ox-vscode.ps1"
 # System configuration files
 ##########################################################
 
-$Global:ELEMENT = @{}
+$Global:OX_ELEMENT = @{}
 
 $Global:OX_ELEMENT.ox = "$env:OXIDIZER\custom.ps1"
 $Global:OX_ELEMENT.wz = "$env:SCOOP\persist\wezterm\wezterm.lua"
@@ -58,7 +58,7 @@ if ( !(Test-Path "$env:OX_BACKUP\apps") ) {
     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\apps"
 }
 
-$Global:APPHOME = @{}
+$Global:OX_APPHOME = @{}
 
 ##########################################################
 # PowerShell & Plugins

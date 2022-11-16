@@ -2,14 +2,14 @@
 # config
 ##########################################################
 
-$Global:APPHOME.vs = "$env:APPDATA\Code\User"
-if ( !(Test-Path "$Global:APPHOME.vs") ) {
-    $Global:APPHOME.vs = "$env:SCOOP\persist\vscode\data\user-data\User"
+$Global:OX_APPHOME.vs = "$env:APPDATA\Code\User"
+if ( !(Test-Path "$Global:OX_APPHOME.vs") ) {
+    $Global:OX_APPHOME.vs = "$env:SCOOP\persist\vscode\data\user-data\User"
 }
 
-$Global:OX_ELEMENT.vs = "$($Global:APPHOME.vs)\settings.json"
-$Global:OX_ELEMENT.vsk = "$($Global:APPHOME.vs)\keybindings.json"
-$Global:OX_ELEMENT.vss_ = "$($Global:APPHOME.vs)\snippets"
+$Global:OX_ELEMENT.vs = "$($Global:OX_APPHOME.vs)\settings.json"
+$Global:OX_ELEMENT.vsk = "$($Global:OX_APPHOME.vs)\keybindings.json"
+$Global:OX_ELEMENT.vss_ = "$($Global:OX_APPHOME.vs)\snippets"
 
 function up_vscode {
     Write-Output "Update VSCode extensions by $($Global:OX_OXIDE.bkvsx)"

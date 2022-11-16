@@ -2,14 +2,14 @@
 # config
 ##########################################################
 
-$Global:APPHOME.es = "$env:APPDATA\espanso"
-if ( !(Test-Path "$Global:APPHOME.es") ) {
-    $Global:APPHOME.es = "$env:SCOOP\apps\espanso\current\.espanso"
+$Global:OX_APPHOME.es = "$env:APPDATA\espanso"
+if ( !(Test-Path "$Global:OX_APPHOME.es") ) {
+    $Global:OX_APPHOME.es = "$env:SCOOP\apps\espanso\current\.espanso"
 }
 
-$Global:OX_ELEMENT.es = "$($Global:APPHOME.es)\default.yml"
-$Global:OX_ELEMENT.esx = "$($Global:APPHOME.es)\match\base.yml"
-$Global:OX_ELEMENT.esx_ = "$($Global:APPHOME.es)\match\packages"
+$Global:OX_ELEMENT.es = "$($Global:OX_APPHOME.es)\default.yml"
+$Global:OX_ELEMENT.esx = "$($Global:OX_APPHOME.es)\match\base.yml"
+$Global:OX_ELEMENT.esx_ = "$($Global:OX_APPHOME.es)\match\packages"
 
 function up_espanso {
     ipf esx esx_
@@ -52,7 +52,7 @@ function esq { espanso stop }
 ##########################################################
 # main
 ##########################################################
-function esa { param ( $path ) New-Item -Force -Path $($Global:APPHOME.es)\match\$path.yml }
+function esa { param ( $path ) New-Item -Force -Path $($Global:OX_APPHOME.es)\match\$path.yml }
 function es { espanso $args }
 function esh { espanso help $args }
 function ese { espanso edit $args }
