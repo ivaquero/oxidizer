@@ -6,7 +6,7 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
 # Oxidizer configuration files
 ##########################################################
 
-$Global:OXYGEN = @{}
+$Global:OX_OXYGEN = @{}
 # defaults
 $Global:OX_OXYGEN.oxd = "$env:OXIDIZER\defaults.ps1"
 $Global:OX_OXYGEN.oxz = "$env:OXIDIZER\oxidizer.ps1"
@@ -75,7 +75,7 @@ if ( [Environment]::OSVersion.VersionString.Contains("Windows") ) {
     . $Global:OX_OXYGEN.oxps
 }
 
-ForEach ($plugin in $Global:PLUGINS) {
+ForEach ($plugin in $Global:OX_PLUGINS) {
     . $Global:OX_OXYGEN.$($plugin)
 }
 

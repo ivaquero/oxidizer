@@ -1,3 +1,4 @@
+
 # Oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
@@ -467,7 +468,7 @@ A plugin in Oxidizer is referred as OX_OXYGEN, a key-value object whose key star
 For a Vim plugin on macOS / Linux, you can write
 
 ```sh
-OX_OXYGEN`oxpvi`=plugin_path
+OX_OXYGEN[oxpvi]="plugin_path"
 ```
 
 And add the _key of OX_OXYGEN_ into `PLUGINS` object in `custom.sh` like
@@ -525,3 +526,4 @@ Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent:
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
+

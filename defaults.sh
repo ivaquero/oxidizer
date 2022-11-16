@@ -52,7 +52,7 @@ export EDITOR_T='vi'
 # other-shortcuts
 # oxpfm: ox-formats
 # oxpbw: ox-bitwarden
-PLUGINS=(
+OX_PLUGINS=(
     oxpg
     oxpfm
 )

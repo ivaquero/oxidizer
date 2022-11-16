@@ -43,7 +43,7 @@ $env:EDITOR_T = 'vi'
 # other-shortcuts
 # oxpfm: ox-formats
 # oxpbw: ox-bitwarden
-$Global:PLUGINS = @(
+$Global:OX_PLUGINS = @(
     'oxpg',
     'oxpfm'
 )

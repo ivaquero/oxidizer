@@ -79,7 +79,7 @@ alias shells="cat $SHELLS"
 # Zsh & Plugins
 ##########################################################
 
-declare -a PLUGINS
+declare -a OX_PLUGINS
 
 # import ox-utils
 . ${OX_OXYGEN[oxput]}
@@ -101,7 +101,7 @@ case $(uname -a) in
     ;;
 esac
 
-for plugin in ${PLUGINS[@]}; do
+for plugin in ${OX_PLUGINS[@]}; do
     . ${OX_OXYGEN[$plugin]}
 done
 
