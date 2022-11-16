@@ -2,9 +2,11 @@
 # config
 ##########################################################
 
-$Global:OX_ELEMENT.jls = "$HOME\.julia\config\startup.jl"
-$Global:OX_ELEMENT.jlm = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Manifest.toml"
-$Global:OX_ELEMENT.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Project.toml"
+if (Get-Command julia -ErrorAction SilentlyContinue) {
+    $Global:OX_ELEMENT.jls = "$HOME\.julia\config\startup.jl"
+    $Global:OX_ELEMENT.jlm = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Manifest.toml"
+    $Global:OX_ELEMENT.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Project.toml"
+}
 
 function up_julia {
     Write-Output "Update Julia by $($Global:OX_OXIDE.bkjl)"

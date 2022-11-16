@@ -122,16 +122,18 @@ alias sha2="openssl dgst -sha256"
 # mas - app store
 ##########################################################
 
-alias mis="mas install"
-alias mus="sudo mas uninstall"
-alias mup="mas upgrade"
-alias mh="mas help"
-alias mif="mas info"
-alias mls="mas list"
-alias mst="mas outdated"
-alias msc="mas search"
-alias msi="mas signin"
-alias mso="mas signout"
+if test "$(command -v mas)"; then
+    alias mis="mas install"
+    alias mus="sudo mas uninstall"
+    alias mup="mas upgrade"
+    alias mh="mas help"
+    alias mif="mas info"
+    alias mls="mas list"
+    alias mst="mas outdated"
+    alias msc="mas search"
+    alias msi="mas signin"
+    alias mso="mas signout"
+fi
 
 ##########################################################
 # network
