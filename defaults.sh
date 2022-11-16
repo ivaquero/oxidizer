@@ -73,7 +73,7 @@ declare -a OX_BACKUP_PROG
 export OX_BACKUP_PROG=(brew)
 
 # backup file path
-export BACKUP=$HOME/Documents/backup
+export OX_BACKUP=$HOME/Documents/backup
 
 OX_OXIDE[bkox]=$OX_BACKUP/custom.sh
 OX_OXIDE[bkzs]=$OX_BACKUP/shell/.zshrc
