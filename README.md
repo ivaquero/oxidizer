@@ -288,14 +288,14 @@ Some of the package managers shortcuts are included in corresponding system plug
 
 |        |   Action    | mas `m` | apt `a` | zap `zp` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :------: | :--------: | :------: |
-|  `*h`  |    help     |   ✅    |   ✅    |          |     ✅     |    ✅    |
+|  `*h`  |    help     |   ✅    |   ✅    |     ✅     |     ✅     |    ✅    |
 | `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*up`  |   update    |   ✅    |   ✅    |          |     ✅     |    ✅    |
-| `*ups` | update self |         |   ✅    |          |     ✅     |    ✅    |
+| `*up`  |   update    |   ✅    |   ✅    |     ✅     |     ✅     |    ✅    |
+| `*ups` | update self |         |   ✅    |    ✅      |     ✅     |    ✅    |
 | `*ls`  |    list     |         |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*lv`  |   leaves    |         |         |          |            |          |
-| `*sc`  |   search    |   ✅    |   ✅    |          |            |          |
+| `*sc`  |   search    |   ✅    |   ✅    |    ✅    |            |          |
 | `*cl`  |    clean    |         |   ✅    |          |            |    ✅    |
 | `*if`  |    info     |   ✅    |   ✅    |          |     ✅     |          |
 | `*st`  |   status    |   ✅    |         |          |            |          |
@@ -304,6 +304,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*xa`  |  add repo   |         |         |          |            |          |
 | `*xrm` | remove repo |         |         |          |            |          |
 | `*xls` |  list repo  |         |         |          |            |          |
+
 
 ### 6.1. Homebrew
 
@@ -525,4 +526,5 @@ Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, 
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
+
 

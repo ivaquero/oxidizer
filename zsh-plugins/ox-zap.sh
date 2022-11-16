@@ -13,6 +13,7 @@ alias zpis="zap install"
 alias zpus="zap remove"
 alias zpups="zap self-update"
 alias zpup="zap upgrade"
+alias zpsc="zap search"
 alias zpls="zap list"
 
 ##########################################################
