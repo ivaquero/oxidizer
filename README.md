@@ -150,7 +150,7 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
 
 ## 4. File Management
 
-![design](https://raw.githubusercontent.com/ivaquero/blog-bio/master/tutorials/images/cmd/oxidizer-design.png)
+![design](https://raw.githubusercontent.com/ivaquero/backup/master/design.png)
 
 - `ff`
   - refresh file by `source`
@@ -526,4 +526,5 @@ Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent:
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
+
 
