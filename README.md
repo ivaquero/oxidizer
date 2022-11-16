@@ -1,4 +1,3 @@
-
 # Oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
@@ -110,7 +109,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 ### 3.4. Summary of Plugins
 
-Oxidizer is designed to be extensible, you can personalize `PLUGINS` in `custom.sh` to load the plugins by your need.
+Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `custom.sh` to load the plugins by your need.
 
 Of course, you are allowed to write your own plugins, see `11. Writing A Plugin` for details.
 
@@ -471,10 +470,10 @@ For a Vim plugin on macOS / Linux, you can write
 OX_OXYGEN[oxpvi]="plugin_path"
 ```
 
-And add the _key of OX_OXYGEN_ into `PLUGINS` object in `custom.sh` like
+And add the _key of OX_OXYGEN_ into `OX_PLUGINS` object in `custom.sh` like
 
 ```sh
-PLUGINS=(oxp1 oxp2 oxpvi)
+OX_PLUGINS=(oxp1 oxp2 oxpvi)
 ```
 
 For Windows users, do these similarly
@@ -483,7 +482,7 @@ For Windows users, do these similarly
 $Global:OX_OXYGEN.oxpvi = "plugin_path"
 ```
 
-And add it into `PLUGINS` object in `custom.ps1`
+And add it into `OX_PLUGINS` object in `custom.ps1`
 
 ### 11.1. Config Files
 
@@ -526,5 +525,3 @@ Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent:
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
-
-
