@@ -162,11 +162,11 @@ alias bxrm="brew untap"
 ##########################################################
 
 bmr() {
-    export HOMEBREW_BREW_GIT_REMOTE="https://${homebrew_mirror[$1]}/brew.git"
-    export HOMEBREW_CORE_GIT_REMOTE="https://${homebrew_mirror[$1]}/homebrew-core.git"
+    export HOMEBREW_BREW_GIT_REMOTE="https://${HOMEBREW_MIRROR[$1]}/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://${HOMEBREW_MIRROR[$1]}/homebrew-core.git"
 
     for tap in core bottles services cask{,-fonts} command-not-found; do
-        brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://${homebrew_mirror[$1]}/homebrew-${tap}.git"
+        brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://${HOMEBREW_MIRROR[$1]}/homebrew-${tap}.git"
     done
     brew update
 }
@@ -287,7 +287,7 @@ alias bsls="brew services list"
 
 bss() {
     if [[ ${#1} < 4 ]]; then
-        brew services start ${homebrew_service[$1]}
+        brew services start ${HOMEBREW_SERVICE[$1]}
     else
         brew services start $1
     fi
@@ -295,7 +295,7 @@ bss() {
 
 bsq() {
     if [[ ${#1} < 4 ]]; then
-        brew services stop ${homebrew_service[$1]}
+        brew services stop ${HOMEBREW_SERVICE[$1]}
     else
         brew services stop $1
     fi
@@ -303,7 +303,7 @@ bsq() {
 
 bsrs() {
     if [[ ${#1} < 4 ]]; then
-        brew services restart ${homebrew_service[$1]}
+        brew services restart ${HOMEBREW_SERVICE[$1]}
     else
         brew services restart $1
     fi

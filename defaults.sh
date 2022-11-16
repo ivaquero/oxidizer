@@ -161,16 +161,16 @@ export HOMEBREW_NO_ENV_HINTS=true
 OX_OXIDE[bkb]=$OX_BACKUP/install/Brewfile
 
 # brew mirrors for faster download, use `bmr` to use
-# declare -A homebrew_mirror
-# homebrew_mirror[ts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
-# homebrew_mirror[zk]="mirrors.ustc.edu.cn/git/homebrew"
+# declare -A HOMEBREW_MIRROR
+# HOMEBREW_MIRROR[ts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
+# HOMEBREW_MIRROR[zk]="mirrors.ustc.edu.cn/git/homebrew"
 
 # predefined brew services
 # set the length of key <= 3
-declare -A homebrew_service
+declare -A HOMEBREW_SERVICE
 
-homebrew_service[pu]="pueue"
-homebrew_service[mys]="mysql"
+HOMEBREW_SERVICE[pu]="pueue"
+HOMEBREW_SERVICE[mys]="mysql"
 
 ##########################################################
 # pueue settings
