@@ -13,8 +13,6 @@ if [ $(uname -s) = "Darwin" ]; then
     export APPDATA=$HOME/Library/'Application Support'
 else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    export APP=$HOME
-    export APPDATA=$HOME/.config
 fi
 
 export BREW=$(brew --prefix)
