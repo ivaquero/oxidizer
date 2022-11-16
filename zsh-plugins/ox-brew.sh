@@ -15,22 +15,21 @@ else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-export BREW=$(brew --prefix)
-export BREW_DL=$(brew --cache)/downloads
+export HOMEBREW_OX_DOWNLOAD=$(brew --cache)/downloads
 
 case $SHELL in
 *zsh)
     if type brew &>/dev/null; then
-        FPATH=$BREW/share/zsh-completions:$FPATH
+        FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
         autoload -Uz compinit && compinit
     fi
 
-    [ -d "$BREW/share/zsh-syntax-highlighting" ] && . "$BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    [ -d "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting" ] && . "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-    [ -d "$BREW/share/zsh-autosuggestions" ] && . "$BREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    [ -d "$HOMEBREW_PREFIX/share/zsh-autosuggestions" ] && . "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     ;;
 *bash)
-    [ -r "$BREW/etc/profile.d/bash_completion.sh" ] && . "$BREW/etc/profile.d/bash_completion.sh"
+    [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
     ;;
 esac
 
@@ -40,17 +39,17 @@ esac
 
 init_brew() {
     echo "Initialize Brew by Oxidizer configuration"
-    brew_pkgs=$(cat $OXIDIZER/defaults/Brewfile.txt | sd "\n" "")
-    brew install $brew_pkgs
+    local pkgs=$(cat $OXIDIZER/defaults/Brewfile.txt | sd "\n" "")
+    brew install $pkgs
 }
 
 up_brew() {
     echo "Update Brew by self-defined configuration"
-    brew bundle --file ${Oxide[bkb]}
+    brew bundle --file ${OX_OXIDE[bkb]}
 }
 
 back_brew() {
-    echo "Backup Brew to ${Oxide[bkb]}"
+    echo "Backup Brew to ${OX_OXIDE[bkb]}"
     brew bundle dump --force
 }
 
@@ -163,11 +162,11 @@ alias bxrm="brew untap"
 ##########################################################
 
 bmr() {
-    export HOMEBREW_BREW_GIT_REMOTE="https://${Brew_Mirror[$1]}/brew.git"
-    export HOMEBREW_CORE_GIT_REMOTE="https://${Brew_Mirror[$1]}/homebrew-core.git"
+    export HOMEBREW_BREW_GIT_REMOTE="https://${homebrew_mirror[$1]}/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://${homebrew_mirror[$1]}/homebrew-core.git"
 
     for tap in core bottles services cask{,-fonts} command-not-found; do
-        brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://${Brew_Mirror[$1]}/homebrew-${tap}.git"
+        brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://${homebrew_mirror[$1]}/homebrew-${tap}.git"
     done
     brew update
 }
@@ -195,7 +194,7 @@ bmrq() {
 ##########################################################
 
 # backup files
-export HOMEBREW_BUNDLE_FILE=${Oxide[bkb]}
+export HOMEBREW_BUNDLE_FILE=${OX_OXIDE[bkb]}
 
 ##########################################################
 # casks
@@ -260,19 +259,19 @@ alias bec="be --cask"
 # download by aria2
 bdl() {
     local url=$(brew info --cask --json=v2 $1 | rg \"url\" | rg --only-matching \"https:.+\" -m 1)
-    echo "downloading from $url to $DOWNLOAD"
-    eval $(aria2c --dir $DOWNLOAD $url)
+    echo "downloading from $url to $OX_DOWNLOAD"
+    eval $(aria2c --dir $OX_DOWNLOAD $url)
 }
 
 # replace cache file by predownloaded file
 brp() {
-    local f_pred=$(ls $DOWNLOAD | rg --ignore-case $1)
+    local f_pred=$(ls $OX_DOWNLOAD | rg --ignore-case $1)
     if [ -z $f_pred ]; then
         echo "predownloaded file not found"
         return 1
     fi
-    local f_cache=$(ls $BREW_DL/*.incomplete | rg --ignore-case $1 | sd ".incomplete" "")
-    mv $DOWNLOAD/$f_pred $f_cache
+    local f_cache=$(ls $HOMEBREW_OX_DOWNLOAD/*.incomplete | rg --ignore-case $1 | sd ".incomplete" "")
+    mv $OX_DOWNLOAD/$f_pred $f_cache
 }
 
 ##########################################################
@@ -288,7 +287,7 @@ alias bsls="brew services list"
 
 bss() {
     if [[ ${#1} < 4 ]]; then
-        brew services start ${Brew_Service[$1]}
+        brew services start ${homebrew_service[$1]}
     else
         brew services start $1
     fi
@@ -296,7 +295,7 @@ bss() {
 
 bsq() {
     if [[ ${#1} < 4 ]]; then
-        brew services stop ${Brew_Service[$1]}
+        brew services stop ${homebrew_service[$1]}
     else
         brew services stop $1
     fi
@@ -304,7 +303,7 @@ bsq() {
 
 bsrs() {
     if [[ ${#1} < 4 ]]; then
-        brew services restart ${Brew_Service[$1]}
+        brew services restart ${homebrew_service[$1]}
     else
         brew services restart $1
     fi

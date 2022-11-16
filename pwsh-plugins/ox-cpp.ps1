@@ -3,8 +3,8 @@
 ##########################################################
 
 # config files
-$Global:Element.cn = "$env:BASE\.conan\profiles\default"
-$Global:Element.cnr = "$env:BASE\.conan\remote.json"
+$Global:OX_ELEMENT.cn = "$env:BASE\.conan\profiles\default"
+$Global:OX_ELEMENT.cnr = "$env:BASE\.conan\remote.json"
 
 ##########################################################
 # packages

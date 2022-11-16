@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxs = "$env:OXIDIZER\defaults\Scoopfile.txt"
+$Global:OX_OXYGEN.oxs = "$env:OXIDIZER\defaults\Scoopfile.txt"
 
 Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)\modules\scoop-completion" -ErrorAction SilentlyContinue
 
@@ -12,14 +12,14 @@ Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
 
 function init_scoop {
     Write-Output "Initialize Scoop by Oxidizer configuration"
-    $scoop_pkgs = (cat $($Global:Oxygen.oxs) | sd "\n" "")
+    $scoop_pkgs = (cat $($Global:OX_OXYGEN.oxs) | sd "\n" "")
     scoop install $scoop_pkgs
 }
 
 function up_scoop {
-    Write-Output "Update Scoop by $($Global:Oxide.bks)"
-    $file = (cat $($Global:Oxide.bks))
-    $num = (cat $($Global:Oxide.bks) | Measure-Object -Line).Lines
+    Write-Output "Update Scoop by $($Global:OX_OXIDE.bks)"
+    $file = (cat $($Global:OX_OXIDE.bks))
+    $num = (cat $($Global:OX_OXIDE.bks) | Measure-Object -Line).Lines
 
     pueue group add up_scoop
     pueue parallel $num -g up_scoop
@@ -33,8 +33,8 @@ function up_scoop {
 }
 
 function back_scoop {
-    Write-Output "Backup Scoop to $($Global:Oxide.bks)"
-    scoop list | Out-File -FilePath "$($Global:Oxide.bks)"
+    Write-Output "Backup Scoop to $($Global:OX_OXIDE.bks)"
+    scoop list | Out-File -FilePath "$($Global:OX_OXIDE.bks)"
 }
 
 ##########################################################

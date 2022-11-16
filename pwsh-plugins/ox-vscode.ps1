@@ -7,15 +7,15 @@ if ( !(Test-Path "$Global:APPHOME.vs") ) {
     $Global:APPHOME.vs = "$env:SCOOP\persist\vscode\data\user-data\User"
 }
 
-$Global:Element.vs = "$($Global:APPHOME.vs)\settings.json"
-$Global:Element.vsk = "$($Global:APPHOME.vs)\keybindings.json"
-$Global:Element.vss_ = "$($Global:APPHOME.vs)\snippets"
+$Global:OX_ELEMENT.vs = "$($Global:APPHOME.vs)\settings.json"
+$Global:OX_ELEMENT.vsk = "$($Global:APPHOME.vs)\keybindings.json"
+$Global:OX_ELEMENT.vss_ = "$($Global:APPHOME.vs)\snippets"
 
 function up_vscode {
-    Write-Output "Update VSCode extensions by $($Global:Oxide.bkvsx)"
+    Write-Output "Update VSCode extensions by $($Global:OX_OXIDE.bkvsx)"
     $exts = (code --list-extensions)
-    $file = (cat $($Global:Oxide.bkvsx))
-    $num = (cat $($Global:Oxide.bkvsx) | Measure-Object -Line).Lines
+    $file = (cat $($Global:OX_OXIDE.bkvsx))
+    $num = (cat $($Global:OX_OXIDE.bkvsx) | Measure-Object -Line).Lines
 
     pueue group add vscode_update
     pueue parallel $num -g vscode_update
@@ -34,8 +34,8 @@ function up_vscode {
 }
 
 function back_vscode {
-    Write-Output "Backup VSCode extensions to $($Global:Oxide.bkvsx)"
-    code --list-extensions | Out-File -FilePath "$($Global:Oxide.bkvsx)"
+    Write-Output "Backup VSCode extensions to $($Global:OX_OXIDE.bkvsx)"
+    code --list-extensions | Out-File -FilePath "$($Global:OX_OXIDE.bkvsx)"
 }
 
 ##########################################################

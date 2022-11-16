@@ -5,79 +5,79 @@
 # export file
 # $@=names
 function epf {
-    Write-Output "Overwrite Oxide by Element"
+    Write-Output "Overwrite OX_OXIDE by Element"
     $files = $args
     ForEach ( $file in $files ) {
         $bkfile = "bk" + $file
-        if ( [string]::IsNullOrEmpty($Global:Oxide.$bkfile) ) {
-            Write-Output "$Global:Oxide.$bkfile does not exist, please define it in custom.ps1"
+        if ( [string]::IsNullOrEmpty($Global:OX_OXIDE.$bkfile) ) {
+            Write-Output "$Global:OX_OXIDE.$bkfile does not exist, please define it in custom.ps1"
         }
         elseif ( $file.EndsWith("_") ) {
-            $in_folder = $Global:Element.$file
-            $out_folder = $Global:Oxide.$bkfile
+            $in_folder = $Global:OX_ELEMENT.$file
+            $out_folder = $Global:OX_OXIDE.$bkfile
             Remove-Item -Recurse $out_folder
             Copy-Item -Verbose -Force -Path $in_folder -Destination $out_folder
         }
         else {
-            $parentpath = ( Get-Item $Global:Element.$file ).DirectoryName
+            $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
             if (!(Test-Path $parentpath)) {
                 New-Item -ItemType Directory -Force -Path $parentpath
             }
-            Copy-Item -Verbose -Path $Global:Element.$file -Destination $Global:Oxide.$bkfile
+            Copy-Item -Verbose -Path $Global:OX_ELEMENT.$file -Destination $Global:OX_OXIDE.$bkfile
         }
     }
 }
 
 # import file: reverse action of `epf`
 function ipf {
-    Write-Output "Overwrite Element by Oxide"
+    Write-Output "Overwrite Element by OX_OXIDE"
     $files = $args
     ForEach ( $file in $files ) {
         $bkfile = "bk" + $file
         if ( $file.EndsWith("_") ) {
-            $folder = ls $Global:Oxide.$bkfile
+            $folder = ls $Global:OX_OXIDE.$bkfile
             ForEach ( $subfile in $folder ) {
-                $in_file = $Global:Oxide.$bkfile + '\\' + $subfile
-                $out_file = $Global:Element.$file + '\\' + $subfile
+                $in_file = $Global:OX_OXIDE.$bkfile + '\\' + $subfile
+                $out_file = $Global:OX_ELEMENT.$file + '\\' + $subfile
                 Copy-Item -Verbose -Path $in_file -Destination $out_file
             }
         }
         else {
-            $parentpath = ( Get-Item $Global:Element.$file ).DirectoryName
+            $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
             if (!(Test-Path $parentpath)) {
                 New-Item -ItemType Directory -Force -Path $parentpath
             }
-            Copy-Item -Verbose -Path $Global:Oxide.$bkfile -Destination $Global:Element.$file
+            Copy-Item -Verbose -Path $Global:OX_OXIDE.$bkfile -Destination $Global:OX_ELEMENT.$file
         }
     }
 }
 
 # initialize file
 function iif {
-    Write-Output "Overwrite Element by Oxygen"
+    Write-Output "Overwrite Element by OX_OXYGEN"
     $files = $args
     ForEach ( $file in $files ) {
         $oxfile = "ox" + $file
-        $parentpath = ( Get-Item $Global:Element.$file ).DirectoryName
+        $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
         if ( !(Test-Path $parentpath) ) {
             New-Item -ItemType Directory -Force -Path $parentpath
         }
-        Copy-Item -Verbose -Path $Global:Oxygen.$oxfile -Destination $Global:Element.$file
+        Copy-Item -Verbose -Path $Global:OX_OXYGEN.$oxfile -Destination $Global:OX_ELEMENT.$file
     }
 }
 
 # duplicate file
 function dpf {
-    Write-Output "Overwrite Element by Oxygen"
+    Write-Output "Overwrite Element by OX_OXYGEN"
     $files = $args
     ForEach ( $file in $files ) {
         $oxfile = "ox" + $file
         $bkfile = "bk" + $file
-        $parentpath = ( Get-Item $Global:Oxide.$bkfile ).DirectoryName
+        $parentpath = ( Get-Item $Global:OX_OXIDE.$bkfile ).DirectoryName
         if ( !(Test-Path $parentpath) ) {
             New-Item -ItemType Directory -Force -Path $parentpath
         }
-        Copy-Item -Verbose -Path $Global:Oxygen.$oxfile -Destination $Global:Oxide.$bkfile
+        Copy-Item -Verbose -Path $Global:OX_OXYGEN.$oxfile -Destination $Global:OX_OXIDE.$bkfile
     }
 }
 
@@ -100,9 +100,9 @@ function bf {
         $cmd = "cat"
     }
     Switch ( $file ) {
-        { $file -match "ox\w{1,}" } { . $cmd $Global:Oxygen.$file }
-        { $file -match "bk\w{1,}" } { . $cmd $Global:Oxide.$file }
-        Default { . $cmd $Global:Element.$file }
+        { $file -match "ox\w{1,}" } { . $cmd $Global:OX_OXYGEN.$file }
+        { $file -match "bk\w{1,}" } { . $cmd $Global:OX_OXIDE.$file }
+        Default { . $cmd $Global:OX_ELEMENT.$file }
     }
 }
 
@@ -113,9 +113,9 @@ function ef {
     else { $cmd = $env:EDITOR }
 
     Switch ( $file ) {
-        { $file -match "ox[a-z]{1,}" } { . $cmd $Global:Oxygen.$file }
-        { $file -match "bk[a-z]{1,}" } { . $cmd $Global:Oxide.$file }
-        Default { . $cmd $Global:Element.$file }
+        { $file -match "ox[a-z]{1,}" } { . $cmd $Global:OX_OXYGEN.$file }
+        { $file -match "bk[a-z]{1,}" } { . $cmd $Global:OX_OXIDE.$file }
+        Default { . $cmd $Global:OX_ELEMENT.$file }
     }
 }
 
@@ -134,19 +134,19 @@ function replace {
 }
 
 ##########################################################
-# Proxy utils
+# OX_PROXY utils
 ##########################################################
 
 # proxy
 function px {
     param ( $the_port )
     if ( $( $the_port | Measure-Object -Character).Character -lt 2 ) {
-        $port = $Global:Proxy.$the_port
+        $port = $Global:OX_PROXY.$the_port
     }
     else {
         $port = $the_port
     }
-    Write-Output "using port $($Global:Proxy.$the_port)"
+    Write-Output "using port $($Global:OX_PROXY.$the_port)"
     $env:https_proxy = "http://127.0.0.1:$port"
     $env:http_proxy = "http://127.0.0.1:$port"
     $env:all_proxy = "socks5://127.0.0.1:$port"

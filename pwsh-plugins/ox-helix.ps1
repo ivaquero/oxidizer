@@ -2,10 +2,10 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxhx = "$env:OXIDIZER\defaults\helix.toml"
+$Global:OX_OXYGEN.oxhx = "$env:OXIDIZER\defaults\helix.toml"
 # config files
-$Global:Element.hx = "$env:APPDATA\helix\config.toml"
-$Global:Element.hxl = "$env:APPDATA\helix\languages.toml"
+$Global:OX_ELEMENT.hx = "$env:APPDATA\helix\config.toml"
+$Global:OX_ELEMENT.hxl = "$env:APPDATA\helix\languages.toml"
 
 ##########################################################
 # main

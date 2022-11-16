@@ -7,14 +7,14 @@ Element[vsk]=$APPDATA/Code/User/keybindings.json
 Element[vss_]=$APPDATA/Code/User/snippets
 
 up_vscode() {
-    echo "Update VSCode extensions by ${Oxide[bkvsx]}"
+    echo "Update VSCode extensions by ${OX_OXIDE[bkvsx]}"
     local exts=$(code --list-extensions)
-    local num=$(cat ${Oxide[bkvsx]} | wc -l | rg --only-matching "\d+")
+    local num=$(cat ${OX_OXIDE[bkvsx]} | wc -l | rg --only-matching "\d+")
 
     pueue group add vscode_init
     pueue parallel $num -g vscode_init
 
-    cat ${Oxide[bkvsx]} | while read line; do
+    cat ${OX_OXIDE[bkvsx]} | while read line; do
         if echo $exts | rg $line; then
             echo "Extension $line is already installed."
         else
@@ -26,8 +26,8 @@ up_vscode() {
 }
 
 back_vscode() {
-    echo "Backup VSCode extensions to ${Oxide[bkvsx]}"
-    code --list-extensions >${Oxide[bkvsx]}
+    echo "Backup VSCode extensions to ${OX_OXIDE[bkvsx]}"
+    code --list-extensions >${OX_OXIDE[bkvsx]}
 }
 
 ##########################################################

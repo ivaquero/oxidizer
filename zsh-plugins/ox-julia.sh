@@ -7,16 +7,16 @@ Element[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")
 Element[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
 
 up_julia() {
-    echo "Update Julia by ${Oxide[bkjl]}"
-    local pkgs=[\"$(cat ${Oxide[bkjl]} | sd '\n' '", "')\"]
+    echo "Update Julia by ${OX_OXIDE[bkjl]}"
+    local pkgs=[\"$(cat ${OX_OXIDE[bkjl]} | sd '\n' '", "')\"]
     local pkgs_vec=$(echo $pkgs | sd ', ""' '')
     local cmd=$(echo 'using Pkg; Pkg.add(,,)' | sd ',,' "$pkgs_vec")
     julia --eval "$cmd"
 }
 
 back_julia() {
-    echo "Backup Julia to ${Oxide[bkjl]}"
-    cat ${Element[jlp]} | rg --only-matching "\w.*=" | sd "[= ]" "" >${Oxide[bkjl]}
+    echo "Backup Julia to ${OX_OXIDE[bkjl]}"
+    cat ${Element[jlp]} | rg --only-matching "\w.*=" | sd "[= ]" "" >${OX_OXIDE[bkjl]}
 }
 
 ##########################################################

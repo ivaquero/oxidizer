@@ -36,16 +36,16 @@ function sha2 { param ( $pkg ) Get-FileHash $pkg }
 ##########################################################
 
 function init_winget {
-    Write-Output "Initialize WinGet to $($Global:Oxygen.oxw)"
-    winget import -i $Global:Oxygen.oxw
+    Write-Output "Initialize WinGet to $($Global:OX_OXYGEN.oxw)"
+    winget import -i $Global:OX_OXYGEN.oxw
 }
 function up_winget {
-    Write-Output "Update Scoop by $($Global:Oxide.bkw)"
-    winget import -i $Global:Oxide.bkw
+    Write-Output "Update Scoop by $($Global:OX_OXIDE.bkw)"
+    winget import -i $Global:OX_OXIDE.bkw
 }
 function back_winget {
-    Write-Output "Backup Scoop by $($Global:Oxide.bkw)"
-    winget export -o $Global:Oxide.bkw
+    Write-Output "Backup Scoop by $($Global:OX_OXIDE.bkw)"
+    winget export -o $Global:OX_OXIDE.bkw
 }
 
 function w { winget $args }

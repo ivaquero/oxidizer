@@ -10,13 +10,13 @@ fi
 eval "$(/usr/libexec/path_helper)"
 
 up_texlive() {
-    echo "Update TeXLive by ${Oxide[bktl]}"
-    local num=$(cat ${Oxide[bktl]} | wc -l | rg --only-matching "\d+")
+    echo "Update TeXLive by ${OX_OXIDE[bktl]}"
+    local num=$(cat ${OX_OXIDE[bktl]} | wc -l | rg --only-matching "\d+")
 
     pueue group add texlive_update
     pueue parallel $num -g texlive_update
 
-    cat ${Oxide[bktl]} | while read line; do
+    cat ${OX_OXIDE[bktl]} | while read line; do
         echo "Installing $line"
         pueue add -g texlive_update "tlmgr install $line"
     done
@@ -24,8 +24,8 @@ up_texlive() {
 }
 
 back_texlive() {
-    echo "Backup TeXLive to ${Oxide[bktl]}"
-    tlmgr list --only-installed | rg --only-matching "collection-\w+" | rg --invert-match "basic" >${Oxide[bktl]}
+    echo "Backup TeXLive to ${OX_OXIDE[bktl]}"
+    tlmgr list --only-installed | rg --only-matching "collection-\w+" | rg --invert-match "basic" >${OX_OXIDE[bktl]}
 }
 
 ##########################################################

@@ -131,7 +131,7 @@ echo "⚙️ Adding Custom settings..."
 cp $OXIDIZER/defaults.sh $OXIDIZER/custom.sh
 
 # loading zoxide
-sd ".* STARTUP=.*" "export STARTUP=1" $OXIDIZER/custom.sh
+sd ".* OX_STARTUP=.*" "export OX_STARTUP=1" $OXIDIZER/custom.sh
 
 # set path of oxidizer
 sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $shell_conf

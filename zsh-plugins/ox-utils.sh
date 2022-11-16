@@ -6,17 +6,17 @@
 # $@=names
 epf() {
     for file in $@; do
-        echo "Overwrite ${Oxide[bk$file]} by ${Element[$file]}"
-        if [ -z ${Oxide[bk$file]} ]; then
-            echo "Oxide[bk$file] does not exist, please define it in custom.sh"
+        echo "Overwrite ${OX_OXIDE[bk$file]} by ${Element[$file]}"
+        if [ -z ${OX_OXIDE[bk$file]} ]; then
+            echo "OX_OXIDE[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
-            rm -rf ${Oxide[bk$file]}
-            cp -R -v ${Element[$file]} ${Oxide[bk$file]}
+            rm -rf ${OX_OXIDE[bk$file]}
+            cp -R -v ${Element[$file]} ${OX_OXIDE[bk$file]}
         else
-            if [ ! -d $(dirname ${Oxide[bk$file]}) ]; then
-                mkdir -p $(dirname ${Oxide[bk$file]})
+            if [ ! -d $(dirname ${OX_OXIDE[bk$file]}) ]; then
+                mkdir -p $(dirname ${OX_OXIDE[bk$file]})
             fi
-            cp -v ${Element[$file]} ${Oxide[bk$file]}
+            cp -v ${Element[$file]} ${OX_OXIDE[bk$file]}
         fi
     done
 }
@@ -25,16 +25,16 @@ epf() {
 # $@=names
 ipf() {
     for file in $@; do
-        echo "Overwrite ${Element[$file]} by ${Oxide[bk$file]}"
+        echo "Overwrite ${Element[$file]} by ${OX_OXIDE[bk$file]}"
         if [[ $file == *_ ]]; then
-            for subfile in $(ls ${Oxide[bk$file]}); do
-                cp -R -v ${Oxide[bk$file]}/$subfile ${Element[$file]}/$subfile
+            for subfile in $(ls ${OX_OXIDE[bk$file]}); do
+                cp -R -v ${OX_OXIDE[bk$file]}/$subfile ${Element[$file]}/$subfile
             done
         else
             if [ ! -d $(dirname ${Element[$file]}) ]; then
                 mkdir -p $(dirname ${Element[$file]})
             fi
-            cp -v ${Oxide[bk$file]} ${Element[$file]}
+            cp -v ${OX_OXIDE[bk$file]} ${Element[$file]}
         fi
     done
 }
@@ -43,11 +43,11 @@ ipf() {
 # $@=names
 iif() {
     for file in $@; do
-        echo "Overwrite ${Element[$file]} by ${Oxygen[ox$file]}"
+        echo "Overwrite ${Element[$file]} by ${OX_OXYGEN[ox$file]}"
         if [ ! -d $(dirname ${Element[$file]}) ]; then
             mkdir -p $(dirname ${Element[$file]})
         fi
-        cp -v ${Oxygen[ox$file]} ${Element[$file]}
+        cp -v ${OX_OXYGEN[ox$file]} ${Element[$file]}
     done
 }
 
@@ -55,11 +55,11 @@ iif() {
 # $@=names
 dpf() {
     for file in $@; do
-        echo "Overwrite ${Oxide[bk$file]} by ${Oxygen[ox$file]}"
-        if [ ! -d $(dirname ${Oxide[bk$file]}) ]; then
-            mkdir -p $(dirname ${Oxide[bk$file]})
+        echo "Overwrite ${OX_OXIDE[bk$file]} by ${OX_OXYGEN[ox$file]}"
+        if [ ! -d $(dirname ${OX_OXIDE[bk$file]}) ]; then
+            mkdir -p $(dirname ${OX_OXIDE[bk$file]})
         fi
-        cp -v ${Oxygen[ox$file]} ${Oxide[bk$file]}
+        cp -v ${OX_OXYGEN[ox$file]} ${OX_OXIDE[bk$file]}
     done
 }
 
@@ -86,8 +86,8 @@ bf() {
         cmd="cat"
     fi
     case $1 in
-    ox[a-z]*) $cmd ${Oxygen[$1]} ;;
-    bk[a-z]*) $cmd ${Oxide[$1]} ;;
+    ox[a-z]*) $cmd ${OX_OXYGEN[$1]} ;;
+    bk[a-z]*) $cmd ${OX_OXIDE[$1]} ;;
     *) $cmd ${Element[$1]} ;;
     esac
 }
@@ -101,8 +101,8 @@ ef() {
         cmd=$EDITOR
     fi
     case $1 in
-    ox[a-z]*) $cmd ${Oxygen[$1]} ;;
-    bk[a-z]*) $cmd ${Oxide[$1]} ;;
+    ox[a-z]*) $cmd ${OX_OXYGEN[$1]} ;;
+    bk[a-z]*) $cmd ${OX_OXIDE[$1]} ;;
     *) $cmd ${Element[$1]} ;;
     esac
 }
@@ -205,13 +205,13 @@ rename() {
 }
 
 ##########################################################
-# Proxy Utils
+# OX_PROXY Utils
 ##########################################################
 
 # px=proxy
 px() {
     if [[ ${#1} < 3 ]]; then
-        local port=$Proxy[$1]
+        local port=$OX_PROXY[$1]
     else
         local port=$1
     fi

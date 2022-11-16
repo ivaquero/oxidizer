@@ -2,14 +2,14 @@
 # config
 ##########################################################
 
-$Global:Oxygen.oxc = "$env:OXIDIZER\defaults\.condarc"
-$Global:Oxygen.oxce = "$env:OXIDIZER\defaults\conda-base.txt"
+$Global:OX_OXYGEN.oxc = "$env:OXIDIZER\defaults\.condarc"
+$Global:OX_OXYGEN.oxce = "$env:OXIDIZER\defaults\conda-base.txt"
 # config files
-$Global:Element.c = "$HOME\.condarc"
+$Global:OX_ELEMENT.c = "$HOME\.condarc"
 
 function init_conda {
     Write-Output 'Initialize Conda by Oxidizer configuration'
-    $pkgs = cat $($Global:Oxygen.oxce) | sd "`n" ' '
+    $pkgs = cat $($Global:OX_OXYGEN.oxce) | sd "`n" ' '
     Write-Output "Installing $pkgs"
     Invoke-Expression "mamba install $pkgs"
 }
@@ -18,11 +18,11 @@ function up_conda {
     param ( $the_env, $the_file )
     if ([string]::IsNullOrEmpty( $the_env )) {
         $cenv = 'base'
-        $conda_file = "$Global:Oxide.bkceb"
+        $conda_file = "$Global:OX_OXIDE.bkceb"
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
         $cenv = $Global:Conda_Env.$the_env
-        $conda_file = "$Global:Oxide.bkce$the_env"
+        $conda_file = "$Global:OX_OXIDE.bkce$the_env"
     }
     else {
         $cenv = $the_env
@@ -39,11 +39,11 @@ function back_conda {
     param ( $the_env, $the_file )
     if ([string]::IsNullOrEmpty( $the_env )) {
         $cenv = 'base'
-        $conda_file = "$Global:Oxide.bkceb"
+        $conda_file = "$Global:OX_OXIDE.bkceb"
     }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
         $cenv = $Global:Conda_Env.$the_env
-        $conda_file = "$Global:Oxide.bkce$the_env"
+        $conda_file = "$Global:OX_OXIDE.bkce$the_env"
     }
     else {
         $cenv = $the_env

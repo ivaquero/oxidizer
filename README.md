@@ -1,4 +1,3 @@
-
 # Oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
@@ -210,7 +209,6 @@ The table below lists the information of specific configuration files:
 
 > `_` denotes a folder
 
-
 ## 5. Software management
 
 - `init_*`
@@ -290,11 +288,11 @@ Some of the package managers shortcuts are included in corresponding system plug
 
 |        |   Action    | mas `m` | apt `a` | zap `zp` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :------: | :--------: | :------: |
-|  `*h`  |    help     |   ✅    |   ✅    |     ✅     |     ✅     |    ✅    |
+|  `*h`  |    help     |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*up`  |   update    |   ✅    |   ✅    |     ✅     |     ✅     |    ✅    |
-| `*ups` | update self |         |   ✅    |    ✅      |     ✅     |    ✅    |
+| `*up`  |   update    |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
+| `*ups` | update self |         |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*ls`  |    list     |         |   ✅    |    ✅    |     ✅     |    ✅    |
 | `*lv`  |   leaves    |         |         |          |            |          |
 | `*sc`  |   search    |   ✅    |   ✅    |    ✅    |            |          |
@@ -306,7 +304,6 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*xa`  |  add repo   |         |         |          |            |          |
 | `*xrm` | remove repo |         |         |          |            |          |
 | `*xls` |  list repo  |         |         |          |            |          |
-
 
 ### 6.1. Homebrew
 
@@ -465,15 +462,15 @@ mdto `filename` `format`
 
 ## 11. Writing A Plugin
 
-A plugin in Oxidizer is referred as Oxygen, a key-value object whose key starts with `oxp`.
+A plugin in Oxidizer is referred as OX_OXYGEN, a key-value object whose key starts with `oxp`.
 
 For a Vim plugin on macOS / Linux, you can write
 
 ```sh
-Oxygen`oxpvi`=plugin_path
+OX_OXYGEN`oxpvi`=plugin_path
 ```
 
-And add the _key of Oxygen_ into `PLUGINS` object in `custom.sh` like
+And add the _key of OX_OXYGEN_ into `PLUGINS` object in `custom.sh` like
 
 ```sh
 PLUGINS=(oxp1 oxp2 oxpvi)
@@ -482,43 +479,43 @@ PLUGINS=(oxp1 oxp2 oxpvi)
 For Windows users, do these similarly
 
 ```powershell
-$Global:Oxygen.oxpvi = "plugin_path"
+$Global:OX_OXYGEN.oxpvi = "plugin_path"
 ```
 
 And add it into `PLUGINS` object in `custom.ps1`
 
 ### 11.1. Config Files
 
-A system / software / tool configuration file in Oxidizer is referred as Element, set it like what you do with Oxygen
+A system / software / tool configuration file in Oxidizer is referred as Element, set it like what you do with OX_OXYGEN
 
 ```sh
 # macOS / Linux
 Element[vi]=$HOME/.vimrc
 # Windows
-$Global:Element.vi = "$HOME/.vimrc"
+$Global:OX_ELEMENT.vi = "$HOME/.vimrc"
 ```
 
-If you need to set a folder in Oxygen, plus a `_` as the suffix of the key.
+If you need to set a folder in OX*OXYGEN, plus a `*` as the suffix of the key.
 
 ```sh
 # macOS / Linux
 Element[vi_]=$HOME/.vim
 # Windows
-$Global:Element.vi_ = "$HOME/vim"
+$Global:OX_ELEMENT.vi_ = "$HOME/vim"
 ```
 
 ### 11.2. Backup Files
 
-A backup file in Oxidizer is referred as Oxide whose key starts with `bk`, set it like
+A backup file in Oxidizer is referred as OX_OXIDE whose key starts with `bk`, set it like
 
 ```sh
 # macOS / Linux
-Oxide[bkvi]=$BACKUP/.vimrc
+OX_OXIDE[bkvi]=$BACKUP/.vimrc
 # Windows
-$Global:Oxide.bkvi = "$env:BACKUP/.vimrc"
+$Global:OX_OXIDE.bkvi = "$env:BACKUP/.vimrc"
 ```
 
-Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
+Do remember the key in OX_OXYGEN, Element, OX_OXIDE must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
 
 ## 12. Credits
 
@@ -528,5 +525,3 @@ Do remember the key in Oxygen, Element, Oxide must be consistent: `oxvi`, `vi`, 
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
-
-

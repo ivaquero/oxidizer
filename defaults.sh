@@ -2,7 +2,6 @@
 #
 # uppercase for global variables
 # lowercase for local variables
-# titlecase for arrays
 
 ##########################################################
 # basic settings
@@ -11,7 +10,7 @@
 # change editor
 # $1: name
 che() {
-    sd "EDITOR=\".*\"" "EDITOR=\"$1\"" $Element[ox]
+    sd "EDITOR=\'.*\'" "EDITOR=\'$1\'" $Element[ox]
     case $SHELL in
     *zsh)
         . ${Element[zs]}
@@ -23,9 +22,9 @@ che() {
 }
 
 # default editor, can be changed by function `che()`
-export EDITOR="code"
+export EDITOR='code'
 # terminal editor
-export EDITOR_T="vi"
+export EDITOR_T='vi'
 
 ##########################################################
 # select ox-plugins
@@ -63,25 +62,25 @@ PLUGINS=(
 ##########################################################
 
 # options: brew, conda, vscode, espanso
-declare -a INIT_OBJ
-export INIT_OBJ=(brew)
+declare -a OX_INIT_PROG
+export OX_INIT_PROG=(brew)
 
 # options: brew, conda, vscode, espanso, julia, texlive, node
-declare -a UP_OBJ
-export UP_OBJ=(brew)
+declare -a OX_UPDATE_PROG
+export OX_UPDATE_PROG=(brew)
 
-declare -a BACK_OBJ
-export BACK_OBJ=(brew)
+declare -a OX_BACKUP_PROG
+export OX_BACKUP_PROG=(brew)
 
 # backup file path
 export BACKUP=$HOME/Documents/backup
 
-Oxide[bkox]=$BACKUP/custom.sh
-Oxide[bkzs]=$BACKUP/shell/.zshrc
-Oxide[bkbs]=$BACKUP/shell/.bash_profile
-Oxide[bksc]=$BACKUP/install/source.list
-# Oxide[bkwz]=$BACKUP/terminal/wezterm.lua
-# Oxide[bkvi]=$BACKUP/.vimrc
+OX_OXIDE[bkox]=$BACKUP/custom.sh
+OX_OXIDE[bkzs]=$BACKUP/shell/.zshrc
+OX_OXIDE[bkbs]=$BACKUP/shell/.bash_profile
+OX_OXIDE[bksc]=$BACKUP/install/source.list
+# OX_OXIDE[bkwz]=$BACKUP/terminal/wezterm.lua
+# OX_OXIDE[bkvi]=$BACKUP/.vimrc
 
 # system file
 Element[vi]=$HOME/.vimrc
@@ -91,13 +90,13 @@ Element[vi]=$HOME/.vimrc
 # register proxy ports
 ##########################################################
 
-declare -A Proxy
+declare -A OX_PROXY
 # c: clash, v: v2ray
-Proxy[c]=7890
-Proxy[v]=1080
+OX_PROXY[c]=7890
+OX_PROXY[v]=1080
 
 Element[cv]="$HOME/.config/clash-verge/verge.yaml"
-Oxide[bkcv]="$BACKUP/app/verge.yaml"
+OX_OXIDE[bkcv]="$BACKUP/app/verge.yaml"
 
 ##########################################################
 # select export and import settings
@@ -112,27 +111,27 @@ Oxide[bkcv]="$BACKUP/app/verge.yaml"
 # vs: vscode's settings.json
 # vsk: vscode's keybindings.json
 # vss_: vscode's snippets folder
-declare -a EPF_OBJ
-EPF_OBJ=(ox)
+declare -a OX_EXPORT_FILE
+OX_EXPORT_FILE=(ox)
 
 # files to be import from backup folder
-declare -a IPF_OBJ
-IPF_OBJ=(ox)
+declare -a OX_IMPORT_FILE
+OX_IMPORT_FILE=(ox)
 
 # file to be copied from oxidizer/defaults
-declare -a IIF_OBJ
+declare -a OX_INIT_FILE
 # wz: wezterm
 # pu: pueue
 # pua: pueue_aliases
-IIF_OBJ=(pu pua)
+OX_INIT_FILE=(pu pua)
 
 ##########################################################
 # git settings
 ##########################################################
 
 # backup files
-Oxide[bkg]=$BACKUP/.gitconfig
-Oxide[bkgi]=$BACKUP/git/.gitignore
+OX_OXIDE[bkg]=$BACKUP/.gitconfig
+OX_OXIDE[bkgi]=$BACKUP/git/.gitignore
 
 ##########################################################
 # zellij settings
@@ -142,15 +141,15 @@ Oxide[bkgi]=$BACKUP/git/.gitignore
 #     mkdir -p $BACKUP/zellij
 # fi
 
-# Oxide[bkzj]=$BACKUP/zellij/config.yaml
-# Oxide[bkzjl_]=$BACKUP/zellij/layouts
+# OX_OXIDE[bkzj]=$BACKUP/zellij/config.yaml
+# OX_OXIDE[bkzjl_]=$BACKUP/zellij/layouts
 
 ##########################################################
 # helix settings
 ##########################################################
 
-# Oxide[bkhx]=$BACKUP/helix/config.toml
-# Oxide[bkhxl]=$BACKUP/helix/languages.toml
+# OX_OXIDE[bkhx]=$BACKUP/helix/config.toml
+# OX_OXIDE[bkhxl]=$BACKUP/helix/languages.toml
 
 ##########################################################
 # brew settings
@@ -159,26 +158,27 @@ Oxide[bkgi]=$BACKUP/git/.gitignore
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_ENV_HINTS=true
 
-Oxide[bkb]=$BACKUP/install/Brewfile
+OX_OXIDE[bkb]=$BACKUP/install/Brewfile
 
 # brew mirrors for faster download, use `bmr` to use
-# declare -A Brew_Mirror
-# Brew_Mirror[ts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
-# Brew_Mirror[zk]="mirrors.ustc.edu.cn/git/homebrew"
+# declare -A homebrew_mirror
+# homebrew_mirror[ts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
+# homebrew_mirror[zk]="mirrors.ustc.edu.cn/git/homebrew"
 
 # predefined brew services
 # set the length of key <= 3
-declare -A Brew_Service
-Brew_Service[pu]="pueue"
-Brew_Service[mys]="mysql"
+declare -A homebrew_service
+
+homebrew_service[pu]="pueue"
+homebrew_service[mys]="mysql"
 
 ##########################################################
 # pueue settings
 ##########################################################
 
 # backup files
-Oxide[bkpu]=$BACKUP/pueue/pueue.yml
-Oxide[bkpua]=$BACKUP/pueue/pueue_aliases.yml
+OX_OXIDE[bkpu]=$BACKUP/pueue/pueue.yml
+OX_OXIDE[bkpua]=$BACKUP/pueue/pueue_aliases.yml
 
 # pueue demo
 upp() {
@@ -196,7 +196,7 @@ upp() {
 ##########################################################
 
 # # backup files
-# Oxide[bkc]=$BACKUP/conda/.condarc
+# OX_OXIDE[bkc]=$BACKUP/conda/.condarc
 
 # # predefined conda environments
 # # set the length of key <= 3
@@ -205,7 +205,7 @@ upp() {
 # Conda_Env[b]="base"
 
 # # conda env stats with bkce, and should be consistent with Conda_Env
-# Oxide[bkceb]=$BACKUP/conda/conda-base.txt
+# OX_OXIDE[bkceb]=$BACKUP/conda/conda-base.txt
 
 ##########################################################
 # rust settings
@@ -215,16 +215,16 @@ upp() {
 #     mkdir -p $BACKUP/rust
 # fi
 
-# Oxide[bkcg]=$BACKUP/rust/config.toml
-# Oxide[bkrs]=$BACKUP/rust/settings.toml
+# OX_OXIDE[bkcg]=$BACKUP/rust/config.toml
+# OX_OXIDE[bkrs]=$BACKUP/rust/settings.toml
 
 ##########################################################
 # espanso settings
 ##########################################################
 
-# Oxide[bkes]=$BACKUP/espanso/config/default.yml
-# Oxide[bkesx]=$BACKUP/espanso/match/base.yml
-# Oxide[bkesx_]=$BACKUP/espanso/match/packages
+# OX_OXIDE[bkes]=$BACKUP/espanso/config/default.yml
+# OX_OXIDE[bkesx]=$BACKUP/espanso/match/base.yml
+# OX_OXIDE[bkesx_]=$BACKUP/espanso/match/packages
 
 ##########################################################
 # julia settings
@@ -234,8 +234,8 @@ upp() {
 #     mkdir -p $BACKUP/julia
 # fi
 
-# Oxide[bkjl]=$BACKUP/julia/julia-pkgs.txt
-# Oxide[bkjls]=$BACKUP/julia/startup.jl
+# OX_OXIDE[bkjl]=$BACKUP/julia/julia-pkgs.txt
+# OX_OXIDE[bkjls]=$BACKUP/julia/startup.jl
 
 ##########################################################
 # vscode settings
@@ -245,10 +245,10 @@ upp() {
 #     mkdir -p $BACKUP/vscode
 # fi
 
-# # Oxide[bkvs]=$BACKUP/vscode/settings.json
-# Oxide[bkvsk]=$BACKUP/vscode/keybindings.json
-# Oxide[bkvss_]=$BACKUP/vscode/snippets
-# Oxide[bkvsx]=$BACKUP/vscode/vscode-exts.txt
+# # OX_OXIDE[bkvs]=$BACKUP/vscode/settings.json
+# OX_OXIDE[bkvsk]=$BACKUP/vscode/keybindings.json
+# OX_OXIDE[bkvss_]=$BACKUP/vscode/snippets
+# OX_OXIDE[bkvsx]=$BACKUP/vscode/vscode-exts.txt
 
 ##########################################################
 # podman settings
@@ -259,12 +259,12 @@ upp() {
 ##########################################################
 
 # # conan
-# Oxide[bkcn]=$BACKUP/conan/default
-# Oxide[bkcnr]=$BACKUP/conan/remote.json
+# OX_OXIDE[bkcn]=$BACKUP/conan/default
+# OX_OXIDE[bkcnr]=$BACKUP/conan/remote.json
 # # nodejs
-# Oxide[bknj]=$BACKUP/javascript/node-pkgs.txt
+# OX_OXIDE[bknj]=$BACKUP/javascript/node-pkgs.txt
 # # texlive
-# Oxide[bktl]=$BACKUP/tex/texlive-pkgs.txt
+# OX_OXIDE[bktl]=$BACKUP/tex/texlive-pkgs.txt
 
 ##########################################################
 # common aliases
@@ -371,9 +371,9 @@ weather() {
 ##########################################################
 
 # donwload path: works for function `bdl()`
-export DOWNLOAD=$HOME/Download
+export OX_DOWNLOAD=$HOME/Download
 
-export STARTUP=1
+export OX_STARTUP=1
 
 startup() {
     # start directory

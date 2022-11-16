@@ -2,14 +2,14 @@
 # config
 ##########################################################
 
-Oxygen[oxc]=$OXIDIZER/defaults/.condarc
-Oxygen[oxce]=$OXIDIZER/defaults/conda-base.txt
+OX_OXYGEN[oxc]=$OXIDIZER/defaults/.condarc
+OX_OXYGEN[oxce]=$OXIDIZER/defaults/conda-base.txt
 # config files
 Element[c]=$HOME/.condarc
 
 init_conda() {
     echo "Initialize Conda by Oxidizer configuration"
-    local pkgs=$(cat ${Oxygen[oxce]} | sd "\n" " ")
+    local pkgs=$(cat ${OX_OXYGEN[oxce]} | sd "\n" " ")
     echo "Installing $pkgs"
     eval "mamba install $pkgs"
 }
@@ -17,10 +17,10 @@ init_conda() {
 up_conda() {
     if [ -z $1 ]; then
         local conda_env=base
-        local conda_file=${Oxide[bkceb]}
+        local conda_file=${OX_OXIDE[bkceb]}
     elif [[ ${#1} < 4 ]]; then
         local conda_env=${Conda_Env[$1]}
-        local conda_file=${Oxide[bkce$1]}
+        local conda_file=${OX_OXIDE[bkce$1]}
     else
         local conda_env=$1
         local conda_file=$2
@@ -34,10 +34,10 @@ up_conda() {
 back_conda() {
     if [ -z $1 ]; then
         local conda_env=base
-        local conda_file=${Oxide[bkceb]}
+        local conda_file=${OX_OXIDE[bkceb]}
     elif [[ ${#1} < 4 ]]; then
         local conda_env=${Conda_Env[$1]}
-        local conda_file=${Oxide[bkce$1]}
+        local conda_file=${OX_OXIDE[bkce$1]}
     else
         local conda_env=$1
         local conda_file=$2

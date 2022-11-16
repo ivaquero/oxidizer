@@ -86,7 +86,7 @@ Write-Output "Adding Custom settings..."
 Copy-Item -Verbose -Force -Path "$env:OXIDIZER\defaults.ps1" -Destination "$env:OXIDIZER\custom.ps1"
 
 # loading zoxide
-sd '.* STARTUP=.*' '$Global:STARTUP=1' "$env:OXIDIZER\custom.ps1"
+sd '.* OX_STARTUP=.*' '$Global:OX_STARTUP=1' "$env:OXIDIZER\custom.ps1"
 
 # set path of oxidizer
 sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE

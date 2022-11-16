@@ -3,9 +3,9 @@
 ##########################################################
 
 function up_texlive {
-    Write-Output "Update TeXLive by $($Global:Oxide.bktl)"
-    $file = (cat $($Global:Oxide.bktl))
-    $num = (cat $($Global:Oxide.bktl) | Measure-Object -Line).Lines
+    Write-Output "Update TeXLive by $($Global:OX_OXIDE.bktl)"
+    $file = (cat $($Global:OX_OXIDE.bktl))
+    $num = (cat $($Global:OX_OXIDE.bktl) | Measure-Object -Line).Lines
 
     pueue group add texlive_update
     pueue parallel $num -g texlive_update
@@ -19,8 +19,8 @@ function up_texlive {
 }
 
 function back_texlive {
-    Write-Output "Backup TeXLive to $($Global:Oxide.bktl)"
-    tlmgr list --only-installed | rg --only-matching 'collection-\w+' | rg --invert-match 'basic' | Out-File -FilePath "$($Global:Oxide.bktl)"
+    Write-Output "Backup TeXLive to $($Global:OX_OXIDE.bktl)"
+    tlmgr list --only-installed | rg --only-matching 'collection-\w+' | rg --invert-match 'basic' | Out-File -FilePath "$($Global:OX_OXIDE.bktl)"
 }
 
 ##########################################################

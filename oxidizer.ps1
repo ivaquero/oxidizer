@@ -6,45 +6,45 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
 # Oxidizer configuration files
 ##########################################################
 
-$Global:Oxygen = @{}
+$Global:OXYGEN = @{}
 # defaults
-$Global:Oxygen.oxd = "$env:OXIDIZER\defaults.ps1"
-$Global:Oxygen.oxz = "$env:OXIDIZER\oxidizer.ps1"
-$Global:Oxygen.oxwz = "$env:OXIDIZER\defaults\wezterm.lua"
+$Global:OX_OXYGEN.oxd = "$env:OXIDIZER\defaults.ps1"
+$Global:OX_OXYGEN.oxz = "$env:OXIDIZER\oxidizer.ps1"
+$Global:OX_OXYGEN.oxwz = "$env:OXIDIZER\defaults\wezterm.lua"
 # plugins
-$Global:Oxygen.oxps = "$env:OXIDIZER\pwsh-plugins\ox-scoop.ps1"
-$Global:Oxygen.oxpw = "$env:OXIDIZER\pwsh-plugins\ox-windows.ps1"
-$Global:Oxygen.oxpg = "$env:OXIDIZER\pwsh-plugins\ox-git.ps1"
-$Global:Oxygen.oxpc = "$env:OXIDIZER\pwsh-plugins\ox-conda.ps1"
-$Global:Oxygen.oxpbw = "$env:OXIDIZER\pwsh-plugins\ox-bitwarden.ps1"
-$Global:Oxygen.oxpcc = "$env:OXIDIZER\pwsh-plugins\ox-cpp.ps1"
-$Global:Oxygen.oxpdk = "$env:OXIDIZER\pwsh-plugins\ox-docker.ps1"
-$Global:Oxygen.oxpes = "$env:OXIDIZER\pwsh-plugins\ox-espanso.ps1"
-$Global:Oxygen.oxpfm = "$env:OXIDIZER\pwsh-plugins\ox-formats.ps1"
-$Global:Oxygen.oxphx = "$env:OXIDIZER\pwsh-plugins\ox-helix.ps1"
-$Global:Oxygen.oxpjl = "$env:OXIDIZER\pwsh-plugins\ox-julia.ps1"
-$Global:Oxygen.oxpjn = "$env:OXIDIZER\pwsh-plugins\ox-jupyter.ps1"
-$Global:Oxygen.oxpnj = "$env:OXIDIZER\pwsh-plugins\ox-node.ps1"
-$Global:Oxygen.oxppu = "$env:OXIDIZER\pwsh-plugins\ox-pueue.ps1"
-$Global:Oxygen.oxprb = "$env:OXIDIZER\pwsh-plugins\ox-ruby.ps1"
-$Global:Oxygen.oxprs = "$env:OXIDIZER\pwsh-plugins\ox-rust.ps1"
-$Global:Oxygen.oxptl = "$env:OXIDIZER\pwsh-plugins\ox-texlive.ps1"
-$Global:Oxygen.oxput = "$env:OXIDIZER\pwsh-plugins\ox-utils.ps1"
-$Global:Oxygen.oxpvs = "$env:OXIDIZER\pwsh-plugins\ox-vscode.ps1"
+$Global:OX_OXYGEN.oxps = "$env:OXIDIZER\pwsh-plugins\ox-scoop.ps1"
+$Global:OX_OXYGEN.oxpw = "$env:OXIDIZER\pwsh-plugins\ox-windows.ps1"
+$Global:OX_OXYGEN.oxpg = "$env:OXIDIZER\pwsh-plugins\ox-git.ps1"
+$Global:OX_OXYGEN.oxpc = "$env:OXIDIZER\pwsh-plugins\ox-conda.ps1"
+$Global:OX_OXYGEN.oxpbw = "$env:OXIDIZER\pwsh-plugins\ox-bitwarden.ps1"
+$Global:OX_OXYGEN.oxpcc = "$env:OXIDIZER\pwsh-plugins\ox-cpp.ps1"
+$Global:OX_OXYGEN.oxpdk = "$env:OXIDIZER\pwsh-plugins\ox-docker.ps1"
+$Global:OX_OXYGEN.oxpes = "$env:OXIDIZER\pwsh-plugins\ox-espanso.ps1"
+$Global:OX_OXYGEN.oxpfm = "$env:OXIDIZER\pwsh-plugins\ox-formats.ps1"
+$Global:OX_OXYGEN.oxphx = "$env:OXIDIZER\pwsh-plugins\ox-helix.ps1"
+$Global:OX_OXYGEN.oxpjl = "$env:OXIDIZER\pwsh-plugins\ox-julia.ps1"
+$Global:OX_OXYGEN.oxpjn = "$env:OXIDIZER\pwsh-plugins\ox-jupyter.ps1"
+$Global:OX_OXYGEN.oxpnj = "$env:OXIDIZER\pwsh-plugins\ox-node.ps1"
+$Global:OX_OXYGEN.oxppu = "$env:OXIDIZER\pwsh-plugins\ox-pueue.ps1"
+$Global:OX_OXYGEN.oxprb = "$env:OXIDIZER\pwsh-plugins\ox-ruby.ps1"
+$Global:OX_OXYGEN.oxprs = "$env:OXIDIZER\pwsh-plugins\ox-rust.ps1"
+$Global:OX_OXYGEN.oxptl = "$env:OXIDIZER\pwsh-plugins\ox-texlive.ps1"
+$Global:OX_OXYGEN.oxput = "$env:OXIDIZER\pwsh-plugins\ox-utils.ps1"
+$Global:OX_OXYGEN.oxpvs = "$env:OXIDIZER\pwsh-plugins\ox-vscode.ps1"
 
 ##########################################################
 # System configuration files
 ##########################################################
 
-$Global:Element = @{}
+$Global:ELEMENT = @{}
 
-$Global:Element.ox = "$env:OXIDIZER\custom.ps1"
-$Global:Element.wz = "$env:SCOOP\persist\wezterm\wezterm.lua"
-$Global:Element.ps = $PROFILE
+$Global:OX_ELEMENT.ox = "$env:OXIDIZER\custom.ps1"
+$Global:OX_ELEMENT.wz = "$env:SCOOP\persist\wezterm\wezterm.lua"
+$Global:OX_ELEMENT.ps = $PROFILE
 
-$Global:Oxide = @{}
+$Global:OX_OXIDE = @{}
 
-. $Global:Element.ox
+. $Global:OX_ELEMENT.ox
 
 if ( !(Test-Path "$env:BACKUP\shell") ) {
     New-Item -ItemType Directory -Force -Path "$env:BACKUP\shell"
@@ -65,18 +65,18 @@ $Global:APPHOME = @{}
 ##########################################################
 
 # import ox-windows
-. $Global:Oxygen.oxpw
+. $Global:OX_OXYGEN.oxpw
 # import ox-utils
-. $Global:Oxygen.oxput
+. $Global:OX_OXYGEN.oxput
 # import pueue
-. $Global:Oxygen.oxppu
+. $Global:OX_OXYGEN.oxppu
 # import ox-scoop
 if ( [Environment]::OSVersion.VersionString.Contains("Windows") ) {
-    . $Global:Oxygen.oxps
+    . $Global:OX_OXYGEN.oxps
 }
 
 ForEach ($plugin in $Global:PLUGINS) {
-    . $Global:Oxygen.$($plugin)
+    . $Global:OX_OXYGEN.$($plugin)
 }
 
 ##########################################################
@@ -86,42 +86,42 @@ ForEach ($plugin in $Global:PLUGINS) {
 # initialize Oxidizer
 # only install missing packages, no deletion
 function init_all {
-    ForEach ($obj in $Global:INIT_OBJ) {
+    ForEach ($obj in $Global:OX_INIT_PROG) {
         Invoke-Expression init_$obj
     }
 }
 
 # update packages
-function back_all {
-    ForEach ($obj in $Global:UP_OBJ) {
+function up_all {
+    ForEach ($obj in $Global:OX_UPDATE_PROG) {
         Invoke-Expression up_$obj
     }
 }
 
 # backup packages lists
 function back_all {
-    ForEach ($obj in $Global:BACK_OBJ) {
+    ForEach ($obj in $Global:OX_BACKUP_PROG) {
         Invoke-Expression back_$obj
     }
 }
 
 # export configurations
 function epall {
-    ForEach ($obj in $Global:EPF_OBJ) {
+    ForEach ($obj in $Global:OX_EXPORT_FILE) {
         epf $obj
     }
 }
 
 # export configurations
 function ipall {
-    ForEach ($obj in $Global:IPF_OBJ) {
+    ForEach ($obj in $Global:OX_IMPORT_FILE) {
         ipf $obj
     }
 }
 
 # initialize Oxidizer
 function iiox {
-    ForEach ($obj in $Global:IIF_OBJ) {
+    ForEach ($obj in $Global:OX_INIT_FILE) {
         iif $obj
     }
 }
@@ -133,7 +133,7 @@ function upox {
     git reset --hard origin/master
 }
 
-if ($Global:STARTUP) {
+if ($Global:OX_STARTUP) {
     Invoke-Expression (&zoxide init powershell --hook prompt | Out-String)
     startup
 }

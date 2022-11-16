@@ -3,16 +3,16 @@
 ##########################################################
 
 function up_node {
-    Write-Output "Update Node by $($Global:Oxide.bknj)"
-    $pkgs = (cat $($Global:Oxide.bknj) | sd "`n" ' ')
+    Write-Output "Update Node by $($Global:OX_OXIDE.bknj)"
+    $pkgs = (cat $($Global:OX_OXIDE.bknj) | sd "`n" ' ')
     Write-Output "Installing $pkgs"
     Invoke-Expression "npm install -g $pkgs --force"
 }
 
 function back_node {
-    Write-Output "Backup Node to $($Global:Oxide.bknj)"
+    Write-Output "Backup Node to $($Global:OX_OXIDE.bknj)"
     $pkgs = $(npm list --depth 0 -g | rg --multiline --only-matching '[\s][@a-z].*[a-z]')
-    $pkgs.Replace(' ', '').Replace('npm ', '') | sd "`n" ' ' | Out-File -FilePath "$($Global:Oxide.bknj)"
+    $pkgs.Replace(' ', '').Replace('npm ', '') | sd "`n" ' ' | Out-File -FilePath "$($Global:OX_OXIDE.bknj)"
 }
 
 ##########################################################

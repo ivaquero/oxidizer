@@ -2,8 +2,8 @@
 # config
 ##########################################################
 
-$Global:Element.cg = "$HOME\.cargo\config.toml"
-$Global:Element.rs = "$HOME\.rustup\settings.toml"
+$Global:OX_ELEMENT.cg = "$HOME\.cargo\config.toml"
+$Global:OX_ELEMENT.rs = "$HOME\.rustup\settings.toml"
 
 ##########################################################
 # packages

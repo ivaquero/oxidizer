@@ -3,7 +3,7 @@
 ##########################################################
 
 # config files
-$Global:Element.g = "$HOME\.gitconfig"
+$Global:OX_ELEMENT.g = "$HOME\.gitconfig"
 
 ##########################################################
 # query & setting

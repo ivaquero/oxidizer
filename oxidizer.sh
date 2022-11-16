@@ -6,34 +6,34 @@ fi
 # Oxidizer configuration files
 ##########################################################
 
-declare -A Oxygen
+declare -A OX_OXYGEN
 # defaults
-Oxygen[oxd]=$OXIDIZER/defaults.sh
-Oxygen[oxwz]=$OXIDIZER/defaults/wezterm.lua
+OX_OXYGEN[oxd]=$OXIDIZER/defaults.sh
+OX_OXYGEN[oxwz]=$OXIDIZER/defaults/wezterm.lua
 # plugins
-Oxygen[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
-Oxygen[oxpa]=$OXIDIZER/zsh-plugins/ox-apt.sh
-Oxygen[oxpb]=$OXIDIZER/zsh-plugins/ox-brew.sh
-Oxygen[oxpza]=$OXIDIZER/zsh-plugins/ox-zap.sh
-Oxygen[oxpg]=$OXIDIZER/zsh-plugins/ox-git.sh
-Oxygen[oxpc]=$OXIDIZER/zsh-plugins/ox-conda.sh
-Oxygen[oxpbw]=$OXIDIZER/zsh-plugins/ox-bitwarden.sh
-Oxygen[oxpcc]=$OXIDIZER/zsh-plugins/ox-cpp.sh
-Oxygen[oxpdk]=$OXIDIZER/zsh-plugins/ox-docker.sh
-Oxygen[oxpes]=$OXIDIZER/zsh-plugins/ox-espanso.sh
-Oxygen[oxpfm]=$OXIDIZER/zsh-plugins/ox-formats.sh
-Oxygen[oxphx]=$OXIDIZER/zsh-plugins/ox-helix.sh
-Oxygen[oxpjl]=$OXIDIZER/zsh-plugins/ox-julia.sh
-Oxygen[oxpjn]=$OXIDIZER/zsh-plugins/ox-jupyter.sh
-Oxygen[oxpnj]=$OXIDIZER/zsh-plugins/ox-node.sh
-Oxygen[oxppd]=$OXIDIZER/zsh-plugins/ox-podman.sh
-Oxygen[oxppu]=$OXIDIZER/zsh-plugins/ox-pueue.sh
-Oxygen[oxprb]=$OXIDIZER/zsh-plugins/ox-ruby.sh
-Oxygen[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
-Oxygen[oxptl]=$OXIDIZER/zsh-plugins/ox-texlive.sh
-Oxygen[oxput]=$OXIDIZER/zsh-plugins/ox-utils.sh
-Oxygen[oxpvs]=$OXIDIZER/zsh-plugins/ox-vscode.sh
-Oxygen[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
+OX_OXYGEN[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
+OX_OXYGEN[oxpa]=$OXIDIZER/zsh-plugins/ox-apt.sh
+OX_OXYGEN[oxpb]=$OXIDIZER/zsh-plugins/ox-brew.sh
+OX_OXYGEN[oxpza]=$OXIDIZER/zsh-plugins/ox-zap.sh
+OX_OXYGEN[oxpg]=$OXIDIZER/zsh-plugins/ox-git.sh
+OX_OXYGEN[oxpc]=$OXIDIZER/zsh-plugins/ox-conda.sh
+OX_OXYGEN[oxpbw]=$OXIDIZER/zsh-plugins/ox-bitwarden.sh
+OX_OXYGEN[oxpcc]=$OXIDIZER/zsh-plugins/ox-cpp.sh
+OX_OXYGEN[oxpdk]=$OXIDIZER/zsh-plugins/ox-docker.sh
+OX_OXYGEN[oxpes]=$OXIDIZER/zsh-plugins/ox-espanso.sh
+OX_OXYGEN[oxpfm]=$OXIDIZER/zsh-plugins/ox-formats.sh
+OX_OXYGEN[oxphx]=$OXIDIZER/zsh-plugins/ox-helix.sh
+OX_OXYGEN[oxpjl]=$OXIDIZER/zsh-plugins/ox-julia.sh
+OX_OXYGEN[oxpjn]=$OXIDIZER/zsh-plugins/ox-jupyter.sh
+OX_OXYGEN[oxpnj]=$OXIDIZER/zsh-plugins/ox-node.sh
+OX_OXYGEN[oxppd]=$OXIDIZER/zsh-plugins/ox-podman.sh
+OX_OXYGEN[oxppu]=$OXIDIZER/zsh-plugins/ox-pueue.sh
+OX_OXYGEN[oxprb]=$OXIDIZER/zsh-plugins/ox-ruby.sh
+OX_OXYGEN[oxprs]=$OXIDIZER/zsh-plugins/ox-rust.sh
+OX_OXYGEN[oxptl]=$OXIDIZER/zsh-plugins/ox-texlive.sh
+OX_OXYGEN[oxput]=$OXIDIZER/zsh-plugins/ox-utils.sh
+OX_OXYGEN[oxpvs]=$OXIDIZER/zsh-plugins/ox-vscode.sh
+OX_OXYGEN[oxpzj]=$OXIDIZER/zsh-plugins/ox-zellij.sh
 
 ##########################################################
 # System configuration files
@@ -46,7 +46,7 @@ Element[wz]=$HOME/.config/wezterm/wezterm.lua
 Element[zs]=$HOME/.zshrc
 Element[bs]=$HOME/.bash_profile
 
-declare -A Oxide
+declare -A OX_OXIDE
 
 . ${Element[ox]}
 
@@ -82,27 +82,27 @@ alias shells="cat $SHELLS"
 declare -a PLUGINS
 
 # import ox-utils
-. ${Oxygen[oxput]}
+. ${OX_OXYGEN[oxput]}
 # import ox-pueue
-. ${Oxygen[oxppu]}
+. ${OX_OXYGEN[oxppu]}
 
 # import ox-brew
 if [ $(uname -s) != "Linux" ] && [ $(uname -m) != "aarch64" ]; then
-    . ${Oxygen[oxpb]}
+    . ${OX_OXYGEN[oxpb]}
 fi
 
 case $(uname -a) in
 *Darwin*)
-    . ${Oxygen[oxpm]}
+    . ${OX_OXYGEN[oxpm]}
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    . ${Oxygen[oxpa]}
-    . ${Oxygen[oxpza]}
+    . ${OX_OXYGEN[oxpa]}
+    . ${OX_OXYGEN[oxpza]}
     ;;
 esac
 
 for plugin in ${PLUGINS[@]}; do
-    . ${Oxygen[$plugin]}
+    . ${OX_OXYGEN[$plugin]}
 done
 
 ##########################################################
@@ -112,42 +112,42 @@ done
 # initialize Oxidizer
 # only install missing packages, no deletion
 init_all() {
-    for obj in $INIT_OBJ[@]; do
+    for obj in $OX_INIT_PROG[@]; do
         eval init_$obj
     done
 }
 
 # update all packages
 up_all() {
-    for obj in $UP_OBJ[@]; do
+    for obj in $OX_UPDATE_PROG[@]; do
         eval up_$obj
     done
 }
 
 # backup package lists
 back_all() {
-    for obj in $BACK_OBJ[@]; do
+    for obj in $OX_BACKUP_PROG[@]; do
         eval back_$obj
     done
 }
 
 # export configurations
 epall() {
-    for obj in $EPF_OBJ[@]; do
+    for obj in $OX_EXPORT_FILE[@]; do
         epf $obj
     done
 }
 
 # import configurations
 ipall() {
-    for obj in $IPF_OBJ[@]; do
+    for obj in $OX_IMPORT_FILE[@]; do
         ipf $obj
     done
 }
 
 # initialize Oxidizer
 iiox() {
-    for obj in $IIF_OBJ[@]; do
+    for obj in $OX_INIT_FILE[@]; do
         iif $obj
     done
 }
@@ -160,7 +160,7 @@ upox() {
     z -
 }
 
-if [[ $STARTUP ]]; then
+if [[ $OX_STARTUP ]]; then
     case $SHELL in
     *zsh)
         eval "$(zoxide init zsh)"

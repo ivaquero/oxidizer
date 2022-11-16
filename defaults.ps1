@@ -2,7 +2,6 @@
 #
 # uppercase for globvariables
 # lowercase for locvariables
-# titlecase for arrays
 
 ##########################################################
 # basic settings
@@ -11,7 +10,7 @@
 # change editor
 function che {
     param ( $editor )
-    sd 'EDITOR = .*' 'EDITOR = \'$editor\"" $Global:Element.ox
+    sd "EDITOR = \'.*\'" "EDITOR = \'$editor\'" $Global:OX_ELEMENT.ox
 }
 
 # default editor, can be changed by function `che()`
@@ -54,40 +53,40 @@ $Global:PLUGINS = @(
 ##########################################################
 
 # options: scoop, conda, vscode, espanso
-$Global:INIT_OBJ = @('scoop')
+$Global:OX_INIT_PROG = @('scoop')
 
 # options: scoop, conda, vscode, espanso, julia, texlive, node
-$Global:UP_OBJ = @('scoop')
-$Global:BACK_OBJ = @('scoop')
+$Global:OX_UPDATE_PROG = @('scoop')
+$Global:OX_BACKUP_PROG = @('scoop')
 
 # backup file path
 $env:BACKUP = "$HOME\Documents\backup"
 
-$Global:Oxide.bkox = "$env:BACKUP\custom.ps1"
+$Global:OX_OXIDE.bkox = "$env:BACKUP\custom.ps1"
 
-$Global:Oxide.bks = "$env:BACKUP\install\Scoopfile.txt"
-$Global:Oxide.bkw = "$env:BACKUP\install\Wingetfile.json"
-$Global:Oxide.bkps = "$env:BACKUP\shell\Profile.ps1"
+$Global:OX_OXIDE.bks = "$env:BACKUP\install\Scoopfile.txt"
+$Global:OX_OXIDE.bkw = "$env:BACKUP\install\Wingetfile.json"
+$Global:OX_OXIDE.bkps = "$env:BACKUP\shell\Profile.ps1"
 
 # system file
-# $Global:Element.vi = "$HOME\.vimrc"
-# $Global:Element.al = "$env:APPDATA\alacritty\alacritty.yml"
-# $Global:Element.wz = "$env:APPDATA\wezterm\wezterm.lua"
+# $Global:OX_ELEMENT.vi = "$HOME\.vimrc"
+# $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
+# $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
 # if ( !(Test-Path "$env:BACKUP\terminal" ) ) {
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\terminal"
 # }
-# $Global:Oxide.bkal = "$env:BACKUP\terminal\alacritty.yml"
-# $Global:Oxide.bkwz = "$env:BACKUP\terminal\wezterm.lua"
+# $Global:OX_OXIDE.bkal = "$env:BACKUP\terminal\alacritty.yml"
+# $Global:OX_OXIDE.bkwz = "$env:BACKUP\terminal\wezterm.lua"
 
 ##########################################################
 # register proxy ports
 ##########################################################
 
 # c: clash, v: v2ray
-$Global:Proxy = @{}
-$Global:Proxy.c = '7890'
-$Global:Proxy.v = '1080'
+$Global:OX_PROXY = @{}
+$Global:OX_PROXY.c = '7890'
+$Global:OX_PROXY.v = '1080'
 
 ##########################################################
 # select export and import configurations
@@ -102,39 +101,39 @@ $Global:Proxy.v = '1080'
 # vs: vscode's settings.json
 # vsk: vscode's keybindings.json
 # vss_: vscode's snippets folder
-$Global:EPF_OBJ = @('ox', 'vs', 'vsk', 'vss_')
+$Global:OX_EXPORT_FILE = @('ox', 'vs', 'vsk', 'vss_')
 
 # files to be import from backup folder
-# $Global:IPF_OBJ = @("ox", "vs", "vsk", "vss_")
+# $Global:OX_IMPORT_FILE = @("ox", "vs", "vsk", "vss_")
 
 # file to be copied from oxidizer\defaults
 # wz: wezterm
 # pu: pueue
 # pua: pueue_aliases
-$Global:IIF_OBJ = @('pu', 'pua')
+$Global:OX_INIT_FILE = @('pu', 'pua')
 
 ##########################################################
 # git settings
 ##########################################################
 
 # backup files
-$Global:Oxide.bkg = "$env:BACKUP\.gitconfig"
-$Global:Oxide.bkgi = "$env:BACKUP\git\.gitignore"
+$Global:OX_OXIDE.bkg = "$env:BACKUP\.gitconfig"
+$Global:OX_OXIDE.bkgi = "$env:BACKUP\git\.gitignore"
 
 ##########################################################
 # helix settings
 ##########################################################
 
-# $Global:Oxide.bkhx = "$env:BACKUP\helix\config.toml"
-# $Global:Oxide.bkhxl = "$env:BACKUP\helix\languages.toml"
+# $Global:OX_OXIDE.bkhx = "$env:BACKUP\helix\config.toml"
+# $Global:OX_OXIDE.bkhxl = "$env:BACKUP\helix\languages.toml"
 
 ##########################################################
 # pueue settings
 ##########################################################
 
 # backup files
-$Global:Oxide.bkpu = "$env:BACKUP\pueue\pueue.yml"
-$Global:Oxide.bkpua = "$env:BACKUP\pueue\pueue_aliases.yml"
+$Global:OX_OXIDE.bkpu = "$env:BACKUP\pueue\pueue.yml"
+$Global:OX_OXIDE.bkpua = "$env:BACKUP\pueue\pueue_aliases.yml"
 
 # pueue demo
 function upp {
@@ -152,7 +151,7 @@ function upp {
 ##########################################################
 
 # # backup files
-# $Global:Oxide.bkc = "$env:BACKUP\conda\.condarc"
+# $Global:OX_OXIDE.bkc = "$env:BACKUP\conda\.condarc"
 
 # # predefined conda environments
 # # set the length of key < 3
@@ -161,7 +160,7 @@ function upp {
 # $Global:Conda_Env.b = 'base'
 
 # # conda env stats with bkce, and should be consistent with Conda_Env
-# # $Global:Oxide.bkceb = "$env:BACKUP\conda\conda-base.txt"
+# # $Global:OX_OXIDE.bkceb = "$env:BACKUP\conda\conda-base.txt"
 
 ##########################################################
 # rust settings
@@ -171,16 +170,16 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\rust"
 # }
 
-# $Global:Oxide.bkcg = "$env:BACKUP\rust\config.toml"
-# $Global:Oxide.bkrs = "$env:BACKUP\rust\settings.toml"
+# $Global:OX_OXIDE.bkcg = "$env:BACKUP\rust\config.toml"
+# $Global:OX_OXIDE.bkrs = "$env:BACKUP\rust\settings.toml"
 
 ##########################################################
 # espanso settings
 ##########################################################
 
-# $Global:Oxide.bkes = "$env:BACKUP\espanso\config\default.yml"
-# $Global:Oxide.bkesx = "$env:BACKUP\espanso\match\base.yml"
-# $Global:Oxide.bkesx_ = "$env:BACKUP\espanso\match\packages"
+# $Global:OX_OXIDE.bkes = "$env:BACKUP\espanso\config\default.yml"
+# $Global:OX_OXIDE.bkesx = "$env:BACKUP\espanso\match\base.yml"
+# $Global:OX_OXIDE.bkesx_ = "$env:BACKUP\espanso\match\packages"
 
 ##########################################################
 # julia settings
@@ -190,8 +189,8 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\julia"
 # }
 
-# $Global:Oxide.bkjl = "$env:BACKUP\julia\julia-pkgs.txt"
-# $Global:Oxide.bkjls = "$env:BACKUP\julia\startup.jl"
+# $Global:OX_OXIDE.bkjl = "$env:BACKUP\julia\julia-pkgs.txt"
+# $Global:OX_OXIDE.bkjls = "$env:BACKUP\julia\startup.jl"
 
 ##########################################################
 # vscode settings
@@ -201,10 +200,10 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:BACKUP\vscode"
 # }
 
-# $Global:Oxide.bkvsk = "$env:BACKUP\vscode\settings.json"
-# $Global:Oxide.bkvsk = "$env:BACKUP\vscode\keybindings.json"
-# $Global:Oxide.bkvss_ = "$env:BACKUP\vscode\snippets"
-# $Global:Oxide.bkvsx = "$env:BACKUP\vscode\vscode-exts.txt"
+# $Global:OX_OXIDE.bkvsk = "$env:BACKUP\vscode\settings.json"
+# $Global:OX_OXIDE.bkvsk = "$env:BACKUP\vscode\keybindings.json"
+# $Global:OX_OXIDE.bkvss_ = "$env:BACKUP\vscode\snippets"
+# $Global:OX_OXIDE.bkvsx = "$env:BACKUP\vscode\vscode-exts.txt"
 
 ##########################################################
 # podman configurations
@@ -215,12 +214,12 @@ function upp {
 ##########################################################
 
 # # cnn
-# $Global:Oxide.bkcn = "$env:backup\conan\default"
-# $Global:Oxide.bkcnr = "$env:backup\conan\remote.json"
+# $Global:OX_OXIDE.bkcn = "$env:backup\conan\default"
+# $Global:OX_OXIDE.bkcnr = "$env:backup\conan\remote.json"
 # # nodejs
-# $Global:Oxide.bknj = "$env:BACKUP\javascript\node-pkgs.txt"
+# $Global:OX_OXIDE.bknj = "$env:BACKUP\javascript\node-pkgs.txt"
 # # texlive
-# $Global:Oxide.bktl = "$env:BACKUP\tex\texlive-pkgs.txt"
+# $Global:OX_OXIDE.bktl = "$env:BACKUP\tex\texlive-pkgs.txt"
 
 ##########################################################
 # common aliases
@@ -255,7 +254,7 @@ function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
 # Invoke-Expression (&starship init powershell)
 
 # $env:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
-# $Global:Element.ss = $env:STARSHIP_CONFIG
+# $Global:OX_ELEMENT.ss = $env:STARSHIP_CONFIG
 
 ##########################################################
 # weather
@@ -285,10 +284,9 @@ function weaher {
 ##########################################################
 
 # donwload path
-$env:DOWNLOAD = "$HOME\Download"
+$env:OX_DOWNLOAD = "$HOME\Download"
 
-$Global:STARTUP = 1
+$Global:OX_STARTUP = 1
 
 function startup {
 }
-
