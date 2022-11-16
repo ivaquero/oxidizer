@@ -11,7 +11,7 @@
 # change editor
 # $1: name
 che() {
-    sd "EDITOR=.*" "EDITOR=\"$1\"" $Element[ox]
+    sd "EDITOR=\".*\"" "EDITOR=\"$1\"" $Element[ox]
     case $SHELL in
     *zsh)
         . ${Element[zs]}
@@ -79,6 +79,7 @@ export BACKUP=$HOME/Documents/backup
 Oxide[bkox]=$BACKUP/custom.sh
 Oxide[bkzs]=$BACKUP/shell/.zshrc
 Oxide[bkbs]=$BACKUP/shell/.bash_profile
+Oxide[bksc]=$BACKUP/install/source.list
 # Oxide[bkwz]=$BACKUP/terminal/wezterm.lua
 # Oxide[bkvi]=$BACKUP/.vimrc
 

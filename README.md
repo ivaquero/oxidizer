@@ -172,42 +172,44 @@ When you use `epf zs`, `~/.zshrc` will be copied and save in `$BACKUP/shell` fol
 
 The table below lists the information of specific configuration files:
 
-|   Origin   | Abbreviation |      Corresponding File      |
-| :--------: | :----------: | :--------------------------: |
-|  oxidizer  |     `ox`     |         `custom.sh`          |
-|    zsh     |     `zs`     |           `.zshrc`           |
-| powershell |     `ps`     |        `Profile.ps1`         |
-|  wezterm   |     `wz`     |        `wezterm.lua`         |
-|   conda    |     `c`      |          `.condarc`          |
-|    git     |     `g`      |         `.gitconfig`         |
-|    git     |     `gi`     |         `.gitignore`         |
-|   conan    |     `cn`     |          `default`           |
-|   conan    |    `cnr`     |        `remote.json`         |
-|  espanso   |     `es`     |        `default.yml`         |
-|  espanso   |    `esx`     |       `match/base.yml`       |
-|  espanso   |    `esx_`    |       `match/packages`       |
-|   helix    |     `hx`     |        `config.toml`         |
-|   helix    |    `hxl`     |       `languages.toml`       |
-|   julia    |     `jl`     |       `julia-pkgs.txt`       |
-|   julia    |    `jls`     |         `startup.jl`         |
-|   julia    |    `jlp`     |        `Project.toml`        |
-|   julia    |    `jlm`     |       `Manifest.toml`        |
-|  jupyter   |     `jn`     | `jupyter_notebook_config.py` |
-|   latex    |     `tl`     |        `texlive-pkgs`        |
-|    node    |     `nj`     |       `node-pkgs.txt`        |
-|   pueue    |     `pu`     |         `pueue.yml`          |
-|   pueue    |    `pua`     |     `pueue_aliases.yml`      |
-|   cargo    |     `cg`     |        `config.toml`         |
-|   rustup   |     `rs`     |       `settings.toml`        |
-|   vscode   |     `vs`     |       `settings.json`        |
-|   vscode   |    `vsk`     |      `keybindings.json`      |
-|   vscode   |    `vss_`    |          `snippets`          |
-|   vscode   |    `vsx`     |      `vscode-pkgs.txt`       |
-|   winget   |     `w`      |        `winget.json`         |
-|   zellij   |     `zj`     |         `config.kdl`         |
-|   zellij   |    `zjl_`    |          `layouts`           |
+|     Origin     | Abbreviation |      Corresponding File      |
+| :------------: | :----------: | :--------------------------: |
+|    oxidizer    |     `ox`     |         `custom.sh`          |
+|      zsh       |     `zs`     |           `.zshrc`           |
+|   powershell   |     `ps`     |        `Profile.ps1`         |
+| linux (debian) |     `sc`     |   `/etc/apt/sources.list`    |
+|    wezterm     |     `wz`     |        `wezterm.lua`         |
+|     conda      |     `c`      |          `.condarc`          |
+|      git       |     `g`      |         `.gitconfig`         |
+|      git       |     `gi`     |         `.gitignore`         |
+|     conan      |     `cn`     |          `default`           |
+|     conan      |    `cnr`     |        `remote.json`         |
+|    espanso     |     `es`     |        `default.yml`         |
+|    espanso     |    `esx`     |       `match/base.yml`       |
+|    espanso     |    `esx_`    |       `match/packages`       |
+|     helix      |     `hx`     |        `config.toml`         |
+|     helix      |    `hxl`     |       `languages.toml`       |
+|     julia      |     `jl`     |       `julia-pkgs.txt`       |
+|     julia      |    `jls`     |         `startup.jl`         |
+|     julia      |    `jlp`     |        `Project.toml`        |
+|     julia      |    `jlm`     |       `Manifest.toml`        |
+|    jupyter     |     `jn`     | `jupyter_notebook_config.py` |
+|     latex      |     `tl`     |        `texlive-pkgs`        |
+|      node      |     `nj`     |       `node-pkgs.txt`        |
+|     pueue      |     `pu`     |         `pueue.yml`          |
+|     pueue      |    `pua`     |     `pueue_aliases.yml`      |
+|     cargo      |     `cg`     |        `config.toml`         |
+|     rustup     |     `rs`     |       `settings.toml`        |
+|     vscode     |     `vs`     |       `settings.json`        |
+|     vscode     |    `vsk`     |      `keybindings.json`      |
+|     vscode     |    `vss_`    |          `snippets`          |
+|     vscode     |    `vsx`     |      `vscode-pkgs.txt`       |
+|     winget     |     `w`      |        `winget.json`         |
+|     zellij     |     `zj`     |         `config.kdl`         |
+|     zellij     |    `zjl_`    |          `layouts`           |
 
 > `_` denotes a folder
+
 
 ## 5. Software management
 
