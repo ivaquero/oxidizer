@@ -189,8 +189,8 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\julia"
 # }
 
-# $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\julia-pkgs.txt"
-# $Global:OX_OXIDE.bkjls = "$env:OX_BACKUP\julia\startup.jl"
+# $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\startup.jl"
+# $Global:OX_OXIDE.bkjlx = "$env:OX_BACKUP\julia\julia-pkgs.txt"
 
 ##########################################################
 # vscode settings

@@ -3,22 +3,22 @@
 ##########################################################
 
 if (Get-Command julia -ErrorAction SilentlyContinue) {
-    $Global:OX_ELEMENT.jls = "$HOME\.julia\config\startup.jl"
+    $Global:OX_ELEMENT.jl = "$HOME\.julia\config\startup.jl"
     $Global:OX_ELEMENT.jlm = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Manifest.toml"
     $Global:OX_ELEMENT.jlp = "$HOME\.julia\environments\v$(julia -v | rg --only-matching '\d.\d')\Project.toml"
 }
 
 function up_julia {
-    Write-Output "Update Julia by $($Global:OX_OXIDE.bkjl)"
-    $pkgs = (cat $($Global:OX_OXIDE.bkjl) | sd '`n' '\", \"')
+    Write-Output "Update Julia by $($Global:OX_OXIDE.bkjlx)"
+    $pkgs = (cat $($Global:OX_OXIDE.bkjlx) | sd '`n' '\", \"')
     $pkgs_vec = Write-Output [`"$pkgs`"] | sd '\[' '[\"' | sd ', \"]' ']'
     $cmd = Write-Output "using Pkg; Pkg.add($pkgs_vec)"
     julia --eval `"$cmd`"
 }
 
 function back_julia {
-    Write-Output "Backup Julia to $($Global:OX_OXIDE.bkjl)"
-    cat $Global:OX_ELEMENT.jlp | rg --only-matching '\w.*=' | sd '[= ]' ' ' | Out-File -FilePath "$($Global:OX_OXIDE.bkjl)"
+    Write-Output "Backup Julia to $($Global:OX_OXIDE.bkjlx)"
+    cat $Global:OX_ELEMENT.jlp | rg --only-matching '\w.*=' | sd '[= ]' ' ' | Out-File -FilePath "$($Global:OX_OXIDE.bkjlx)"
 }
 
 ##########################################################

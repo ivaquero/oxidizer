@@ -234,8 +234,8 @@ upp() {
 #     mkdir -p $OX_BACKUP/julia
 # fi
 
-# OX_OXIDE[bkjl]=$OX_BACKUP/julia/julia-pkgs.txt
-# OX_OXIDE[bkjls]=$OX_BACKUP/julia/startup.jl
+# OX_OXIDE[bkjl]=$OX_BACKUP/julia/startup.jl
+# OX_OXIDE[bkjlx]=$OX_BACKUP/julia/julia-pkgs.txt
 
 ##########################################################
 # vscode settings

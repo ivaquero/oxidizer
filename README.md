@@ -189,8 +189,8 @@ The table below lists the information of specific configuration files:
 |    espanso     |    `esx_`    |       `match/packages`       |
 |     helix      |     `hx`     |        `config.toml`         |
 |     helix      |    `hxl`     |       `languages.toml`       |
-|     julia      |     `jl`     |       `julia-pkgs.txt`       |
-|     julia      |    `jls`     |         `startup.jl`         |
+|     julia      |     `jl`     |         `startup.jl`         |
+|     julia      |    `jlx`     |       `julia-pkgs.txt`       |
 |     julia      |    `jlp`     |        `Project.toml`        |
 |     julia      |    `jlm`     |       `Manifest.toml`        |
 |    jupyter     |     `jn`     | `jupyter_notebook_config.py` |
@@ -526,4 +526,5 @@ Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent:
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
+
 
