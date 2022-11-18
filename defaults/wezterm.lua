@@ -263,57 +263,6 @@ local config = {
         action = wezterm.action.SplitHorizontal {
             domain = 'CurrentPaneDomain'
         }
-    }, -- V12
-    {
-        key = '[',
-        mods = 'CMD',
-        action = wezterm.action.Multiple {wezterm.action.SplitPane {
-            direction = 'Right',
-            size = {
-                Percent = 40
-            }
-        }, wezterm.action.SplitPane {
-            direction = 'Down',
-            size = {
-                Percent = 40
-            }
-        }}
-    }, -- H12
-    {
-        key = ']',
-        mods = 'CMD',
-        action = wezterm.action.Multiple {wezterm.action.SplitPane {
-            direction = 'Down',
-            size = {
-                Percent = 40
-            }
-        }, wezterm.action.SplitPane {
-            direction = 'Left',
-            size = {
-                Percent = 60
-            }
-        }}
-    }, -- Square
-    {
-        key = ';',
-        mods = 'CMD',
-        action = wezterm.action.Multiple {wezterm.action.SplitPane {
-            direction = 'Right',
-            size = {
-                Percent = 40
-            }
-        }, wezterm.action.SplitPane {
-            direction = 'Down',
-            size = {
-                Percent = 50
-            }
-        }, wezterm.action.SplitPane {
-            direction = 'Down',
-            size = {
-                Percent = 40
-            },
-            top_level = true
-        }}
     }, -- Copy/paste buffer
     {
         key = '[',
