@@ -334,7 +334,7 @@ esac
 #     ;;
 # esac
 
-# export STARSHIP_CONFIG=$HOME/.config/starship.toml
+# export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 # OX_ELEMENT[ss]=$STARSHIP_CONFIG
 
 ##########################################################

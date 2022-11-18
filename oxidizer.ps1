@@ -133,13 +133,10 @@ function upox {
     git reset --hard origin/master
 }
 
-if ($Global:OX_STARTUP) {
-    Invoke-Expression (&zoxide init powershell --hook prompt | Out-String)
-    startup
-}
+Invoke-Expression (&zoxide init powershell --hook prompt | Out-String)
 
-if (Get-Command code -ErrorAction SilentlyContinue) {
-    $env:EDITOR = "code"
+if ($Global:OX_STARTUP) {
+    startup
 }
 
 ##########################################################

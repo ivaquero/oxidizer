@@ -14,7 +14,7 @@ OX_OXYGEN[oxwz]=$OXIDIZER/defaults/wezterm.lua
 OX_OXYGEN[oxpm]=$OXIDIZER/zsh-plugins/ox-macos.sh
 OX_OXYGEN[oxpa]=$OXIDIZER/zsh-plugins/ox-apt.sh
 OX_OXYGEN[oxpb]=$OXIDIZER/zsh-plugins/ox-brew.sh
-OX_OXYGEN[oxpza]=$OXIDIZER/zsh-plugins/ox-zap.sh
+OX_OXYGEN[oxpzp]=$OXIDIZER/zsh-plugins/ox-zap.sh
 OX_OXYGEN[oxpg]=$OXIDIZER/zsh-plugins/ox-git.sh
 OX_OXYGEN[oxpc]=$OXIDIZER/zsh-plugins/ox-conda.sh
 OX_OXYGEN[oxpbw]=$OXIDIZER/zsh-plugins/ox-bitwarden.sh
@@ -97,7 +97,7 @@ case $(uname -a) in
     ;;
 *Ubuntu* | *Debian* | *WSL*)
     . ${OX_OXYGEN[oxpa]}
-    . ${OX_OXYGEN[oxpza]}
+    . ${OX_OXYGEN[oxpzp]}
     ;;
 esac
 
@@ -160,14 +160,15 @@ upox() {
     z -
 }
 
+case $SHELL in
+*zsh)
+    eval "$(zoxide init zsh)"
+    ;;
+*bash)
+    eval "$(zoxide init bash)"
+    ;;
+esac
+
 if [[ $OX_STARTUP ]]; then
-    case $SHELL in
-    *zsh)
-        eval "$(zoxide init zsh)"
-        ;;
-    *bash)
-        eval "$(zoxide init bash)"
-        ;;
-    esac
     startup
 fi
