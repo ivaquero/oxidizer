@@ -17,11 +17,6 @@ function gcf { git config $args }
 ##########################################################
 
 function gii { git init $args }
-function gig {
-    git rm -rf --cached .
-    git add .
-    git commit -m "🗑 remove all ignored files"
-}
 
 # ui
 function gui { gitui }
@@ -60,10 +55,10 @@ function gf { git filter-repo $args }
 # clean files
 function gcl {
     Switch ( $args[1] ) {
-        -s { git filter-repo --strip-blobs-bigger-than $args[2] }
-        -i { git filter-repo --strip-blobs-with-ids $args[2] }
-        -p { git filter-repo --invert-paths --path-glob $args[2] }
-        -a {
+        --size { git filter-repo --strip-blobs-bigger-than $args[2] }
+        --id { git filter-repo --strip-blobs-with-ids $args[2] }
+        --path { git filter-repo --invert-paths --path-glob $args[2] }
+        --his {
             git checkout --orphan new
             git add -A
             git commit -am "🎉 New Start"
@@ -73,7 +68,15 @@ function gcl {
             git branch -m $branch
             git push -f origin $branch
         }
-        Default { git repack -a -d --depth=250 --window=250 }
+        --ig {
+            git rm -rf --cached .
+            git add .
+            git commit -m "🗑 remove all ignored files"
+        }
+        --pack {
+            git repack -a -d --depth=250 --window=250
+        }
+        Default { git clean $args }
     }
 }
 

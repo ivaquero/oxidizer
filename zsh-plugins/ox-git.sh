@@ -20,12 +20,6 @@ alias gcf="git config"
 
 alias gii="git init"
 
-gig() {
-    git rm -rf --cached .
-    git add .
-    git commit -m "🗑 remove all ignored files"
-}
-
 # ui
 alias gui="gitui"
 
@@ -65,10 +59,10 @@ alias gf="git filter-repo"
 # clean files
 gcl() {
     case $1 in
-    -s) git filter-repo --strip-blobs-bigger-than $2 ;;
-    -i) git filter-repo --strip-blobs-with-ids $2 ;;
-    -p) git filter-repo --invert-paths --path-glob $2 ;;
-    -a)
+    --size) git filter-repo --strip-blobs-bigger-than $2 ;;
+    --id) git filter-repo --strip-blobs-with-ids $2 ;;
+    --path) git filter-repo --invert-paths --path-glob $2 ;;
+    --his)
         git checkout --orphan new
         git add -A
         git commit -am "🎉 New Start"
@@ -81,7 +75,15 @@ gcl() {
         git branch -m $branch
         git push -f origin $branch
         ;;
-    *) git repack -a -d --depth=250 --window=250 ;;
+    --ig)
+        git rm -rf --cached .
+        git add .
+        git commit -m "🗑 remove all ignored files"
+        ;;
+    --pack)
+        git repack -a -d --depth=250 --window=250
+        ;;
+    *) git clean $@ ;;
     esac
 }
 
