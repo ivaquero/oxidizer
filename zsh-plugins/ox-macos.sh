@@ -41,9 +41,8 @@ clean() {
         ;;
     zs)
         echo "Cleaning up ZSH history.\n"
-        rm -rfv $HOME/.zsh_sessions/*.history*
-        rm -rfv $HOME/.zsh_sessions/*_timestamp
-        rm -rfv $HOME/.zsh_history
+        rm -rfv $HOME/.zsh_sessions/*
+        rm -fv $HOME/.zsh_history
         ;;
     vol)
         echo "Emptying trash in Volumes.\n"
@@ -119,6 +118,22 @@ alias sha1="openssl dgst -sha1"
 alias sha2="openssl dgst -sha256"
 
 ##########################################################
+# network
+##########################################################
+
+alias netq="networkQuality"
+
+##########################################################
+# time machine
+##########################################################
+
+alias tmh="tmutil -h"
+alias tms="tmutil startbackup"
+alias tmq="tmutil stopbackup"
+alias tmls="tmutil listbackups"
+alias tmrm="tmutil delete"
+
+##########################################################
 # mas - app store
 ##########################################################
 
@@ -134,21 +149,3 @@ if test "$(command -v mas)"; then
     alias msi="mas signin"
     alias mso="mas signout"
 fi
-
-##########################################################
-# network
-##########################################################
-
-alias netq="networkQuality"
-
-##########################################################
-# time machine
-##########################################################
-
-alias tmh="tmutil -h"
-alias tmea="sudo tmutil enable"
-alias tmda="sudo tmutil disable"
-alias tms="tmutil startbackup"
-alias tmq="tmutil stopbackup"
-alias tmls="tmutil listbackups"
-alias tmrm="tmutil delete"

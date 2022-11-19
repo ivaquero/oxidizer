@@ -200,7 +200,7 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\vscode"
 # }
 
-# $Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\settings.json"
+# $Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"
 # $Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\keybindings.json"
 # $Global:OX_OXIDE.bkvss_ = "$env:OX_BACKUP\vscode\snippets"
 # $Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"

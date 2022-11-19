@@ -35,10 +35,6 @@ function sha2 { param ( $pkg ) Get-FileHash $pkg }
 # winget
 ##########################################################
 
-function init_winget {
-    Write-Output "Initialize WinGet to $($Global:OX_OXYGEN.oxw)"
-    winget import -i $Global:OX_OXYGEN.oxw
-}
 function up_winget {
     Write-Output "Update Scoop by $($Global:OX_OXIDE.bkw)"
     winget import -i $Global:OX_OXIDE.bkw
@@ -48,7 +44,6 @@ function back_winget {
     winget export -o $Global:OX_OXIDE.bkw
 }
 
-function w { winget $args }
 function wis { winget install $args }
 function wus { winget uninstall $args }
 function wls { winget list $args }
