@@ -1,4 +1,3 @@
-
 # Oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
@@ -81,7 +80,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [x] Use `dust` instead of `du`
 - [x] Use `fd` instead of `find`
 - [x] Use `lsd` instead of `ls`
-- [x] Use `lsd --tree` instead of `tree`
+- [x] Use `tre` instead of `tree`
 - [x] Use `ripgrep` instead of `grep`
 - [x] Use `sd` instead of `sed`
 - [x] Use `tealdeer` instead of `tldr` or `man`
@@ -526,5 +525,3 @@ Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent:
 ## 13. Licence
 
 This work is released under the GPL-v3 licence.
-
-

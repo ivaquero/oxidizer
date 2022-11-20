@@ -8,6 +8,7 @@ pueue
 ripgrep
 sd
 tealdeer
+tre-command
 zoxide
 scoop-completion
 winget

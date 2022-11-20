@@ -9,4 +9,5 @@ pueue
 ripgrep
 sd
 tealdeer
+tre-command
 zoxide

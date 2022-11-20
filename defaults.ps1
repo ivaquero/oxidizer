@@ -230,7 +230,6 @@ function ls { lsd $args }
 function ll { lsd -l $args }
 function la { lsd -a $args }
 function lla { lsd -la $args }
-function lt { lsd --tree $args }
 function cat { bat $args }
 function man { tldr $args }
 function du { dust $args }
