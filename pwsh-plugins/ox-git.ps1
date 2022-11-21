@@ -49,14 +49,12 @@ function ga {
 # clean
 ##########################################################
 
-function gf { git filter-repo $args }
-
 # clean files
 function gcl {
     Switch ( $args[1] ) {
-        --size { git filter-repo --strip-blobs-bigger-than $args }
-        --id { git filter-repo --strip-blobs-with-ids $args }
-        --path { git filter-repo --invert-paths --path-glob $args }
+        --size { git filter-repo --strip-blobs-bigger-than $args[2] }
+        --id { git filter-repo --strip-blobs-with-ids $args[2] }
+        --path { git filter-repo --path-glob $args[2] --invert-paths }
         --his {
             git checkout --orphan new
             git add -A
