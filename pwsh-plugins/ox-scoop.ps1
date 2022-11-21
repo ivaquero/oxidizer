@@ -98,6 +98,7 @@ function saf { scoop config aria2-enabled false }
 # info & version
 function sif { scoop info $args }
 function sst { scoop status }
+function scat { scoop cat $args }
 function spn { scoop hold $args }
 function supn { scoop unhold $args }
 
@@ -105,8 +106,8 @@ function supn { scoop unhold $args }
 # extension
 ##########################################################
 
-function sxa { param ( $bucket ) scoop bucket add $bucket }
-function sxrm { param ( $bucket ) scoop bucket rm $bucket }
+function sxa { scoop bucket add $args }
+function sxrm { scoop bucket rm $args }
 function sxls { scoop bucket list }
 
 ##########################################################
@@ -114,6 +115,7 @@ function sxls { scoop bucket list }
 ##########################################################
 
 function sii { param ( $pkg ) scoop create $pkg }
+function sca { param ( $pkg ) scoop cat $pkg }
 
 ##########################################################
 # mirrors

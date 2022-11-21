@@ -273,7 +273,8 @@ Some package managers also have functionality of project management
 | `*ii` | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
 | `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
 | `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
-| `*e`  |    edit     |    ✅    |           |           |   ✅    |            |             |            |            |
+| `*e`  |    edit     |    ✅    |           |           |         |            |             |            |            |
+| `*ca` |     cat     |    ✅    |    ✅     |           |         |            |             |            |            |
 | `*ts` |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
 | `*au` |    audit    |    ✅    |           |           |   ✅    |            |             |            |            |
 | `*fx` |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |            |

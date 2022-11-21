@@ -147,6 +147,7 @@ alias bupn="brew unpin"
 alias bii="brew create"
 alias bts="brew test"
 alias be="brew edit"
+alias bca="brew cat"
 alias bau="brew audit"
 alias bfx="brew style --fix"
 
