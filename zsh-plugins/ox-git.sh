@@ -26,9 +26,9 @@ alias gui="gitui"
 # git clone
 # dl: download
 gdl() {
-    case $2 in
-    -a) git clone $1 ;;
-    *) git clone --depth 1 $1 ;;
+    case $1 in
+    --shallow) git clone --depth 1 $1 ;;
+    *) git clone $@ ;;
     esac
 }
 

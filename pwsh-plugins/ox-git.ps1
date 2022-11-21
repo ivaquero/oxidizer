@@ -24,10 +24,9 @@ function gui { gitui }
 # git clone
 # dl: download
 function gdl {
-    param ( $url, $mode )
-    Switch ( $mode ) {
-        -a { git clone $url }
-        Default { git clone --depth 1 $url }
+    Switch ( $args[1] ) {
+        --shallow { git clone --depth 1 $args[1] }
+        Default { git clone $args }
     }
 }
 
