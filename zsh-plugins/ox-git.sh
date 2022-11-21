@@ -59,9 +59,9 @@ alias gf="git filter-repo"
 # clean files
 gcl() {
     case $1 in
-    --size) git filter-repo --strip-blobs-bigger-than $2 ;;
-    --id) git filter-repo --strip-blobs-with-ids $2 ;;
-    --path) git filter-repo --invert-paths --path-glob $2 ;;
+    --size) git filter-repo --strip-blobs-bigger-than $@ ;;
+    --id) git filter-repo --strip-blobs-with-ids $@ ;;
+    --path) git filter-repo --invert-paths --path $@ ;;
     --his)
         git checkout --orphan new
         git add -A

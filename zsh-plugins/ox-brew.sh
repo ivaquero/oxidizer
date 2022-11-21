@@ -65,13 +65,10 @@ clean_brew() {
 alias bh="brew help"
 alias bcf="brew config"
 alias bis="brew install"
+alias bus="brew uninstall"
 alias bris="brew reinstall"
 alias bups="brew update"
 alias bup="brew upgrade"
-
-bus() {
-    brew uninstall $@
-}
 
 bisp() {
     local n_args=$#
