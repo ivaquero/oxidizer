@@ -4,30 +4,29 @@ local launch_menu = {}
 local default_prog = {}
 local set_environment_variables = {}
 
--- Using shell
+-- Shell
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-    term = '' -- Set to empty so FZF works on windows
+    term = ''
     table.insert(launch_menu, {
         label = 'PowerShell',
         args = {'pwsh.exe', '-NoLogo'}
     })
     default_prog = {'pwsh.exe', '-NoLogo'}
-elseif wezterm.target_triple == 'x86_64-apple-darwin' then
+elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
+    table.insert(launch_menu, {
+        label = 'bash',
+        args = {'bash', '-l'}
+    })
+    default_prog = {'bash', '-l'}
+else
     table.insert(launch_menu, {
         label = 'zsh',
-        args = {'/usr/local/bin/zsh', '-l'}
+        args = {'zsh', '-l'}
     })
-    default_prog = {'/usr/local/bin/zsh', '-l'}
-elseif wezterm.target_triple == 'aarch64-apple-darwin' then
-    table.insert(launch_menu, {
-        label = 'zsh',
-        args = {'/opt/homebrew/bin/zsh', '-l'}
-    })
-    default_prog = {'/opt/homebrew/bin/zsh', '-l'}
+    default_prog = {'zsh', '-l'}
 end
 
 -- Title
-
 function basename(s)
     return string.gsub(s, '(.*[/\\])(.*)', '%2')
 end
@@ -47,13 +46,14 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     }}
 end)
 
--- Initial startup
+-- Startup
 wezterm.on('gui-startup', function(cmd)
     local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
     window:gui_window():maximize()
 end)
 
 local config = {
+    -- Basic
     check_for_updates = false,
     switch_to_last_active_tab_when_closing_tab = false,
     enable_scroll_bar = true,
@@ -79,14 +79,14 @@ local config = {
         family = 'FiraCode Nerd Font'
     }, 'FiraCode NF'},
     font_size = 16,
+    normalize_to_nfc = false,
 
     -- Tab bar
     enable_tab_bar = true,
     hide_tab_bar_if_only_one_tab = false,
     show_tab_index_in_tab_bar = false,
+    tab_bar_at_bottom = true,
     tab_max_width = 25,
-    -- tab_bar_at_bottom = true,
-    -- use_fancy_tab_bar = false,
 
     -- Keys
     disable_default_key_bindings = false,
