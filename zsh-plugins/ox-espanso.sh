@@ -6,14 +6,6 @@ OX_ELEMENT[es]=$APPDATA/espanso/config/default.yml
 OX_ELEMENT[esx]=$APPDATA/espanso/match/base.yml
 OX_ELEMENT[esx_]=$APPDATA/espanso/match/packages
 
-up_espanso() {
-    ipf esx esx_
-}
-
-back_espanso() {
-    epf esx esx_
-}
-
 ##########################################################
 # packages
 ##########################################################

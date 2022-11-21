@@ -2,10 +2,10 @@
 # config
 ##########################################################
 
+export GPG_TTY=$(tty)
+
 # config files
 OX_ELEMENT[g]=$HOME/.gitconfig
-
-export GPG_TTY=$(tty)
 
 ##########################################################
 # query
@@ -22,15 +22,6 @@ alias gii="git init"
 
 # ui
 alias gui="gitui"
-
-# git clone
-# dl: download
-gdl() {
-    case $1 in
-    --shallow) git clone --depth 1 $1 ;;
-    *) git clone $@ ;;
-    esac
-}
 
 ##########################################################
 # item management
@@ -57,9 +48,6 @@ ga() {
 # clean files
 gcl() {
     case $1 in
-    --size) git filter-repo --strip-blobs-bigger-than $2 ;;
-    --id) git filter-repo --strip-blobs-with-ids $2 ;;
-    --path) git filter-repo --path-glob $2 --invert-paths ;;
     --his)
         git checkout --orphan new
         git add -A
@@ -77,9 +65,6 @@ gcl() {
         git rm -rf --cached .
         git add .
         git commit -m "🗑 remove all ignored files"
-        ;;
-    --pack)
-        git repack -a -d --depth=250 --window=250
         ;;
     *) git clean $@ ;;
     esac

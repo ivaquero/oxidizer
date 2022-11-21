@@ -11,14 +11,6 @@ $Global:OX_ELEMENT.es = "$($Global:OX_APPHOME.es)\default.yml"
 $Global:OX_ELEMENT.esx = "$($Global:OX_APPHOME.es)\match\base.yml"
 $Global:OX_ELEMENT.esx_ = "$($Global:OX_APPHOME.es)\match\packages"
 
-function up_espanso {
-    ipf esx esx_
-}
-
-function back_espanso {
-    epf esx esx_
-}
-
 ##########################################################
 # packages
 ##########################################################

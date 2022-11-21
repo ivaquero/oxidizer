@@ -21,15 +21,6 @@ function gii { git init $args }
 # ui
 function gui { gitui }
 
-# git clone
-# dl: download
-function gdl {
-    Switch ( $args[1] ) {
-        --shallow { git clone --depth 1 $args[1] }
-        Default { git clone $args }
-    }
-}
-
 ##########################################################
 # item management
 ##########################################################
@@ -52,9 +43,6 @@ function ga {
 # clean files
 function gcl {
     Switch ( $args[1] ) {
-        --size { git filter-repo --strip-blobs-bigger-than $args[2] }
-        --id { git filter-repo --strip-blobs-with-ids $args[2] }
-        --path { git filter-repo --path-glob $args[2] --invert-paths }
         --his {
             git checkout --orphan new
             git add -A
@@ -69,9 +57,6 @@ function gcl {
             git rm -rf --cached .
             git add .
             git commit -m "🗑 remove all ignored files"
-        }
-        --pack {
-            git repack -a -d --depth=250 --window=250
         }
         Default { git clean $args }
     }
