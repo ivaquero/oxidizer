@@ -71,7 +71,6 @@ alias bup="brew upgrade"
 
 bus() {
     brew uninstall $@
-    brew autoremove
 }
 
 bisp() {
@@ -130,13 +129,10 @@ alias bsc="brew search"
 alias bdp="brew deps --tree --formula --installed"
 alias bcl="brew autoremove && brew cleanup"
 alias bck="brew doctor"
-alias bln="brew link"
-alias buln="brew unlink"
 
 # info & version
 alias bif="brew info --json=v2"
-alias bst="brew outdated"
-alias bsta="brew outdated --greedy"
+alias bst="brew outdated --greedy"
 alias bpn="brew pin"
 alias bupn="brew unpin"
 
@@ -150,6 +146,8 @@ alias be="brew edit"
 alias bca="brew cat"
 alias bau="brew audit"
 alias bfx="brew style --fix"
+alias bln="brew link"
+alias buln="brew unlink"
 
 ##########################################################
 # extension

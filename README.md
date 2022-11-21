@@ -275,6 +275,7 @@ Some package managers also have functionality of project management
 | `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
 | `*e`  |    edit     |    ✅    |           |           |         |            |             |            |            |
 | `*ca` |     cat     |    ✅    |    ✅     |           |         |            |             |            |            |
+| `*ln` |    link     |    ✅    |           |           |         |            |             |            |            |
 | `*ts` |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
 | `*au` |    audit    |    ✅    |           |           |   ✅    |            |             |            |            |
 | `*fx` |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |            |
@@ -282,10 +283,10 @@ Some package managers also have functionality of project management
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
-- `ox-macos` `oxpm`: autoloaded, contains `mas`.
-- `ox-apt` `oxpa`: autoloaded
-- `ox-windows` `oxpw`: autoloaded, contains `winget`, `wsl`
-- `ox-zap` `oxzp`: autoloaded
+- `ox-macos`: autoloaded, contains alias and functions for `mas`
+- `ox-apt`: autoloaded
+- `ox-windows`: autoloaded, contains alias and functions for `winget` and `wsl`
+- `ox-zap`: autoloaded
 
 |        |   Action    | mas `m` | apt `a` | zap `zp` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :------: | :--------: | :------: |
