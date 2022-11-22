@@ -4,7 +4,6 @@
 
 export GPG_TTY=$(tty)
 
-# config files
 OX_ELEMENT[g]=$HOME/.gitconfig
 
 ##########################################################

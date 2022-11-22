@@ -219,14 +219,6 @@ upp() {
 # OX_OXIDE[bkrs]=$OX_BACKUP/rust/settings.toml
 
 ##########################################################
-# espanso settings
-##########################################################
-
-# OX_OXIDE[bkes]=$OX_BACKUP/espanso/config/default.yml
-# OX_OXIDE[bkesx]=$OX_BACKUP/espanso/match/base.yml
-# OX_OXIDE[bkesx_]=$OX_BACKUP/espanso/match/packages
-
-##########################################################
 # julia settings
 ##########################################################
 
@@ -236,6 +228,25 @@ upp() {
 
 # OX_OXIDE[bkjl]=$OX_BACKUP/julia/startup.jl
 # OX_OXIDE[bkjlx]=$OX_BACKUP/julia/julia-pkgs.txt
+
+##########################################################
+# conan settings
+##########################################################
+
+# if [ ! -d $OX_BACKUP/conan ]; then
+#     mkdir -p $OX_BACKUP/conan
+# fi
+
+# OX_OXIDE[bkcn]=$OX_BACKUP/conan/conan.conf
+# OX_OXIDE[bkcnr]=$OX_BACKUP/conan/remotes.json
+
+##########################################################
+# espanso settings
+##########################################################
+
+# OX_OXIDE[bkes]=$OX_BACKUP/espanso/config/default.yml
+# OX_OXIDE[bkesx]=$OX_BACKUP/espanso/match/base.yml
+# OX_OXIDE[bkesx_]=$OX_BACKUP/espanso/match/packages
 
 ##########################################################
 # vscode settings

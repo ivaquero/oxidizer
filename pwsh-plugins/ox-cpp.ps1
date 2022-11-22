@@ -2,9 +2,8 @@
 # config
 ##########################################################
 
-# config files
-$Global:OX_ELEMENT.cn = "$env:BASE\.conan\profiles\default"
-$Global:OX_ELEMENT.cnr = "$env:BASE\.conan\remote.json"
+$Global:OX_ELEMENT.cn = "$HOME\.conan\conan.conf"
+$Global:OX_ELEMENT.cnr = "$HOME\.conan\remotes.json"
 
 ##########################################################
 # packages

@@ -2,9 +2,8 @@
 # config
 ##########################################################
 
-# config files
-OX_ELEMENT[cn]=$HOME/.conan/profiles/default
-OX_ELEMENT[cnr]=$HOME/.conan/remote.json
+OX_ELEMENT[cn]=$HOME/.conan/conan.conf
+OX_ELEMENT[cnr]=$HOME/.conan/remotes.json
 
 ##########################################################
 # packages

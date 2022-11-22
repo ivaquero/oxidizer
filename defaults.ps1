@@ -174,14 +174,6 @@ function upp {
 # $Global:OX_OXIDE.bkrs = "$env:OX_BACKUP\rust\settings.toml"
 
 ##########################################################
-# espanso settings
-##########################################################
-
-# $Global:OX_OXIDE.bkes = "$env:OX_BACKUP\espanso\config\default.yml"
-# $Global:OX_OXIDE.bkesx = "$env:OX_BACKUP\espanso\match\base.yml"
-# $Global:OX_OXIDE.bkesx_ = "$env:OX_BACKUP\espanso\match\packages"
-
-##########################################################
 # julia settings
 ##########################################################
 
@@ -191,6 +183,25 @@ function upp {
 
 # $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\startup.jl"
 # $Global:OX_OXIDE.bkjlx = "$env:OX_BACKUP\julia\julia-pkgs.txt"
+
+##########################################################
+# conan settings
+##########################################################
+
+# if ( !(Test-Path "$env:OX_BACKUP\conan") ) {
+#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\conan"
+# }
+
+# $Global:OX_OXIDE.bkcn = "$env:OX_BACKUP\conan\conan.conf"
+# $Global:OX_OXIDE.bkcnr = "$env:OX_BACKUP\conan\remotes.json"
+
+##########################################################
+# espanso settings
+##########################################################
+
+# $Global:OX_OXIDE.bkes = "$env:OX_BACKUP\espanso\config\default.yml"
+# $Global:OX_OXIDE.bkesx = "$env:OX_BACKUP\espanso\match\base.yml"
+# $Global:OX_OXIDE.bkesx_ = "$env:OX_BACKUP\espanso\match\packages"
 
 ##########################################################
 # vscode settings
