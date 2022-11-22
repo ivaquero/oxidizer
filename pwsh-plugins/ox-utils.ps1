@@ -5,18 +5,19 @@
 # export file
 # $@=names
 function epf {
-    Write-Output "Overwrite OX_OXIDE by Element"
     $files = $args
+
     ForEach ( $file in $files ) {
         $bkfile = "bk" + $file
-        if ( [string]::IsNullOrEmpty($Global:OX_OXIDE.$bkfile) ) {
-            Write-Output "$Global:OX_OXIDE.$bkfile does not exist, please define it in custom.ps1"
+        $in_path = $Global:OX_ELEMENT.$file
+        $out_path = $Global:OX_OXIDE.$bkfile
+
+        if ( [string]::IsNullOrEmpty($out_path) ) {
+            Write-Output "$out_path does not exist, please define it in custom.ps1"
         }
         elseif ( $file.EndsWith("_") ) {
-            $in_folder = $Global:OX_ELEMENT.$file
-            $out_folder = $Global:OX_OXIDE.$bkfile
-            Remove-Item -Recurse $out_folder
-            Copy-Item -Verbose -Force -Path $in_folder -Destination $out_folder
+            Remove-Item -Recurse $out_path
+            Copy-Item -Verbose -Force -Path $in_path -Destination $out_path
         }
         else {
             $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
@@ -30,17 +31,16 @@ function epf {
 
 # import file: reverse action of `epf`
 function ipf {
-    Write-Output "Overwrite Element by OX_OXIDE"
     $files = $args
+
     ForEach ( $file in $files ) {
         $bkfile = "bk" + $file
+        $in_path = $Global:OX_OXIDE.$bkfile
+        $out_path = $Global:OX_ELEMENT.$file
+
         if ( $file.EndsWith("_") ) {
-            $folder = ls $Global:OX_OXIDE.$bkfile
-            ForEach ( $subfile in $folder ) {
-                $in_file = $Global:OX_OXIDE.$bkfile + '\\' + $subfile
-                $out_file = $Global:OX_ELEMENT.$file + '\\' + $subfile
-                Copy-Item -Verbose -Path $in_file -Destination $out_file
-            }
+            Remove-Item -Recurse $out_path
+            Copy-Item -Verbose -Force -Path $in_path -Destination $out_path
         }
         else {
             $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
@@ -54,30 +54,34 @@ function ipf {
 
 # initialize file
 function iif {
-    Write-Output "Overwrite Element by OX_OXYGEN"
     $files = $args
     ForEach ( $file in $files ) {
         $oxfile = "ox" + $file
-        $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
+        $in_path = $Global:OX_OXYGEN.$oxfile
+        $out_path = $Global:OX_ELEMENT.$file
+
+        $parentpath = ( Get-Item $out_path ).DirectoryName
         if ( !(Test-Path $parentpath) ) {
             New-Item -ItemType Directory -Force -Path $parentpath
         }
-        Copy-Item -Verbose -Path $Global:OX_OXYGEN.$oxfile -Destination $Global:OX_ELEMENT.$file
+        Copy-Item -Verbose -Path $in_path -Destination $out_path
     }
 }
 
 # duplicate file
 function dpf {
-    Write-Output "Overwrite Element by OX_OXYGEN"
     $files = $args
     ForEach ( $file in $files ) {
         $oxfile = "ox" + $file
         $bkfile = "bk" + $file
-        $parentpath = ( Get-Item $Global:OX_OXIDE.$bkfile ).DirectoryName
+        $in_path = $Global:OX_OXYGEN.$oxfile
+        $out_path = $Global:OX_OXIDE.$bkfile
+
+        $parentpath = ( Get-Item $out_path ).DirectoryName
         if ( !(Test-Path $parentpath) ) {
             New-Item -ItemType Directory -Force -Path $parentpath
         }
-        Copy-Item -Verbose -Path $Global:OX_OXYGEN.$oxfile -Destination $Global:OX_OXIDE.$bkfile
+        Copy-Item -Verbose -Path $in_path -Destination $out_path
     }
 }
 

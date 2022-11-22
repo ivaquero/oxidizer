@@ -6,17 +6,19 @@
 # $@=names
 epf() {
     for file in $@; do
-        echo "Overwrite ${OX_OXIDE[bk$file]} by ${OX_ELEMENT[$file]}"
-        if [ -z ${OX_OXIDE[bk$file]} ]; then
+        local in_path=${OX_ELEMENT[$file]}
+        local out_path=${OX_OXIDE[bk$file]}
+
+        if [ -z $out_path ]; then
             echo "OX_OXIDE[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
-            rm -rf ${OX_OXIDE[bk$file]}
-            cp -R -v ${OX_ELEMENT[$file]} ${OX_OXIDE[bk$file]}
+            rm -rf $out_path
+            cp -R -v $in_path $out_path
         else
-            if [ ! -d $(dirname ${OX_OXIDE[bk$file]}) ]; then
-                mkdir -p $(dirname ${OX_OXIDE[bk$file]})
+            if [ ! -d $(dirname $out_path) ]; then
+                mkdir -p $(dirname $out_path)
             fi
-            cp -v ${OX_ELEMENT[$file]} ${OX_OXIDE[bk$file]}
+            cp -v $in_path $out_path
         fi
     done
 }
@@ -25,16 +27,17 @@ epf() {
 # $@=names
 ipf() {
     for file in $@; do
-        echo "Overwrite ${OX_ELEMENT[$file]} by ${OX_OXIDE[bk$file]}"
+        local in_path=${OX_OXIDE[bk$file]}
+        local out_path=${OX_ELEMENT[$file]}
+
         if [[ $file == *_ ]]; then
-            for subfile in $(ls ${OX_OXIDE[bk$file]}); do
-                cp -R -v ${OX_OXIDE[bk$file]}/$subfile ${OX_ELEMENT[$file]}/$subfile
-            done
+            rm -rf $out_path
+            cp -R -v $in_path $out_path
         else
-            if [ ! -d $(dirname ${OX_ELEMENT[$file]}) ]; then
-                mkdir -p $(dirname ${OX_ELEMENT[$file]})
+            if [ ! -d $(dirname $out_path) ]; then
+                mkdir -p $(dirname $out_path)
             fi
-            cp -v ${OX_OXIDE[bk$file]} ${OX_ELEMENT[$file]}
+            cp -v $in_path $out_path
         fi
     done
 }
@@ -43,11 +46,13 @@ ipf() {
 # $@=names
 iif() {
     for file in $@; do
-        echo "Overwrite ${OX_ELEMENT[$file]} by ${OX_OXYGEN[ox$file]}"
-        if [ ! -d $(dirname ${OX_ELEMENT[$file]}) ]; then
-            mkdir -p $(dirname ${OX_ELEMENT[$file]})
+        local in_path=${OX_OXYGEN[ox$file]}
+        local out_path=${OX_ELEMENT[$file]}
+
+        if [ ! -d $(dirname $out_path) ]; then
+            mkdir -p $(dirname $out_path)
         fi
-        cp -v ${OX_OXYGEN[ox$file]} ${OX_ELEMENT[$file]}
+        cp -v $in_path $out_path
     done
 }
 
@@ -55,9 +60,11 @@ iif() {
 # $@=names
 dpf() {
     for file in $@; do
-        echo "Overwrite ${OX_OXIDE[bk$file]} by ${OX_OXYGEN[ox$file]}"
-        if [ ! -d $(dirname ${OX_OXIDE[bk$file]}) ]; then
-            mkdir -p $(dirname ${OX_OXIDE[bk$file]})
+        local in_path=${OX_OXYGEN[ox$file]}
+        local out_path=${OX_OXIDE[bk$file]}
+
+        if [ ! -d $(dirname $out_path) ]; then
+            mkdir -p $(dirname $out_path)
         fi
         cp -v ${OX_OXYGEN[ox$file]} ${OX_OXIDE[bk$file]}
     done
