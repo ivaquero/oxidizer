@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-OX_ELEMENT[cn]=$HOME/.conan/conan.conf
+OX_ELEMENT[cn]=$HOME/.conan/profiles/default
 OX_ELEMENT[cnr]=$HOME/.conan/remotes.json
 
 ##########################################################
@@ -15,28 +15,26 @@ alias cnus="conan remove"
 
 cnsc() {
     case $1 in
-    -r)
-        conan search -r=conancenter $1
+    -d)
+        conan search $2
         ;;
     *)
-        conan search $1
+        conan search --remote=conancenter $1
         ;;
     esac
 }
 
-cnls() {
-    case $1 in
-    -r)
-        conan remote list
-        ;;
-    esac
-}
-
-alias cnif="conan inspect"
+alias cndp="conan info"
 alias cndl="conan download"
-
-# specific
 alias cncf="conan config"
+
+##########################################################
+# extension
+##########################################################
+
+alias cnxa="conan remote add"
+alias cnxrm="conan remote remove"
+alias cnxls="conan remote list"
 
 ##########################################################
 # project
@@ -44,5 +42,7 @@ alias cncf="conan config"
 
 alias cnii="conan create"
 alias cnb="conan build"
-alias cnts="conan test"
+alias cnif="conan inspect"
 alias cnpb="conan publish"
+alias cnts="conan test"
+alias cnpb="conan upload"

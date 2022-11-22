@@ -181,7 +181,7 @@ The table below lists the information of specific configuration files:
 |     conda      |     `c`      |          `.condarc`          |
 |      git       |     `g`      |         `.gitconfig`         |
 |      git       |     `gi`     |         `.gitignore`         |
-|     conan      |     `cn`     |         `conan.conf`         |
+|     conan      |     `cn`     |      `profiles/default`      |
 |     conan      |    `cnr`     |        `remotes.json`        |
 |    espanso     |     `es`     |        `default.yml`         |
 |    espanso     |    `esx`     |       `match/base.yml`       |
@@ -227,14 +227,14 @@ The table below lists the information of specific configuration files:
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
 |        |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | gem `gm` | julia `jl` | conan `cn` | tlmgr `tl` |
-| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | -------- | :--------: | :--------: | :--------: |
-|  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      | ✅       |     ✅     |     ✅     |     ✅     |
-| `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |          |            |            |            |
-| `*is`  |   install   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      | ✅       |     ✅     |     ✅     |     ✅     |
-| `*us`  |  uninstall  |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      | ✅       |     ✅     |     ✅     |     ✅     |
-| `*up`  |   update    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      | ✅       |     ✅     |     ✅     |     ✅     |
+| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :------: | :--------: | :--------: | :--------: |
+|  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
+| `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |          |            |     ✅     |            |
+| `*is`  |   install   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
+| `*us`  |  uninstall  |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
+| `*up`  |   update    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
 | `*ups` | update self |    ✅    |    ✅     |           |         |            |             |          |            |            |     ✅     |
-| `*ls`  |    list     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      | ✅       |     ✅     |     ✅     |     ✅     |
+| `*ls`  |    list     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |            |     ✅     |
 | `*lv`  |   leaves    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |     ✅     |            |            |
 | `*sc`  |   search    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |            |     ✅     |            |
 | `*cl`  |    clean    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |     ✅     |            |            |
@@ -243,10 +243,10 @@ Oxidizer aims to provide a unified interface for all package manager-related com
 | `*ck`  |    check    |    ✅    |    ✅     |           |   ✅    |     ✅     |     ✅      |          |            |            |     ✅     |
 | `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
 | `*upn` |    unpin    |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
-| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |          |     ✅     |            |            |
-| `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |          |            |
-| `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |          |            |
-| `*xls` |  list repo  |          |           |    ✅     |         |            |             |          |            |
+| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |          |     ✅     |     ✅     |            |
+| `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |          |            |     ✅     |            |
+| `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |          |            |     ✅     |            |
+| `*xls` |  list repo  |          |           |    ✅     |         |            |             |          |            |     ✅     |            |
 
 Particularly, Oxidizer provides with two groups of experimental functions with suffix `p` for installing and downloading packages in parallel
 
