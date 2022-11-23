@@ -237,8 +237,9 @@ upp() {
 #     mkdir -p $OX_BACKUP/conan
 # fi
 
-# OX_OXIDE[bkcn]=$OX_BACKUP/conan/profiles/default
+# OX_OXIDE[bkcn]=$OX_BACKUP/conan/conan.conf
 # OX_OXIDE[bkcnr]=$OX_BACKUP/conan/remotes.json
+# OX_OXIDE[bkcnd]=$OX_BACKUP/conan/profiles/default
 
 ##########################################################
 # espanso settings

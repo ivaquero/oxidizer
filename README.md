@@ -181,8 +181,9 @@ The table below lists the information of specific configuration files:
 |     conda      |     `c`      |          `.condarc`          |
 |      git       |     `g`      |         `.gitconfig`         |
 |      git       |     `gi`     |         `.gitignore`         |
-|     conan      |     `cn`     |      `profiles/default`      |
+|     conan      |     `cn`     |         `conan.conf`         |
 |     conan      |    `cnr`     |        `remotes.json`        |
+|     conan      |    `cnd`     |      `profiles/default`      |
 |    espanso     |     `es`     |        `default.yml`         |
 |    espanso     |    `esx`     |       `match/base.yml`       |
 |    espanso     |    `esx_`    |       `match/packages`       |

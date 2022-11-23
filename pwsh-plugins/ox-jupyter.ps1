@@ -1,10 +1,17 @@
 ﻿##########################################################
+# config
+##########################################################
+
+$Global:OX_ELEMENT.jn = "$HOME/.jupyter/jupyter_notebook_config.py"
+
+##########################################################
 # main
 ##########################################################
 
 function jnh { jupyter --help }
 function jn { jupyter notebook $args }
-function jn { jupyter lab $args }
+function jncf { jupyter notebook --generate-config }
+function jnl { jupyter lab $args }
 
 ##########################################################
 # kernelspec

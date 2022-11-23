@@ -192,8 +192,9 @@ function upp {
 #     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\conan"
 # }
 
-# $Global:OX_OXIDE.bkcn = "$env:OX_BACKUP\conan\profiles\default"
+# $Global:OX_OXIDE.bkcn = "$env:OX_BACKUP\conan\conan.conf"
 # $Global:OX_OXIDE.bkcnr = "$env:OX_BACKUP\conan\remotes.json"
+# $Global:OX_OXIDE.bkcnd = "$env:OX_BACKUP\conan\profiles\default"
 
 ##########################################################
 # espanso settings
