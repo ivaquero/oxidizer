@@ -17,16 +17,26 @@ alias cnus="conan remove"
 cnsc() {
     case $1 in
     -d)
-        conan search $2
+        conan search --remote=conancenter $2
         ;;
     *)
-        conan search --remote=conancenter $1
+        conan search $@
+        ;;
+    esac
+}
+
+cndl() {
+    case $1 in
+    -d)
+        conan download $2
+        ;;
+    *)
+        conan download --remote=conancenter $1
         ;;
     esac
 }
 
 alias cndp="conan info"
-alias cndl="conan download"
 alias cncf="conan config"
 
 ##########################################################

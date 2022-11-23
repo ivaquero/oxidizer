@@ -15,13 +15,18 @@ function cnis { conan install $args }
 function cnus { conan remove $args }
 function cnsc {
     Switch ( $args[1] ) {
-        -d { conan search $args[2] }
-        Default { conan search --remote=conancenter $args[1] }
+        -d { conan search --remote=conancenter $args[2] }
+        Default { conan search $args }
+    }
+}
+function cndl {
+    Switch ( $args[1] ) {
+        -d { conan download --remote=conancenter $args[2] }
+        Default { conan download $args }
     }
 }
 
 function cndp { conan info }
-function cndl { conan download $args }
 function cncf { conan config }
 
 ##########################################################
