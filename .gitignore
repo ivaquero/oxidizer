@@ -1,8 +1,3 @@
-# oxidizer preference
-backup/*
-custom.*
-test.*
-
 *
 !*.*
 !*/
@@ -1138,3 +1133,8 @@ yarn-error.log
 */*.pdf
 */test.*
 */.obsidian/*
+
+# oxidizer preference
+backup/*
+custom.*
+test.*
