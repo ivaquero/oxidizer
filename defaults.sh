@@ -262,16 +262,9 @@ upp() {
 # OX_OXIDE[bkvsx]=$OX_BACKUP/vscode/vscode-exts.txt
 
 ##########################################################
-# podman settings
-##########################################################
-
-##########################################################
 # other settings
 ##########################################################
 
-# # conan
-# OX_OXIDE[bkcn]=$OX_BACKUP/conan/default
-# OX_OXIDE[bkcnr]=$OX_BACKUP/conan/remote.json
 # # nodejs
 # OX_OXIDE[bknj]=$OX_BACKUP/javascript/node-pkgs.txt
 # # texlive

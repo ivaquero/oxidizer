@@ -217,16 +217,9 @@ function upp {
 # $Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
 
 ##########################################################
-# podman configurations
+# other configurations
 ##########################################################
 
-##########################################################
-# podman configurations
-##########################################################
-
-# # conan
-# $Global:OX_OXIDE.bkcn = "$env:backup\conan\default"
-# $Global:OX_OXIDE.bkcnr = "$env:backup\conan\remote.json"
 # # nodejs
 # $Global:OX_OXIDE.bknj = "$env:OX_BACKUP\javascript\node-pkgs.txt"
 # # texlive
