@@ -63,7 +63,6 @@ gcl() {
     --ig)
         git rm -rf --cached .
         git add .
-        git commit -m "🗑 remove all ignored files"
         ;;
     *) git clean $@ ;;
     esac

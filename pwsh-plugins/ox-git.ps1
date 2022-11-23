@@ -16,7 +16,6 @@ function gcf { git config $args }
 ##########################################################
 
 function gii { git init $args }
-
 # ui
 function gui { gitui }
 
@@ -55,7 +54,6 @@ function gcl {
         --ig {
             git rm -rf --cached .
             git add .
-            git commit -m "🗑 remove all ignored files"
         }
         Default { git clean $args }
     }
