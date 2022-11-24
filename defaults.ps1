@@ -28,14 +28,12 @@ $env:EDITOR_T = 'vi'
 # language & software-specific
 # oxpc: ox-conda
 # oxpcc: ox-cpp
-# oxpdk: ox-docker
+# oxpct: ox-container
 # oxpes: ox-espanso
 # oxphx: ox-helix
 # oxpjl: ox-julia
 # oxpjn: ox-jupyter
 # oxpnj: ox-node
-# oxppd: ox-podman
-# oxprb: ox-ruby
 # oxprs: ox-rust
 # oxptl: ox-texlive
 # oxpvs: ox-vscode

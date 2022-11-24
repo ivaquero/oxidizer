@@ -121,16 +121,14 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
 |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
 |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
-|           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
 |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
 |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
 |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
-|  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
-|          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
 |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
 |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
 |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
 |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
+|                    Container²                     |  ✅   |  ✅   |   ✅    |           |
 |                      Formats                      |  🕒   |  🕒   |   🕒    |           |
 |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
 
@@ -139,7 +137,9 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 🕒: basic functionality, needs more features
 ❌: not exist
 
-> ¹: Currently, on Linux only provide with Debian-family shortcuts.
+> ¹: Currently, on Linux only provide with Debian-family shortcuts
+>
+> ²: Only for [Docker](https://docker.com/) and [Podman](https://github.com/containers/podman).
 
 Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypass the requirement of administrator privilege.
 
@@ -221,27 +221,27 @@ The table below lists the information of specific configuration files:
 
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
-|        |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | gem `gm` | julia `jl` | conan `cn` | tlmgr `tl` |
-| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :------: | :--------: | :--------: | :--------: |
-|  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
-| `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |          |            |     ✅     |            |
-| `*is`  |   install   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
-| `*us`  |  uninstall  |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
-| `*up`  |   update    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |     ✅     |     ✅     |
-| `*ups` | update self |    ✅    |    ✅     |           |         |            |             |          |            |            |     ✅     |
-| `*ls`  |    list     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |    ✅    |     ✅     |            |     ✅     |
-| `*lv`  |   leaves    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |     ✅     |            |            |
-| `*sc`  |   search    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |            |     ✅     |            |
-| `*cl`  |    clean    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |     ✅     |            |            |
-| `*if`  |    info     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |          |            |     ✅     |     ✅     |
-| `*st`  |   status    |    ✅    |    ✅     |           |   ✅    |            |             |          |     ✅     |            |            |
-| `*ck`  |    check    |    ✅    |    ✅     |           |   ✅    |     ✅     |     ✅      |          |            |            |     ✅     |
-| `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
-| `*upn` |    unpin    |    ✅    |    ✅     |           |         |            |             |          |     ✅     |            |            |
-| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |          |     ✅     |     ✅     |            |
-| `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |          |            |     ✅     |            |
-| `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |          |            |     ✅     |            |
-| `*xls` |  list repo  |          |           |    ✅     |         |            |             |          |            |     ✅     |            |
+|        |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` | tlmgr `tl` |
+| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: | :--------: |
+|  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
+| `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |            |     ✅     |            |
+| `*is`  |   install   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
+| `*us`  |  uninstall  |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
+| `*up`  |   update    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
+| `*ups` | update self |    ✅    |    ✅     |           |         |            |             |            |            |     ✅     |
+| `*ls`  |    list     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |     ✅     |
+| `*lv`  |   leaves    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |     ✅     |            |            |
+| `*sc`  |   search    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |            |
+| `*cl`  |    clean    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |     ✅     |            |            |
+| `*if`  |    info     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |     ✅     |
+| `*st`  |   status    |    ✅    |    ✅     |           |   ✅    |            |             |     ✅     |            |            |
+| `*ck`  |    check    |    ✅    |    ✅     |           |   ✅    |     ✅     |     ✅      |            |            |     ✅     |
+| `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |     ✅     |            |            |
+| `*upn` |    unpin    |    ✅    |    ✅     |           |         |            |             |     ✅     |            |            |
+| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |     ✅     |     ✅     |            |
+| `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |            |     ✅     |            |
+| `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |            |     ✅     |            |
+| `*xls` |  list repo  |          |           |    ✅     |         |            |             |            |     ✅     |            |
 
 Particularly, Oxidizer provides with two groups of experimental functions with suffix `p` for installing and downloading packages in parallel
 
