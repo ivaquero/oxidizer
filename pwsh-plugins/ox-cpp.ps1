@@ -15,13 +15,13 @@ function cnis { conan install $args }
 function cnus { conan remove $args }
 function cnsc {
     Switch ( $args[1] ) {
-        -d { conan search --remote=conancenter $args[2] }
+        --cc { conan search --remote=conancenter $args[2] }
         Default { conan search $args }
     }
 }
 function cndl {
     Switch ( $args[1] ) {
-        -d { conan download --remote=conancenter $args[2] }
+        --cc { conan download --remote=conancenter $args[2] }
         Default { conan download $args }
     }
 }
@@ -47,3 +47,9 @@ function cnif { conan inspect $args }
 function cnpb { conan publish $args }
 function cnts { conan test $args }
 function cnpb { conan upload $args }
+
+##########################################################
+# cmake
+##########################################################
+
+function cmh { cmake --help $args }

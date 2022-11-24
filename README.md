@@ -210,7 +210,7 @@ The table below lists the information of specific configuration files:
 
 > `_` denotes a folder
 
-## 5. Software management
+## 5. Software Information Management
 
 - `init_*`
   - file: install packages/extensions by Oxidizer defaults
@@ -220,8 +220,6 @@ The table below lists the information of specific configuration files:
   - file: export package/extension info to `$OX_BACKUP` folder
 
 `init_*` works for `brew`, `scoop`, `conda`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `julia`, `texlive`, `node`.
-
-### 5.1. TeXLive
 
 ## 6. Package Management
 
@@ -380,151 +378,19 @@ cls h
 - `cesd`: change environment's `conda-forge subdir`
 - `ceep`: export environment
 
-## 7. Service Management
+## 7. Further Reading
 
-Oxidizer's task & service management follows the same philosophy of package management, _i.e._ to provide unified interfaces to facilitate workflows.
+- [Service Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/services.md)
+- [Project Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/projects.md)
+- [Utility Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/utilities.md)
+- [System Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/systems.md)
+- [Writing A Plugin](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/plugins.md)
 
-|        |    Action    | pueue `pu` | espanso `es` | docker<br>container `dc` | podman<br>container `pc` | brew<br>services `bs` |
-| :----: | :----------: | :--------: | :----------: | :----------------------: | :----------------------: | :-------------------: |
-|  `*h`  |     help     |     ✅     |      ✅      |            ✅            |            ✅            |          ✅           |
-| `*df`  |     diff     |            |              |            ✅            |            ✅            |
-| `*cl`  |    clean     |     ✅     |      ✅      |            ✅            |            ✅            |
-| `*ls`  |     list     |            |      ✅      |            ✅            |            ✅            |
-| `*st`  |    status    |     ✅     |      ✅      |            ✅            |            ✅            |                       |
-|  `*s`  |    start     |     ✅     |      ✅      |            ✅            |            ✅            |          ✅           |
-| `*rs`  |   restart    |     ✅     |      ✅      |            ✅            |            ✅            |          ✅           |
-| `*pa`  |    pause     |     ✅     |              |            ✅            |            ✅            |
-| `*upa` |   unpause    |            |              |            ✅            |            ✅            |
-| `*pa`  |    pause     |     ✅     |              |            ✅            |            ✅            |
-|  `*q`  | kill / stop  |     ✅     |      ✅      |            ✅            |            ✅            |          ✅           |
-| `*rt`  |    reset     |     ✅     |              |                          |                          |
-|  `*a`  | add / create |     ✅     |      ✅      |            ✅            |            ✅            |                       |
-| `*rm`  |    remove    |     ✅     |              |            ✅            |            ✅            |
-|  `*e`  |     edit     |     ✅     |      ✅      |                          |                          |                       |
-| `*if`  |     info     |            |      ✅      |            ✅            |                          |
-|  `*r`  |     run      |            |              |            ✅            |            ✅            |                       |
-| `*at`  |    attach    |            |              |            ✅            |            ✅            |                       |
+## 8. Credits
 
-### 7.1. Pueue
+- [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
+- [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-### 7.2. Espanso
-
-### 7.3. Homebrew Services
-
-## 8. Project & Software Management
-
-|       | Action | git `g` | git tag `gt` | docker<br>image `di` | podman<br>image `pi` | bitwarden `bw` |
-| :---: | :----: | :-----: | :----------: | :------------------: | :------------------: | :------------: |
-| `*ii` |  init  |   ✅    |              |                      |                      |                |
-| `*df` |  diff  |   ✅    |              |                      |          ✅          |                |
-| `*cl` | clean  |   ✅    |      ✅      |                      |          ✅          |                |
-| `*ls` |  list  |         |      ✅      |          ✅          |          ✅          |       ✅       |
-| `*st` | status |   ✅    |              |                      |                      |                |
-| `*a`  |  add   |   ✅    |      ✅      |                      |                      |       ✅       |
-| `*rm` | remove |         |      ✅      |          ✅          |          ✅          |       ✅       |
-| `*pl` |  pull  |   ✅    |              |          ✅          |          ✅          |       ✅       |
-| `*ps` |  push  |   ✅    |              |          ✅          |          ✅          |                |
-| `*cf` | config |   ✅    |              |                      |                      |       ✅       |
-
-### 8.1. Git
-
-- [x] delete ignored files in `.gitignore`: `gig`
-- [x] find fat blob files: `gjk`
-- [x] integration of `git filter-repo` command
-  - [x] clean files by size bigger than `gcl -s`
-  - [x] clean files by id `gcl -i`
-  - [x] clean files by path `gcl -p`
-
-### 8.2. Docker/Podman image
-
-### 8.3. Zellij
-
-## 9. Utility Management
-
-### 9.1. Formats
-
-- [x] Convert markdown: `mdto`
-  - [x] to PDF with Unicode (for CJK)
-
-```sh
-mdto `filename` `format`
-```
-
-## 10. System Management
-
-### 10.1. macOS & Linux
-
-- `update`: update system
-- `clean`
-  - `clean`: empty trash
-  - `clean bdl`: clean `Homebrew` downloaded files
-  - `clean cc`: clean cache files in `$HOME/Library/Caches/`
-  - `clean log`: clean logs
-  - `clean vs`: clean `VSCode` cache files
-- `allow`: allow installation of uncertified apps
-
-## 11. Writing A Plugin
-
-A plugin in Oxidizer is referred as OX_OXYGEN, a key-value object whose key starts with `oxp`.
-
-For a Vim plugin on macOS / Linux, you can write
-
-```sh
-OX_OXYGEN[oxpvi]="plugin_path"
-```
-
-And add the _key of OX_OXYGEN_ into `OX_PLUGINS` object in `custom.sh` like
-
-```sh
-OX_PLUGINS=(oxp1 oxp2 oxpvi)
-```
-
-For Windows users, do these similarly
-
-```powershell
-$Global:OX_OXYGEN.oxpvi = "plugin_path"
-```
-
-And add it into `OX_PLUGINS` object in `custom.ps1`
-
-### 11.1. Config Files
-
-A system / software / tool configuration file in Oxidizer is referred as `OX_ELEMENT`, set it like what you do with `OX_OXYGEN`
-
-```sh
-# macOS / Linux
-OX_ELEMENT[vi]=$HOME/.vimrc
-# Windows
-$Global:OX_ELEMENT.vi = "$HOME/.vimrc"
-```
-
-If you need to set a folder in OX*OXYGEN, plus a `*` as the suffix of the key.
-
-```sh
-# macOS / Linux
-OX_ELEMENT[vi_]=$HOME/.vim
-# Windows
-$Global:OX_ELEMENT.vi_ = "$HOME/vim"
-```
-
-### 11.2. Backup Files
-
-A backup file in Oxidizer is referred as OX_OXIDE whose key starts with `bk`, set it like
-
-```sh
-# macOS / Linux
-OX_OXIDE[bkvi]=$OX_BACKUP/.vimrc
-# Windows
-$Global:OX_OXIDE.bkvi = "$env:OX_BACKUP/.vimrc"
-```
-
-Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
-
-## 12. Credits
-
-- `Mario`Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
-- `Mike`McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
-
-## 13. Licence
+## 9. Licence
 
 This work is released under the GPL-v3 licence.

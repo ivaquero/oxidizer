@@ -10,6 +10,7 @@ OX_ELEMENT[g]=$HOME/.gitconfig
 # query
 ##########################################################
 
+alias gh="git help"
 alias gst="git status"
 alias gcf="git config"
 
@@ -18,7 +19,6 @@ alias gcf="git config"
 ##########################################################
 
 alias gii="git init"
-
 # ui
 alias gui="gitui"
 
@@ -97,6 +97,7 @@ gjk() {
 ##########################################################
 
 alias gt="git tag"
+alias gth="git help tag"
 alias gtls="git tag --list"
 alias gta="git tag --annotate"
 alias gtrm="git tag --delete"

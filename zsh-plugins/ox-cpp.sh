@@ -16,7 +16,7 @@ alias cnus="conan remove"
 
 cnsc() {
     case $1 in
-    -d)
+    --cc)
         conan search --remote=conancenter $2
         ;;
     *)
@@ -27,7 +27,7 @@ cnsc() {
 
 cndl() {
     case $1 in
-    -d)
+    --cc)
         conan download $2
         ;;
     *)
@@ -57,3 +57,9 @@ alias cnif="conan inspect"
 alias cnpb="conan publish"
 alias cnts="conan test"
 alias cnpb="conan upload"
+
+##########################################################
+# cmake
+##########################################################
+
+alias cmh="cmake --help"

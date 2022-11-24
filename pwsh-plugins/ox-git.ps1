@@ -8,6 +8,7 @@ $Global:OX_ELEMENT.g = "$HOME\.gitconfig"
 # query & setting
 ##########################################################
 
+function gh { git help $args }
 function gst { git status $args }
 function gcf { git config $args }
 
@@ -81,6 +82,7 @@ function gjk {
 ##########################################################
 
 function gt { git tag $args }
+function gth { git help tag }
 function gtls { git tag --list }
 function gta { git tag --annotate $args }
 function gtrm { git tag --delete $args }
