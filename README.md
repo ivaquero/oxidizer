@@ -108,7 +108,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `custom.sh` to load the plugins by your need.
 
-Of course, you are allowed to write your own plugins, see `11. Writing A Plugin` for details.
+Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
 |                      Plugin                       | Linux | macOS | Windows | Autoload? |
 | :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
@@ -163,7 +163,7 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
 
 For example, if you want to edit `~/.zshrc`, you can type `ef zs`.
 
-When you use `epf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in `1. Get Started`, you can open `custom.sh` simply by `ef ox`.
+When you use `epf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `ef ox`.
 
 The table below lists the information of specific configuration files:
 
