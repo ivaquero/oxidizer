@@ -36,9 +36,6 @@ else
     printf "📦 Activating Homebrew on Linux...\n"
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-    printf "📦 Installing Zap to Manage AppImage Packages...\n"
-    curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
 fi
 
 brew tap "homebrew/services"

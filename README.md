@@ -60,7 +60,7 @@ ef ox
 
 To keep up the updates, simply use `upox` function.
 
-## 2. Philosophy
+## 2. Motivation
 
 Oxidizer is originally designed for **non-administrator** users. It quickly sets up a minimal but powerful coding environment, and it aims to provide with following features:
 
@@ -70,9 +70,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - Unified Interface & Smooth Usage
 - Super-Fast! (Loading time < 1 s)
 
-## 3. Oxidization Progress
-
-### 3.1. Command Line Replacement
+### 2.1. Command Line Replacement
 
 ☑️ means required in the installation.
 
@@ -87,9 +85,8 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [x] Use `zoxide` instead of `cd` or `z.lua`
 - [ ] Use `tokei` instead of `cloc`
 - [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
-- [ ] Use `tectonic` instead of `xetex` or `xelatex`
 
-### 3.2. Software Replacement
+### 2.2. Software Replacement
 
 - [x] Use `bottom` instead of `top` or `htop`
 - [x] Use `gitui` instead of `lazygit`
@@ -100,43 +97,42 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 > `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 
-### 3.3. Other Useful Rust Tools
+### 2.3. Other Useful Rust Tools
 
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [x] `hyperfine`: Command-line benchmarking tool
 - [ ] `navi`: An interactive cheatsheet tool for the command-line
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
-### 3.4. Summary of Plugins
+### 2.4. Summary of Plugins
 
 Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `custom.sh` to load the plugins by your need.
 
 Of course, you are allowed to write your own plugins, see `11. Writing A Plugin` for details.
 
-|     |                      Plugin                       | Linux | macOS | Windows | Autoload? |
-| :-: | :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
-|  1  |     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
-|  2  | [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
-|  3  |     [Zap](https://github.com/srevinsaju/zap)      |  ✅   |  ❌   |   ❌    |    ✅     |
-|  4  |     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
-|  5  |                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
-|  6  |                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
-|  7  |            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
-|  8  | [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
-|  9  |    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
-| 10  |      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
-| 11  |           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
-| 12  |    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
-| 13  |   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
-| 14  |      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
-| 15  |  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
-| 16  |          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
-| 17  |     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
-| 18  |   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
-| 19  |        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
-| 20  |   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
-| 21  |                      Formats                      |  🕒   |  🕒   |   🕒    |           |
-| 22  |  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
+|                      Plugin                       | Linux | macOS | Windows | Autoload? |
+| :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
+|     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
+| [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
+|     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
+|                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
+|                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
+|            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
+| [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
+|    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
+|      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
+|           [Docker](https://docker.com/)           |  ✅   |  ✅   |   ✅    |           |
+|    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
+|   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
+|      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
+|  [Podman](https://github.com/containers/podman)   |  ✅   |  ✅   |   ✅    |           |
+|          [Ruby](https://ruby-lang.org/)           |  🕒   |  🕒   |   🕒    |           |
+|     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
+|   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
+|        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
+|   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
+|                      Formats                      |  🕒   |  🕒   |   🕒    |           |
+|  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
 
 ✅: complete functionality
 🚧: partial functionality
@@ -147,7 +143,7 @@ Of course, you are allowed to write your own plugins, see `11. Writing A Plugin`
 
 Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypass the requirement of administrator privilege.
 
-## 4. File Management
+## 3. File Management
 
 ![design](https://raw.githubusercontent.com/ivaquero/backup/master/design.png)
 
@@ -210,7 +206,7 @@ The table below lists the information of specific configuration files:
 
 > `_` denotes a folder
 
-## 5. Software Information Management
+## 4. Software Information Management
 
 - `init_*`
   - file: install packages/extensions by Oxidizer defaults
@@ -221,7 +217,7 @@ The table below lists the information of specific configuration files:
 
 `init_*` works for `brew`, `scoop`, `conda`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `julia`, `texlive`, `node`.
 
-## 6. Package Management
+## 5. Package Management
 
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
@@ -285,28 +281,27 @@ Some of the package managers shortcuts are included in corresponding system plug
 - `ox-macos`: autoloaded, contains alias and functions for `mas`
 - `ox-apt`: autoloaded
 - `ox-windows`: autoloaded, contains alias and functions for `winget` and `wsl`
-- `ox-zap`: autoloaded
 
-|        |   Action    | mas `m` | apt `a` | zap `zp` | winget `w` | wsl `wl` |
-| :----: | :---------: | :-----: | :-----: | :------: | :--------: | :------: |
-|  `*h`  |    help     |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*is`  |   install   |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*us`  |  uninstall  |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*up`  |   update    |   ✅    |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*ups` | update self |         |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*ls`  |    list     |         |   ✅    |    ✅    |     ✅     |    ✅    |
-| `*lv`  |   leaves    |         |         |          |            |          |
-| `*sc`  |   search    |   ✅    |   ✅    |    ✅    |            |          |
-| `*cl`  |    clean    |         |   ✅    |          |            |    ✅    |
-| `*if`  |    info     |   ✅    |   ✅    |          |     ✅     |          |
-| `*st`  |   status    |   ✅    |         |          |            |          |
-| `*ck`  |    check    |         |   ✅    |          |            |          |
-| `*dp`  |   depends   |         |   ✅    |          |            |          |
-| `*xa`  |  add repo   |         |         |          |            |          |
-| `*xrm` | remove repo |         |         |          |            |          |
-| `*xls` |  list repo  |         |         |          |            |          |
+|        |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
+| :----: | :---------: | :-----: | :-----: | :--------: | :------: |
+|  `*h`  |    help     |   ✅    |   ✅    |     ✅     |    ✅    |
+| `*is`  |   install   |   ✅    |   ✅    |     ✅     |    ✅    |
+| `*us`  |  uninstall  |   ✅    |   ✅    |     ✅     |    ✅    |
+| `*up`  |   update    |   ✅    |   ✅    |     ✅     |    ✅    |
+| `*ups` | update self |         |   ✅    |     ✅     |    ✅    |
+| `*ls`  |    list     |         |   ✅    |     ✅     |    ✅    |
+| `*lv`  |   leaves    |         |         |            |          |
+| `*sc`  |   search    |   ✅    |   ✅    |            |          |
+| `*cl`  |    clean    |         |   ✅    |            |    ✅    |
+| `*if`  |    info     |   ✅    |   ✅    |     ✅     |          |
+| `*st`  |   status    |   ✅    |         |            |          |
+| `*ck`  |    check    |         |   ✅    |            |          |
+| `*dp`  |   depends   |         |   ✅    |            |          |
+| `*xa`  |  add repo   |         |         |            |          |
+| `*xrm` | remove repo |         |         |            |          |
+| `*xls` |  list repo  |         |         |            |          |
 
-### 6.1. Homebrew
+### 5.1. Homebrew
 
 - [x] Integrated `aria2` to download Homebrew Casks (require `aria2` installed)
 - [x] Enable Homebrew installation by using pre-download installers
@@ -329,7 +324,7 @@ suffix `a` is for `all` which will force brew to upgrade every cask including on
 - `bmr`: using brew mirror
 - `bmrq`: reset brew git source to official repositories, `q` is for quit.
 
-### 6.2. Conda
+### 5.2. Conda
 
 Note that the conda plugin is based on `mamba` (a parallel version of conda) and `conda-tree`, so you need to install mamba by
 
@@ -378,19 +373,19 @@ cls h
 - `cesd`: change environment's `conda-forge subdir`
 - `ceep`: export environment
 
-## 7. Further Reading
+## 6. Further Reading
 
-- [Service Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/services.md)
-- [Project Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/projects.md)
-- [Utility Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/utilities.md)
-- [System Management](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/systems.md)
-- [Writing A Plugin](https://raw.githubusercontent.com/ivaquero/oxidizer/master/docs/plugins.md)
+- [Service Management](https://github.com/ivaquero/oxidizer/blob/master/docs/services.md)
+- [Project Management](https://github.com/ivaquero/oxidizer/blob/master/docs/projects.md)
+- [Utility Management](https://github.com/ivaquero/oxidizer/blob/master/docs/utilities.md)
+- [System Management](https://github.com/ivaquero/oxidizer/blob/master/docs/systems.md)
+- [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md)
 
-## 8. Credits
+## 7. Credits
 
 - [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
 - [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-## 9. Licence
+## 8. Licence
 
 This work is released under the GPL-v3 licence.
