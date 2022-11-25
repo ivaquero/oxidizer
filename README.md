@@ -54,8 +54,8 @@ $env:scoop_mirror = 1
 
 After installation, you might personalize your preference in `custom.sh` or `custom.ps1`, check [defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh) or [defaults.ps1](https://github.com/ivaquero/oxidizer/blob/master/defaults.ps1). Open `custom.sh` or `custom.ps1` by following command
 
-```shellscript
-ef ox
+```bash
+edf ox
 ```
 
 To keep up the updates, simply use `upox` function.
@@ -161,9 +161,9 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
 - `iif`
   - file: overwrite system configurations in by Oxidizer defaults.
 
-For example, if you want to edit `~/.zshrc`, you can type `ef zs`.
+For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
-When you use `epf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `ef ox`.
+When you use `epf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `edf ox`.
 
 The table below lists the information of specific configuration files:
 
