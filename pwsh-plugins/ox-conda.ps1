@@ -196,15 +196,28 @@ function cecr {
 function cerm {
     param ( $the_env )
     conda deactivate
-    if ( $( $the_env | Measure-Object -Character).Character -lt 2 ) { conda env remove -n $Global:OX_CONDA_ENV.$the_env }
+    if ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
+        conda env remove -n $Global:OX_CONDA_ENV.$the_env
+    }
     else { conda env remove -n $the_env }
+}
+
+# change environment subdir
+function cesd {
+    param ( $arch )
+    switch ( $arch ) {
+        a { conda env config vars set CONDA_SUBDIR=win-arm64 }
+        i { conda env config vars set CONDA_SUBDIR=win-64 }
+    }
 }
 
 # export environment: $1=name
 function ceep {
     param ( $the_env )
     if ([string]::IsNullOrEmpty( $the_env )) { $cenv = base }
-    elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) { $cenv = $Global:OX_CONDA_ENV.$the_env }
+    elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
+        $cenv = $Global:OX_CONDA_ENV.$the_env
+    }
     else { $cenv = $1 }
     conda env export -n $cenv -f $env:OX_BACKUP\install\$cenv-win.yml
 }

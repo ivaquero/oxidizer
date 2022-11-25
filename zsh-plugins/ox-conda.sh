@@ -188,7 +188,7 @@ cerm() {
     fi
 }
 
-# change environment: $1=name, i=intel
+# change environment subdir
 cesd() {
     if [ $(uname -s) = "Darwin" ]; then
         case $1 in

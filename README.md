@@ -9,7 +9,7 @@ Simple & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks are wel
 
 <p align="left">
 <a href="README.md">English</a> |
-<a href="https://github.com/ivaquero/oxidizer/wiki/%E4%B8%AD%E6%96%87">简体中文</a>
+<a href="https://github.com/ivaquero/oxidizer/wiki/Oxidizer-%E6%A6%82%E8%A7%88">简体中文</a>
 </p>
 
 Let's Oxidize Development Environments
@@ -332,7 +332,7 @@ Note that the conda plugin is based on `mamba` (a parallel version of conda) and
 conda install -c conda-forge mamba conda-tree
 ```
 
-Besides the shortcuts mentioned above in `6. Package Management`, the conda plugin also provides with Conda environment management shortcuts which start with `ce`
+Besides the shortcuts mentioned above in **Package Management**, the conda plugin also provides with Conda environment management shortcuts which start with `ce`
 
 - `ceat`: activate environment
   - `$1` length = 0: activate `base` env
@@ -371,6 +371,10 @@ cls h
 - `cedf`: compare packages between conda environments
 - `cern`: renames an existing environment
 - `cesd`: change environment's `conda-forge subdir`
+  - `i`: for `osx-64` or `linux-64` or `win-64`
+  - `a`: for `osx-arm64` or `linux-aarch64` or `win-arm64`
+  - `p`: for `ppc64le`
+  - `s`: for `linux-s390x`
 - `ceep`: export environment
 
 ## 6. Further Reading
