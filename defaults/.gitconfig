@@ -1,0 +1,35 @@
+[credential]
+helper = store
+
+[commit]
+gpgsign = false
+
+[gpg]
+program = gpg
+
+[pull]
+rebase = false
+
+[merge]
+conflictstyle = diff3
+
+[diff]
+colorMoved = default
+
+[alias]
+compress = repack -a -d --depth=250 --window=250
+clone-shallow = clone --depth 1
+count = rev-list --count HEAD
+delete-local-tag = tag --delete
+delete-remote-tag = push --delete origin
+publish = push --set-upstream origin master
+filter-id = filter-repo --strip-blobs-with-ids
+filter-path = filter-repo --invert-paths --path-glob
+filter-size = filter-repo --strip-blobs-bigger-than
+
+[http]
+version = HTTP/1.1
+proxy = http://127.0.0.1:7890
+
+[https]
+proxy = https://127.0.0.1:7890

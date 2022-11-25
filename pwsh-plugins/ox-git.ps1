@@ -2,6 +2,7 @@
 # config
 ##########################################################
 
+$Global:OX_OXYGEN.g = "$env:OXIDIZER\defaults\.gitconfig"
 $Global:OX_ELEMENT.g = "$HOME\.gitconfig"
 
 ##########################################################
