@@ -147,11 +147,11 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
 
 ![design](https://raw.githubusercontent.com/ivaquero/backup/master/design.png)
 
-- `ff`
+- `frf`
   - refresh file by `source`
-- `ef`
+- `edf`
   - file: edit by `$EDITOR` (default: VSCode)
-- `bf`
+- `brf`
   - file: browse by `bat` / `cat`
   - folder: browse by `lsd` / `ls`
 - `ipf`
@@ -268,7 +268,7 @@ Some package managers also have functionality of project management
 | `*ii` | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
 | `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
 | `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
-| `*e`  |    edit     |    ✅    |           |           |         |            |             |            |            |
+| `*ed` |    edit     |    ✅    |           |           |         |            |             |            |            |
 | `*ca` |     cat     |    ✅    |    ✅     |           |         |            |             |            |            |
 | `*ln` |    link     |    ✅    |           |           |         |            |             |            |            |
 | `*ts` |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |

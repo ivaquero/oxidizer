@@ -76,7 +76,7 @@ dpf() {
 
 # refresh file
 # $@=names
-ff() {
+frf() {
     if [ -z $1 ]; then
         . ${OX_ELEMENT[zs]}
     else
@@ -86,7 +86,7 @@ ff() {
 
 # browse file
 # $1=name
-bf() {
+brf() {
     if [[ $1 == *_ ]]; then
         cmd="ls"
     else
@@ -101,7 +101,7 @@ bf() {
 
 # edit file by default editor
 # $@=names
-ef() {
+edf() {
     if [[ $2 == -t ]]; then
         cmd=$EDITOR_T
     else
@@ -119,7 +119,7 @@ ef() {
 ##########################################################
 
 # $1=input-name, $2=output-name
-zf() {
+zpf() {
     local file=${1%%.*}
 
     if [ -z $2]; then
@@ -157,7 +157,7 @@ zf() {
 }
 
 # $1=input-name, $2=output-name
-uzf() {
+uzpf() {
     if [ -z $2]; then
         local dir=$(dirname $1)
     else

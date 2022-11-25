@@ -27,7 +27,6 @@ alias puq="pueue kill"
 # main
 ##########################################################
 
-alias pu="pueue"
 alias puh="pueue help"
-alias pue="pueue edit"
+alias pued="pueue edit"
 alias purt="pueue reset"

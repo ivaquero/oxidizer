@@ -90,12 +90,12 @@ function dpf {
 ##########################################################
 
 # refresh file
-function ff {
+function frf {
     & $profile
 }
 
 # browse file
-function bf {
+function brf {
     param ( $file )
     if ( $file.EndsWith("_")  ) {
         $cmd = "ls"
@@ -111,7 +111,7 @@ function bf {
 }
 
 # edit file by default editor
-function ef {
+function edf {
     param ( $file, $mode )
     if ( $mode -eq "-t" ) { $cmd = $env:EDITOR_T }
     else { $cmd = $env:EDITOR }

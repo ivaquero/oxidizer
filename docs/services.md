@@ -17,7 +17,7 @@ Oxidizer's task & service management follows the same philosophy of package mana
 |  `*q`  | kill / stop  |          ✅           |     ✅     |      ✅      |                |
 |  `*a`  | add / create |                       |     ✅     |      ✅      |       ✅       |
 | `*rm`  |    remove    |          ✅           |     ✅     |              |       ✅       |
-|  `*e`  |     edit     |                       |     ✅     |      ✅      |                |
+| `*ed`  |     edit     |                       |     ✅     |      ✅      |                |
 | `*if`  |     info     |                       |            |      ✅      |                |
 | `*rt`  |    reset     |                       |     ✅     |              |                |
 
