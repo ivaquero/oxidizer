@@ -16,11 +16,9 @@
 
 ### Git
 
-- [x] delete ignored files in `.gitignore`: `gig`
+- [x] delete ignored files in `.gitignore`: `gcl --ig`
 - [x] find fat blob files: `gjk`
 - [x] integration of `git filter-repo` command
-  - [x] clean files by size bigger than `gcl -s`
-  - [x] clean files by id `gcl -i`
-  - [x] clean files by path `gcl -p`
-
-### Zellij
+  - [x] clean files by size bigger than `git filter-size`
+  - [x] clean files by id `git filter-id`
+  - [x] clean files by path `git filter-path`
