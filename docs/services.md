@@ -2,7 +2,7 @@
 
 Oxidizer's task & service management follows the same philosophy of package management, _i.e._ to provide unified interfaces to facilitate workflows.
 
-|        |    Action    | brew<br>services `bs` | pueue `pu` | espanso `es` | bitwarden `bw` |
+| Suffix |    Action    | brew<br>services `bs` | pueue `pu` | espanso `es` | bitwarden `bw` |
 | :----: | :----------: | :-------------------: | :--------: | :----------: | :------------: |
 |  `*h`  |     help     |          ✅           |     ✅     |      ✅      |       ✅       |
 | `*cf`  |    config    |          ✅           |            |              |       ✅       |
@@ -23,7 +23,7 @@ Oxidizer's task & service management follows the same philosophy of package mana
 
 ### Containers
 
-|        |    Action    | container `cic` | image `cti` |
+| Suffix |    Action    | container `cic` | image `cti` |
 | :----: | :----------: | :-------------: | :---------: |
 |  `*h`  |     help     |       ✅        |     ✅      |
 | `*df`  |     diff     |       ✅        |     ✅      |

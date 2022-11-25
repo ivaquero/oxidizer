@@ -65,7 +65,7 @@ To keep up the updates, simply use `upox` function.
 Oxidizer is originally designed for **non-administrator** users. It quickly sets up a minimal but powerful coding environment, and it aims to provide with following features:
 
 - Cross-Platform (Mainly Rust Tool chains)
-- Minimal dependencies & Minimal Installation
+- Minimal Dependencies & Minimal Installation
 - Extensible Architecture
 - Unified Interface & Smooth Usage
 - Super-Fast! (Loading time < 1 s)
@@ -221,7 +221,7 @@ The table below lists the information of specific configuration files:
 
 Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
 
-|        |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` | tlmgr `tl` |
+| Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` | tlmgr `tl` |
 | :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: | :--------: |
 |  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
 | `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |            |     ✅     |            |
@@ -263,18 +263,18 @@ bss pu
 
 Some package managers also have functionality of project management
 
-|       |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` |
-| :---: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: |
-| `*ii` | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
-| `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
-| `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
-| `*ed` |    edit     |    ✅    |           |           |         |            |             |            |            |
-| `*ca` |     cat     |    ✅    |    ✅     |           |         |            |             |            |            |
-| `*ln` |    link     |    ✅    |           |           |         |            |             |            |            |
-| `*ts` |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
-| `*au` |    audit    |    ✅    |           |           |   ✅    |            |             |            |            |
-| `*fx` |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |            |
-| `*pb` |   publish   |          |           |           |   ✅    |     ✅     |             |            |            |
+| Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` |
+| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: |
+| `*ii`  | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
+|  `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
+|  `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
+| `*ed`  |    edit     |    ✅    |           |           |         |            |             |            |            |
+| `*ca`  |     cat     |    ✅    |    ✅     |           |         |            |             |            |            |
+| `*ln`  |    link     |    ✅    |           |           |         |            |             |            |            |
+| `*ts`  |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
+| `*au`  |    audit    |    ✅    |           |           |   ✅    |            |             |            |            |
+| `*fx`  |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |            |
+| `*pb`  |   publish   |          |           |           |   ✅    |     ✅     |             |            |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
@@ -282,7 +282,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 - `ox-apt`: autoloaded
 - `ox-windows`: autoloaded, contains alias and functions for `winget` and `wsl`
 
-|        |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
+| Suffix |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :--------: | :------: |
 |  `*h`  |    help     |   ✅    |   ✅    |     ✅     |    ✅    |
 | `*is`  |   install   |   ✅    |   ✅    |     ✅     |    ✅    |
