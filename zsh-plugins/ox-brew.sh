@@ -20,16 +20,16 @@ export HOMEBREW_OX_DOWNLOAD=$(brew --cache)/downloads
 case ${SHELL} in
 *zsh)
     if type brew &>/dev/null; then
-        FPATH=${HOME}BREW_PREFIX/share/zsh-completions:${FPATH}
+        FPATH=${HOMEBREW_PREFIX}/share/zsh-completions:${FPATH}
         autoload -Uz compinit && compinit
     fi
 
-    [ -d "${HOME}BREW_PREFIX/share/zsh-syntax-highlighting" ] && . "${HOME}BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    [ -d "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting" ] && . "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-    [ -d "${HOME}BREW_PREFIX/share/zsh-autosuggestions" ] && . "${HOME}BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    [ -d "${HOMEBREW_PREFIX}/share/zsh-autosuggestions" ] && . "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     ;;
 *bash)
-    [ -r "${HOME}BREW_PREFIX/etc/profile.d/bash_completion.sh" ] && . "${HOME}BREW_PREFIX/etc/profile.d/bash_completion.sh"
+    [ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ] && . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
     ;;
 esac
 
@@ -54,7 +54,7 @@ back_brew() {
 }
 
 clean_brew() {
-    echo "Clean Brew by ${HOME}BREW_BUNDLE_FILE"
+    echo "Clean Brew by ${HOMEBREW_BUNDLE_FILE}"
     brew bundle cleanup
 }
 
