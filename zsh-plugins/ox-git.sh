@@ -53,9 +53,9 @@ gcl() {
         git add -A
         git commit -am "🎉 New Start"
         if [[ -z $2 ]]; then
-            branch=master
+            local branch=master
         else
-            branch=$2
+            local branch=$2
         fi
         git branch -D $branch
         git branch -m $branch
@@ -72,9 +72,9 @@ gcl() {
 grpb() {
     git remote add origin $1
     if [[ -z $2 ]]; then
-        branch=master
+        local branch=master
     else
-        branch=$2
+        local branch=$2
     fi
     git pull $1 $branch
     git push --set-upstream origin $branch

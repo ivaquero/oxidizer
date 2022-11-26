@@ -129,9 +129,22 @@ alias bck="brew doctor"
 
 # info & version
 alias bif="brew info --json=v2"
-alias bst="brew outdated --greedy"
 alias bpn="brew pin"
 alias bupn="brew unpin"
+
+bst() {
+    case $1 in
+    -r)
+        brew livecheck $2
+        ;;
+    -rc)
+        brew livecheck --cask $2
+        ;;
+    *)
+        brew outdated --greedy
+        ;;
+    esac
+}
 
 ##########################################################
 # project
