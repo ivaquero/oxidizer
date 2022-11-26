@@ -109,42 +109,42 @@ done
 # initialize Oxidizer
 # only install missing packages, no deletion
 init_all() {
-    for obj in ${OX_INIT_PROG}[@]; do
+    for obj in ${OX_INIT_PROG[@]}; do
         eval init_$obj
     done
 }
 
 # update all packages
 up_all() {
-    for obj in ${OX_UPDATE_PROG}[@]; do
+    for obj in ${OX_UPDATE_PROG[@]}; do
         eval up_$obj
     done
 }
 
 # backup package lists
 back_all() {
-    for obj in ${OX_BACKUP_PROG}[@]; do
+    for obj in ${OX_BACKUP_PROG[@]}; do
         eval back_$obj
     done
 }
 
 # export configurations
 epall() {
-    for obj in ${OX_EXPORT_FILE}[@]; do
+    for obj in ${OX_EXPORT_FILE[@]}; do
         epf $obj
     done
 }
 
 # import configurations
 ipall() {
-    for obj in ${OX_IMPORT_FILE}[@]; do
+    for obj in ${OX_IMPORT_FILE[@]}; do
         ipf $obj
     done
 }
 
 # initialize Oxidizer
 iiox() {
-    for obj in ${OX_INIT_FILE}[@]; do
+    for obj in ${OX_INIT_FILE[@]}; do
         iif $obj
     done
 }

@@ -218,7 +218,7 @@ rename() {
 # px=proxy
 px() {
     if [[ ${#1} < 3 ]]; then
-        local port=${OX_PROXY}[$1]
+        local port=${OX_PROXY[$1]}
     else
         local port=$1
     fi
