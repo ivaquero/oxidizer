@@ -15,7 +15,7 @@ fi
 # main
 ##########################################################
 
-export CACHES=$HOME/Library/Caches
+export MACOS_CACHES=${HOME}/Library/Caches
 
 update() {
     echo "Installing needed updates.\n"
@@ -32,16 +32,16 @@ clean() {
         ;;
     vs)
         echo "Cleaning up VSCode Cache.\n"
-        rm -rfv $HOME/Library/'Application Support'/Code/Cache/*
+        rm -rfv ${HOME}/Library/'Application Support'/Code/Cache/*
         ;;
     chr)
         echo "Cleaning up Chrome Cache.\n"
-        rm -rfv $CACHES/Google/Chrome/*
+        rm -rfv ${MACOS_CACHES}/Google/Chrome/*
         ;;
     zs)
         echo "Cleaning up ZSH history.\n"
-        rm -rfv $HOME/.zsh_sessions/*
-        rm -fv $HOME/.zsh_history
+        rm -rfv ${HOME}/.zsh_sessions/*
+        rm -fv ${HOME}/.zsh_history
         ;;
     cont)
         echo "Cleaning Container Caches"
@@ -59,7 +59,7 @@ clean() {
         ;;
     *)
         echo "Emptying trash.\n"
-        rm -rfv $HOME/.Trash/*
+        rm -rfv ${HOME}/.Trash/*
         ;;
     esac
 }

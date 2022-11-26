@@ -29,8 +29,8 @@ clean() {
         sudo rm -rfv /var/cache
         ;;
     zs)
-        rm $HOME/.zsh_sessions/*.history*
-        rm $HOME/.zsh_sessions/*_timestamp
+        rm ${HOME}/.zsh_sessions/*.history*
+        rm ${HOME}/.zsh_sessions/*_timestamp
         ;;
     log)
         echo "Emptying the system log files.\n"
@@ -38,7 +38,7 @@ clean() {
         ;;
     *)
         echo "Emptying trash.\n"
-        rm -rfv $HOME/.local/share/Trash >/dev/null 2>&1
+        rm -rfv ${HOME}/.local/share/Trash >/dev/null 2>&1
         ;;
     esac
 }

@@ -10,26 +10,26 @@ if [[ $(uname -s) = "Darwin" ]]; then
         eval "$(/usr/local/Homebrew/bin/brew shellenv)"
     fi
     export APP=$(brew --caskroom)
-    export APPDATA=$HOME/Library/'Application Support'
+    export APPDATA=${HOME}/Library/'Application Support'
 else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 export HOMEBREW_OX_DOWNLOAD=$(brew --cache)/downloads
 
-case $SHELL in
+case ${SHELL} in
 *zsh)
     if type brew &>/dev/null; then
-        FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
+        FPATH=${HOME}BREW_PREFIX/share/zsh-completions:${FPATH}
         autoload -Uz compinit && compinit
     fi
 
-    [ -d "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting" ] && . "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    [ -d "${HOME}BREW_PREFIX/share/zsh-syntax-highlighting" ] && . "${HOME}BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-    [ -d "$HOMEBREW_PREFIX/share/zsh-autosuggestions" ] && . "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    [ -d "${HOME}BREW_PREFIX/share/zsh-autosuggestions" ] && . "${HOME}BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     ;;
 *bash)
-    [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+    [ -r "${HOME}BREW_PREFIX/etc/profile.d/bash_completion.sh" ] && . "${HOME}BREW_PREFIX/etc/profile.d/bash_completion.sh"
     ;;
 esac
 
@@ -39,7 +39,7 @@ esac
 
 init_brew() {
     echo "Initialize Brew by Oxidizer configuration"
-    local pkgs=$(cat $OXIDIZER/defaults/Brewfile.txt | sd "\n" "")
+    local pkgs=$(cat ${OXIDIZER}/defaults/Brewfile.txt | sd "\n" "")
     brew install $pkgs
 }
 
@@ -54,7 +54,7 @@ back_brew() {
 }
 
 clean_brew() {
-    echo "Clean Brew by $HOMEBREW_BUNDLE_FILE"
+    echo "Clean Brew by ${HOME}BREW_BUNDLE_FILE"
     brew bundle cleanup
 }
 
@@ -255,19 +255,19 @@ alias bedc="be --cask"
 # download by aria2
 bdl() {
     local url=$(brew info --cask --json=v2 $1 | rg \"url\" | rg --only-matching \"https:.+\" -m 1)
-    echo "downloading from $url to $OX_DOWNLOAD"
-    eval $(aria2c --dir $OX_DOWNLOAD $url)
+    echo "downloading from $url to ${OX_DOWNLOAD}"
+    eval $(aria2c --dir ${OX_DOWNLOAD} $url)
 }
 
 # replace cache file by predownloaded file
 brp() {
-    local f_pred=$(ls $OX_DOWNLOAD | rg --ignore-case $1)
+    local f_pred=$(ls ${OX_DOWNLOAD} | rg --ignore-case $1)
     if [[ -z $f_pred ]]; then
         echo "predownloaded file not found"
         return 1
     fi
-    local f_cache=$(ls $HOMEBREW_OX_DOWNLOAD/*.incomplete | rg --ignore-case $1 | sd ".incomplete" "")
-    mv $OX_DOWNLOAD/$f_pred $f_cache
+    local f_cache=$(ls ${HOME}BREW_OX_DOWNLOAD/*.incomplete | rg --ignore-case $1 | sd ".incomplete" "")
+    mv ${OX_DOWNLOAD}/$f_pred $f_cache
 }
 
 ##########################################################

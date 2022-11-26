@@ -2,8 +2,8 @@
 # config
 ##########################################################
 
-OX_ELEMENT[cg]=$HOME/.cargo/config.toml
-OX_ELEMENT[rs]=$HOME/.rustup/settings.toml
+OX_ELEMENT[cg]=${HOME}/.cargo/config.toml
+OX_ELEMENT[rs]=${HOME}/.rustup/settings.toml
 
 ##########################################################
 # packages

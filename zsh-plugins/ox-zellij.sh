@@ -2,11 +2,10 @@
 # config
 ##########################################################
 
-export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
+export ZELLIJ_CONFIG_DIR=${HOME}/.config/zellij
 
-# use `_` as a suffix flag for directory
-OX_ELEMENT[zj]=$ZELLIJ_CONFIG_DIR/config.kdl
-OX_ELEMENT[zjl_]=$ZELLIJ_CONFIG_DIR/layouts
+OX_ELEMENT[zj]=${ZELLIJ_CONFIG_DIR}/config.kdl
+OX_ELEMENT[zjl_]=${ZELLIJ_CONFIG_DIR}/layouts
 
 ##########################################################
 # main

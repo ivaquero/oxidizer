@@ -2,10 +2,10 @@
 # config
 ##########################################################
 
-OX_OXYGEN[oxc]=$OXIDIZER/defaults/.condarc
-OX_OXYGEN[oxce]=$OXIDIZER/defaults/conda-base.txt
+OX_OXYGEN[oxc]=${OXIDIZER}/defaults/.condarc
+OX_OXYGEN[oxce]=${OXIDIZER}/defaults/conda-base.txt
 # config files
-OX_ELEMENT[c]=$HOME/.condarc
+OX_ELEMENT[c]=${HOME}/.condarc
 
 init_conda() {
     echo "Initialize Conda by Oxidizer configuration"
@@ -222,13 +222,13 @@ ceep() {
     os=$(echo $(uname -s) | tr "[:upper:]" "[:lower:]")
     arch=$(uname -m)
     if [[ -z $1 ]]; then
-        conda_Env=base
+        local conda_env=base
     elif [[ ${#1} < 3 ]]; then
-        conda_Env=${OX_CONDA_ENV[$1]}
+        local conda_env=${OX_CONDA_ENV[$1]}
     else
-        conda_Env=$1
+        local conda_env=$1
     fi
-    conda env export -n $conda_Env -f $OXIDIZER/defaults/$conda_Env-$os-$arch.yml
+    conda env export -n $conda_env -f ${OXIDIZER}/defaults/$conda_env-$os-$arch.yml
 }
 
 # rename environment: $1=old_name, $2=new_name

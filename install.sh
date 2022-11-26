@@ -1,5 +1,5 @@
-if [[ -z $OXIDIZER ]]; then
-    export OXIDIZER="$HOME/oxidizer"
+if [[ -z ${OXIDIZER} ]]; then
+    export OXIDIZER="${HOME}/oxidizer"
 fi
 
 printf "📦 Installing Oxidizer\n"
@@ -14,7 +14,7 @@ if test ! "$(command -v brew)"; then
         echo "⚠️ Oxidizer doesn't support limited Linux-on-ARM yet."
         sleep 5
         exit
-    elif [[ $BREW_CN ]]; then
+    elif [[ ${BREW_CN} ]]; then
         /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -22,7 +22,7 @@ if test ! "$(command -v brew)"; then
 fi
 
 printf "⚙️ Adding Custom settings...\n"
-cp -i -v $OXIDIZER/defaults.sh $OXIDIZER/custom.sh
+cp -i -v ${OXIDIZER}/defaults.sh ${OXIDIZER}/custom.sh
 
 if [[ $(uname -s) = "Darwin" ]]; then
     printf "📦 Activating Homebrew on MacOS...\n"
@@ -92,18 +92,18 @@ fi
 
 printf "⚙️ Configuring Shell...\n"
 
-case $SHELL in
+case ${SHELL} in
 *zsh)
     brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
-    export shell_conf=$HOME/.zshrc
+    export shell_conf=${HOME}/.zshrc
     ;;
 *bash)
     if [[ $(bash --version | head -n1 | cut -d' ' -f4 | cut -d'.' -f1) < 5 ]]; then
         printf "📦 Installing latest Bash...\n"
         brew install bash bash-completion
     fi
-    export shell_conf=$HOME/.profile
-    echo 'export BASH_SILENCE_DEPRECATION_WARNING=1' >>$shell_conf
+    export shell_conf=${HOME}/.profile
+    echo 'export BASH_SILENCE_DEPRECATION_WARNING=1' >>${shell_conf}
     ;;
 esac
 
@@ -111,27 +111,27 @@ esac
 # Injecting Oxidizer
 ###################################################
 
-printf "⚙️ Adding Oxidizer into $shell_conf...\n"
+printf "⚙️ Adding Oxidizer into ${shell_conf}...\n"
 
-echo "# Oxidizer" >>$shell_conf
+echo "# Oxidizer" >>${shell_conf}
 
-if [[ -z $OXIDIZER ]]; then
+if [[ -z ${OXIDIZER} ]]; then
     echo '
-    export OXIDIZER=$HOME/oxidizer
-    source $OXIDIZER/oxidizer.sh
-    ' >>$shell_conf
+    export OXIDIZER=${HOME}/oxidizer
+    source ${OXIDIZER}/oxidizer.sh
+    ' >>${shell_conf}
 else
-    echo "source $OXIDIZER/oxidizer.sh" >>$shell_conf
+    echo "source ${OXIDIZER}/oxidizer.sh" >>${shell_conf}
 fi
 
 echo "⚙️ Adding Custom settings..."
-cp $OXIDIZER/defaults.sh $OXIDIZER/custom.sh
+cp ${OXIDIZER}/defaults.sh ${OXIDIZER}/custom.sh
 
 # loading zoxide
-sd ".* OX_STARTUP=.*" "export OX_STARTUP=1" $OXIDIZER/custom.sh
+sd ".* OX_STARTUP=.*" "export OX_STARTUP=1" ${OXIDIZER}/custom.sh
 
 # set path of oxidizer
-sd "source OXIDIZER=.*" "source OXIDIZER=$OXIDIZER/oxidizer.sh" $shell_conf
+sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${shell_conf}
 
 ###################################################
 # Editor

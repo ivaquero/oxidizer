@@ -2,9 +2,9 @@
 # config
 ##########################################################
 
-OX_ELEMENT[es]=$APPDATA/espanso/config/default.yml
-OX_ELEMENT[esx]=$APPDATA/espanso/match/base.yml
-OX_ELEMENT[esx_]=$APPDATA/espanso/match/packages
+OX_ELEMENT[es]=${APPDATA}/espanso/config/default.yml
+OX_ELEMENT[esx]=${APPDATA}/espanso/match/base.yml
+OX_ELEMENT[esx_]=${APPDATA}/espanso/match/packages
 
 ##########################################################
 # packages
@@ -39,7 +39,7 @@ alias esq="espanso stop"
 ##########################################################
 
 esa() {
-    touch $APPDATA/espanso/match/$1.yml
+    touch ${APPDATA}/espanso/match/$1.yml
 }
 
 alias esh="espanso help"

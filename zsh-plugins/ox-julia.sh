@@ -2,9 +2,9 @@
 # config
 ##########################################################
 
-OX_ELEMENT[jl]=$HOME/.julia/config/startup.jl
-OX_ELEMENT[jlp]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
-OX_ELEMENT[jlm]=$HOME/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
+OX_ELEMENT[jl]=${HOME}/.julia/config/startup.jl
+OX_ELEMENT[jlp]=${HOME}/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Project.toml
+OX_ELEMENT[jlm]=${HOME}/.julia/environments/v$(julia -v | rg --only-matching "\d.\d")/Manifest.toml
 
 up_julia() {
     echo "Update Julia by ${OX_OXIDE[bkjlx]}"
@@ -47,7 +47,7 @@ jlus() {
 
 # update packages
 jlup() {
-    if [[ -z $@ ]]; then
+    if [[ -z $1 ]]; then
         julia --eval "using Pkg; Pkg.update()"
     else
         local pkgs=$(echo \"$@\" | sd ' ' '\", \"')

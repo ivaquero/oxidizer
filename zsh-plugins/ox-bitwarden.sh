@@ -18,23 +18,24 @@ alias bwcf="bw config"
 
 # $1=object
 bwsc() {
-    case $2 in
-    -h)
-        bw get --help
-        ;;
-    -u)
-        bw get username $1
-        ;;
-    -p)
-        bw get password $1
-        ;;
-    -n)
-        bw get notes $1
-        ;;
-    *)
+    if [[ -z $1 ]]; then
         bw get item $1 --pretty
-        ;;
-    esac
+    else
+        case $1 in
+        -h)
+            bw get --help
+            ;;
+        -u)
+            bw get username $2
+            ;;
+        -p)
+            bw get password $2
+            ;;
+        -n)
+            bw get notes $2
+            ;;
+        esac
+    fi
 }
 
 alias bwst="bw status --pretty"
@@ -52,26 +53,20 @@ alias bwpl="bw sync"
 
 # $1=object
 bwe() {
-    case $2 in
-    -d)
-        bw edit folder $1
-        ;;
-    *)
+    if [[ -z $1 ]]; then
         bw edit item $1
-        ;;
-    esac
+    else
+        bw edit folder $1
+    fi
 }
 
 # $1=object
 bwrm() {
-    case $2 in
-    -d)
-        bw delete folder $1
-        ;;
-    *)
+    if [[ -z $1 ]]; then
         bw delete item $1
-        ;;
-    esac
+    else
+        bw delete folder $1
+    fi
 }
 
 alias bwa="bw create"
