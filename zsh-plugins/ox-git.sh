@@ -34,7 +34,7 @@ alias gcm="git commit"
 
 # git add
 ga() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         git add .
     else
         git add $1
@@ -52,7 +52,7 @@ gcl() {
         git checkout --orphan new
         git add -A
         git commit -am "🎉 New Start"
-        if [ -z $2]; then
+        if [[ -z $2 ]]; then
             branch=master
         else
             branch=$2
@@ -71,7 +71,7 @@ gcl() {
 
 grpb() {
     git remote add origin $1
-    if [ -z $2]; then
+    if [[ -z $2 ]]; then
         branch=master
     else
         branch=$2
@@ -84,7 +84,7 @@ grpb() {
 #
 # $1: number to display
 gjk() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         local number=10
     else
         local number=$1

@@ -1,4 +1,4 @@
-if [ -z $OXIDIZER ]; then
+if [[ -z $OXIDIZER ]]; then
     export OXIDIZER="$HOME/oxidizer"
 fi
 
@@ -10,11 +10,11 @@ printf "📦 Installing Oxidizer\n"
 
 if test ! "$(command -v brew)"; then
     printf "📦 Homebrew not installed. Installing.\n"
-    if [ $(uname -s) = "Linux" ] && [ $(uname -m) = "aarch64" ]; then
+    if [[ $(uname -s) = "Linux" ]] && [[ $(uname -m) = "aarch64" ]]; then
         echo "⚠️ Oxidizer doesn't support limited Linux-on-ARM yet."
         sleep 5
         exit
-    elif [ $BREW_CN ]; then
+    elif [[ $BREW_CN ]]; then
         /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -24,9 +24,9 @@ fi
 printf "⚙️ Adding Custom settings...\n"
 cp -i -v $OXIDIZER/defaults.sh $OXIDIZER/custom.sh
 
-if [ $(uname -s) = "Darwin" ]; then
+if [[ $(uname -s) = "Darwin" ]]; then
     printf "📦 Activating Homebrew on MacOS...\n"
-    if [ $(uname -m) = "arm64" ]; then
+    if [[ $(uname -m) = "arm64" ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
         echo 'export PATH="/opt/homebrew/bin:$PATH"' >>~/.zshrc
     else
@@ -74,7 +74,7 @@ done
 # Install Zap
 ###################################################
 
-if [ $(uname -s) = "Linux" ]; then
+if [[ $(uname -s) = "Linux" ]]; then
     printf "📦 Adding Tap linuxbrew/fonts...\n"
     brew tap "linuxbrew/fonts"
     printf "📦 Installing Zap to Manage AppImage Packages...\n"
@@ -115,7 +115,7 @@ printf "⚙️ Adding Oxidizer into $shell_conf...\n"
 
 echo "# Oxidizer" >>$shell_conf
 
-if [ -z $OXIDIZER ]; then
+if [[ -z $OXIDIZER ]]; then
     echo '
     export OXIDIZER=$HOME/oxidizer
     source $OXIDIZER/oxidizer.sh

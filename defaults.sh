@@ -135,7 +135,7 @@ OX_OXIDE[bkgi]=$OX_BACKUP/git/.gitignore
 # zellij settings
 ##########################################################
 
-# if [ ! -d $OX_BACKUP/zellij ]; then
+# if [[ ! -d $OX_BACKUP/zellij ]]; then
 #     mkdir -p $OX_BACKUP/zellij
 # fi
 
@@ -209,7 +209,7 @@ upp() {
 # rust settings
 ##########################################################
 
-# if [ ! -d $OX_BACKUP/rust ]; then
+# if [[ ! -d $OX_BACKUP/rust ]]; then
 #     mkdir -p $OX_BACKUP/rust
 # fi
 
@@ -220,7 +220,7 @@ upp() {
 # julia settings
 ##########################################################
 
-# if [ ! -d $OX_BACKUP/julia ]; then
+# if [[ ! -d $OX_BACKUP/julia ]]; then
 #     mkdir -p $OX_BACKUP/julia
 # fi
 
@@ -231,7 +231,7 @@ upp() {
 # conan settings
 ##########################################################
 
-# if [ ! -d $OX_BACKUP/conan ]; then
+# if [[ ! -d $OX_BACKUP/conan ]]; then
 #     mkdir -p $OX_BACKUP/conan
 # fi
 
@@ -251,7 +251,7 @@ upp() {
 # vscode settings
 ##########################################################
 
-# if [ ! -d $OX_BACKUP/vscode ]; then
+# if [[ ! -d $OX_BACKUP/vscode ]]; then
 #     mkdir -p $OX_BACKUP/vscode
 # fi
 
@@ -313,7 +313,7 @@ case $SHELL in
     ;;
 *bash)
     # turn case sensitivity off
-    if [ ! -e ~/.inputrc ]; then
+    if [[ ! -e ~/.inputrc ]]; then
         echo '$include /etc/inputrc' >~/.inputrc
     fi
     echo 'set completion-ignore-case On' >>~/.inputrc

@@ -9,13 +9,13 @@ epf() {
         local in_path=${OX_ELEMENT[$file]}
         local out_path=${OX_OXIDE[bk$file]}
 
-        if [ -z $out_path ]; then
+        if [[ -z $out_path ]]; then
             echo "OX_OXIDE[bk$file] does not exist, please define it in custom.sh"
         elif [[ $file == *_ ]]; then
             rm -rf $out_path
             cp -R -v $in_path $out_path
         else
-            if [ ! -d $(dirname $out_path) ]; then
+            if [[ ! -d $(dirname $out_path) ]]; then
                 mkdir -p $(dirname $out_path)
             fi
             cp -v $in_path $out_path
@@ -34,7 +34,7 @@ ipf() {
             rm -rf $out_path
             cp -R -v $in_path $out_path
         else
-            if [ ! -d $(dirname $out_path) ]; then
+            if [[ ! -d $(dirname $out_path) ]]; then
                 mkdir -p $(dirname $out_path)
             fi
             cp -v $in_path $out_path
@@ -49,7 +49,7 @@ iif() {
         local in_path=${OX_OXYGEN[ox$file]}
         local out_path=${OX_ELEMENT[$file]}
 
-        if [ ! -d $(dirname $out_path) ]; then
+        if [[ ! -d $(dirname $out_path) ]]; then
             mkdir -p $(dirname $out_path)
         fi
         cp -v $in_path $out_path
@@ -63,7 +63,7 @@ dpf() {
         local in_path=${OX_OXYGEN[ox$file]}
         local out_path=${OX_OXIDE[bk$file]}
 
-        if [ ! -d $(dirname $out_path) ]; then
+        if [[ ! -d $(dirname $out_path) ]]; then
             mkdir -p $(dirname $out_path)
         fi
         cp -v ${OX_OXYGEN[ox$file]} ${OX_OXIDE[bk$file]}
@@ -77,7 +77,7 @@ dpf() {
 # refresh file
 # $@=names
 frf() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         . ${OX_ELEMENT[zs]}
     else
         . ${OX_ELEMENT[$1]}
@@ -122,7 +122,7 @@ edf() {
 zpf() {
     local file=${1%%.*}
 
-    if [ -z $2]; then
+    if [[ -z $2 ]]; then
         local ext=zip
     else
         local ext=${2#*.}
@@ -158,7 +158,7 @@ zpf() {
 
 # $1=input-name, $2=output-name
 uzpf() {
-    if [ -z $2]; then
+    if [[ -z $2 ]]; then
         local dir=$(dirname $1)
     else
         local dir=$2

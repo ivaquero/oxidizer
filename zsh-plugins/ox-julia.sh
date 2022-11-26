@@ -47,7 +47,7 @@ jlus() {
 
 # update packages
 jlup() {
-    if [ -z $@ ]; then
+    if [[ -z $@ ]]; then
         julia --eval "using Pkg; Pkg.update()"
     else
         local pkgs=$(echo \"$@\" | sd ' ' '\", \"')

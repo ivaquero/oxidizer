@@ -15,7 +15,7 @@ alias esus="espanso package uninstall"
 alias esls="espanso package list"
 
 esup() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         local pkgs=$(espanso package list | rg --only-matching "\w+.*\w\s-" | rg --only-matching "\w+.*\w")
         echo $pkgs | while read line; do
             espanso package update $line

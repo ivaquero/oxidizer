@@ -3,8 +3,8 @@
 ##########################################################
 
 # source system-specific commands
-if [ $(uname -s) = "Darwin" ]; then
-    if [ $(uname -m) = "arm64" ]; then
+if [[ $(uname -s) = "Darwin" ]]; then
+    if [[ $(uname -m) = "arm64" ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     else
         eval "$(/usr/local/Homebrew/bin/brew shellenv)"
@@ -262,7 +262,7 @@ bdl() {
 # replace cache file by predownloaded file
 brp() {
     local f_pred=$(ls $OX_DOWNLOAD | rg --ignore-case $1)
-    if [ -z $f_pred ]; then
+    if [[ -z $f_pred ]]; then
         echo "predownloaded file not found"
         return 1
     fi

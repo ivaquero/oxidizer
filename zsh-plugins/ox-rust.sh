@@ -21,7 +21,7 @@ alias cgdp="cargo tree"
 alias cgcf="cargo config"
 
 cgif() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         cargo info
     else
         cargo $1 info
@@ -39,7 +39,7 @@ alias cgfx="cargo fix"
 alias cgpb="cargo publish"
 
 cgii() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         cargo init
     else
         cargo new $@

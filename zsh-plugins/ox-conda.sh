@@ -15,7 +15,7 @@ init_conda() {
 }
 
 up_conda() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         local conda_env=base
         local conda_file=${OX_OXIDE[bkceb]}
     elif [[ ${#1} < 4 ]]; then
@@ -32,7 +32,7 @@ up_conda() {
 }
 
 back_conda() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         local conda_env=base
         local conda_file=${OX_OXIDE[bkceb]}
     elif [[ ${#1} < 4 ]]; then
@@ -91,7 +91,7 @@ ccl() {
 # update packages
 # $1=name
 cup() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         mamba update --all -q
     else
         ceat $1
@@ -103,7 +103,7 @@ cup() {
 # list packages
 # $1=name
 cls() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         conda list
     elif [[ ${#1} < 4 ]]; then
         conda list -n ${OX_CONDA_ENV[$1]}
@@ -115,7 +115,7 @@ cls() {
 # list leave packages
 # $1=name
 clv() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         conda-tree leaves
     elif [[ ${#1} < 4 ]]; then
         conda-tree -n ${OX_CONDA_ENV[$1]} leaves
@@ -153,7 +153,7 @@ alias cr="conda run"
 
 # activate environment: $1=name
 ceat() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         conda activate base && clear
     elif [[ ${#1} < 3 ]]; then
         conda activate ${OX_CONDA_ENV[$1]}
@@ -190,7 +190,7 @@ cerm() {
 
 # change environment subdir
 cesd() {
-    if [ $(uname -s) = "Darwin" ]; then
+    if [[ $(uname -s) = "Darwin" ]]; then
         case $1 in
         i*)
             conda env config vars set CONDA_SUBDIR=osx-64
@@ -221,7 +221,7 @@ cesd() {
 ceep() {
     os=$(echo $(uname -s) | tr "[:upper:]" "[:lower:]")
     arch=$(uname -m)
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         conda_Env=base
     elif [[ ${#1} < 3 ]]; then
         conda_Env=${OX_CONDA_ENV[$1]}

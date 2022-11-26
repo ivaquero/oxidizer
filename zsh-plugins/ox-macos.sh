@@ -5,7 +5,7 @@
 # binaries
 export OPEN=open
 
-if [ $(uname -m) = "arm64" ]; then
+if [[ $(uname -m) = "arm64" ]]; then
     export TERMINFO=/usr/share/terminfo
 else
     export TERMINFO=/usr/local/share/terminfo
@@ -69,7 +69,7 @@ allow() {
     echo "Initial letter needs to be capitalized"
 
     for app in /Applications/$1*.app; do
-        if [ -z $app ]; then
+        if [[ -z $app ]]; then
             echo "$app not found."
         else
             echo "Cracking $app"
@@ -87,7 +87,7 @@ hide() {
 ##########################################################
 
 shutdown() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         echo "Shutting down.\n"
         sudo shutdown -h now
     else
@@ -97,7 +97,7 @@ shutdown() {
 }
 
 restart() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         echo "Restarting $1.\n"
         sudo shutdown -r now
     else

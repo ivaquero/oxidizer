@@ -49,7 +49,7 @@ zjcf() {
 alias zjls="zellij list-sessions"
 
 zjat() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         zellij attach --index 0
     elif [[ ${#1} < 3 ]]; then
         zellij attach --index $1
@@ -59,7 +59,7 @@ zjat() {
 }
 
 zjq() {
-    if [ -z $1 ]; then
+    if [[ -z $1 ]]; then
         zellij kill-all-sessions --yes
     else
         zellij kill-session $1
