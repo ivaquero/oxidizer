@@ -9,30 +9,30 @@ function pdls {
     pandoc --list-output-formats
 }
 
-if ([string]::IsNullOrEmpty($env:Font)) {
-    $env:Font = "Arial Unicode MS"
+if ([string]::IsNullOrEmpty($env:OX_FONT)) {
+    $env:OX_FONT = "Arial Unicode MS"
 }
 
-function font { param ( $the_font ) $env:Font = $the_font }
+function font { param ( $the_font ) $env:OX_FONT = $the_font }
 
 ##########################################################
 # markdown
 ##########################################################
 
 function mdto {
-    param ( $file, $format, $the_font)
+    param ( $format, $file )
     $name = (Get-Item $file).BaseName
     Switch ( $format ) {
-        --pdf {
-            pandoc $file -o ($name + "." + $format) --pdf-engine=xelatex -V CJKmainfont=$the_font
+        pdf {
+            pandoc $file -o ($name + "." + $format) --pdf-engine=xelatex -V CJKmainfont=$env:OX_FONT
         }
-        --html {
+        html {
             pandoc $file -o ($name + "." + $format) --standalone --mathjax --shift-heading-level-by=-1
         }
-        --docx {
+        docx {
             pandoc $file -o ($name + "." + $format)
         }
-        default {
+        Default {
             pandoc $file -o ($name + "." + $format)
         }
     }

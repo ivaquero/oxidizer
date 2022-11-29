@@ -9,31 +9,31 @@ pdls() {
     pandoc --list-output-formats
 }
 
-[ -z $Font ] && export Font="Arial Unicode MS"
+[ -z $OX_FONT ] && export OX_FONT="Arial Unicode MS"
 
 # change font
 chft() {
-    export Font=$1
+    export OX_FONT=$1
 }
 
 ##########################################################
 # markdown
 ##########################################################
 
-# $1: input file, $2: output format, $3: font
+# $1: input file, $2: output format
 mdto() {
-    case $2 in
-    --pdf)
-        pandoc $1 -o ${1%%.*}.$2 --pdf-engine=xelatex -V CJKmainfont=$Font
+    case $1 in
+    pdf)
+        pandoc $2 -o ${2%%.*}.$1 --pdf-engine=xelatex -V CJKmainfont=$OX_FONT
         ;;
-    --html)
-        pandoc $1 -o ${1%%.*}.$2 --standalone --mathjax --shift-heading-level-by=-1
+    html)
+        pandoc $2 -o ${2%%.*}.$1 --standalone --mathjax --shift-heading-level-by=-1
         ;;
-    --docx)
-        pandoc $1 -o ${1%%.*}.$2
+    docx)
+        pandoc $2 -o ${2%%.*}.$1
         ;;
     *)
-        pandoc $1 -o ${1%%.*}.$2
+        pandoc $2 -o ${2%%.*}.$1
         ;;
     esac
 }
