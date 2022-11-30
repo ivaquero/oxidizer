@@ -54,7 +54,7 @@ alias ch="conda --help"
 alias ccf="conda config"
 alias cif="conda info"
 alias cis="mamba install"
-alias cus="mamba uninstall -q"
+alias cus="mamba uninstall"
 alias csc="mamba search"
 # specific
 alias cdp="mamba repoquery depends"
@@ -92,10 +92,10 @@ ccl() {
 # $1=name
 cup() {
     if [[ -z $1 ]]; then
-        mamba update --all -q
+        mamba update --all
     else
         ceat $1
-        mamba update --all -q
+        mamba update --all
         conda deactivate
     fi
 }

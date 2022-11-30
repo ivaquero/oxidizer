@@ -10,7 +10,7 @@ function open { param ( $path ) explorer $path }
 
 function clean {
     param ( $obj )
-    switch ( $obj ) {
+    Switch ( $obj ) {
         sdl { Remove-Item -Recurse -Confirm $env:SCOOP\cache }
         Default { Clear-RecycleBin -Confirm }
     }
@@ -75,7 +75,7 @@ function wllso { wsl -l -o }
 
 function wlv {
     param ( $ver )
-    switch ($ver) {
+    Switch ($ver) {
         { $ver -eq 2 } { 1 }
         Default { 2 }
     }
@@ -85,7 +85,7 @@ function wlv {
 
 function wlcl {
     param ( $sys )
-    switch ( $sys ) {
+    Switch ( $sys ) {
         kali { $file = "C:\Users\Ci\AppData\Local\Packages\KaliLinux.54290C8133FEE_ey8k8hqnwqnmg\LocalState\ext4.vhdx" }
         Default { $file = "C:\Users\Ci\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\ext4.vhdx" }
     }

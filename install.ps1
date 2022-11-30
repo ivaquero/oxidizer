@@ -40,7 +40,7 @@ ForEach ( $bucket in $scoopBuckets ) {
 $pkgs = Get-Content "$env:OXIDIZER\defaults\Scoopfile.txt"
 
 ForEach ( $pkg in $pkgs ) {
-    switch ( $pkg ) {
+    Switch ( $pkg ) {
         bottom { $cmd = 'btm' }
         ripgrep { $cmd = 'rg' }
         tealdeer { $cmd = 'tldr' }

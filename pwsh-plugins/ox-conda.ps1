@@ -62,9 +62,9 @@ function back_conda {
 function ch { conda --help }
 function ccf { conda config $args }
 function cif { conda info }
-function cis { mamba install -q $args }
-function cus { mamba uninstall -q $args }
-function csc { mamba search -q $args }
+function cis { mamba install $args }
+function cus { mamba uninstall $args }
+function csc { mamba search $args }
 function cdp { mamba repoquery depends $pkg }
 # specific
 function crdp { mamba repoquery whoneeds $pkg }
@@ -72,7 +72,7 @@ function crdp { mamba repoquery whoneeds $pkg }
 # clean packages
 function ccl {
     param ( $cmd )
-    switch ( $cmd ) {
+    Switch ( $cmd ) {
         -l { conda clean --logfiles }
         -i { conda clean --index-cache }
         -p { conda clean --packages }
@@ -88,11 +88,10 @@ function ccl {
 
 # update packages
 function cup {
-    param ( $the_env )
-    if ([string]::IsNullOrEmpty( $the_env )) { mamba update --all -q }
+    if ([string]::IsNullOrEmpty( $args[1] )) { mamba update --all }
     else {
-        ceat $the_env
-        mamba update --all -q
+        ceat $args[1]
+        mamba update --all $args[2]
         conda deactivate
     }
 }
@@ -103,30 +102,22 @@ Remove-Item alias:clv -Force -ErrorAction SilentlyContinue
 # $1=name
 function cls {
     param ( $the_env )
-    if ([string]::IsNullOrEmpty( $the_env )) {
-        mamba list
-    }
+    if ([string]::IsNullOrEmpty( $the_env )) { mamba list }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
         mamba list -n $Global:OX_CONDA_ENV.$the_env
     }
-    else {
-        mamba list -n $the_env
-    }
+    else { mamba list -n $the_env }
 }
 
 # list leave packages
 # $1=name
 function clv {
     param ( $the_env )
-    if ([string]::IsNullOrEmpty( $the_env )) {
-        conda-tree leaves
-    }
+    if ([string]::IsNullOrEmpty( $the_env )) { conda-tree leaves }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
         conda-tree -n $Global:OX_CONDA_ENV.$the_env leaves
     }
-    else {
-        conda-tree -n $the_env leaves
-    }
+    else { conda-tree -n $the_env leaves }
 }
 
 function cmt {
@@ -205,7 +196,7 @@ function cerm {
 # change environment subdir
 function cesd {
     param ( $arch )
-    switch ( $arch ) {
+    Switch ( $arch ) {
         a { conda env config vars set CONDA_SUBDIR=win-arm64 }
         i { conda env config vars set CONDA_SUBDIR=win-64 }
     }
