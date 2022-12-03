@@ -13,8 +13,8 @@ OX_ELEMENT[sc]="/etc/apt/sources.list"
 
 update() {
     case $1 in
-    d) sudo apt-get dselect-upgrade ;;
-    *) sudo apt-get dist-upgrade ;;
+    d) sudo apt dselect-upgrade ;;
+    *) sudo apt dist-upgrade ;;
     esac
 }
 
@@ -55,24 +55,32 @@ alias sha1="sha1sum"
 alias sha2="sha256sum"
 
 ##########################################################
-# apt-get
+# apt
 ##########################################################
 
-alias ah="apt-get help"
+alias ah="apt help"
 alias asc="apt-cache search"
 alias aif="apt-cache show"
 alias adp="apt-cache depends"
 alias ardp="apt-cache rdepends"
-alias als="apt-get list --installed"
+alias als="apt list --installed"
 
-alias ais="sudo apt-get install"
-alias aus="sudo apt-get remove"
-alias ausp="sudo apt-get remove --purge"
-alias aups="sudo apt-get update"
-alias aup="sudo apt-get upgrade"
-alias acl="sudo apt-get autoremove && sudo apt-get clean && sudo apt-get autoclean"
-alias aclp="sudo apt-get autoremove --purge && sudo apt-get clean && sudo apt-get autoclean"
-alias ack="sudo apt-get check"
+alias ais="sudo apt install"
+alias aus="sudo apt remove"
+alias ausp="sudo apt remove --purge"
+alias aups="sudo apt update"
+alias aup="sudo apt upgrade"
+alias acl="sudo apt autoremove && sudo apt clean && sudo apt autoclean"
+alias aclp="sudo apt autoremove --purge && sudo apt clean && sudo apt autoclean"
+alias ack="sudo apt check"
+
+###########################################################
+# apt extension
+##########################################################
+
+alias axa="sudo add-apt-repository"
+alias axrm="sudo add-apt-repository --remove"
+alias axls="grep ^[^#] /etc/apt/sources.list"
 
 ##########################################################
 # wsl

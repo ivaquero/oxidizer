@@ -54,7 +54,10 @@ function wup {
     if ([string]::IsNullOrEmpty($args)) { winget upgrade * }
     else { winget upgrade $args }
 }
+
 function wups { winget source update $args }
+
+# extension
 function wxa { param ( $repo ) winget source add $repo }
 function wxrm { param ( $repo ) winget source remove $repo }
 function wxls { param ( $repo ) winget source list }

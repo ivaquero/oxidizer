@@ -297,9 +297,9 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*st`  |   status    |   ✅    |         |            |          |
 | `*ck`  |    check    |         |   ✅    |            |          |
 | `*dp`  |   depends   |         |   ✅    |            |          |
-| `*xa`  |  add repo   |         |         |            |          |
-| `*xrm` | remove repo |         |         |            |          |
-| `*xls` |  list repo  |         |         |            |          |
+| `*xa`  |  add repo   |         |   ✅    |     ✅     |          |
+| `*xrm` | remove repo |         |   ✅    |     ✅     |          |
+| `*xls` |  list repo  |         |   ✅    |     ✅     |          |
 
 ### 5.1. Homebrew
 
