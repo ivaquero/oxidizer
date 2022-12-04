@@ -98,10 +98,10 @@ ccl() {
 # $1=name
 cup() {
     if [[ -z $1 ]]; then
-        conda update --all
+        $OX_CONDA update --all
     else
         ceat $1
-        conda update --all
+        $OX_CONDA update --all
         conda deactivate
     fi
 }

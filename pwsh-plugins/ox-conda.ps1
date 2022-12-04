@@ -97,10 +97,10 @@ function ccl {
 
 # update packages
 function cup {
-    if ([string]::IsNullOrEmpty( $args[1] )) { conda update --all }
+    if ([string]::IsNullOrEmpty( $args[1] )) { . $Global:OX_CONDA update --all }
     else {
         ceat $args[1]
-        conda update --all $args[2]
+        . $Global:OX_CONDA update --all $args[2]
         conda deactivate
     }
 }
