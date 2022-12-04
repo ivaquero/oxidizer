@@ -11,7 +11,7 @@ init_conda() {
     echo "Initialize Conda by Oxidizer configuration"
     local pkgs=$(cat ${OX_OXYGEN[oxce]} | sd "\n" " ")
     echo "Installing $pkgs"
-    eval "mamba install $pkgs"
+    eval "conda install $pkgs"
 }
 
 up_conda() {
@@ -28,7 +28,7 @@ up_conda() {
     echo "Update Conda Env $conda_env by $conda_file"
     local pkgs=$(cat $conda_file | sd "\n" " ")
     echo "Installing $pkgs"
-    eval "mamba install $pkgs"
+    eval "conda install $pkgs"
 }
 
 back_conda() {
@@ -53,12 +53,12 @@ back_conda() {
 alias ch="conda --help"
 alias ccf="conda config"
 alias cif="conda info"
-alias cis="mamba install"
-alias cus="mamba uninstall"
-alias csc="mamba search"
+alias cis="conda install"
+alias cus="conda uninstall"
+alias csc="conda search"
 # specific
-alias cdp="mamba repoquery depends"
-alias crdp="mamba repoquery whoneeds"
+alias cdp="conda repoquery depends"
+alias crdp="conda repoquery whoneeds"
 
 # clean packages
 ccl() {
@@ -92,10 +92,10 @@ ccl() {
 # $1=name
 cup() {
     if [[ -z $1 ]]; then
-        mamba update --all
+        conda update --all
     else
         ceat $1
-        mamba update --all
+        conda update --all
         conda deactivate
     fi
 }

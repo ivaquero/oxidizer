@@ -11,7 +11,7 @@ function init_conda {
     Write-Output 'Initialize Conda by Oxidizer configuration'
     $pkgs = cat $($Global:OX_OXYGEN.oxce) | sd "`n" ' '
     Write-Output "Installing $pkgs"
-    Invoke-Expression "mamba install $pkgs"
+    Invoke-Expression "conda install $pkgs"
 }
 
 function up_conda {
@@ -32,7 +32,7 @@ function up_conda {
     Write-Output "Update Conda Env $cenv by $conda_file"
     $pkg = cat $conda_file | sd "`n" ' '
     Write-Output "Installing $pkg"
-    Invoke-Expression "mamba install $pkgs"
+    Invoke-Expression "conda install $pkgs"
 }
 
 function back_conda {
@@ -62,12 +62,12 @@ function back_conda {
 function ch { conda --help }
 function ccf { conda config $args }
 function cif { conda info }
-function cis { mamba install $args }
-function cus { mamba uninstall $args }
-function csc { mamba search $args }
-function cdp { mamba repoquery depends $pkg }
+function cis { conda install $args }
+function cus { conda uninstall $args }
+function csc { conda search $args }
+function cdp { conda repoquery depends $pkg }
 # specific
-function crdp { mamba repoquery whoneeds $pkg }
+function crdp { conda repoquery whoneeds $pkg }
 
 # clean packages
 function ccl {
@@ -88,10 +88,10 @@ function ccl {
 
 # update packages
 function cup {
-    if ([string]::IsNullOrEmpty( $args[1] )) { mamba update --all }
+    if ([string]::IsNullOrEmpty( $args[1] )) { conda update --all }
     else {
         ceat $args[1]
-        mamba update --all $args[2]
+        conda update --all $args[2]
         conda deactivate
     }
 }
@@ -102,11 +102,11 @@ Remove-Item alias:clv -Force -ErrorAction SilentlyContinue
 # $1=name
 function cls {
     param ( $the_env )
-    if ([string]::IsNullOrEmpty( $the_env )) { mamba list }
+    if ([string]::IsNullOrEmpty( $the_env )) { conda list }
     elseif ( $( $the_env | Measure-Object -Character).Character -lt 2 ) {
-        mamba list -n $Global:OX_CONDA_ENV.$the_env
+        conda list -n $Global:OX_CONDA_ENV.$the_env
     }
-    else { mamba list -n $the_env }
+    else { conda list -n $the_env }
 }
 
 # list leave packages

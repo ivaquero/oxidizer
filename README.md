@@ -326,10 +326,10 @@ suffix `a` is for `all` which will force brew to upgrade every cask including on
 
 ### 5.2. Conda
 
-Note that the conda plugin is based on `mamba` (a parallel version of conda) and `conda-tree`, so you need to install mamba by
+Note that some shortcuts of the `ox-conda` plugin is based on the package `conda-tree` that you need to install
 
 ```sh
-conda install -c conda-forge mamba conda-tree
+conda install -c conda-forge conda-tree
 ```
 
 Besides the shortcuts mentioned above in **Package Management**, the conda plugin also provides with Conda environment management shortcuts which start with `ce`
