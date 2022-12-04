@@ -72,11 +72,11 @@ function ch { conda --help }
 function ccf { conda config $args }
 function cif { conda info }
 function cis { . $Global:OX_CONDA install $args }
-function cus { conda uninstall $args }
-function csc { conda search $args }
-function cdp { conda repoquery depends $pkg }
+function cus { . $Global:OX_CONDA uninstall $args }
+function csc { . $Global:OX_CONDA search $args }
+function cdp { . $Global:OX_CONDA repoquery depends $pkg }
 # specific
-function crdp { conda repoquery whoneeds $pkg }
+function crdp { . $Global:OX_CONDA repoquery whoneeds $pkg }
 
 # clean packages
 function ccl {

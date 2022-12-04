@@ -60,11 +60,11 @@ alias ch="conda --help"
 alias ccf="conda config"
 alias cif="conda info"
 alias cis="$OX_CONDA install"
-alias cus="conda uninstall"
-alias csc="conda search"
+alias cus="$OX_CONDA uninstall"
+alias csc="$OX_CONDA search"
 # specific
-alias cdp="conda repoquery depends"
-alias crdp="conda repoquery whoneeds"
+alias cdp="$OX_CONDA repoquery depends"
+alias crdp="$OX_CONDA repoquery whoneeds"
 
 # clean packages
 ccl() {
