@@ -7,11 +7,20 @@ $Global:OX_OXYGEN.oxce = "$env:OXIDIZER\defaults\conda-base.txt"
 # config files
 $Global:OX_ELEMENT.c = "$HOME\.condarc"
 
+
+if (Get-Command mamba -ErrorAction SilentlyContinue) {
+    $Global:OX_CONDA="mamba"
+}
+else {
+    $Global:OX_CONDA="conda"
+}
+
+
 function init_conda {
     Write-Output 'Initialize Conda by Oxidizer configuration'
     $pkgs = cat $($Global:OX_OXYGEN.oxce) | sd "`n" ' '
     Write-Output "Installing $pkgs"
-    Invoke-Expression "conda install $pkgs"
+    Invoke-Expression ". $Global:OX_CONDA install $pkgs"
 }
 
 function up_conda {
@@ -32,7 +41,7 @@ function up_conda {
     Write-Output "Update Conda Env $cenv by $conda_file"
     $pkg = cat $conda_file | sd "`n" ' '
     Write-Output "Installing $pkg"
-    Invoke-Expression "conda install $pkgs"
+    Invoke-Expression ". $Global:OX_CONDA install $pkgs"
 }
 
 function back_conda {
@@ -62,7 +71,7 @@ function back_conda {
 function ch { conda --help }
 function ccf { conda config $args }
 function cif { conda info }
-function cis { conda install $args }
+function cis { . $Global:OX_CONDA install $args }
 function cus { conda uninstall $args }
 function csc { conda search $args }
 function cdp { conda repoquery depends $pkg }

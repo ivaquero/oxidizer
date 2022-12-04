@@ -7,11 +7,17 @@ OX_OXYGEN[oxce]=${OXIDIZER}/defaults/conda-base.txt
 # config files
 OX_ELEMENT[c]=${HOME}/.condarc
 
+if test "$(command -v mamba)"; then
+    export OX_CONDA=mamba
+else
+    export OX_CONDA=conda
+fi
+
 init_conda() {
     echo "Initialize Conda by Oxidizer configuration"
     local pkgs=$(cat ${OX_OXYGEN[oxce]} | sd "\n" " ")
     echo "Installing $pkgs"
-    eval "conda install $pkgs"
+    eval "$OX_CONDA install $pkgs"
 }
 
 up_conda() {
@@ -28,7 +34,7 @@ up_conda() {
     echo "Update Conda Env $conda_env by $conda_file"
     local pkgs=$(cat $conda_file | sd "\n" " ")
     echo "Installing $pkgs"
-    eval "conda install $pkgs"
+    eval "$OX_CONDA install $pkgs"
 }
 
 back_conda() {
@@ -53,7 +59,7 @@ back_conda() {
 alias ch="conda --help"
 alias ccf="conda config"
 alias cif="conda info"
-alias cis="conda install"
+alias cis="$OX_CONDA install"
 alias cus="conda uninstall"
 alias csc="conda search"
 # specific
