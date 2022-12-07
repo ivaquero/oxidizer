@@ -11,4 +11,8 @@ $Global:OX_ELEMENT.hxl = "$env:APPDATA\helix\languages.toml"
 # main
 ##########################################################
 
-function hxt { hx --tutor }
+function hxh { hx --help }
+function hxck { hx --health $args }
+
+# specific
+function hxtt { hx --tutor }

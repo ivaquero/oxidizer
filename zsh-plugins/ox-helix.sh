@@ -11,4 +11,8 @@ OX_ELEMENT[hxl]=${HOME}/.config/helix/languages.toml
 # main
 ##########################################################
 
-alias hxt="hx --tutor"
+alias hxh="hx --help"
+alias hxck="hx --health"
+
+# specific
+alias hxtt="hx --tutor"
