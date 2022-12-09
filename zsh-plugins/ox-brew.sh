@@ -15,7 +15,7 @@ else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-export HOMEBREW_OX_DOWNLOAD=$(brew --cache)/downloads
+export HOMEBREW_DOWNLOAD=$(brew --cache)/downloads
 
 case ${SHELL} in
 *zsh)
@@ -23,9 +23,7 @@ case ${SHELL} in
         FPATH=${HOMEBREW_PREFIX}/share/zsh-completions:${FPATH}
         autoload -Uz compinit && compinit
     fi
-
     [ -d "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting" ] && . "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
     [ -d "${HOMEBREW_PREFIX}/share/zsh-autosuggestions" ] && . "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     ;;
 *bash)
@@ -279,7 +277,7 @@ brp() {
         echo "predownloaded file not found"
         return 1
     fi
-    local f_cache=$(ls ${HOME}BREW_OX_DOWNLOAD/*.incomplete | rg --ignore-case $1 | sd ".incomplete" "")
+    local f_cache=$(ls ${HOMEBREW_DOWNLOAD}/*.incomplete | rg --ignore-case $1 | sd ".incomplete" "")
     mv ${OX_DOWNLOAD}/$f_pred $f_cache
 }
 
