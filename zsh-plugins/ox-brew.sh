@@ -20,6 +20,8 @@ export HOMEBREW_DOWNLOAD=$(brew --cache)/downloads
 case ${SHELL} in
 *zsh)
     if type brew &>/dev/null; then
+        FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
+        autoload -Uz compinit && compinit
         FPATH=${HOMEBREW_PREFIX}/share/zsh-completions:${FPATH}
         autoload -Uz compinit && compinit
     fi
