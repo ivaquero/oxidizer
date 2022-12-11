@@ -18,6 +18,9 @@ che() {
     *bash)
         . ${OX_ELEMENT[bs]}
         ;;
+    *fish)
+        . ${OX_ELEMENT[fs]}
+        ;;
     esac
 }
 
@@ -333,6 +336,9 @@ esac
 #     ;;
 # *bash)
 #     eval "$(starship init bash)"
+#     ;;
+# *fish)
+#     eval "$(starship init fish)"
 #     ;;
 # esac
 

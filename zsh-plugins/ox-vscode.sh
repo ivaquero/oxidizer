@@ -51,5 +51,8 @@ if [[ ${TERM_PROGRAM} == "vscode" ]]; then
     *bash)
         eval "$(code --locate-shell-integration-path bash)"
         ;;
+    *fish)
+        eval "$(code --locate-shell-integration-path fish)"
+        ;;
     esac
 fi

@@ -43,6 +43,7 @@ OX_ELEMENT[ox]=${OXIDIZER}/custom.sh
 OX_ELEMENT[wz]=${HOME}/.config/wezterm/wezterm.lua
 OX_ELEMENT[zs]=${HOME}/.zshrc
 OX_ELEMENT[bs]=${HOME}/.bash_profile
+OX_ELEMENT[fs]=${HOME}/.config/fish/config.fish
 
 declare -A OX_OXIDE
 
@@ -163,6 +164,9 @@ case ${SHELL} in
     ;;
 *bash)
     eval "$(zoxide init bash)"
+    ;;
+*fish)
+    eval "$(zoxide init fish)"
     ;;
 esac
 

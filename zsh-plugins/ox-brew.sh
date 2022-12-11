@@ -25,8 +25,8 @@ case ${SHELL} in
         FPATH=${HOMEBREW_PREFIX}/share/zsh-completions:${FPATH}
         autoload -Uz compinit && compinit
     fi
-    [ -d "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting" ] && . "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    [ -d "${HOMEBREW_PREFIX}/share/zsh-autosuggestions" ] && . "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    [[ -d "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting" ]] && . "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    [[ -d "${HOMEBREW_PREFIX}/share/zsh-autosuggestions" ]] && . "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     ;;
 *bash)
     if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
@@ -36,6 +36,12 @@ case ${SHELL} in
             [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
         done
     fi
+    ;;
+*fish)
+    [[ -d "${HOMEBREW_PREFIX}/share/fish/completions" ]] &&
+        set -gx fish_complete_path $fish_complete_path ${HOMEBREW_PREFIX}/share/fish/completions
+    [[ -d "${HOMEBREW_PREFIX}/share/fish/vendor_completions.d" ]] &&
+        set -gx fish_complete_path $fish_complete_path ${HOMEBREW_PREFIX}/share/fish/vendor_completions.d
     ;;
 esac
 
