@@ -27,7 +27,7 @@ $env:EDITOR_T = 'vi'
 #
 # language & software-specific
 # oxpc: ox-conda
-# oxpcc: ox-cpp
+# oxpcn: ox-conan
 # oxpct: ox-container
 # oxpes: ox-espanso
 # oxphx: ox-helix
