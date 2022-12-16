@@ -101,6 +101,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [x] `hyperfine`: Command-line benchmarking tool
+- [ ] `ouch`: Painless compression and decompression tool
 - [ ] `navi`: An interactive cheatsheet tool for the command-line
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
@@ -205,6 +206,12 @@ The table below lists the information of specific configuration files:
 |     zellij     |    `zjl_`    |          `layouts`           |
 
 > `_` denotes a folder
+
+Oxidizer uses [ouch](https://github.com/ouch-org/ouch/releases/tag/0.4.0)(optional, needs manual installation) to deal with compression and decompression, and provides with 3 shortcuts
+
+- `zpf`: compress file
+- `uzpf`: decompress file
+- `lzpf`: list items in the compressed file
 
 ## 4. Software Information Management
 

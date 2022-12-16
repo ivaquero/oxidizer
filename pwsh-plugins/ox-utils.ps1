@@ -127,6 +127,10 @@ function edf {
 # Zip Files
 ##########################################################
 
+function zpf { ouch compress $args }
+function uzpf { ouch decompress $args }
+function lzpf { ouch list $args }
+
 ##########################################################
 # Batch Management
 ##########################################################
