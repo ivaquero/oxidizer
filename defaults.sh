@@ -379,7 +379,7 @@ weather() {
 ##########################################################
 
 # donwload path: works for function `bdl()`
-export OX_DOWNLOAD=${HOME}/Downloads
+export OX_DOWNLOAD=${HOME}/Desktop
 
 export OX_STARTUP=1
 

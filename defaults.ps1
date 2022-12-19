@@ -286,7 +286,7 @@ function weaher {
 ##########################################################
 
 # donwload path
-$env:OX_DOWNLOAD = "$HOME\Downloads"
+$env:OX_DOWNLOAD = "$HOME\Desktop"
 
 $Global:OX_STARTUP = 1
 
