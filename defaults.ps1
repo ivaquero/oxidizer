@@ -291,5 +291,5 @@ $env:OX_DOWNLOAD = "$HOME\Desktop"
 $Global:OX_STARTUP = 1
 
 function startup {
-    Set-Location $HOME
+    Set-Location "$HOME\Desktop"
 }

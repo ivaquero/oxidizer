@@ -385,5 +385,5 @@ export OX_STARTUP=1
 
 startup() {
     # start directory
-    cd ${HOME}
+    cd ${HOME}/Desktop
 }
