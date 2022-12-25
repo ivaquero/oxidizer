@@ -165,6 +165,7 @@ bst() {
 alias bii="brew create"
 alias bts="brew test"
 alias bed="brew edit"
+alias bedc="brew edit --cask"
 alias bca="brew cat"
 alias bau="brew audit"
 alias bfx="brew style --fix"
