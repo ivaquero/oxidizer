@@ -225,7 +225,7 @@ export HOMEBREW_BUNDLE_FILE=${OX_OXIDE[bkb]}
 alias bisc="bis --cask --no-quarantine"
 alias busc="bus --cask"
 alias brisc="bris --cask --no-quarantine"
-alias bupc="bup --cask --no-quarantine"
+alias bupc="bup --cask"
 
 bupa() {
     local pkgs=$(brew outdated | sd "\n" " ")
@@ -242,11 +242,11 @@ biscp() {
         pueue parallel $n_args -g brew_install
 
         for pkg in $@; do
-            pueue add -g brew_install "brew install --cask $pkg"
+            pueue add -g brew_install "brew install --cask $pkg --no-quarantine"
         done
         sleep 3 && pueue status
     else
-        brew install --cask $1
+        brew install --cask $1 --no-quarantine
     fi
 }
 
