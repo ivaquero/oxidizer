@@ -307,6 +307,8 @@ case ${SHELL} in
 *zsh)
     # turn case sensitivity off
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+    # pasting with tabs doesn't perform completion
+    zstyle ':completion:' insert-tab pending
 
     # global
     alias -g w0="| rg '\s0\.\d+'"
