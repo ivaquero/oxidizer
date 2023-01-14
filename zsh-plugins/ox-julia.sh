@@ -33,7 +33,7 @@ alias jlst="julia --eval 'using Pkg; Pkg.status()'"
 jlis() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.add([,,])' | sd ',,' "$pkgs")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }
 
@@ -41,7 +41,7 @@ jlis() {
 jlus() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.rm([,,])' | sd ',,' "$pkgs")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }
 
@@ -52,7 +52,7 @@ jlup() {
     else
         local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
         local cmd=$(echo 'using Pkg; Pkg.update([,,])' | sd ',,' "$pkgs")
-        echo "$cmd"
+        # echo "$cmd"
         julia --eval "$cmd"
     fi
 }
@@ -70,21 +70,21 @@ jlls() {
 # dependencies of package
 jldp() {
     local cmd=$(echo "using PkgDependency; PkgDependency.tree(\"$1\") |> println")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }
 
 jlpn() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.pin([,,])' | sd ',,' "$pkgs")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }
 
 jlupn() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.free([,,])' | sd ',,' "$pkgs")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }
 
@@ -105,7 +105,7 @@ jlmt() {
 jlb() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.build([,,])' | sd ',,' "$pkgs")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }
 
@@ -113,6 +113,6 @@ jlb() {
 jlts() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.test([,,])' | sd ',,' "$pkgs")
-    echo "$cmd"
+    # echo "$cmd"
     julia --eval "$cmd"
 }

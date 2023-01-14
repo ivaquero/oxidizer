@@ -47,7 +47,7 @@ function jlst {
 function jlis {
     $pkgs = (Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = (Write-Output "using Pkg; Pkg.add([$pkgs])")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval `"$cmd`"
 }
 
@@ -55,7 +55,7 @@ function jlis {
 function jlus {
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.rm([$pkgs])")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval `"$cmd`"
 }
 
@@ -67,7 +67,7 @@ function jlup {
     else {
         $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
         $cmd = $(Write-Output "using Pkg; Pkg.update([$pkgs])")
-        Write-Output "$cmd"
+        # Write-Output "$cmd"
         julia --eval `"$cmd`"
     }
 }
@@ -85,21 +85,21 @@ function jlls {
 # dependencies of package
 function jldp {
     local cmd=$(Write-Output "using PkgDependency; PkgDependency.tree(\"$args[1]\") |> println")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval "$cmd"
 }
 
 function jlpn {
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.pin([$pkgs])")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval `"$cmd`"
 }
 
 function jlupn {
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.free([$pkgs])")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval `"$cmd`"
 }
 
@@ -121,7 +121,7 @@ function jlmt {
 function jlb {
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.build([$pkgs])")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval `"$cmd`"
 }
 
@@ -129,6 +129,6 @@ function jlb {
 function jlts {
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.test([$pkgs])")
-    Write-Output "$cmd"
+    # Write-Output "$cmd"
     julia --eval `"$cmd`"
 }
