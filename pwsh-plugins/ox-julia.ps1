@@ -32,7 +32,7 @@ function jlh {
     julia --help
 }
 function jlr {
-    param ( $cmd)
+    param ( $cmd )
     julia --eval $cmd
 }
 function jlcl {
@@ -84,7 +84,7 @@ function jlls {
 
 # dependencies of package
 function jldp {
-    local cmd=$(Write-Output 'using PkgDependency; PkgDependency.tree(\'$1\")")
+    local cmd=$(Write-Output "using PkgGraph; PkgGraph.DepGraph.depgraph(:$args[1])")
     Write-Output "$cmd"
     julia --eval "$cmd"
 }
@@ -97,7 +97,6 @@ function jlpn {
 }
 
 function jlupn {
-    param ( $pkgs)
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.free([$pkgs])")
     Write-Output "$cmd"

@@ -69,7 +69,7 @@ jlls() {
 
 # dependencies of package
 jldp() {
-    local cmd=$(echo "using PkgDependency; PkgDependency.tree(\"$1\")")
+    local cmd=$(echo "using PkgGraph; PkgGraph.DepGraph.depgraph(:$1)")
     echo "$cmd"
     julia --eval "$cmd"
 }
