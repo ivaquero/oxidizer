@@ -74,6 +74,12 @@ jldp() {
     julia --eval "$cmd"
 }
 
+jlrdp() {
+    local cmd=$(echo "using PkgDependency; PkgDependency.tree(\"$1\"; reverse=true) |> println")
+    # echo "$cmd"
+    julia --eval "$cmd"
+}
+
 jlpn() {
     local pkgs=$(echo \"$@\" | sd ' ' '\", \"')
     local cmd=$(echo 'using Pkg; Pkg.pin([,,])' | sd ',,' "$pkgs")

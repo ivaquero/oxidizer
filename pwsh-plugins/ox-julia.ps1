@@ -89,6 +89,12 @@ function jldp {
     julia --eval "$cmd"
 }
 
+function jlrdp {
+    local cmd=$(Write-Output "using PkgDependency; PkgDependency.tree(\"$args[1]\"; reverse=true) |> println")
+    # Write-Output "$cmd"
+    julia --eval "$cmd"
+}
+
 function jlpn {
     $pkgs = $(Write-Output `"$args`" | sd ' ' '\", \"')
     $cmd = $(Write-Output "using Pkg; Pkg.pin([$pkgs])")
