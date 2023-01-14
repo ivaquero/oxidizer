@@ -84,7 +84,7 @@ function jlls {
 
 # dependencies of package
 function jldp {
-    local cmd=$(Write-Output "using PkgGraph; PkgGraph.DepGraph.depgraph(:$args[1])")
+    local cmd=$(Write-Output "using PkgDependency; PkgDependency.tree(\"$args[1]\") |> println")
     Write-Output "$cmd"
     julia --eval "$cmd"
 }
