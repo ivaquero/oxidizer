@@ -45,7 +45,7 @@ alias bwh="bw --help"
 # project management
 ##########################################################
 
-alias bwpl="bw sync"
+alias bwup="bw sync"
 
 ##########################################################
 # item management

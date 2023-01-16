@@ -1,6 +1,7 @@
 ##########################################################
 # config
 ##########################################################
+
 function up_bitwarden { bw import $args }
 function back_bitwarden { bw export $args }
 function bwcf { bw config $args }
@@ -27,7 +28,7 @@ function bwh { bw --help }
 # project management
 ##########################################################
 
-function bwpl { bw sync }
+function bwup { bw sync }
 
 ##########################################################
 # item management
