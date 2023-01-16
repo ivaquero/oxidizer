@@ -12,6 +12,7 @@ if (Get-Command mamba -ErrorAction SilentlyContinue) {
     $Global:OX_CONDA="mamba"
 }
 else {
+     Write-Output 'Suggestion: install mamba for better experience.'
     $Global:OX_CONDA="conda"
 }
 

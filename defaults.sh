@@ -268,7 +268,7 @@ upp() {
 ##########################################################
 
 # # nodejs
-# OX_OXIDE[bknj]=${OX_BACKUP}/javascript/node-pkgs.txt
+# OX_OXIDE[bknjx]=${OX_BACKUP}/javascript/node-pkgs.txt
 # # texlive
 # OX_OXIDE[bktl]=${OX_BACKUP}/tex/texlive-pkgs.txt
 

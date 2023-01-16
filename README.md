@@ -192,7 +192,8 @@ The table below lists the information of specific configuration files:
 |     julia      |    `jlm`     |       `Manifest.toml`        |
 |    jupyter     |     `jn`     | `jupyter_notebook_config.py` |
 |     latex      |     `tl`     |        `texlive-pkgs`        |
-|      node      |     `nj`     |       `node-pkgs.txt`        |
+|      node      |     `nj`     |           `.npmrc`           |
+|      node      |    `njx`     |       `node-pkgs.txt`        |
 |     pueue      |     `pu`     |         `pueue.yml`          |
 |     pueue      |    `pua`     |     `pueue_aliases.yml`      |
 |     cargo      |     `cg`     |        `config.toml`         |

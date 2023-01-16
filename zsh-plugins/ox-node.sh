@@ -2,16 +2,19 @@
 # config
 ##########################################################
 
+# config files
+OX_ELEMENT[nj]=${HOME}/.npmrc
+
 up_node() {
-    echo "Update Node by ${OX_OXIDE[bknj]}"
-    local pkgs=$(cat ${OX_OXIDE[bknj]} | sd "\n" " ")
+    echo "Update Node by ${OX_OXIDE[bknjx]}"
+    local pkgs=$(cat ${OX_OXIDE[bknjx]} | sd "\n" " ")
     echo "Installing $pkgs"
     eval "npm install -g $pkgs --force"
 }
 
 back_node() {
-    echo "Backup Node to ${OX_OXIDE[bknj]}"
-    npm list --depth 0 -g | rg --multiline --only-matching "[\s][@a-z].*[a-z]" | sd " " "" | sd "npm " "" | sd "\n" " " >${OX_OXIDE[bknj]}
+    echo "Backup Node to ${OX_OXIDE[bknjx]}"
+    npm list --depth 0 -g | rg --multiline --only-matching "[\s][@a-z].*[a-z]" | sd " " "" | sd "npm " "" | sd "\n" " " >${OX_OXIDE[bknjx]}
 }
 
 ##########################################################
