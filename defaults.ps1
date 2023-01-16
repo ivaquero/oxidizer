@@ -219,9 +219,10 @@ function upp {
 # other configurations
 ##########################################################
 
-# # nodejs
+# nodejs
+# $Global:OX_OXIDE.bknj = "$env:OX_BACKUP\javascript\.npmrc"
 # $Global:OX_OXIDE.bknjx = "$env:OX_BACKUP\javascript\node-pkgs.txt"
-# # texlive
+# texlive
 # $Global:OX_OXIDE.bktl = "$env:OX_BACKUP\tex\texlive-pkgs.txt"
 
 ##########################################################

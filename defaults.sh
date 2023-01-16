@@ -267,9 +267,10 @@ upp() {
 # other settings
 ##########################################################
 
-# # nodejs
+# nodejs
+# OX_OXIDE[bknj]=${OX_BACKUP}/javascript/.npmrc
 # OX_OXIDE[bknjx]=${OX_BACKUP}/javascript/node-pkgs.txt
-# # texlive
+# texlive
 # OX_OXIDE[bktl]=${OX_BACKUP}/tex/texlive-pkgs.txt
 
 ##########################################################
