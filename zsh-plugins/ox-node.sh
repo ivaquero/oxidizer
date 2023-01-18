@@ -5,6 +5,8 @@
 # config files
 OX_ELEMENT[nj]=${HOME}/.npmrc
 
+export NODE_EXTRA_CA_CERTS="${HOMEBREW_PREFIX}/share/ca-certificates/cacert.pem"
+
 up_node() {
     echo "Update Node by ${OX_OXIDE[bknjx]}"
     local pkgs=$(cat ${OX_OXIDE[bknjx]} | sd "\n" " ")
