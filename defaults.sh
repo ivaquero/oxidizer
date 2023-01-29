@@ -156,10 +156,12 @@ OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 # brew settings
 ##########################################################
 
-export HOMEBREW_NO_AUTO_UPDATE=true
-export HOMEBREW_NO_ENV_HINTS=true
-
 OX_OXIDE[bkb]=${OX_BACKUP}/install/Brewfile
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_INSTALL_FROM_API=1
+# export HOMEBREW_AUTO_UPDATE_SECS="86400"
 
 # brew mirrors for faster download, use `bmr` to use
 # declare -A HOMEBREW_MIRROR
@@ -171,7 +173,8 @@ OX_OXIDE[bkb]=${OX_BACKUP}/install/Brewfile
 declare -A HOMEBREW_SERVICE
 
 HOMEBREW_SERVICE[pu]="pueue"
-HOMEBREW_SERVICE[mys]="mysql"
+# HOMEBREW_SERVICE[pd]="podman"
+# HOMEBREW_SERVICE[pg]="postgresql@15"
 
 ##########################################################
 # pueue settings
