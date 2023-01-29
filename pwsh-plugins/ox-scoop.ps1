@@ -92,6 +92,7 @@ function scl {
 
 function sdp { scoop depends $args }
 function sck { scoop checkup }
+function ssc { scoop search }
 function sat { scoop config aria2-enabled true }
 function saf { scoop config aria2-enabled false }
 
