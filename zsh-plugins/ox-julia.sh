@@ -15,7 +15,7 @@ up_julia() {
 }
 
 back_julia() {
-    echo "Backup Julia to ${OX_OXIDE[bkjl]}"
+    echo "Backup Julia to ${OX_OXIDE[bkjlx]}"
     cat ${OX_ELEMENT[jlp]} | rg --only-matching "\w.*=" | sd "[= ]" "" >${OX_OXIDE[bkjlx]}
 }
 
