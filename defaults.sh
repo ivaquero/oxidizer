@@ -190,9 +190,8 @@ upp() {
     pueue parallel 3 -g up_all
     pueue add -g up_all 'brew update && brew upgrade'
     pueue add -g up_all 'conda update --all --yes'
-    pueue add -g up_all 'tlmgr update --all'
     # or use predefined items in pueue_aliase
-    # pueue add -g up_all 'tlup'
+    # pueue add -g up_all 'cup'
 }
 
 ##########################################################
