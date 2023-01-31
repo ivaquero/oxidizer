@@ -136,7 +136,7 @@ alias blsf="brew list --formula"
 alias blv="brew leaves"
 alias bsc="brew search"
 alias bdp="brew deps --tree --formula --installed"
-alias bcl="brew autoremove && brew cleanup"
+alias bcl="brew autoremove && brew cleanup -s --prune"
 alias bck="brew doctor"
 
 # info & version

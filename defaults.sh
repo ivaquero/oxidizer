@@ -161,6 +161,7 @@ OX_OXIDE[bkb]=${OX_BACKUP}/install/Brewfile
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSTALL_FROM_API=1
+export HOMEBREW_CLEANUP_MAX_AGE_DAYS="7"
 # export HOMEBREW_AUTO_UPDATE_SECS="86400"
 
 # brew mirrors for faster download, use `bmr` to use

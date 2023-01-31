@@ -24,12 +24,6 @@ update() {
 
 clean() {
     case $1 in
-    bdl)
-        echo "Cleaning up Homebrew Downloads.\n"
-        rm -rfv $(brew --cache)/downloads/*
-        rm -rfv $(brew --cache)/Cask/*
-        rm -rfv $(brew --cache)/"*\d+*"
-        ;;
     vs)
         echo "Cleaning up VSCode Cache.\n"
         rm -rfv ${HOME}/Library/'Application Support'/Code/Cache/*
