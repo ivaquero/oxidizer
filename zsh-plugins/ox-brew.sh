@@ -139,8 +139,19 @@ alias bdp="brew deps --tree --formula --installed"
 alias bcl="brew autoremove && brew cleanup -s --prune"
 alias bck="brew doctor"
 
+bcl() {
+    case $1 in
+    -a)
+        brew autoremove && brew cleanup -s --prune=all
+        ;;
+    *)
+        brew autoremove && brew cleanup -s
+        ;;
+    esac
+}
+
 # info & version
-alias bif="brew info --json=v2"
+alias bif="brew info"
 alias bpn="brew pin"
 alias bupn="brew unpin"
 
