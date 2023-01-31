@@ -2,15 +2,15 @@
 
 - `update`: update system
 - `clean`
-  - `clean`: empty trash
-  - `clean log`: clean logs
-  - `clean vs`: clean `VSCode` cache files
+  - [x] `clean`: empty trash
+  - [x] `clean log`: clean logs
+  - [x] `clean vs`: clean `VSCode` cached files
+  - [ ] `clean chr`: clean `Chrome` cached files
 
 ### macOS
 
 - `clean`
-  - `clean cc`: clean cache files in `$HOME/Library/Caches/`
-  - `clean bdl`: clean `Homebrew` downloaded files
+  - [x] `clean cc`: clean all cached files in `$HOME/Library/Caches/`
 - `allow`: allow installation of uncertified apps
 
 ### Linux
