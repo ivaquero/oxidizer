@@ -9,7 +9,7 @@ pdls() {
     pandoc --list-output-formats
 }
 
-[ -z $OX_FONT ] && export OX_FONT="Arial Unicode MS"
+[ -z ${OX_FONT} ] && export OX_FONT="Arial Unicode MS"
 
 # change font
 chft() {
@@ -24,7 +24,14 @@ chft() {
 mdto() {
     case $1 in
     pdf)
-        pandoc $2 -o ${2%%.*}.$1 --pdf-engine=xelatex -V CJKmainfont=$OX_FONT
+        if test "$(command -v tectonic)"; then
+            local pdf_engine=tectonic
+        elif test "$(command -v xelatex)"; then
+            local pdf_engine=xelatex
+        else
+            echo "No available pdf engine found"
+        fi
+        pandoc $2 -o ${2%%.*}.$1 --pdf-engine=$pdf_engine -V CJKmainfont=${OX_FONT}
         ;;
     html)
         pandoc $2 -o ${2%%.*}.$1 --standalone --mathjax --shift-heading-level-by=-1

@@ -24,7 +24,16 @@ function mdto {
     $name = (Get-Item $file).BaseName
     Switch ( $format ) {
         pdf {
-            pandoc $file -o ($name + "." + $format) --pdf-engine=xelatex -V CJKmainfont=$env:OX_FONT
+            if (Get-Command tectonic -ErrorAction SilentlyContinue){
+                $pdf_engine=tectonic
+            }
+            elseif (Get-Command xelatex -ErrorAction SilentlyContinue){
+                $pdf_engine=xelatex
+            }
+            else {
+                Write-Output 'No available pdf engine found'
+            }
+            pandoc $file -o ($name + "." + $format) --pdf-engine=$pdf_engine -V CJKmainfont=$env:OX_FONT
         }
         html {
             pandoc $file -o ($name + "." + $format) --standalone --mathjax --shift-heading-level-by=-1
