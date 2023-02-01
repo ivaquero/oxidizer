@@ -16,23 +16,15 @@ alias cnus="conan remove"
 
 cnsc() {
     case $1 in
-    --cc)
-        conan search --remote=conancenter $2
-        ;;
-    *)
-        conan search $@
-        ;;
+    -m) conan search --remote=conancenter $2 ;;
+    *) conan search $1 ;;
     esac
 }
 
 cndl() {
     case $1 in
-    --cc)
-        conan download $2
-        ;;
-    *)
-        conan download --remote=conancenter $1
-        ;;
+    -m) conan download --remote=conancenter $1 ;;
+    *) conan download $2 ;;
     esac
 }
 

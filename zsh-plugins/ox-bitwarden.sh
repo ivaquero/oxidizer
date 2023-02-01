@@ -22,18 +22,10 @@ bwsc() {
         bw get item $1 --pretty
     else
         case $1 in
-        -h)
-            bw get --help
-            ;;
-        -u)
-            bw get username $2
-            ;;
-        -p)
-            bw get password $2
-            ;;
-        -n)
-            bw get notes $2
-            ;;
+        -h) bw get --help ;;
+        -u) bw get username $2 ;;
+        -p) bw get password $2 ;;
+        -n) bw get notes $2 ;;
         esac
     fi
 }

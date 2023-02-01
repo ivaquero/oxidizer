@@ -18,26 +18,16 @@ alias zjck="zellij setup --check"
 
 zjs() {
     case $1 in
-    bs)
-        zellij setup --generate-auto-start=bash >>~/.bash_profile
-        ;;
-    zs)
-        zellij setup --generate-auto-start=zsh >>~/.zshrc
-        ;;
+    bs) zellij setup --generate-auto-start=bash >>~/.bash_profile ;;
+    zs) zellij setup --generate-auto-start=zsh >>~/.zshrc ;;
     esac
 }
 
 zjcf() {
     case $1 in
-    -p)
-        zellij setup --dump-config
-        ;;
-    -l)
-        zellij setup --dump-layout $2
-        ;;
-    *)
-        zellij setup --dump-config >~/.config/zellij/config.kdl
-        ;;
+    -p) zellij setup --dump-config ;;
+    -l) zellij setup --dump-layout $2 ;;
+    *) zellij setup --dump-config >~/.config/zellij/config.kdl ;;
     esac
 }
 

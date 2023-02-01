@@ -77,10 +77,16 @@ clean_brew() {
 alias bh="brew help"
 alias bcf="brew config"
 alias bis="brew install"
-alias bus="brew uninstall"
 alias bris="brew reinstall"
 alias bups="brew update"
 alias bup="brew upgrade"
+
+bus() {
+    case $1 in
+    -a) brew uninstall --zap ${@:1} ;;
+    *) brew uninstall $@ ;;
+    esac
+}
 
 bisp() {
     local n_args=$#
@@ -140,12 +146,8 @@ alias bck="brew doctor"
 
 bcl() {
     case $1 in
-    -a)
-        brew autoremove && brew cleanup -s --prune=all
-        ;;
-    *)
-        brew autoremove && brew cleanup -s
-        ;;
+    -a) brew autoremove && brew cleanup -s --prune=all ;;
+    *) brew autoremove && brew cleanup -s ;;
     esac
 }
 
@@ -156,15 +158,9 @@ alias bupn="brew unpin"
 
 bst() {
     case $1 in
-    -r)
-        brew livecheck $2
-        ;;
-    -rc)
-        brew livecheck --cask $2
-        ;;
-    *)
-        brew outdated --greedy
-        ;;
+    -r) brew livecheck $2 ;;
+    -rc) brew livecheck --cask $2 ;;
+    *) brew outdated --greedy ;;
     esac
 }
 

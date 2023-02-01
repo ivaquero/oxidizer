@@ -24,11 +24,11 @@ function mdto {
     $name = (Get-Item $file).BaseName
     Switch ( $format ) {
         pdf {
-            if (Get-Command tectonic -ErrorAction SilentlyContinue){
-                $pdf_engine=tectonic
+            if (Get-Command tectonic -ErrorAction SilentlyContinue) {
+                $pdf_engine = tectonic
             }
-            elseif (Get-Command xelatex -ErrorAction SilentlyContinue){
-                $pdf_engine=xelatex
+            elseif (Get-Command xelatex -ErrorAction SilentlyContinue) {
+                $pdf_engine = xelatex
             }
             else {
                 Write-Output 'No available pdf engine found'

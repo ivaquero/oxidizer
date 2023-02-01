@@ -70,28 +70,13 @@ alias crdp="$OX_CONDA repoquery whoneeds"
 # clean packages
 ccl() {
     case $1 in
-    -l)
-        conda clean --logfiles
-        ;;
-    -i)
-        conda clean --index-cache
-        ;;
-    -p)
-        conda clean --packages
-        ;;
-    -t)
-        conda clean --tarballs
-        ;;
-    -f)
-        conda clean --force-pkgs-dirs
-        ;;
-    -a)
-        conda clean --all
-        ;;
-    *)
-        conda clean --packages
-        conda clean --tarballs
-        ;;
+    -l) conda clean --logfiles ;;
+    -i) conda clean --index-cache ;;
+    -p) conda clean --packages ;;
+    -t) conda clean --tarballs ;;
+    -f) conda clean --force-pkgs-dirs ;;
+    -a) conda clean --all ;;
+    *) conda clean --packages && conda clean --tarballs ;;
     esac
 }
 
@@ -199,27 +184,15 @@ cerm() {
 cesd() {
     if [[ $(uname -s) = "Darwin" ]]; then
         case $1 in
-        i*)
-            conda env config vars set CONDA_SUBDIR=osx-64
-            ;;
-        a*)
-            conda env config vars set CONDA_SUBDIR=osx-arm64
-            ;;
+        i*) conda env config vars set CONDA_SUBDIR=osx-64 ;;
+        a*) conda env config vars set CONDA_SUBDIR=osx-arm64 ;;
         esac
     else
         case $1 in
-        i*)
-            conda env config vars set CONDA_SUBDIR=linux-64
-            ;;
-        a*)
-            conda env config vars set CONDA_SUBDIR=linux-aarch64
-            ;;
-        p*)
-            conda env config vars set CONDA_SUBDIR=linux-ppc64le
-            ;;
-        s*)
-            conda env config vars set CONDA_SUBDIR=linux-s390x
-            ;;
+        i*) conda env config vars set CONDA_SUBDIR=linux-64 ;;
+        a*) conda env config vars set CONDA_SUBDIR=linux-aarch64 ;;
+        p*) conda env config vars set CONDA_SUBDIR=linux-ppc64le ;;
+        s*) conda env config vars set CONDA_SUBDIR=linux-s390x ;;
         esac
     fi
 }
