@@ -42,7 +42,6 @@ function back_scoop {
 ##########################################################
 
 function sis { scoop install $args }
-
 function sus { scoop uninstall $args }
 
 Remove-Item alias:sls -Force -ErrorAction SilentlyContinue
@@ -86,8 +85,8 @@ function supp {
     else { scoop update * }
 }
 function scl {
-    if ([string]::IsNullOrEmpty($args)) { scoop cleanup * }
-    else { scoop cleanup $args }
+    if ([string]::IsNullOrEmpty($args)) { scoop cleanup -a -k}
+    else { scoop cleanup $args -k}
 }
 
 function sdp { scoop depends $args }
