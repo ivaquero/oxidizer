@@ -56,7 +56,7 @@ init_brew() {
 }
 
 up_brew() {
-    echo "Update Brew by self-defined configuration"
+    echo "Update Brew by ${OX_OXIDE[bkb]}"
     brew bundle --file ${OX_OXIDE[bkb]}
 }
 

@@ -62,7 +62,7 @@ $env:OX_BACKUP = "$HOME\Documents\backup"
 
 $Global:OX_OXIDE.bkox = "$env:OX_BACKUP\custom.ps1"
 
-$Global:OX_OXIDE.bks = "$env:OX_BACKUP\install\Scoopfile.txt"
+$Global:OX_OXIDE.bks = "$env:OX_BACKUP\install\Scoopfile.json"
 $Global:OX_OXIDE.bkw = "$env:OX_BACKUP\install\Wingetfile.json"
 $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 

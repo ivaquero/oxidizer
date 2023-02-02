@@ -18,23 +18,12 @@ function init_scoop {
 
 function up_scoop {
     Write-Output "Update Scoop by $($Global:OX_OXIDE.bks)"
-    $file = (cat $($Global:OX_OXIDE.bks))
-    $num = (cat $($Global:OX_OXIDE.bks) | Measure-Object -Line).Lines
-
-    pueue group add up_scoop
-    pueue parallel $num -g up_scoop
-
-    Foreach ( $line in $file ) {
-        Write-Output "Installing $line"
-        pueue add -g up_scoop "scoop install $line"
-    }
-    Start-Sleep -s 3
-    pueue status
+    scoop import $($Global:OX_OXIDE.bks)
 }
 
 function back_scoop {
     Write-Output "Backup Scoop to $($Global:OX_OXIDE.bks)"
-    scoop list | Out-File -FilePath "$($Global:OX_OXIDE.bks)"
+    scoop export $($Global:OX_OXIDE.bks)
 }
 
 ##########################################################
