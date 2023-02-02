@@ -18,7 +18,7 @@ function up_julia {
 
 function back_julia {
     Write-Output "Backup Julia to $($Global:OX_OXIDE.bkjlx)"
-    cat $Global:OX_ELEMENT.jlp | rg --only-matching '\w.*=' | sd '[= ]' ' ' | Out-File -FilePath "$($Global:OX_OXIDE.bkjlx)"
+    cat $Global:OX_ELEMENT.jlp | rg --only-matching '\w.*=' | sd '[= ]' ' ' > "$($Global:OX_OXIDE.bkjlx)"
 }
 
 ##########################################################

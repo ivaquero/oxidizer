@@ -15,7 +15,7 @@ function up_node {
 function back_node {
     Write-Output "Backup Node to $($Global:OX_OXIDE.bknjx)"
     $pkgs = $(npm list --depth 0 -g | rg --multiline --only-matching '[\s][@a-z].*[a-z]')
-    $pkgs.Replace(' ', '').Replace('npm ', '') | sd "`n" ' ' | Out-File -FilePath "$($Global:OX_OXIDE.bknjx)"
+    $pkgs.Replace(' ', '').Replace('npm ', '') | sd "`n" ' ' > "$($Global:OX_OXIDE.bknjx)"
 }
 
 ##########################################################

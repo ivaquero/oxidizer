@@ -62,7 +62,7 @@ function back_conda {
 
     Write-Output "Backup Conda Env $cenv to $conda_file"
     $pkg = $(conda tree -n $cenv leaves)
-    $pkg.Replace("[',\[\]]", '') | sd ' ' "`n" | Out-File -FilePath "$conda_file"
+    $pkg.Replace("[',\[\]]", '') | sd ' ' "`n" > "$conda_file"
 }
 
 ##########################################################

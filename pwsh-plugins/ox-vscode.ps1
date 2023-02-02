@@ -35,7 +35,7 @@ function up_vscode {
 
 function back_vscode {
     Write-Output "Backup VSCode extensions to $($Global:OX_OXIDE.bkvsx)"
-    code --list-extensions | Out-File -FilePath "$($Global:OX_OXIDE.bkvsx)"
+    code --list-extensions > "$($Global:OX_OXIDE.bkvsx)"
 }
 
 ##########################################################

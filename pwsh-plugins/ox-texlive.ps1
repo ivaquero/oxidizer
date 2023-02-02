@@ -20,7 +20,7 @@ function up_texlive {
 
 function back_texlive {
     Write-Output "Backup TeXLive to $($Global:OX_OXIDE.bktl)"
-    tlmgr list --only-installed | rg --only-matching 'collection-\w+' | rg --invert-match 'basic' | Out-File -FilePath "$($Global:OX_OXIDE.bktl)"
+    tlmgr list --only-installed | rg --only-matching 'collection-\w+' | rg --invert-match 'basic' > "$($Global:OX_OXIDE.bktl)"
 }
 
 ##########################################################
