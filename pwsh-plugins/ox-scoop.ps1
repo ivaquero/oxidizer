@@ -23,7 +23,7 @@ function up_scoop {
 
 function back_scoop {
     Write-Output "Backup Scoop to $($Global:OX_OXIDE.bks)"
-    scoop export $($Global:OX_OXIDE.bks)
+    scoop export > $($Global:OX_OXIDE.bks)
 }
 
 ##########################################################
