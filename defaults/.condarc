@@ -2,6 +2,12 @@
 channels:
   - conda-forge
 
+# path
+envs_dirs:
+  - ~/.conda/envs
+pkgs_dirs:
+  - ~/.conda/pkgs
+
 # network
 remote_max_retries: 1
 ssl_verify: true
