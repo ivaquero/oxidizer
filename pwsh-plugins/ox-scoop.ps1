@@ -74,8 +74,8 @@ function supp {
     else { scoop update --all }
 }
 function scl {
-    if ([string]::IsNullOrEmpty($args)) { scoop cleanup -a -k}
-    else { scoop cleanup $args -k}
+    if ([string]::IsNullOrEmpty($args)) { scoop cleanup --all --cache }
+    else { scoop cleanup $args --cache }
 }
 
 function sdp { scoop depends $args }
