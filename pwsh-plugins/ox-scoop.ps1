@@ -38,7 +38,7 @@ function sls { scoop list }
 function sups { scoop update }
 
 function sup {
-    if ([string]::IsNullOrEmpty($args)) { scoop update * }
+    if ([string]::IsNullOrEmpty($args)) { scoop update --all }
     else { scoop update $args }
 }
 
@@ -55,7 +55,7 @@ function sisp {
         Start-Sleep -s 3
         pueue status
     }
-    else { scoop update * }
+    else { scoop update --all }
 }
 
 function supp {
@@ -71,7 +71,7 @@ function supp {
         Start-Sleep -s 3
         pueue status
     }
-    else { scoop update * }
+    else { scoop update --all }
 }
 function scl {
     if ([string]::IsNullOrEmpty($args)) { scoop cleanup -a -k}
@@ -85,9 +85,13 @@ function sat { scoop config aria2-enabled true }
 function saf { scoop config aria2-enabled false }
 
 # info & version
-function sif { scoop info $args }
+function sif {
+    Switch ( $args[1] ) {
+        --json { scoop cat $args[2] }
+        Default { scoop info $args }
+    }
+}
 function sst { scoop status }
-function scat { scoop cat $args }
 function spn { scoop hold $args }
 function supn { scoop unhold $args }
 
