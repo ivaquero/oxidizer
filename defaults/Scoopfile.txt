@@ -4,6 +4,7 @@ dust
 fd
 gitui
 lsd
+ouch
 pueue
 ripgrep
 sd

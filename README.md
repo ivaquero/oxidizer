@@ -70,9 +70,9 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - Unified Interface & Smooth Usage
 - Super-Fast! (Loading time < 1 s)
 
-### 2.1. Command Line Replacement
+### 2.1. CLI Tools Replacement
 
-☑️ means required in the installation.
+> ☑️ means required in the installation.
 
 - [x] Use `bat` instead of `cat`
 - [x] Use `dust` instead of `du`
@@ -86,23 +86,23 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [ ] Use `tokei` instead of `cloc`
 - [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
 
-### 2.2. Software Replacement
+> `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
+
+### 2.2. TUI Tools Replacement
 
 - [x] Use `bottom` instead of `top` or `htop`
 - [x] Use `gitui` instead of `lazygit`
-- [ ] Use `wezTerm` or `alacritty` instead of `iterm2` or `windows terminal`
 - [ ] Use `broot` instead of `ranger`
 - [ ] Use `helix` instead of `neovim`
+- [ ] Use `navi` instead of `cheat.sh`
 - [ ] Use `zellij` instead of `tmux` (Not support Windows yet)
-
-> `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 
 ### 2.3. Other Useful Rust Tools
 
-- [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [x] `hyperfine`: Command-line benchmarking tool
-- [ ] `ouch`: Painless compression and decompression tool
-- [ ] `navi`: An interactive cheatsheet tool for the command-line
+- [x] `ouch`: Painless compression and decompression tool
+- [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
+- [ ] Use `wezTerm` or `alacritty` instead of `iterm2` or `windows terminal`
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
 ### 2.4. Summary of Plugins
