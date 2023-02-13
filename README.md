@@ -97,18 +97,18 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [ ] Use `navi` instead of `cheat.sh`
 - [ ] Use `zellij` instead of `tmux` (Not support Windows yet)
 
-### 2.2. GUI Tools Replacement
+### 2.3. GUI Tools Replacement
 
 - [ ] Use `wezTerm` or `alacritty` instead of `iterm2` or `windows terminal`
 
-### 2.3. Other Useful Rust Tools
+### 2.4. Other Useful Rust Tools
 
 - [x] `hyperfine`: Command-line benchmarking tool
 - [x] `ouch`: Painless compression and decompression tool
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
-### 2.4. Summary of Plugins
+### 2.5. Summary of Plugins
 
 Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `custom.sh` to load the plugins by your need.
 
