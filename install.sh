@@ -80,8 +80,6 @@ if [[ $(uname -s) = "Linux" ]]; then
     printf "📦 Installing Zap to Manage AppImage Packages...\n"
     curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | bash -s
 else
-    printf "📦 Adding Tap homebrew/cask...\n"
-    brew tap "homebrew/cask"
     printf "📦 Adding Tap homebrew/cask-fonts...\n"
     brew tap "homebrew/cask-fonts"
 fi
