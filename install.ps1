@@ -91,7 +91,7 @@ sd '.* OX_STARTUP=.*' '$Global:OX_STARTUP=1' "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
 sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 
-reg import \"$dir\\install-associations.reg\"
+# reg import \"$dir\\install-associations.reg\"
 
 Write-Output "Oxidizer installation complete!"
 
