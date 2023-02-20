@@ -160,7 +160,8 @@ bst() {
     case $1 in
     -r) brew livecheck $2 ;;
     -rc) brew livecheck --cask $2 ;;
-    *) brew outdated --greedy ;;
+    -g) brew outdated --greedy ;;
+    *) brew outdated ;;
     esac
 }
 
