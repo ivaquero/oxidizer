@@ -43,7 +43,8 @@ $env:EDITOR_T = 'vi'
 # oxpbw: ox-bitwarden
 $Global:OX_PLUGINS = @(
     'oxpg',
-    'oxpfm'
+    'oxpfm',
+    'oxpvs'
 )
 
 ##########################################################
@@ -134,15 +135,15 @@ $Global:OX_OXIDE.bkpu = "$env:OX_BACKUP\pueue\pueue.yml"
 $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 
 # pueue demo
-function upp {
-    pueue group add up_all
-    pueue parallel 3 -g up_all
-    pueue add -g up_all 'scoop update *; scoop upgrade'
-    pueue add -g up_all 'conda update --all --yes'
-    pueue add -g up_all 'tlmgr update --all'
-    # or use predefined items in pueue_aliase
-    # pueue add -g up_all 'tlup'
-}
+# function upp {
+#     pueue group add up_all
+#     pueue parallel 3 -g up_all
+#     pueue add -g up_all 'scoop update *; scoop upgrade'
+#     pueue add -g up_all 'conda update --all --yes'
+#     pueue add -g up_all 'tlmgr update --all'
+#     # or use predefined items in pueue_aliase
+#     # pueue add -g up_all 'tlup'
+# }
 
 ##########################################################
 # conda settings
