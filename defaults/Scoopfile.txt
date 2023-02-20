@@ -3,6 +3,7 @@ bottom
 dust
 fd
 gitui
+hyperfine
 lsd
 ouch
 pueue
