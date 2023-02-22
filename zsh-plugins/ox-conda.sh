@@ -10,7 +10,6 @@ OX_ELEMENT[c]=${HOME}/.condarc
 if test "$(command -v mamba)"; then
     export OX_CONDA=mamba
 else
-    echo "Suggestion: install mamba for better experience."
     export OX_CONDA=conda
 fi
 
