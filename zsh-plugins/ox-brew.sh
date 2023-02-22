@@ -76,10 +76,10 @@ clean_brew() {
 
 alias bh="brew help"
 alias bcf="brew config"
-alias bis="brew install"
-alias bris="brew reinstall"
+alias bis="brew install --no-quarantine"
+alias bris="brew reinstall --no-quarantine"
 alias bups="brew update"
-alias bup="brew upgrade"
+alias bup="brew upgrade --no-quarantine"
 
 bus() {
     case $1 in
@@ -96,7 +96,7 @@ bisp() {
         pueue parallel $n_args -g brew_install
 
         for pkg in $@; do
-            pueue add -g brew_install "brew install $pkg"
+            pueue add -g brew_install "brew install $pkg --no-quarantine"
         done
         sleep 3 && pueue status
     else
@@ -119,7 +119,7 @@ bupp() {
             pueue parallel $num -g brew_upgrade
 
             echo $pkgs | while read line; do
-                pueue add -g brew_upgrade "brew upgrade $line"
+                pueue add -g brew_upgrade "brew upgrade $line --no-quarantine"
             done
             sleep 3 && pueue status
         fi
@@ -131,7 +131,7 @@ bupp() {
         pueue parallel $n_args -g brew_upgrade
 
         for pkg in $@; do
-            pueue add -g brew_upgrade "brew upgrade $pkg"
+            pueue add -g brew_upgrade "brew upgrade $pkg --no-quarantine"
         done
         sleep 3 && pueue status
     fi
@@ -234,11 +234,11 @@ alias busc="bus --cask"
 alias brisc="bris --cask --no-quarantine"
 alias bupc="bup --cask"
 
-bupa() {
+bupg() {
     local pkgs=$(brew outdated | sd "\n" " ")
     local casks=$(brew outdated --greedy-auto-updates | sd "\n" " ")
     eval "brew upgrade $pkgs"
-    eval "brew upgrade $casks"
+    eval "brew upgrade $casks --no-quarantine"
 }
 
 biscp() {
@@ -257,7 +257,7 @@ biscp() {
     fi
 }
 
-bupap() {
+bupgp() {
     local pkgs=$(brew outdated --greedy-auto-updates)
     local num=$(echo $pkgs | wc -l | sd " " "")
 
@@ -268,7 +268,7 @@ bupap() {
 
         echo $pkgs | while read line; do
             echo "upgrade $line"
-            pueue add -g brew_upgrade_greedy "brew upgrade $line"
+            pueue add -g brew_upgrade_greedy "brew upgrade $line --no-quarantine"
         done
 
         sleep 3 && pueue status
