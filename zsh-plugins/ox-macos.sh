@@ -27,6 +27,8 @@ clean() {
     vs)
         echo "Cleaning up VSCode Cache.\n"
         rm -rfv ${HOME}/Library/'Application Support'/Code/Cache/*
+        echo "Cleaning up VSCode Workspace Storage.\n"
+        rm -rfv ${HOME}/Library/'Application Support'/Code/User/workspaceStorage/*
         ;;
     chr)
         echo "Cleaning up Chrome Cache.\n"
