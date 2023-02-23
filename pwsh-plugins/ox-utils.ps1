@@ -2,6 +2,10 @@
 # Configuration File Utils
 ##########################################################
 
+Remove-Item alias:echo -Force -ErrorAction SilentlyContinue
+Remove-Item alias:cp -Force -ErrorAction SilentlyContinue
+Remove-Item alias:rm -Force -ErrorAction SilentlyContinue
+
 # export file
 # $@=names
 function epf {
@@ -20,9 +24,8 @@ function epf {
             cp -R -v $in_path $out_path
         }
         else {
-            $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
-            if (!(Test-Path $parentpath)) {
-                mkdir $parentpath
+            if (!(Test-Path $(dirname $out_path))) {
+                mkdir $(dirname $out_path)
             }
             cp -v $Global:OX_ELEMENT.$file $Global:OX_OXIDE.$bkfile
         }
@@ -43,11 +46,11 @@ function ipf {
             cp -R -v $in_path $out_path
         }
         else {
-            $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
-            if (!(Test-Path $parentpath)) {
-                mkdir $parentpath
+
+            if (!(Test-Path $(dirname $out_path))) {
+                mkdir $(dirname $out_path)
             }
-            cp -v $Global:OX_OXIDE.$bkfile $Global:OX_ELEMENT.$file
+            cp -v $in_path $out_path
         }
     }
 }
@@ -60,9 +63,8 @@ function iif {
         $in_path = $Global:OX_OXYGEN.$oxfile
         $out_path = $Global:OX_ELEMENT.$file
 
-        $parentpath = ( Get-Item $out_path ).DirectoryName
-        if ( !(Test-Path $parentpath) ) {
-            mkdir $parentpath
+        if ( !(Test-Path $(dirname $out_path)) ) {
+            mkdir $(dirname $out_path)
         }
         cp -v $in_path $out_path
     }
@@ -77,9 +79,8 @@ function dpf {
         $in_path = $Global:OX_OXYGEN.$oxfile
         $out_path = $Global:OX_OXIDE.$bkfile
 
-        $parentpath = ( Get-Item $out_path ).DirectoryName
-        if ( !(Test-Path $parentpath) ) {
-            mkdir $parentpath
+        if ( !(Test-Path $(dirname $out_path)) ) {
+            mkdir $(dirname $out_path)
         }
         cp -v $in_path $out_path
     }
@@ -155,14 +156,14 @@ function replace {
 
 # proxy
 function px {
-    param ( $the_port )
-    if ( $( $the_port | Measure-Object -Character).Character -lt 2 ) {
-        $port = $Global:OX_PROXY.$the_port
+    param ( $port_value )
+    if ( $( $port_value | Measure-Object -Character).Character -lt 2 ) {
+        $port = $Global:OX_PROXY.$port_value
     }
     else {
-        $port = $the_port
+        $port = $port_value
     }
-    echo "using port $($Global:OX_PROXY.$the_port)"
+    echo "using port $($Global:OX_PROXY.$port_value)"
     $env:https_proxy = "http://127.0.0.1:$port"
     $env:http_proxy = "http://127.0.0.1:$port"
     $env:all_proxy = "socks5://127.0.0.1:$port"

@@ -73,7 +73,7 @@ $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 # $Global:OX_ELEMENT.wz = "$env:OX_APPDATA\wezterm\wezterm.lua"
 
 # if ( !(Test-Path "$env:OX_BACKUP\terminal" ) ) {
-#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\terminal"
+#     mkdir "$env:OX_BACKUP\terminal"
 # }
 # $Global:OX_OXIDE.bkal = "$env:OX_BACKUP\terminal\alacritty.yml"
 # $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
@@ -166,7 +166,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 ##########################################################
 
 # if ( !(Test-Path "$env:OX_BACKUP\rust") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\rust"
+#     mkdir "$env:OX_BACKUP\rust"
 # }
 
 # $Global:OX_OXIDE.bkcg = "$env:OX_BACKUP\rust\config.toml"
@@ -177,7 +177,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 ##########################################################
 
 # if ( !(Test-Path "$env:OX_BACKUP\julia") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\julia"
+#     mkdir "$env:OX_BACKUP\julia"
 # }
 
 # $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\startup.jl"
@@ -188,7 +188,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 ##########################################################
 
 # if ( !(Test-Path "$env:OX_BACKUP\conan") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\conan"
+#     mkdir "$env:OX_BACKUP\conan"
 # }
 
 # $Global:OX_OXIDE.bkcn = "$env:OX_BACKUP\conan\conan.conf"
@@ -208,7 +208,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 ##########################################################
 
 # if ( !(Test-Path "$env:OX_BACKUP\vscode") ) {
-#     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\vscode"
+#     mkdir "$env:OX_BACKUP\vscode"
 # }
 
 # $Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"

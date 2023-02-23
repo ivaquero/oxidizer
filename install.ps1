@@ -22,8 +22,7 @@ else {
     else { & $f_scoop -ScoopDir 'C:\Scoop' }
 }
 
-scoop install aria2
-scoop install 7zip
+scoop install aria2 7zip
 
 # add additional buckets
 if ( $env:scoop_mirror ) {
