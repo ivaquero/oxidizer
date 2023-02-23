@@ -135,9 +135,9 @@ function lzpf { ouch list $args }
 # Hash Files
 ##########################################################
 
-alias sha1="sha1sum"
-alias sha2="sha256sum"
-alias sha5="sha512sum"
+function sha1 { sha1sum $args }
+function sha2 { sha256sum $args }
+function sha5 { sha512sum $args }
 
 ##########################################################
 # Batch Management
