@@ -31,6 +31,22 @@ back_vscode() {
 }
 
 ##########################################################
+# Cache
+##########################################################
+
+vscl() {
+    echo "Cleaning up VSCode Cache.\n"
+    rm -rfv ${HOME}/Library/'Application Support'/Code/Cache/*
+
+    case $1 in
+    -a)
+        echo "Cleaning up VSCode Workspace Storage.\n"
+        rm -rfv ${HOME}/Library/'Application Support'/Code/User/workspaceStorage/*
+        ;;
+    esac
+}
+
+##########################################################
 # extensions
 ##########################################################
 

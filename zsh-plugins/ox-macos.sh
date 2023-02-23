@@ -24,20 +24,14 @@ update() {
 
 clean() {
     case $1 in
-    vs)
-        echo "Cleaning up VSCode Cache.\n"
-        rm -rfv ${HOME}/Library/'Application Support'/Code/Cache/*
-        echo "Cleaning up VSCode Workspace Storage.\n"
-        rm -rfv ${HOME}/Library/'Application Support'/Code/User/workspaceStorage/*
+    zs)
+        echo "Cleaning up ZSH History.\n"
+        rm -rfv ${HOME}/.zsh_sessions/*
+        rm -fv ${HOME}/.zsh_history
         ;;
     chr)
         echo "Cleaning up Chrome Cache.\n"
         rm -rfv ${MACOS_CACHES}/Google/Chrome/*
-        ;;
-    zs)
-        echo "Cleaning up ZSH history.\n"
-        rm -rfv ${HOME}/.zsh_sessions/*
-        rm -fv ${HOME}/.zsh_history
         ;;
     cont)
         echo "Cleaning Container Caches"
