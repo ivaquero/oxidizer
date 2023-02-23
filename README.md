@@ -74,17 +74,20 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 > ☑️ means required in the installation.
 
-- [x] Use `bat` instead of `cat`
-- [x] Use `dust` instead of `du`
-- [x] Use `fd` instead of `find`
-- [x] Use `lsd` instead of `ls`
-- [x] Use `tre` instead of `tree`
-- [x] Use `ripgrep` instead of `grep`
-- [x] Use `sd` instead of `sed`
-- [x] Use `tealdeer` instead of `tldr` or `man`
-- [x] Use `zoxide` instead of `cd` or `z.lua`
-- [ ] Use `tokei` instead of `cloc`
-- [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
+- coreutils
+  - [x] Use `uutils-coreutils` instead of `coreutils`
+  - [x] Use `bat` instead of `cat`
+  - [x] Use `dust` instead of `du`
+  - [x] Use `lsd` instead of `ls`
+- non-coreutils
+  - [x] Use `fd` instead of `find`
+  - [x] Use `tre` instead of `tree`
+  - [x] Use `ripgrep` instead of `grep`
+  - [x] Use `sd` instead of `sed`
+  - [x] Use `tealdeer` instead of `tldr` or `man`
+  - [x] Use `zoxide` instead of `cd` or `z.lua`
+  - [ ] Use `tokei` instead of `cloc`
+  - [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
 
 > `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 
@@ -116,25 +119,25 @@ Of course, you are allowed to write your own plugins, see [Writing A Plugin](htt
 
 |                      Plugin                       | Linux | macOS | Windows | Autoload? |
 | :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
-|     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
-| [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
-|     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
-|                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
-|                      Utility                      |  ✅   |  ✅   |   ✅    |    ✅     |
-|            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
-| [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
-|    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
-|      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
-|    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
-|   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
-|      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   🚧    |           |
-|     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
-|   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
-|        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
-|   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
-|                    Container²                     |  ✅   |  ✅   |   ✅    |           |
-|                      Formats                      |  🕒   |  🕒   |   🕒    |           |
-|  [Helix](https://github.com/helix-editor/helix)   |  🕒   |  🕒   |   🕒    |           |
+|     [Brew](https://github.com/Homebrew/brew)      |   ✅   |   ✅   |    ❌    |     ✅     |
+| [Scoop](https://github.com/ScoopInstaller/Scoop)  |   ❌   |   ❌   |    ✅    |     ✅     |
+|     [Pueue](https://github.com/Nukesor/pueue)     |   ✅   |   ✅   |    ✅    |     ✅     |
+|                      System                       |  ✅¹   |   ✅   |    ✅    |     ✅     |
+|                      Utility                      |   ✅   |   ✅   |    ✅    |     ✅     |
+|            [Git](https://git-scm.com/)            |   ✅   |   ✅   |    ✅    |           |
+| [Bitwarden](https://github.com/bitwarden/clients) |   🕒   |   🕒   |    🕒    |           |
+|    [Conan](https://github.com/conan-io/conan)     |   ✅   |   ✅   |    ✅    |           |
+|      [Conda](https://github.com/conda/conda)      |   ✅   |   ✅   |    ✅    |           |
+|    [Julia](https://github.com/JuliaLang/julia)    |   ✅   |   ✅   |    🚧    |           |
+|   [Jupyter](https://github.com/jupyter/jupyter)   |   ✅   |   ✅   |    ✅    |           |
+|      [Node](https://github.com/nodejs/node)       |   ✅   |   ✅   |    🚧    |           |
+|     [Rust](https://github.com/rust-lang/rust)     |   ✅   |   ✅   |    ✅    |           |
+|   [Espanso](https://github.com/espanso/espanso)   |   ✅   |   ✅   |    ✅    |           |
+|        [TeXLive](https://tug.org/texlive/)        |   ✅   |   ✅   |    ✅    |           |
+|   [VSCode](https://github.com/microsoft/vscode)   |   ✅   |   ✅   |    ✅    |           |
+|                    Container²                     |   ✅   |   ✅   |    ✅    |           |
+|                      Formats                      |   🕒   |   🕒   |    🕒    |           |
+|  [Helix](https://github.com/helix-editor/helix)   |   🕒   |   🕒   |    🕒    |           |
 
 ✅: complete functionality
 🚧: partial functionality
@@ -234,26 +237,26 @@ Oxidizer aims to provide a unified interface for all package manager-related com
 
 | Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` | tlmgr `tl` |
 | :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: | :--------: |
-|  `*h`  |    help     |    ✅    |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
-| `*cf`  |   config    |    ✅    |           |    ✅     |   ✅    |            |             |            |     ✅     |            |
-| `*is`  |   install   |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
-| `*us`  |  uninstall  |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
-| `*up`  |   update    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |     ✅     |     ✅     |
-| `*ups` | update self |    ✅    |    ✅     |           |         |            |             |            |            |     ✅     |
-| `*ls`  |    list     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |     ✅     |
-| `*lv`  |   leaves    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |     ✅     |            |            |
-| `*sc`  |   search    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |            |
-| `*cl`  |    clean    |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |     ✅     |            |            |
-| `*if`  |    info     |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |     ✅     |
-| `*st`  |   status    |    ✅    |    ✅     |           |   ✅    |            |             |     ✅     |            |            |
-| `*ck`  |    check    |    ✅    |    ✅     |           |   ✅    |     ✅     |     ✅      |            |            |     ✅     |
-| `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |     ✅     |            |            |
-| `*upn` |    unpin    |    ✅    |    ✅     |           |         |            |             |     ✅     |            |            |
-| `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |     ✅     |     ✅     |            |
-| `*rdp` |    needs    |          |           |    ✅     |         |            |             |     ✅     |            |            |
-| `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |            |     ✅     |            |
-| `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |            |     ✅     |            |
-| `*xls` |  list repo  |          |           |    ✅     |         |            |             |            |     ✅     |            |
+|  `*h`  |    help     |    ✅     |           |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |     ✅      |     ✅      |
+| `*cf`  |   config    |    ✅     |           |     ✅     |    ✅    |            |             |            |     ✅      |            |
+| `*is`  |   install   |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |     ✅      |     ✅      |
+| `*us`  |  uninstall  |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |     ✅      |     ✅      |
+| `*up`  |   update    |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |     ✅      |     ✅      |
+| `*ups` | update self |    ✅     |     ✅     |           |         |            |             |            |            |     ✅      |
+| `*ls`  |    list     |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |            |     ✅      |
+| `*lv`  |   leaves    |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |             |     ✅      |            |            |
+| `*sc`  |   search    |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |             |            |     ✅      |            |
+| `*cl`  |    clean    |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |             |     ✅      |            |            |
+| `*if`  |    info     |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |             |            |     ✅      |     ✅      |
+| `*st`  |   status    |    ✅     |     ✅     |           |    ✅    |            |             |     ✅      |            |            |
+| `*ck`  |    check    |    ✅     |     ✅     |           |    ✅    |     ✅      |      ✅      |            |            |     ✅      |
+| `*pn`  |     pin     |    ✅     |     ✅     |           |         |            |             |     ✅      |            |            |
+| `*upn` |    unpin    |    ✅     |     ✅     |           |         |            |             |     ✅      |            |            |
+| `*dp`  |   depends   |    ✅     |     ✅     |     ✅     |         |     ✅      |             |     ✅      |     ✅      |            |
+| `*rdp` |    needs    |          |           |     ✅     |         |            |             |     ✅      |            |            |
+| `*xa`  |  add repo   |    ✅     |     ✅     |     ✅     |         |            |             |            |     ✅      |            |
+| `*xrm` | remove repo |    ✅     |     ✅     |     ✅     |         |            |             |            |     ✅      |            |
+| `*xls` |  list repo  |          |           |     ✅     |         |            |             |            |     ✅      |            |
 
 Particularly, Oxidizer provides with two groups of experimental functions with suffix `p` for installing and downloading packages in parallel
 
@@ -277,16 +280,16 @@ Some package managers also have functionality of project management
 
 | Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | conan `cn` |
 | :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :--------: |
-| `*ii`  | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |     ✅     |
-|  `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |     ✅     |
-|  `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |            |
-| `*ed`  |    edit     |    ✅    |           |           |         |            |             |            |            |
-| `*ca`  |     cat     |    ✅    |    ✅     |           |         |            |             |            |            |
-| `*ln`  |    link     |    ✅    |           |           |         |            |             |            |            |
-| `*ts`  |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |     ✅     |
-| `*au`  |    audit    |    ✅    |           |           |   ✅    |            |             |            |            |
-| `*fx`  |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |            |
-| `*pb`  |   publish   |          |           |           |   ✅    |     ✅     |             |            |            |
+| `*ii`  | init/create |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |             |            |     ✅      |
+|  `*b`  |    build    |          |           |           |         |     ✅      |             |     ✅      |     ✅      |
+|  `*r`  |     run     |          |           |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |            |
+| `*ed`  |    edit     |    ✅     |           |           |         |            |             |            |            |
+| `*ca`  |     cat     |    ✅     |     ✅     |           |         |            |             |            |            |
+| `*ln`  |    link     |    ✅     |           |           |         |            |             |            |            |
+| `*ts`  |    test     |    ✅     |           |           |    ✅    |     ✅      |             |     ✅      |     ✅      |
+| `*au`  |    audit    |    ✅     |           |           |    ✅    |            |             |            |            |
+| `*fx`  |     fix     |    ✅     |           |           |    ✅    |     ✅      |             |            |            |
+| `*pb`  |   publish   |          |           |           |    ✅    |     ✅      |             |            |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
@@ -296,22 +299,22 @@ Some of the package managers shortcuts are included in corresponding system plug
 
 | Suffix |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :--------: | :------: |
-|  `*h`  |    help     |   ✅    |   ✅    |     ✅     |    ✅    |
-| `*is`  |   install   |   ✅    |   ✅    |     ✅     |    ✅    |
-| `*us`  |  uninstall  |   ✅    |   ✅    |     ✅     |    ✅    |
-| `*up`  |   update    |   ✅    |   ✅    |     ✅     |    ✅    |
-| `*ups` | update self |         |   ✅    |     ✅     |    ✅    |
-| `*ls`  |    list     |         |   ✅    |     ✅     |    ✅    |
+|  `*h`  |    help     |    ✅    |    ✅    |     ✅      |    ✅     |
+| `*is`  |   install   |    ✅    |    ✅    |     ✅      |    ✅     |
+| `*us`  |  uninstall  |    ✅    |    ✅    |     ✅      |    ✅     |
+| `*up`  |   update    |    ✅    |    ✅    |     ✅      |    ✅     |
+| `*ups` | update self |         |    ✅    |     ✅      |    ✅     |
+| `*ls`  |    list     |         |    ✅    |     ✅      |    ✅     |
 | `*lv`  |   leaves    |         |         |            |          |
-| `*sc`  |   search    |   ✅    |   ✅    |            |          |
-| `*cl`  |    clean    |         |   ✅    |            |    ✅    |
-| `*if`  |    info     |   ✅    |   ✅    |     ✅     |          |
-| `*st`  |   status    |   ✅    |         |            |          |
-| `*ck`  |    check    |         |   ✅    |            |          |
-| `*dp`  |   depends   |         |   ✅    |            |          |
-| `*xa`  |  add repo   |         |   ✅    |     ✅     |          |
-| `*xrm` | remove repo |         |   ✅    |     ✅     |          |
-| `*xls` |  list repo  |         |   ✅    |     ✅     |          |
+| `*sc`  |   search    |    ✅    |    ✅    |            |          |
+| `*cl`  |    clean    |         |    ✅    |            |    ✅     |
+| `*if`  |    info     |    ✅    |    ✅    |     ✅      |          |
+| `*st`  |   status    |    ✅    |         |            |          |
+| `*ck`  |    check    |         |    ✅    |            |          |
+| `*dp`  |   depends   |         |    ✅    |            |          |
+| `*xa`  |  add repo   |         |    ✅    |     ✅      |          |
+| `*xrm` | remove repo |         |    ✅    |     ✅      |          |
+| `*xls` |  list repo  |         |    ✅    |     ✅      |          |
 
 ### 5.1. Homebrew
 

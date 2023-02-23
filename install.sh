@@ -93,15 +93,15 @@ printf "⚙️ Configuring Shell...\n"
 case ${SHELL} in
 *zsh)
     brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
-    export shell_conf=${HOME}/.zshrc
+    export OX_SHELL=${HOME}/.zshrc
     ;;
 *bash)
     if [[ $(bash --version | head -n1 | cut -d' ' -f4 | cut -d'.' -f1) < 5 ]]; then
         printf "📦 Installing latest Bash...\n"
         brew install bash bash-completion
     fi
-    export shell_conf=${HOME}/.profile
-    echo 'export BASH_SILENCE_DEPRECATION_WARNING=1' >>${shell_conf}
+    export OX_SHELL=${HOME}/.profile
+    echo 'export BASH_SILENCE_DEPRECATION_WARNING=1' >>${OX_SHELL}
     ;;
 esac
 
@@ -109,17 +109,17 @@ esac
 # Injecting Oxidizer
 ###################################################
 
-printf "⚙️ Adding Oxidizer into ${shell_conf}...\n"
+printf "⚙️ Adding Oxidizer into ${OX_SHELL}...\n"
 
-echo "# Oxidizer" >>${shell_conf}
+echo "# Oxidizer" >>${OX_SHELL}
 
 if [[ -z ${OXIDIZER} ]]; then
     echo '
     export OXIDIZER=${HOME}/oxidizer
     source ${OXIDIZER}/oxidizer.sh
-    ' >>${shell_conf}
+    ' >>${OX_SHELL}
 else
-    echo "source ${OXIDIZER}/oxidizer.sh" >>${shell_conf}
+    echo "source ${OXIDIZER}/oxidizer.sh" >>${OX_SHELL}
 fi
 
 echo "⚙️ Adding Custom settings..."
@@ -129,7 +129,7 @@ cp ${OXIDIZER}/defaults.sh ${OXIDIZER}/custom.sh
 sd ".* OX_STARTUP=.*" "export OX_STARTUP=1" ${OXIDIZER}/custom.sh
 
 # set path of oxidizer
-sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${shell_conf}
+sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${OX_SHELL}
 
 ###################################################
 # Editor

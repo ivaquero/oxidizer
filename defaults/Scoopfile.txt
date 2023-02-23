@@ -11,6 +11,7 @@ ripgrep
 sd
 tealdeer
 tre-command
+uutils-coreutils
 zoxide
 scoop-completion
 winget
@@ -19,5 +20,4 @@ psreadline
 dark
 innounp
 sudo
-busybox
 vscode

@@ -11,4 +11,5 @@ ripgrep
 sd
 tealdeer
 tre-command
+uutils-coreutils
 zoxide
