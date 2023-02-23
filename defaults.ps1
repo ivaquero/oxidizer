@@ -69,8 +69,8 @@ $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 
 # system file
 # $Global:OX_ELEMENT.vi = "$HOME\.vimrc"
-# $Global:OX_ELEMENT.al = "$env:OX_APPDATA\alacritty\alacritty.yml"
-# $Global:OX_ELEMENT.wz = "$env:OX_APPDATA\wezterm\wezterm.lua"
+# $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
+# $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
 # if ( !(Test-Path "$env:OX_BACKUP\terminal" ) ) {
 #     mkdir "$env:OX_BACKUP\terminal"

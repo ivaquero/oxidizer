@@ -2,14 +2,14 @@
 # config
 ##########################################################
 
-$Global:OX_APPHOME.vs = "$env:OX_APPDATA\Code\User"
+$Global:OX_APPHOME.vs = "$env:APPDATA\Code\User"
 if ( !(Test-Path "$Global:OX_APPHOME.vs") ) {
-    $Global:OX_APPHOME.vs = "$env:SCOOP\persist\vscode\data\user-data\User"
+    $Global:OX_APPHOME.vs = "$env:SCOOP\persist\vscode\data\user-data"
 }
 
-$Global:OX_ELEMENT.vs = "$($Global:OX_APPHOME.vs)\settings.json"
-$Global:OX_ELEMENT.vsk = "$($Global:OX_APPHOME.vs)\keybindings.json"
-$Global:OX_ELEMENT.vss_ = "$($Global:OX_APPHOME.vs)\snippets"
+$Global:OX_ELEMENT.vs = "$($Global:OX_APPHOME.vs)\User\settings.json"
+$Global:OX_ELEMENT.vsk = "$($Global:OX_APPHOME.vs)\User\keybindings.json"
+$Global:OX_ELEMENT.vss_ = "$($Global:OX_APPHOME.vs)\User\snippets"
 
 function up_vscode {
     echo "Update VSCode extensions by $($Global:OX_OXIDE.bkvsx)"
@@ -36,6 +36,22 @@ function up_vscode {
 function back_vscode {
     echo "Backup VSCode extensions to $($Global:OX_OXIDE.bkvsx)"
     code --list-extensions > "$($Global:OX_OXIDE.bkvsx)"
+}
+
+##########################################################
+# Cache
+##########################################################
+
+function vscl {
+    echo "Cleaning up VSCode Cache.\n"
+    rm -rfv $($Global:OX_APPHOME.vs)\Cache\*
+
+    Switch ( $args[1] ) {
+        -a {
+            echo "Cleaning up VSCode Workspace Storage.\n"
+            rm -rfv $($Global:OX_APPHOME.vs)\User\workspaceStorage\*
+        }
+    }
 }
 
 ##########################################################

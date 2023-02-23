@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-$Global:OX_APPHOME.es = "$env:OX_APPDATA\espanso"
+$Global:OX_APPHOME.es = "$env:APPDATA\espanso"
 if ( !(Test-Path "$Global:OX_APPHOME.es") ) {
     $Global:OX_APPHOME.es = "$env:SCOOP\apps\espanso\current\.espanso"
 }
