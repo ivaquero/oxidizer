@@ -3,7 +3,7 @@
 ##########################################################
 
 # binaries
-export OPEN=nautilus
+export OX_OPEN=nautilus
 
 OX_ELEMENT[sc]="/etc/apt/sources.list"
 

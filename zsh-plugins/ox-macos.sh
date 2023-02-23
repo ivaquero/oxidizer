@@ -3,7 +3,7 @@
 ##########################################################
 
 # binaries
-export OPEN=open
+export OX_OPEN=open
 
 if [[ $(uname -m) = "arm64" ]]; then
     export TERMINFO=/usr/share/terminfo
