@@ -2,8 +2,8 @@
 # config
 ##########################################################
 
-$Global:OX_ELEMENT.pu = "$env:APPDATA\pueue\pueue.yml"
-$Global:OX_ELEMENT.pua = "$env:APPDATA\pueue\pueue_aliases.yml"
+$Global:OX_ELEMENT.pu = "$env:OX_APPDATA\pueue\pueue.yml"
+$Global:OX_ELEMENT.pua = "$env:OX_APPDATA\pueue\pueue_aliases.yml"
 
 ##########################################################
 # management

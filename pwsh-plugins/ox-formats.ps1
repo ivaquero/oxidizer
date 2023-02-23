@@ -3,9 +3,9 @@
 ##########################################################
 
 function pdls {
-    Write-Output 'input-formats\n'
+    echo 'input-formats\n'
     pandoc --list-input-formats
-    Write-Output 'output-formats\n'
+    echo 'output-formats\n'
     pandoc --list-output-formats
 }
 
@@ -31,7 +31,7 @@ function mdto {
                 $pdf_engine = xelatex
             }
             else {
-                Write-Output 'No available pdf engine found'
+                echo 'No available pdf engine found'
             }
             pandoc $file -o ($name + "." + $format) --pdf-engine=$pdf_engine -V CJKmainfont=$env:OX_FONT
         }

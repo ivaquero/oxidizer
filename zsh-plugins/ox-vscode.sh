@@ -2,9 +2,9 @@
 # config
 ##########################################################
 
-OX_ELEMENT[vs]=${APPDATA}/Code/User/settings.json
-OX_ELEMENT[vsk]=${APPDATA}/Code/User/keybindings.json
-OX_ELEMENT[vss_]=${APPDATA}/Code/User/snippets
+OX_ELEMENT[vs]=${OX_APPDATA}/Code/User/settings.json
+OX_ELEMENT[vsk]=${OX_APPDATA}/Code/User/keybindings.json
+OX_ELEMENT[vss_]=${OX_APPDATA}/Code/User/snippets
 
 up_vscode() {
     echo "Update VSCode extensions by ${OX_OXIDE[bkvsx]}"

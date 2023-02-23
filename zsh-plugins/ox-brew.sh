@@ -9,8 +9,8 @@ if [[ $(uname -s) = "Darwin" ]]; then
     else
         eval "$(/usr/local/Homebrew/bin/brew shellenv)"
     fi
-    export APP=$(brew --caskroom)
-    export APPDATA=${HOME}/Library/'Application Support'
+    export OX_APPHOME="$HOMEBREW_PREFIX/Caskroom"
+    export OX_APPDATA=${HOME}/Library/'Application Support'
 else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi

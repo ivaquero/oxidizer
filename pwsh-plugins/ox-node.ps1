@@ -6,14 +6,14 @@
 $Global:OX_ELEMENT.nj = "$HOME/.npmrc"
 
 function up_node {
-    Write-Output "Update Node by $($Global:OX_OXIDE.bknjx)"
+    echo "Update Node by $($Global:OX_OXIDE.bknjx)"
     $pkgs = (cat $($Global:OX_OXIDE.bknjx) | sd "`n" ' ')
-    Write-Output "Installing $pkgs"
+    echo "Installing $pkgs"
     Invoke-Expression "npm install -g $pkgs --force"
 }
 
 function back_node {
-    Write-Output "Backup Node to $($Global:OX_OXIDE.bknjx)"
+    echo "Backup Node to $($Global:OX_OXIDE.bknjx)"
     $pkgs = $(npm list --depth 0 -g | rg --multiline --only-matching '[\s][@a-z].*[a-z]')
     $pkgs.Replace(' ', '').Replace('npm ', '') | sd "`n" ' ' > "$($Global:OX_OXIDE.bknjx)"
 }

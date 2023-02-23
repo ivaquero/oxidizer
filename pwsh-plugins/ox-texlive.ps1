@@ -3,23 +3,23 @@
 ##########################################################
 
 function up_texlive {
-    Write-Output "Update TeXLive by $($Global:OX_OXIDE.bktl)"
+    echo "Update TeXLive by $($Global:OX_OXIDE.bktl)"
     $file = (cat $($Global:OX_OXIDE.bktl))
-    $num = (cat $($Global:OX_OXIDE.bktl) | Measure-Object -Line).Lines
+    $num = (cat $($Global:OX_OXIDE.bktl) | wc -l)
 
     pueue group add texlive_update
     pueue parallel $num -g texlive_update
 
     Foreach ( $line in $file ) {
-        Write-Output "Installing $line"
+        echo "Installing $line"
         pueue add -g texlive_update "tlmgr install $line"
     }
-    Start-Sleep -s 3
+    sleep 3
     pueue status
 }
 
 function back_texlive {
-    Write-Output "Backup TeXLive to $($Global:OX_OXIDE.bktl)"
+    echo "Backup TeXLive to $($Global:OX_OXIDE.bktl)"
     tlmgr list --only-installed | rg --only-matching 'collection-\w+' | rg --invert-match 'basic' > "$($Global:OX_OXIDE.bktl)"
 }
 

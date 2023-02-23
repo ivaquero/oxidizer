@@ -11,7 +11,7 @@ function open { param ( $path ) explorer $path }
 function clean {
     param ( $obj )
     Switch ( $obj ) {
-        sdl { Remove-Item -Recurse -Confirm $env:SCOOP\cache }
+        sdl { rm -r $env:SCOOP\cache }
         Default { Clear-RecycleBin -Confirm }
     }
 }
@@ -25,22 +25,15 @@ function shutdown { Stop-Computer -Force }
 function restart { Restart-Computer -Force }
 
 ##########################################################
-# files
-##########################################################
-
-function sha1 { param ( $pkg ) Get-FileHash -Algorithm SHA1 $pkg }
-function sha2 { param ( $pkg ) Get-FileHash $pkg }
-
-##########################################################
 # winget
 ##########################################################
 
 function up_winget {
-    Write-Output "Update Scoop by $($Global:OX_OXIDE.bkw)"
+    echo "Update Scoop by $($Global:OX_OXIDE.bkw)"
     winget import -i $Global:OX_OXIDE.bkw
 }
 function back_winget {
-    Write-Output "Backup Scoop by $($Global:OX_OXIDE.bkw)"
+    echo "Backup Scoop by $($Global:OX_OXIDE.bkw)"
     winget export -o $Global:OX_OXIDE.bkw
 }
 

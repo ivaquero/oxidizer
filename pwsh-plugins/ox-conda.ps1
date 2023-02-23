@@ -17,9 +17,9 @@ else {
 
 
 function init_conda {
-    Write-Output 'Initialize Conda by Oxidizer configuration'
-    $pkgs = cat $($Global:OX_OXYGEN.oxce) | sd "`n" ' '
-    Write-Output "Installing $pkgs"
+    echo 'Initialize Conda by Oxidizer configuration'
+    $pkgs = (cat $($Global:OX_OXYGEN.oxce) | sd "`n" ' ')
+    echo "Installing $pkgs"
     Invoke-Expression ". $Global:OX_CONDA install $pkgs"
 }
 
@@ -38,9 +38,9 @@ function up_conda {
         $conda_file = $the_file
     }
 
-    Write-Output "Update Conda Env $cenv by $conda_file"
-    $pkg = cat $conda_file | sd "`n" ' '
-    Write-Output "Installing $pkg"
+    echo "Update Conda Env $cenv by $conda_file"
+    $pkg = (cat $conda_file | sd "`n" ' ')
+    echo "Installing $pkg"
     Invoke-Expression ". $Global:OX_CONDA install $pkgs"
 }
 
@@ -59,7 +59,7 @@ function back_conda {
         $conda_file = $the_file
     }
 
-    Write-Output "Backup Conda Env $cenv to $conda_file"
+    echo "Backup Conda Env $cenv to $conda_file"
     $pkg = $(conda tree -n $cenv leaves)
     $pkg.Replace("[',\[\]]", '') | sd ' ' "`n" > "$conda_file"
 }
@@ -132,11 +132,11 @@ function clv {
 function cmt {
     param ( $the_env )
     $num_total = (Clear-Host $the_env | Measure-Object -Line).Line
-    Write-Output "total: $num_total"
+    echo "total: $num_total"
     $num_immature = (Clear-Host $the_env | rg '\s0\.\d' | Measure-Object -Line).Line
     $ratio = $num_immature / $num_total * 100
     $mature_rate = '{0:N0}' -f $(100 - $ratio)
-    Write-Output "mature rate: $mature_rate %"
+    echo "mature rate: $mature_rate %"
 }
 
 ##########################################################

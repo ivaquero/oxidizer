@@ -13,18 +13,18 @@ function epf {
         $out_path = $Global:OX_OXIDE.$bkfile
 
         if ( [string]::IsNullOrEmpty($out_path) ) {
-            Write-Output "$out_path does not exist, please define it in custom.ps1"
+            echo "$out_path does not exist, please define it in custom.ps1"
         }
         elseif ( $file.EndsWith("_") ) {
-            Remove-Item -Recurse $out_path
-            Copy-Item -Verbose -Force -Path $in_path -Destination $out_path
+            rm -rf $out_path
+            cp -R -v $in_path $out_path
         }
         else {
             $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
             if (!(Test-Path $parentpath)) {
-                New-Item -ItemType Directory -Force -Path $parentpath
+                mkdir $parentpath
             }
-            Copy-Item -Verbose -Path $Global:OX_ELEMENT.$file -Destination $Global:OX_OXIDE.$bkfile
+            cp -v $Global:OX_ELEMENT.$file $Global:OX_OXIDE.$bkfile
         }
     }
 }
@@ -39,15 +39,15 @@ function ipf {
         $out_path = $Global:OX_ELEMENT.$file
 
         if ( $file.EndsWith("_") ) {
-            Remove-Item -Recurse $out_path
-            Copy-Item -Verbose -Force -Path $in_path -Destination $out_path
+            rm -rf $out_path
+            cp -R -v $in_path $out_path
         }
         else {
             $parentpath = ( Get-Item $Global:OX_ELEMENT.$file ).DirectoryName
             if (!(Test-Path $parentpath)) {
-                New-Item -ItemType Directory -Force -Path $parentpath
+                mkdir $parentpath
             }
-            Copy-Item -Verbose -Path $Global:OX_OXIDE.$bkfile -Destination $Global:OX_ELEMENT.$file
+            cp -v $Global:OX_OXIDE.$bkfile $Global:OX_ELEMENT.$file
         }
     }
 }
@@ -62,9 +62,9 @@ function iif {
 
         $parentpath = ( Get-Item $out_path ).DirectoryName
         if ( !(Test-Path $parentpath) ) {
-            New-Item -ItemType Directory -Force -Path $parentpath
+            mkdir $parentpath
         }
-        Copy-Item -Verbose -Path $in_path -Destination $out_path
+        cp -v $in_path $out_path
     }
 }
 
@@ -79,9 +79,9 @@ function dpf {
 
         $parentpath = ( Get-Item $out_path ).DirectoryName
         if ( !(Test-Path $parentpath) ) {
-            New-Item -ItemType Directory -Force -Path $parentpath
+            mkdir $parentpath
         }
-        Copy-Item -Verbose -Path $in_path -Destination $out_path
+        cp -v $in_path $out_path
     }
 }
 
@@ -132,6 +132,14 @@ function uzpf { ouch decompress $args }
 function lzpf { ouch list $args }
 
 ##########################################################
+# Hash Files
+##########################################################
+
+alias sha1="sha1sum"
+alias sha2="sha256sum"
+alias sha5="sha512sum"
+
+##########################################################
 # Batch Management
 ##########################################################
 
@@ -142,7 +150,7 @@ function replace {
 }
 
 ##########################################################
-# OX_PROXY utils
+# Proxy Utils
 ##########################################################
 
 # proxy
@@ -154,14 +162,14 @@ function px {
     else {
         $port = $the_port
     }
-    Write-Output "using port $($Global:OX_PROXY.$the_port)"
+    echo "using port $($Global:OX_PROXY.$the_port)"
     $env:https_proxy = "http://127.0.0.1:$port"
     $env:http_proxy = "http://127.0.0.1:$port"
     $env:all_proxy = "socks5://127.0.0.1:$port"
 }
 
 function pxq {
-    Write-Output 'unset all proxies'
+    echo 'unset all proxies'
     $env:https_proxy = ''
     $env:http_proxy = ''
     $env:all_proxy = ''

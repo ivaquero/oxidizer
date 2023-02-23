@@ -11,18 +11,18 @@ Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
 ##########################################################
 
 function init_scoop {
-    Write-Output "Initialize Scoop by Oxidizer configuration"
+    echo "Initialize Scoop by Oxidizer configuration"
     $scoop_pkgs = (cat $($Global:OX_OXYGEN.oxs) | sd "\n" "")
     scoop install $scoop_pkgs
 }
 
 function up_scoop {
-    Write-Output "Update Scoop by $($Global:OX_OXIDE.bks)"
+    echo "Update Scoop by $($Global:OX_OXIDE.bks)"
     scoop import $($Global:OX_OXIDE.bks)
 }
 
 function back_scoop {
-    Write-Output "Backup Scoop to $($Global:OX_OXIDE.bks)"
+    echo "Backup Scoop to $($Global:OX_OXIDE.bks)"
     scoop export > $($Global:OX_OXIDE.bks)
 }
 
@@ -43,32 +43,32 @@ function sup {
 }
 
 function sisp {
-    $num = (Write-Output $args | Measure-Object -Line).Lines
+    $num = echo $args | wc -l
     if ( $num -ge 1 ) {
         pueue group add scoop_install
         pueue parallel $num -g scoop_install
 
         ForEach ($pkg in $args) {
-            Write-Output "Installing $pkg"
+            echo "Installing $pkg"
             pueue add -g scoop_install "scoop install $pkg"
         }
-        Start-Sleep -s 3
+        sleep 3
         pueue status
     }
     else { scoop update --all }
 }
 
 function supp {
-    $num = (scoop status | Measure-Object -Line).Lines
+    $num = scoop status | wc -l
     if ( $num -ge 1 ) {
         pueue group add scoop_update
         pueue parallel $num -g scoop_update
 
         ForEach ($pkg in $args) {
-            Write-Output "Installing $pkg"
+            echo "Installing $pkg"
             pueue add -g scoop_update "scoop update $pkg"
         }
-        Start-Sleep -s 3
+        sleep 3
         pueue status
     }
     else { scoop update --all }

@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-$Global:OX_APPHOME.es = "$env:APPDATA\espanso"
+$Global:OX_APPHOME.es = "$env:OX_APPDATA\espanso"
 if ( !(Test-Path "$Global:OX_APPHOME.es") ) {
     $Global:OX_APPHOME.es = "$env:SCOOP\apps\espanso\current\.espanso"
 }
@@ -45,7 +45,6 @@ function esq { espanso stop }
 # main
 ##########################################################
 
-function esa { param ( $path ) New-Item -Force -Path $($Global:OX_APPHOME.es)\match\$path.yml }
-function es { espanso $args }
+function esa { param ( $path ) touch $($Global:OX_APPHOME.es)\match\$path.yml }
 function esh { espanso help $args }
 function esed { espanso edit $args }

@@ -69,8 +69,8 @@ $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 
 # system file
 # $Global:OX_ELEMENT.vi = "$HOME\.vimrc"
-# $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
-# $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
+# $Global:OX_ELEMENT.al = "$env:OX_APPDATA\alacritty\alacritty.yml"
+# $Global:OX_ELEMENT.wz = "$env:OX_APPDATA\wezterm\wezterm.lua"
 
 # if ( !(Test-Path "$env:OX_BACKUP\terminal" ) ) {
 #     New-Item -ItemType Directory -Force -Path "$env:OX_BACKUP\terminal"
@@ -240,7 +240,7 @@ function man { tldr $args }
 function du { dust $args }
 
 # shortcuts
-function e { Write-Output $args }
+function e { echo $args }
 function rr { Remove-Item -Recurse $args }
 function c { Clear-Host }
 
@@ -277,8 +277,8 @@ function weaher {
     -g
     { Invoke-WebRequest v3.wttr.in/$loc }
     -h {
-        Write-Output "param 1:`n city: new+york`n airport(codes): muc `n resort: ~Eiffel+Tower`n ip address: @github.com`n help: :help"
-        Write-Output "param 2:`n a: all`n d: day `n n: night`n g: {geographical`n f: format"
+        echo "param 1:`n city: new+york`n airport(codes): muc `n resort: ~Eiffel+Tower`n ip address: @github.com`n help: :help"
+        echo "param 2:`n a: all`n d: day `n n: night`n g: {geographical`n f: format"
     }
     default { Invoke-WebRequest v2.wttr.in/$loc }
 }
