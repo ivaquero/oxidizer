@@ -5,7 +5,7 @@
 # binaries
 export OX_OPEN=open
 
-if [[ $(uname -m) = "arm64" ]]; then
+if [[ $(arch) = "arm64" ]]; then
     export TERMINFO=/usr/share/terminfo
 else
     export TERMINFO=/usr/local/share/terminfo

@@ -86,7 +86,7 @@ declare -a OX_PLUGINS
 . ${OX_OXYGEN[oxppu]}
 
 # import ox-brew
-if [[ $(uname -s) != "Linux" ]] && [[ $(uname -m) != "aarch64" ]]; then
+if [[ $(uname -s) != "Linux" ]] && [[ $(arch) != "aarch64" ]]; then
     . ${OX_OXYGEN[oxpb]}
 fi
 

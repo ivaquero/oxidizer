@@ -3,8 +3,8 @@
 ##########################################################
 
 # source system-specific commands
-if [[ $(uname -s) = "Darwin" ]]; then
-    if [[ $(uname -m) = "arm64" ]]; then
+if [[ $(uname) = "Darwin" ]]; then
+    if [[ $(arch) = "arm64" ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     else
         eval "$(/usr/local/Homebrew/bin/brew shellenv)"

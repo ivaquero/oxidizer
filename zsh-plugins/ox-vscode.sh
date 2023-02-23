@@ -34,7 +34,7 @@ back_vscode() {
 # Cache
 ##########################################################
 
-if [[ $(uname -s) = "Darwin" ]]; then
+if [[ $(uname) = "Darwin" ]]; then
     vscl() {
         echo "Cleaning up VSCode Cache.\n"
         rm -rfv $APPDATA/Code/Cache/*

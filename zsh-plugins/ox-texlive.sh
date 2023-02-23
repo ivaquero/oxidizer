@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-if [[ $(uname -s) = "Darwin" ]]; then
+if [[ $(uname) = "Darwin" ]]; then
     export texlive=/usr/local/texlive
 fi
 

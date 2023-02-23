@@ -13,7 +13,7 @@ alias jn="jupyter notebook"
 alias jncf="jupyter notebook --generate-config"
 alias jnl="jupyter lab"
 
-if [[ $(uname -s) = "Darwin" ]]; then
+if [[ $(uname) = "Darwin" ]]; then
     jncl() {
         echo "Cleaning up Jupyter Runtime Cache.\n"
         rm -rfv ${HOME}/Library/Jupyter/runtime/*.json

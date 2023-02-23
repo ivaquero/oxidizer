@@ -181,7 +181,7 @@ cerm() {
 
 # change environment subdir
 cesd() {
-    if [[ $(uname -s) = "Darwin" ]]; then
+    if [[ $(uname) = "Darwin" ]]; then
         case $1 in
         i*) conda env config vars set CONDA_SUBDIR=osx-64 ;;
         a*) conda env config vars set CONDA_SUBDIR=osx-arm64 ;;
@@ -198,8 +198,8 @@ cesd() {
 
 # export environment: $1=name
 ceep() {
-    os=$(echo $(uname -s) | tr "[:upper:]" "[:lower:]")
-    arch=$(uname -m)
+    os=$(echo $(uname) | tr "[:upper:]" "[:lower:]")
+
     if [[ -z $1 ]]; then
         local conda_env=base
     elif [[ ${#1} < 3 ]]; then
@@ -207,7 +207,7 @@ ceep() {
     else
         local conda_env=$1
     fi
-    conda env export -n $conda_env -f ${OXIDIZER}/defaults/$conda_env-$os-$arch.yml
+    conda env export -n $conda_env -f ${OXIDIZER}/defaults/$conda_env-$os-$(arch).yml
 }
 
 # rename environment: $1=old_name, $2=new_name

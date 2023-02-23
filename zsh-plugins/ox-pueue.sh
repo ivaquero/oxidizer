@@ -2,7 +2,7 @@
 # config
 ##########################################################
 
-if [[ $(uname -s) = "Darwin" ]]; then
+if [[ $(uname) = "Darwin" ]]; then
     OX_ELEMENT[pu]=${HOME}/Library/Preferences/pueue/pueue.yml
     OX_ELEMENT[pua]=${HOME}/Library/Preferences/pueue/pueue_aliases.yml
 else
