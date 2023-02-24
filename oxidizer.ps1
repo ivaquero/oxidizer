@@ -67,16 +67,15 @@ $Global:OX_APPHOME = @{}
 $Global:OX_CORE_PLUGINS = @('oxput', 'oxppu', 'oxpw')
 
 ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
-    . $Global:OX_OXYGEN.$($core_plugin)
+    . $($Global:OX_OXYGEN.$($core_plugin))
 }
 
-# import ox-scoop
-if ( $arch.Contains("Windows") ) {
-    . $Global:OX_OXYGEN.oxps
+if ( $(uname).Contains("Windows") ) {
+    . $($Global:OX_OXYGEN.oxps)
 }
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
-    . $Global:OX_OXYGEN.$($plugin)
+    . $($Global:OX_OXYGEN.$($plugin))
 }
 
 ##########################################################
@@ -164,6 +163,6 @@ Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 
-if ( $arch.Contains("Windows") ) {
+if ( $(uname).Contains("Windows") ) {
     Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion" -ErrorAction SilentlyContinue
 }

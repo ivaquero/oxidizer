@@ -135,6 +135,8 @@ sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${OX_SHELL}
 # Loading Plugins
 ###################################################
 
+source ${OX_SHELL}
+
 if [[ ! -d ${OXIDIZER}/plugins ]]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
