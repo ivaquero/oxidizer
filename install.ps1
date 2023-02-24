@@ -112,5 +112,4 @@ if ( $(uname).Contains("Windows") ) {
 # reg import \"$dir\\install-associations.reg\"
 
 echo "Oxidizer installation complete!"
-
-echo "Don't forget to restart your terminal."
+echo "Don't forget to restart your terminal and run \'upox\' function"

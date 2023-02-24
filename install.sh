@@ -164,3 +164,4 @@ else
 fi
 
 printf "🎉 Oxidizer installation complete!\n"
+echo "Don't forget to restart your terminal and run \'upox\' function"
