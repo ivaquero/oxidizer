@@ -1,4 +1,4 @@
-if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
+if (test -z $env:OXIDIZER) {
     $env:OXIDIZER = "$HOME\oxidizer"
 }
 
@@ -164,7 +164,3 @@ Set-PSReadLineKeyHandler -Key Tab -Function Complete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
-
-if ( $(uname).Contains("Windows") ) {
-    Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion" -ErrorAction SilentlyContinue
-}

@@ -59,29 +59,29 @@ ForEach ( $pkg in $pkgs ) {
 # Update PowerShell Settings
 ###################################################
 
-echo "Adding Oxidizer into $PROFILE..."
+Write-Host "Adding Oxidizer into $PROFILE..."
 
 if ( !(Test-Path $PROFILE) ) {
     New-Item -ItemType File -Force -Path $PROFILE
 }
 
-echo '# Oxidizer' >> $PROFILE
+Write-Host '# Oxidizer' >> $PROFILE
 
 if ( [string]::IsNullOrEmpty($env:OXIDIZER) ) {
     if ( [Environment]::OSVersion.VersionString.Contains("Unix") ) {
-        echo '
+        Write-Host '
         $env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
     }
     else {
-        echo '$env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
+        Write-Host '$env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
     }
-    echo '. $env:OXIDIZER\oxidizer.ps1' >> $PROFILE
+    Write-Host '. $env:OXIDIZER\oxidizer.ps1' >> $PROFILE
 }
 else {
-    echo ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
+    Write-Host ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
 }
 
-echo "Adding Custom settings..."
+Write-Host "Adding Custom settings..."
 Copy-Item -Verbose -Force -Path "$env:OXIDIZER\defaults.ps1" -Destination "$env:OXIDIZER\custom.ps1"
 
 # loading zoxide
@@ -111,5 +111,5 @@ if ( $(uname).Contains("Windows") ) {
 
 # reg import \"$dir\\install-associations.reg\"
 
-echo "Oxidizer installation complete!"
-echo "Don't forget to restart your terminal and run \'upox\' function"
+Write-Host "Oxidizer installation complete!"
+Write-Host "Don't forget to restart your terminal and run \'upox\' function"
