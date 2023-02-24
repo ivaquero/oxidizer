@@ -11,27 +11,27 @@ declare -A OX_OXYGEN
 OX_OXYGEN[oxd]=${OXIDIZER}/defaults.sh
 OX_OXYGEN[oxwz]=${OXIDIZER}/defaults/wezterm.lua
 # plugins
-OX_OXYGEN[oxpm]=${OXIDIZER}/zsh-plugins/ox-macos.sh
-OX_OXYGEN[oxpa]=${OXIDIZER}/zsh-plugins/ox-apt.sh
-OX_OXYGEN[oxpb]=${OXIDIZER}/zsh-plugins/ox-brew.sh
-OX_OXYGEN[oxpg]=${OXIDIZER}/zsh-plugins/ox-git.sh
-OX_OXYGEN[oxpc]=${OXIDIZER}/zsh-plugins/ox-conda.sh
-OX_OXYGEN[oxpbw]=${OXIDIZER}/zsh-plugins/ox-bitwarden.sh
-OX_OXYGEN[oxpcn]=${OXIDIZER}/zsh-plugins/ox-conan.sh
-OX_OXYGEN[oxpct]=${OXIDIZER}/zsh-plugins/ox-container.sh
-OX_OXYGEN[oxpes]=${OXIDIZER}/zsh-plugins/ox-espanso.sh
-OX_OXYGEN[oxpfm]=${OXIDIZER}/zsh-plugins/ox-formats.sh
-OX_OXYGEN[oxphx]=${OXIDIZER}/zsh-plugins/ox-helix.sh
-OX_OXYGEN[oxpjl]=${OXIDIZER}/zsh-plugins/ox-julia.sh
-OX_OXYGEN[oxpjn]=${OXIDIZER}/zsh-plugins/ox-jupyter.sh
-OX_OXYGEN[oxpnj]=${OXIDIZER}/zsh-plugins/ox-node.sh
-OX_OXYGEN[oxppd]=${OXIDIZER}/zsh-plugins/ox-podman.sh
-OX_OXYGEN[oxppu]=${OXIDIZER}/zsh-plugins/ox-pueue.sh
-OX_OXYGEN[oxprs]=${OXIDIZER}/zsh-plugins/ox-rust.sh
-OX_OXYGEN[oxptl]=${OXIDIZER}/zsh-plugins/ox-texlive.sh
-OX_OXYGEN[oxput]=${OXIDIZER}/zsh-plugins/ox-utils.sh
-OX_OXYGEN[oxpvs]=${OXIDIZER}/zsh-plugins/ox-vscode.sh
-OX_OXYGEN[oxpzj]=${OXIDIZER}/zsh-plugins/ox-zellij.sh
+OX_OXYGEN[oxpm]=${OXIDIZER}/plugins/ox-macos.sh
+OX_OXYGEN[oxpa]=${OXIDIZER}/plugins/ox-apt.sh
+OX_OXYGEN[oxpb]=${OXIDIZER}/plugins/ox-brew.sh
+OX_OXYGEN[oxpg]=${OXIDIZER}/plugins/ox-git.sh
+OX_OXYGEN[oxpc]=${OXIDIZER}/plugins/ox-conda.sh
+OX_OXYGEN[oxpbw]=${OXIDIZER}/plugins/ox-bitwarden.sh
+OX_OXYGEN[oxpcn]=${OXIDIZER}/plugins/ox-conan.sh
+OX_OXYGEN[oxpct]=${OXIDIZER}/plugins/ox-container.sh
+OX_OXYGEN[oxpes]=${OXIDIZER}/plugins/ox-espanso.sh
+OX_OXYGEN[oxpfm]=${OXIDIZER}/plugins/ox-formats.sh
+OX_OXYGEN[oxphx]=${OXIDIZER}/plugins/ox-helix.sh
+OX_OXYGEN[oxpjl]=${OXIDIZER}/plugins/ox-julia.sh
+OX_OXYGEN[oxpjn]=${OXIDIZER}/plugins/ox-jupyter.sh
+OX_OXYGEN[oxpnj]=${OXIDIZER}/plugins/ox-node.sh
+OX_OXYGEN[oxppd]=${OXIDIZER}/plugins/ox-podman.sh
+OX_OXYGEN[oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
+OX_OXYGEN[oxprs]=${OXIDIZER}/plugins/ox-rust.sh
+OX_OXYGEN[oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
+OX_OXYGEN[oxput]=${OXIDIZER}/plugins/ox-utils.sh
+OX_OXYGEN[oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
+OX_OXYGEN[oxpzj]=${OXIDIZER}/plugins/ox-zellij.sh
 
 ##########################################################
 # System configuration files
@@ -78,26 +78,33 @@ alias shells="cat ${SHELLS}"
 # Zsh & Plugins
 ##########################################################
 
-declare -a OX_PLUGINS
+declare -a OX_CORE_PLUGINS
 
-# import ox-utils
-. ${OX_OXYGEN[oxput]}
-# import ox-pueue
-. ${OX_OXYGEN[oxppu]}
+OX_CORE_PLUGINS=(oxput oxppu oxpb)
 
-# import ox-brew
-if [[ $(uname -s) != "Linux" ]] && [[ $(arch) != "aarch64" ]]; then
-    . ${OX_OXYGEN[oxpb]}
-fi
+for core_plugin in ${OX_CORE_PLUGINS[@]}; do
+    if [[ -z ${OX_CORE_PLUGINS[core_plugin]} ]]; then
+        curl -o ${OX_OXYGEN[core_plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$(basename ${OX_OXYGEN[core_plugin]})
+    fi
+    . ${OX_OXYGEN[core_plugin]}
+done
 
 case $(uname -a) in
 *Darwin*)
+    if [[ -z ${OX_OXYGEN[oxpm]} ]]; then
+        curl -o ${OX_OXYGEN[oxpm]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$(basename ${OX_OXYGEN[oxpm]})
+    fi
     . ${OX_OXYGEN[oxpm]}
     ;;
 *Ubuntu* | *Debian* | *WSL*)
+    if [[ -z ${OX_OXYGEN[oxpa]} ]]; then
+        curl -o ${OX_OXYGEN[oxpa]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$(basename ${OX_OXYGEN[oxpm]})
+    fi
     . ${OX_OXYGEN[oxpa]}
     ;;
 esac
+
+declare -a OX_PLUGINS
 
 for plugin in ${OX_PLUGINS[@]}; do
     . ${OX_OXYGEN[$plugin]}

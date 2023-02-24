@@ -131,6 +131,10 @@ sd ".* OX_STARTUP=.*" "export OX_STARTUP=1" ${OXIDIZER}/custom.sh
 # set path of oxidizer
 sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${OX_SHELL}
 
+if [[ ! -d ${OXIDIZER}/plugins ]]; then
+    mkdir -p ${OXIDIZER}/plugins
+fi
+
 ###################################################
 # Editor
 ###################################################
