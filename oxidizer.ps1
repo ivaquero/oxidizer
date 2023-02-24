@@ -64,14 +64,14 @@ $Global:OX_APPHOME = @{}
 # PowerShell & Plugins
 ##########################################################
 
-# import ox-windows
-. $Global:OX_OXYGEN.oxpw
-# import ox-utils
-. $Global:OX_OXYGEN.oxput
-# import pueue
-. $Global:OX_OXYGEN.oxppu
+$Global:OX_CORE_PLUGINS = @('oxput', 'oxppu', 'oxpw')
+
+ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
+    . $Global:OX_OXYGEN.$($core_plugin)
+}
+
 # import ox-scoop
-if ( [Environment]::OSVersion.VersionString.Contains("Windows") ) {
+if ( $arch.Contains("Windows") ) {
     . $Global:OX_OXYGEN.oxps
 }
 
@@ -131,6 +131,21 @@ function upox {
     z $env:OXIDIZER
     git fetch origin master
     git reset --hard origin/master
+
+    rm -rf "$env:OXIDIZER\plugins\*"
+
+    ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
+        $core_plugin_file = $(basename $Global:OX_OXYGEN.$($core_plugin))
+        curl -o $Global:OX_OXYGEN.$($core_plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$core_plugin_file
+    }
+
+    $win_plugin_file = $(basename $Global:OX_OXYGEN[oxpw])
+    curl -o $Global:OX_OXYGEN[oxpm] https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$win_plugin_file
+
+    ForEach ($plugin in $Global:OX_PLUGINS) {
+        $plugin_file = $(basename $Global:OX_OXYGEN.$($plugin))
+        curl -o $Global:OX_OXYGEN.$($plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$plugin_file
+    }
 }
 
 Invoke-Expression (&zoxide init powershell --hook prompt | Out-String)
@@ -151,6 +166,6 @@ Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 
-if ( [Environment]::OSVersion.VersionString.Contains("Windows") ) {
+if ( $arch.Contains("Windows") ) {
     Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion" -ErrorAction SilentlyContinue
 }

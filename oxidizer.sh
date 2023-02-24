@@ -97,10 +97,6 @@ esac
 declare -a OX_PLUGINS
 
 for plugin in ${OX_PLUGINS[@]}; do
-    if [[ ! -f ${OX_OXYGEN[$plugin]} ]]; then
-        local plugin_file=$(basename ${OX_OXYGEN[$plugin]})
-        curl -o ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
-    fi
     . ${OX_OXYGEN[$plugin]}
 done
 
@@ -161,33 +157,24 @@ upox() {
     rm -rf ${OXIDIZER}/plugins/*
 
     for core_plugin in ${OX_CORE_PLUGINS[@]}; do
-        if [[ ! -f ${OX_OXYGEN[$core_plugin]} ]]; then
-            local core_plugin_file=$(basename ${OX_OXYGEN[$core_plugin]})
-            curl -o ${OX_OXYGEN[$core_plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$core_plugin_file
-        fi
-        . ${OX_OXYGEN[$core_plugin]}
+        local core_plugin_file=$(basename ${OX_OXYGEN[$core_plugin]})
+        curl -o ${OX_OXYGEN[$core_plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$core_plugin_file
     done
 
     case $(uname -a) in
     *Darwin*)
-        if [[ ! -f ${OX_OXYGEN[oxpm]} ]]; then
-            local macos_plugin_file=$(basename ${OX_OXYGEN[oxpm]})
-            curl -o ${OX_OXYGEN[oxpm]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$macos_plugin_file
-        fi
+        local macos_plugin_file=$(basename ${OX_OXYGEN[oxpm]})
+        curl -o ${OX_OXYGEN[oxpm]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$macos_plugin_file
         ;;
     *Ubuntu* | *Debian* | *WSL*)
-        if [[ ! -f ${OX_OXYGEN[oxpa]} ]]; then
-            local debian_plugin_file=$(basename ${OX_OXYGEN[oxpa]})
-            curl -o ${OX_OXYGEN[oxpa]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$debian_plugin_file
-        fi
+        local debian_plugin_file=$(basename ${OX_OXYGEN[oxpa]})
+        curl -o ${OX_OXYGEN[oxpa]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$debian_plugin_file
         ;;
     esac
 
     for plugin in ${OX_PLUGINS[@]}; do
-        if [[ ! -f ${OX_OXYGEN[$plugin]} ]]; then
-            local plugin_file=$(basename ${OX_OXYGEN[$plugin]})
-            curl -o ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
-        fi
+        local plugin_file=$(basename ${OX_OXYGEN[$plugin]})
+        curl -o ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
     done
 }
 
