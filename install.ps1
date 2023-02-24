@@ -103,12 +103,13 @@ ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
     curl -o $Global:OX_OXYGEN.$($core_plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$core_plugin_file
 }
 
-$win_plugin_file = $(basename $Global:OX_OXYGEN[oxpw])
-curl -o $Global:OX_OXYGEN[oxpm] https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$win_plugin_file
+$win_plugin_file = $(basename $Global:OX_OXYGEN.oxpw)
+curl -o $Global:OX_OXYGEN.oxpw https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$win_plugin_file
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
     $plugin_file = $(basename $Global:OX_OXYGEN.$($plugin))
     curl -o $Global:OX_OXYGEN.$($plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$plugin_file
+}
 
 # reg import \"$dir\\install-associations.reg\"
 
