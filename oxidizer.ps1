@@ -75,7 +75,7 @@ if ( $(uname).Contains("Windows") ) {
 }
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
-    . $($Global:OX_OXYGEN.$($plugin))
+    . $Global:OX_OXYGEN.$($plugin)
 }
 
 ##########################################################
