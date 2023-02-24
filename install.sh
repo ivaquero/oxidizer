@@ -139,7 +139,7 @@ if [[ ! -d ${OXIDIZER}/plugins ]]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
 
-eval "upox()"
+eval "upox"
 
 ###################################################
 # Editor

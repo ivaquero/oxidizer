@@ -132,8 +132,6 @@ function upox {
     git fetch origin master
     git reset --hard origin/master
 
-    rm -rf "$env:OXIDIZER\plugins\*"
-
     ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
         $core_plugin_file = $(basename $Global:OX_OXYGEN.$($core_plugin))
         curl -o $Global:OX_OXYGEN.$($core_plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$core_plugin_file

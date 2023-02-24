@@ -154,8 +154,6 @@ upox() {
     git reset --hard origin/master
     z -
 
-    rm -rf ${OXIDIZER}/plugins/*
-
     for core_plugin in ${OX_CORE_PLUGINS[@]}; do
         local core_plugin_file=$(basename ${OX_OXYGEN[$core_plugin]})
         curl -o ${OX_OXYGEN[$core_plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$core_plugin_file

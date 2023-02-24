@@ -90,6 +90,16 @@ sd '.* OX_STARTUP=.*' '$Global:OX_STARTUP=1' "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
 sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 
+###################################################
+# Loading Plugins
+###################################################
+
+if ( !(Test-Path "$env:XIDIZER\plugins") ) {
+    mkdir -p "$env:XIDIZER\plugins"
+}
+
+upox
+
 # reg import \"$dir\\install-associations.reg\"
 
 echo "Oxidizer installation complete!"
