@@ -67,11 +67,11 @@ $Global:OX_APPHOME = @{}
 $Global:OX_CORE_PLUGINS = @('oxput', 'oxppu', 'oxpw')
 
 ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
-    . $($Global:OX_OXYGEN.$($core_plugin))
+    . $Global:OX_OXYGEN.$($core_plugin)
 }
 
 if ( $(uname).Contains("Windows") ) {
-    . $($Global:OX_OXYGEN.oxps)
+    . $Global:OX_OXYGEN.oxps
 }
 
 ForEach ($plugin in $Global:OX_PLUGINS) {

@@ -12,7 +12,7 @@ OX_OXYGEN[oxd]=${OXIDIZER}/defaults.sh
 OX_OXYGEN[oxwz]=${OXIDIZER}/defaults/wezterm.lua
 # plugins
 OX_OXYGEN[oxpm]=${OXIDIZER}/plugins/ox-macos.sh
-OX_OXYGEN[oxpa]=${OXIDIZER}/plugins/ox-apt.sh
+OX_OXYGEN[oxpd]=${OXIDIZER}/plugins/ox-debians.sh
 OX_OXYGEN[oxpb]=${OXIDIZER}/plugins/ox-brew.sh
 OX_OXYGEN[oxpg]=${OXIDIZER}/plugins/ox-git.sh
 OX_OXYGEN[oxpc]=${OXIDIZER}/plugins/ox-conda.sh
@@ -79,7 +79,7 @@ alias shells="cat ${SHELLS}"
 ##########################################################
 
 declare -a OX_CORE_PLUGINS
-OX_CORE_PLUGINS=(oxput oxppu oxpb)
+OX_CORE_PLUGINS=(oxpb oxput oxppu)
 
 for core_plugin in ${OX_CORE_PLUGINS[@]}; do
     . ${OX_OXYGEN[$core_plugin]}
@@ -90,7 +90,7 @@ case $(uname -a) in
     . ${OX_OXYGEN[oxpm]}
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    . ${OX_OXYGEN[oxpa]}
+    . ${OX_OXYGEN[oxpd]}
     ;;
 esac
 
@@ -165,8 +165,8 @@ upox() {
         curl -o ${OX_OXYGEN[oxpm]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$macos_plugin_file
         ;;
     *Ubuntu* | *Debian* | *WSL*)
-        local debian_plugin_file=$(basename ${OX_OXYGEN[oxpa]})
-        curl -o ${OX_OXYGEN[oxpa]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$debian_plugin_file
+        local debian_plugin_file=$(basename ${OX_OXYGEN[oxpd]})
+        curl -o ${OX_OXYGEN[oxpd]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$debian_plugin_file
         ;;
     esac
 

@@ -96,21 +96,17 @@ sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 
 . $PROFILE
 
-if ( !(Test-Path "$env:XIDIZER\plugins") ) {
-    mkdir -p "$env:XIDIZER\plugins"
+if ( !(Test-Path "$env:OXIDIZER\plugins") ) {
+    mkdir -p "$env:OXIDIZER\plugins"
 }
 
-ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
-    $core_plugin_file = $(basename $Global:OX_OXYGEN.$($core_plugin))
-    curl -o $Global:OX_OXYGEN.$($core_plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$core_plugin_file
-}
 
-$win_plugin_file = $(basename $Global:OX_OXYGEN.oxpw)
-curl -o $Global:OX_OXYGEN.oxpw https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$win_plugin_file
+curl -o "$env:OXIDIZER\plugins\ox-utils.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-utils.ps1
+curl -o "$env:OXIDIZER\plugins\ox-pueue.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-pueue.ps1
+curl -o "$env:OXIDIZER\plugins\ox-windows.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-windows.ps1
 
-ForEach ($plugin in $Global:OX_PLUGINS) {
-    $plugin_file = $(basename $Global:OX_OXYGEN.$($plugin))
-    curl -o $Global:OX_OXYGEN.$($plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$plugin_file
+if ( $(uname).Contains("Windows") ) {
+    curl -o "$env:OXIDIZER\plugins\ox-scoop.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-scoop.ps1
 }
 
 # reg import \"$dir\\install-associations.reg\"
