@@ -5,6 +5,7 @@ fd
 gitui
 hyperfine
 lsd
+onefetch
 ouch
 pueue
 ripgrep
