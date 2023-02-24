@@ -22,6 +22,7 @@ alias gcf="git config"
 alias gii="git init"
 # ui
 alias gui="gitui"
+alias gif="onefetch"
 
 ##########################################################
 # item management

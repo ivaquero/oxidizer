@@ -109,6 +109,7 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 - [x] `hyperfine`: Command-line benchmarking tool
 - [x] `ouch`: Painless compression and decompression tool
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
+- [x] `onefetch`: Command-line Git information tool
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
 ### 2.5. Summary of Plugins

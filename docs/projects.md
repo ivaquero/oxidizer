@@ -2,17 +2,18 @@
 
 | Suffix | Action | git `g` | git tag `gt` | cmake `cm` |
 | :----: | :----: | :-----: | :----------: | :--------: |
-|  `*h`  |  help  |   ✅    |      ✅      |     ✅     |
-| `*ii`  |  init  |   ✅    |              |            |
-| `*df`  |  diff  |   ✅    |              |            |
-| `*cl`  | clean  |   ✅    |      ✅      |            |
-| `*ls`  |  list  |         |      ✅      |            |
-| `*st`  | status |   ✅    |              |            |
-|  `*a`  |  add   |   ✅    |      ✅      |            |
-| `*rm`  | remove |         |      ✅      |            |
-| `*pl`  |  pull  |   ✅    |              |            |
-| `*ps`  |  push  |   ✅    |              |            |
-| `*cf`  | config |   ✅    |              |            |
+|  `*h`  |  help  |    ✅    |      ✅       |     ✅      |
+| `*ii`  |  init  |    ✅    |              |            |
+| `*df`  |  diff  |    ✅    |              |            |
+| `*cl`  | clean  |    ✅    |      ✅       |            |
+| `*ls`  |  list  |         |      ✅       |            |
+| `*st`  | status |    ✅    |              |            |
+|  `*a`  |  add   |    ✅    |      ✅       |            |
+| `*rm`  | remove |         |      ✅       |            |
+| `*pl`  |  pull  |    ✅    |              |            |
+| `*ps`  |  push  |    ✅    |              |            |
+| `*cf`  | config |    ✅    |              |            |
+| `*if`  |  info  |    ✅    |              |            |
 
 ### Git
 
