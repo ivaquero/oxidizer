@@ -94,6 +94,8 @@ sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 # Loading Plugins
 ###################################################
 
+. $PROFILE
+
 if ( !(Test-Path "$env:XIDIZER\plugins") ) {
     mkdir -p "$env:XIDIZER\plugins"
 }
@@ -116,5 +118,3 @@ ForEach ($plugin in $Global:OX_PLUGINS) {
 echo "Oxidizer installation complete!"
 
 echo "Don't forget to restart your terminal."
-
-. $PROFILE
