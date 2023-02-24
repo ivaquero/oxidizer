@@ -139,7 +139,26 @@ if [[ ! -d ${OXIDIZER}/plugins ]]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
 
-eval "upox"
+for core_plugin in ${OX_CORE_PLUGINS[@]}; do
+    local core_plugin_file=$(basename ${OX_OXYGEN[$core_plugin]})
+    curl -o ${OX_OXYGEN[$core_plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$core_plugin_file
+done
+
+case $(uname -a) in
+*Darwin*)
+    local macos_plugin_file=$(basename ${OX_OXYGEN[oxpm]})
+    curl -o ${OX_OXYGEN[oxpm]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$macos_plugin_file
+    ;;
+*Ubuntu* | *Debian* | *WSL*)
+    local debian_plugin_file=$(basename ${OX_OXYGEN[oxpa]})
+    curl -o ${OX_OXYGEN[oxpa]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$debian_plugin_file
+    ;;
+esac
+
+for plugin in ${OX_PLUGINS[@]}; do
+    local plugin_file=$(basename ${OX_OXYGEN[$plugin]})
+    curl -o ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
+done
 
 ###################################################
 # Editor
