@@ -102,12 +102,6 @@ $Global:OX_EXPORT_FILE = @('ox', 'vs', 'vsk', 'vss_')
 # files to be import from backup folder
 # $Global:OX_IMPORT_FILE = @("ox", "vs", "vsk", "vss_")
 
-# file to be copied from oxidizer\defaults
-# wz: wezterm
-# pu: pueue
-# pua: pueue_aliases
-$Global:OX_INIT_FILE = @('pu', 'pua')
-
 ##########################################################
 # git settings
 ##########################################################

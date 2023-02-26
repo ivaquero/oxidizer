@@ -104,14 +104,6 @@ done
 # Oxidizer management
 ##########################################################
 
-# initialize Oxidizer
-# only install missing packages, no deletion
-init_all() {
-    for obj in ${OX_INIT_PROG[@]}; do
-        eval init_$obj
-    done
-}
-
 # update all packages
 up_all() {
     for obj in ${OX_UPDATE_PROG[@]}; do
@@ -140,10 +132,28 @@ ipall() {
     done
 }
 
-# initialize Oxidizer
 iiox() {
-    for obj in ${OX_INIT_FILE[@]}; do
-        iif $obj
+    for pkg in $(cat ${OXIDIZER}/defaults/Brewfile.txt); do
+        case $pkg in
+        ripgrep)
+            cmd='rg'
+            ;;
+        bottom)
+            cmd='btm'
+            ;;
+        tealdear)
+            cmd='tldr'
+            ;;
+        zoxide)
+            cmd='z'
+            ;;
+        *)
+            cmd=$pkg
+            ;;
+        esac
+        if test ! "$(command -v $cmd)"; then
+            brew install $pkg
+        fi
     done
 }
 

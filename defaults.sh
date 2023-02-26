@@ -115,13 +115,6 @@ OX_EXPORT_FILE=(ox)
 declare -a OX_IMPORT_FILE
 OX_IMPORT_FILE=(ox)
 
-# file to be copied from oxidizer/defaults
-declare -a OX_INIT_FILE
-# wz: wezterm
-# pu: pueue
-# pua: pueue_aliases
-OX_INIT_FILE=(pu pua)
-
 ##########################################################
 # git settings
 ##########################################################

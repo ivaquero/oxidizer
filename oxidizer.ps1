@@ -82,14 +82,6 @@ ForEach ($plugin in $Global:OX_PLUGINS) {
 # Oxidizer management
 ##########################################################
 
-# initialize Oxidizer
-# only install missing packages, no deletion
-function init_all {
-    ForEach ($obj in $Global:OX_INIT_PROG) {
-        Invoke-Expression init_$obj
-    }
-}
-
 # update packages
 function up_all {
     ForEach ($obj in $Global:OX_UPDATE_PROG) {
@@ -120,8 +112,23 @@ function ipall {
 
 # initialize Oxidizer
 function iiox {
-    ForEach ($obj in $Global:OX_INIT_FILE) {
-        iif $obj
+    $pkgs = cat "$env:OXIDIZER\defaults\Scoopfile.txt"
+
+    ForEach ( $pkg in $pkgs ) {
+        Switch ( $pkg ) {
+            bottom { $cmd = 'btm' }
+            ripgrep { $cmd = 'rg' }
+            tealdeer { $cmd = 'tldr' }
+            zoxide { $cmd = 'z' }
+            Default { $cmd = $pkg }
+        }
+        if (Get-Command $cmd -ErrorAction SilentlyContinue) {
+            Write-Host "$pkg Already Installed"
+        }
+        else {
+            Write-Host "Installing $pkg"
+            scoop install $pkg
+        }
     }
 }
 
