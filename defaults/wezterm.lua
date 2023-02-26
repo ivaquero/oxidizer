@@ -7,50 +7,46 @@ local set_environment_variables = {}
 -- Shell
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     term = ''
-    table.insert(launch_menu, {
+    table.insert( launch_menu, {
         label = 'PowerShell',
-        args = {'pwsh.exe', '-NoLogo'}
-    })
-    default_prog = {'pwsh.exe', '-NoLogo'}
+        args = { 'pwsh.exe', '-NoLogo' }
+     } )
+    default_prog = { 'pwsh.exe', '-NoLogo' }
 elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
-    table.insert(launch_menu, {
+    table.insert( launch_menu, {
         label = 'bash',
-        args = {'bash', '-l'}
-    })
-    default_prog = {'bash', '-l'}
+        args = { 'bash', '-l' }
+     } )
+    default_prog = { 'bash', '-l' }
 else
-    table.insert(launch_menu, {
+    table.insert( launch_menu, {
         label = 'zsh',
-        args = {'zsh', '-l'}
-    })
-    default_prog = {'zsh', '-l'}
+        args = { 'zsh', '-l' }
+     } )
+    default_prog = { 'zsh', '-l' }
 end
 
 -- Title
-function basename(s)
-    return string.gsub(s, '(.*[/\\])(.*)', '%2')
-end
+function basename( s ) return string.gsub( s, '(.*[/\\])(.*)', '%2' ) end
 
-wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+wezterm.on( 'format-tab-title', function( tab, tabs, panes, config, hover, max_width )
     local pane = tab.active_pane
 
     local index = ""
-    if #tabs > 1 then
-        index = string.format("%d: ", tab.tab_index + 1)
-    end
+    if #tabs > 1 then index = string.format( "%d: ", tab.tab_index + 1 ) end
 
-    local process = basename(pane.foreground_process_name)
+    local process = basename( pane.foreground_process_name )
 
-    return {{
+    return { {
         Text = ' ' .. index .. process .. ' '
-    }}
-end)
+     } }
+end )
 
 -- Startup
-wezterm.on('gui-startup', function(cmd)
-    local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+wezterm.on( 'gui-startup', function( cmd )
+    local tab, pane, window = wezterm.mux.spawn_window( cmd or {} )
     window:gui_window():maximize()
-end)
+end )
 
 local config = {
     -- Basic
@@ -67,17 +63,17 @@ local config = {
         right = 5,
         top = 5,
         bottom = 5
-    },
+     },
     window_background_image_hsb = {
         brightness = 0.8,
         hue = 1.0,
         saturation = 1.0
-    },
+     },
 
     -- Font
-    font = wezterm.font_with_fallback {{
+    font = wezterm.font_with_fallback { {
         family = 'FiraCode Nerd Font'
-    }, 'FiraCode NF'},
+     }, 'FiraCode NF' },
     font_size = 16,
     normalize_to_nfc = false,
 
@@ -93,186 +89,186 @@ local config = {
     leader = {
         key = 'b',
         mods = 'CTRL'
-    },
+     },
 
     -- Allow using ^ with single key press.
     use_dead_keys = false,
 
-    keys = { -- New/close pane
+    keys = {  -- New/close pane
     {
         key = 'c',
         mods = 'LEADER',
         action = wezterm.action {
             SpawnTab = 'CurrentPaneDomain'
-        }
-    }, {
+         }
+     }, {
         key = 'x',
         mods = 'LEADER',
         action = wezterm.action {
             CloseCurrentPane = {
                 confirm = true
-            }
-        }
-    }, {
+             }
+         }
+     }, {
         key = 'X',
         mods = 'LEADER',
         action = wezterm.action {
             CloseCurrentTab = {
                 confirm = true
-            }
-        }
-    }, -- Pane navigation
+             }
+         }
+     }, -- Pane navigation
     {
         key = 'LeftArrow',
         mods = 'ALT',
         action = wezterm.action {
             ActivatePaneDirection = 'Left'
-        }
-    }, {
+         }
+     }, {
         key = 'DownArrow',
         mods = 'ALT',
         action = wezterm.action {
             ActivatePaneDirection = 'Down'
-        }
-    }, {
+         }
+     }, {
         key = 'UpArrow',
         mods = 'ALT',
         action = wezterm.action {
             ActivatePaneDirection = 'Up'
-        }
-    }, {
+         }
+     }, {
         key = 'RightArrow',
         mods = 'ALT',
         action = wezterm.action {
             ActivatePaneDirection = 'Right'
-        }
-    }, -- Tab navigation
+         }
+     }, -- Tab navigation
     {
         key = 'z',
         mods = 'CMD',
         action = 'TogglePaneZoomState'
-    }, {
+     }, {
         key = '1',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 0
-        }
-    }, {
+         }
+     }, {
         key = '2',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 1
-        }
-    }, {
+         }
+     }, {
         key = '3',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 2
-        }
-    }, {
+         }
+     }, {
         key = '4',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 3
-        }
-    }, {
+         }
+     }, {
         key = '5',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 4
-        }
-    }, {
+         }
+     }, {
         key = '6',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 5
-        }
-    }, {
+         }
+     }, {
         key = '7',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 6
-        }
-    }, {
+         }
+     }, {
         key = '8',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 7
-        }
-    }, {
+         }
+     }, {
         key = '9',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTab = 8
-        }
-    }, {
+         }
+     }, {
         key = 'n',
         mods = 'CMD',
         action = 'ShowTabNavigator'
-    }, {
+     }, {
         key = 'b',
         mods = 'CMD',
         action = 'ActivateLastTab'
-    }, {
+     }, {
         key = 'LeftArrow',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTabRelative = -1
-        }
-    }, {
+         }
+     }, {
         key = 'RightArrow',
         mods = 'CMD',
         action = wezterm.action {
             ActivateTabRelative = 1
-        }
-    }, -- Resize
+         }
+     }, -- Resize
     {
         key = 'LeftArrow',
         mods = 'ALT|SHIFT',
         action = wezterm.action {
-            AdjustPaneSize = {'Left', 5}
-        }
-    }, {
+            AdjustPaneSize = { 'Left', 5 }
+         }
+     }, {
         key = 'DownArrow',
         mods = 'ALT|SHIFT',
         action = wezterm.action {
-            AdjustPaneSize = {'Down', 5}
-        }
-    }, {
+            AdjustPaneSize = { 'Down', 5 }
+         }
+     }, {
         key = 'UpArrow',
         mods = 'ALT|SHIFT',
         action = wezterm.action {
-            AdjustPaneSize = {'Up', 5}
-        }
-    }, {
+            AdjustPaneSize = { 'Up', 5 }
+         }
+     }, {
         key = 'RightArrow',
         mods = 'ALT|SHIFT',
         action = wezterm.action {
-            AdjustPaneSize = {'Right', 5}
-        }
-    }, -- Split
+            AdjustPaneSize = { 'Right', 5 }
+         }
+     }, -- Split
     {
         key = '-',
         mods = 'CMD',
         action = wezterm.action.SplitVertical {
             domain = 'CurrentPaneDomain'
-        }
-    }, {
+         }
+     }, {
         key = '\\',
         mods = 'CMD',
         action = wezterm.action.SplitHorizontal {
             domain = 'CurrentPaneDomain'
-        }
-    }, -- Copy/paste buffer
+         }
+     }, -- Copy/paste buffer
     {
         key = '[',
         mods = 'LEADER',
         action = 'ActivateCopyMode'
-    }, {
+     }, {
         key = ']',
         mods = 'LEADER',
         action = 'QuickSelect'
-    }},
+     } },
 
     color_scheme = 'Monokai (base16)',
 
@@ -280,48 +276,48 @@ local config = {
         hue = 1.0,
         saturation = 1.0,
         brightness = 1.0
-    },
+     },
 
-    mouse_bindings = { -- Paste on right-click
+    mouse_bindings = {  -- Paste on right-click
     {
         event = {
             Down = {
                 streak = 1,
                 button = 'Right'
-            }
-        },
+             }
+         },
         mods = 'NONE',
         action = wezterm.action {
             PasteFrom = 'Clipboard'
-        }
-    }, -- Change the default click behavior so that it only selects
+         }
+     }, -- Change the default click behavior so that it only selects
     -- text and doesn't open hyperlinks
     {
         event = {
             Up = {
                 streak = 1,
                 button = 'Left'
-            }
-        },
+             }
+         },
         mods = 'NONE',
         action = wezterm.action {
             CompleteSelection = 'PrimarySelection'
-        }
-    }, -- CTRL-Click open hyperlinks
+         }
+     }, -- CTRL-Click open hyperlinks
     {
         event = {
             Up = {
                 streak = 1,
                 button = 'Left'
-            }
-        },
+             }
+         },
         mods = 'CTRL',
         action = 'OpenLinkAtMouseCursor'
-    }},
+     } },
 
     default_prog = default_prog,
     set_environment_variables = set_environment_variables,
     launch_menu = launch_menu
-}
+ }
 
 return config

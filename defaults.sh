@@ -62,10 +62,6 @@ OX_PLUGINS=(
 # select software configuration objects
 ##########################################################
 
-# options: brew, conda
-declare -a OX_INIT_PROG
-export OX_INIT_PROG=(brew)
-
 # options: brew, conda, vscode, julia, texlive, node
 declare -a OX_UPDATE_PROG
 export OX_UPDATE_PROG=(brew)

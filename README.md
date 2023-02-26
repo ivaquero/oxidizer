@@ -221,14 +221,14 @@ Oxidizer uses [ouch](https://github.com/ouch-org/ouch/releases/tag/0.4.0)(option
 
 ## 4. Software Information Management
 
-- `init_*`
-  - file: install packages/extensions by Oxidizer defaults
-- `up_*`
-  - file: install packages/extensions by predefined files in `$OX_BACKUP`
+`back_*` and `up_*` work for `brew`, `scoop`, `conda`, `vscode`, `julia`, `texlive`, `node`. `clean_*` only works for `brew`.
+
 - `back_*`
   - file: export package/extension info to `$OX_BACKUP` folder
-
-`init_*` works for `brew`, `scoop`, `conda`; `up_*` and `back_*` work for `brew`, `scoop`, `conda`, `vscode`, `julia`, `texlive`, `node`.
+- `up_*`
+  - file: install packages/extensions by predefined files in `$OX_BACKUP`
+- `clean_*`
+  - file: clean package/extension info by predefined files `$OX_BACKUP` folder
 
 ## 5. Package Management
 

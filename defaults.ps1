@@ -51,9 +51,6 @@ $Global:OX_PLUGINS = @(
 # select initial and backup configurations
 ##########################################################
 
-# options: scoop, conda
-$Global:OX_INIT_PROG = @('scoop')
-
 # options: scoop, conda, vscode, julia, texlive, node
 $Global:OX_UPDATE_PROG = @('scoop')
 $Global:OX_BACKUP_PROG = @('scoop')

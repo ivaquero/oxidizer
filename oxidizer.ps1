@@ -1,4 +1,4 @@
-if ([string]::IsNullOrEmpty($env:OXIDIZER)){
+if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     $env:OXIDIZER = "$HOME\oxidizer"
 }
 

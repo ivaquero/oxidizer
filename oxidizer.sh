@@ -1,4 +1,4 @@
-if (test -z ${OXIDIZER}); then
+if [[ -z ${OXIDIZER} ]]; then
     export OXIDIZER=${HOME}/oxidizer
 fi
 
@@ -49,15 +49,15 @@ declare -A OX_OXIDE
 
 . ${OX_ELEMENT[ox]}
 
-if (test ! -d ${OX_BACKUP}/shell); then
+if [[ ! -d ${OX_BACKUP}/shell ]]; then
     mkdir -p ${OX_BACKUP}/shell
 fi
 
-if (test ! -d ${OX_BACKUP}/install); then
+if [[ ! -d ${OX_BACKUP}/install ]]; then
     mkdir -p ${OX_BACKUP}/install
 fi
 
-if (test ! -d ${OX_BACKUP}/apps); then
+if [[ ! -d ${OX_BACKUP}/apps ]]; then
     mkdir -p ${OX_BACKUP}/apps
 fi
 

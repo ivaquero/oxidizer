@@ -1,3 +1,0 @@
-conda-tree
-mamba
-black
