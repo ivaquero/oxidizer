@@ -63,7 +63,7 @@ Remove-Item alias:cp -Force -ErrorAction SilentlyContinue
 
 echo "Adding Oxidizer into $PROFILE..."
 
-if (test ! -f $PROFILE) {
+if (!(Test-Path -Path $PROFILE)) {
     touch $PROFILE
 }
 
@@ -96,7 +96,7 @@ sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 # Loading Plugins
 ###################################################
 
-if (test ! -d "$env:OXIDIZER\plugins") {
+if (!(Test-Path -Path "$env:OXIDIZER\plugins")) {
     mkdir -p "$env:OXIDIZER\plugins"
 }
 

@@ -46,15 +46,15 @@ $Global:OX_OXIDE = @{}
 
 . $Global:OX_ELEMENT.ox
 
-if (test ! -d "$env:OX_BACKUP\shell") {
+if (!(Test-Path -Path "$env:OX_BACKUP\shell")) {
     mkdir "$env:OX_BACKUP\shell"
 }
 
-if (test ! -d "$env:OX_BACKUP\install") {
+if (!(Test-Path -Path "$env:OX_BACKUP\install")) {
     mkdir "$env:OX_BACKUP\install"
 }
 
-if (test ! -d "$env:OX_BACKUP\apps") {
+if (!(Test-Path -Path "$env:OX_BACKUP\apps")) {
     mkdir "$env:OX_BACKUP\apps"
 }
 

@@ -69,7 +69,7 @@ $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 # $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
 # $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
-# if ( test ! -d "$env:OX_BACKUP\terminal" ) {
+# if (!(Test-Path -Path "$env:OX_BACKUP\terminal")) {
 #     mkdir "$env:OX_BACKUP\terminal"
 # }
 # $Global:OX_OXIDE.bkal = "$env:OX_BACKUP\terminal\alacritty.yml"
@@ -156,7 +156,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # rust settings
 ##########################################################
 
-# if ( test ! -d "$env:OX_BACKUP\rust") ) {
+# if (!(Test-Path -Path "$env:OX_BACKUP\rust")) {
 #     mkdir "$env:OX_BACKUP\rust"
 # }
 
@@ -167,7 +167,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # julia settings
 ##########################################################
 
-# if ( test ! -d "$env:OX_BACKUP\julia") ) {
+# if (!(Test-Path -Path "$env:OX_BACKUP\julia")) {
 #     mkdir "$env:OX_BACKUP\julia"
 # }
 
@@ -178,7 +178,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # conan settings
 ##########################################################
 
-# if ( test ! -d "$env:OX_BACKUP\conan") ) {
+# if (!(Test-Path -Path "$env:OX_BACKUP\conan")) {
 #     mkdir "$env:OX_BACKUP\conan"
 # }
 
@@ -198,7 +198,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # vscode settings
 ##########################################################
 
-# if ( test ! -d "$env:OX_BACKUP\vscode") ) {
+# if (!(Test-Path -Path "$env:OX_BACKUP\vscode")) {
 #     mkdir "$env:OX_BACKUP\vscode"
 # }
 
