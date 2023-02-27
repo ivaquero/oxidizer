@@ -64,17 +64,19 @@ Remove-Item alias:cp -Force -ErrorAction SilentlyContinue
 echo "Adding Oxidizer into $PROFILE..."
 
 if (!(Test-Path -Path $PROFILE)) {
-    touch $PROFILE
+    New-Item -ItemType File -Force -Path $PROFILE
 }
 
 echo '# Oxidizer' >> $PROFILE
 
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     if ($(uname).Contains("Windows")) {
-        echo '$env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
+        echo '
+        $env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
     }
     else {
-        echo '$env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
+        echo '
+        $env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
     }
     echo '. $env:OXIDIZER\oxidizer.ps1' >> $PROFILE
 }
