@@ -46,15 +46,15 @@ $Global:OX_OXIDE = @{}
 
 . $Global:OX_ELEMENT.ox
 
-if ( !(Test-Path "$env:OX_BACKUP\shell") ) {
+if (test ! -d "$env:OX_BACKUP\shell") {
     mkdir "$env:OX_BACKUP\shell"
 }
 
-if ( !(Test-Path "$env:OX_BACKUP\install") ) {
+if (test ! -d "$env:OX_BACKUP\install") {
     mkdir "$env:OX_BACKUP\install"
 }
 
-if ( !(Test-Path "$env:OX_BACKUP\apps") ) {
+if (test ! -d "$env:OX_BACKUP\apps") {
     mkdir "$env:OX_BACKUP\apps"
 }
 
@@ -123,10 +123,10 @@ function iiox {
             Default { $cmd = $pkg }
         }
         if (Get-Command $cmd -ErrorAction SilentlyContinue) {
-            Write-Host "$pkg Already Installed"
+            echo "$pkg Already Installed"
         }
         else {
-            Write-Host "Installing $pkg"
+            echo "Installing $pkg"
             scoop install $pkg
         }
     }
