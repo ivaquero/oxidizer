@@ -3,10 +3,10 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
 }
 
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
-    Write-Host "Scoop Already Installed"
+    echo "Scoop Already Installed"
 }
 else {
-    Write-Host "Scoop Not Found. Installing..."
+    echo "Scoop Not Found. Installing..."
 
     $f_scoop = Join-Path $HOME "install.ps1"
 
@@ -36,7 +36,7 @@ ForEach ( $bucket in $scoopBuckets ) {
     scoop bucket add $bucket
 }
 
-$pkgs = Get-Content "$env:OXIDIZER\defaults\Scoopfile.txt"
+$pkgs = cat "$env:OXIDIZER\defaults\Scoopfile.txt"
 
 ForEach ( $pkg in $pkgs ) {
     Switch ( $pkg ) {
@@ -47,10 +47,10 @@ ForEach ( $pkg in $pkgs ) {
         Default { $cmd = $pkg }
     }
     if (Get-Command $cmd -ErrorAction SilentlyContinue) {
-        Write-Host "$pkg Already Installed"
+        echo "$pkg Already Installed"
     }
     else {
-        Write-Host "Installing $pkg"
+        echo "Installing $pkg"
         scoop install $pkg
     }
 }
@@ -59,30 +59,32 @@ ForEach ( $pkg in $pkgs ) {
 # Update PowerShell Settings
 ###################################################
 
-Write-Host "Adding Oxidizer into $PROFILE..."
+Remove-Item alias:cp -Force -ErrorAction SilentlyContinue
 
-if ( !(Test-Path $PROFILE) ) {
-    New-Item -ItemType File -Force -Path $PROFILE
+echo "Adding Oxidizer into $PROFILE..."
+
+if (test ! -f $PROFILE) {
+    touch $PROFILE
 }
 
-Write-Host '# Oxidizer' >> $PROFILE
+echo '# Oxidizer' >> $PROFILE
 
-if ( [string]::IsNullOrEmpty($env:OXIDIZER) ) {
-    if ( [Environment]::OSVersion.VersionString.Contains("Unix") ) {
-        Write-Host '
-        $env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
+if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
+    if ($(uname).Contains("Windows")) {
+        echo '$env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
     }
     else {
-        Write-Host '$env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
+        echo '$env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
     }
-    Write-Host '. $env:OXIDIZER\oxidizer.ps1' >> $PROFILE
+    echo '. $env:OXIDIZER\oxidizer.ps1' >> $PROFILE
 }
 else {
-    Write-Host ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
+    echo ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
 }
 
-Write-Host "Adding Custom settings..."
-Copy-Item -Verbose -Force -Path "$env:OXIDIZER\defaults.ps1" -Destination "$env:OXIDIZER\custom.ps1"
+echo "Adding Custom settings..."
+
+cp -R -v "$env:OXIDIZER\defaults.ps1" "$env:OXIDIZER\custom.ps1"
 
 # loading zoxide
 sd '.* OX_STARTUP=.*' '$Global:OX_STARTUP=1' "$env:OXIDIZER\custom.ps1"
@@ -94,12 +96,9 @@ sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 # Loading Plugins
 ###################################################
 
-. $PROFILE
-
-if ( !(Test-Path "$env:OXIDIZER\plugins") ) {
+if (test ! -d "$env:OXIDIZER\plugins") {
     mkdir -p "$env:OXIDIZER\plugins"
 }
-
 
 curl -o "$env:OXIDIZER\plugins\ox-utils.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-utils.ps1
 curl -o "$env:OXIDIZER\plugins\ox-pueue.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-pueue.ps1
@@ -109,7 +108,11 @@ if ( $(uname).Contains("Windows") ) {
     curl -o "$env:OXIDIZER\plugins\ox-scoop.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-scoop.ps1
 }
 
-# reg import \"$dir\\install-associations.reg\"
+. $PROFILE
 
-Write-Host "Oxidizer installation complete!"
-Write-Host "Don't forget to restart your terminal and run \'upox\' function"
+if (Get-Command code -ErrorAction SilentlyContinue) {
+    reg import \"$dir\\install-associations.reg\"
+}
+
+echo "Oxidizer installation complete!"
+echo "Don't forget to restart your terminal and run \'upox\' function"
