@@ -21,4 +21,3 @@ psreadline
 dark
 innounp
 sudo
-vscode
