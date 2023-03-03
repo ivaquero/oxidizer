@@ -404,6 +404,6 @@ cls h
 - [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
 - [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-## 8. Licence
+## 8. License
 
-This work is released under the GPL-v3 licence.
+This work is released under the GPL-v3 license.
