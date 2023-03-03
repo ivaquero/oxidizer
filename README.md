@@ -1,7 +1,7 @@
 # Oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
-[![licence](https://img.shields.io/github/license/ivaquero/oxidizer)](https://github.com/ivaquero/oxidizer/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/ivaquero/oxidizer)](https://github.com/ivaquero/oxidizer/blob/master/LICENSE)
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
