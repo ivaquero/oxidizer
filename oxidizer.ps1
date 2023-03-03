@@ -154,8 +154,6 @@ function upox {
     }
 }
 
-Invoke-Expression (&zoxide init powershell --hook prompt | Out-String)
-
 if ($Global:OX_STARTUP) {
     startup
 }

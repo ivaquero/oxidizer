@@ -58,13 +58,14 @@ $Global:OX_BACKUP_PROG = @('scoop')
 # backup file path
 $env:OX_BACKUP = "$HOME\Documents\backup"
 
+# shell
 $Global:OX_OXIDE.bkox = "$env:OX_BACKUP\custom.ps1"
-
+$Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
+$Global:OX_OXIDE.bkz = "$env:OX_BACKUP\shell\db.zo"
 $Global:OX_OXIDE.bks = "$env:OX_BACKUP\install\Scoopfile.json"
 $Global:OX_OXIDE.bkw = "$env:OX_BACKUP\install\Wingetfile.json"
-$Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 
-# system file
+# terminal
 # $Global:OX_ELEMENT.vi = "$HOME\.vimrc"
 # $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
 # $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"

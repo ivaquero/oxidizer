@@ -186,18 +186,6 @@ upox() {
     done
 }
 
-case ${SHELL} in
-*zsh)
-    eval "$(zoxide init zsh)"
-    ;;
-*bash)
-    eval "$(zoxide init bash)"
-    ;;
-*fish)
-    eval "$(zoxide init fish)"
-    ;;
-esac
-
 if [[ ${OX_STARTUP} ]]; then
     startup
 fi

@@ -72,12 +72,17 @@ export OX_BACKUP_PROG=(brew)
 # backup file path
 export OX_BACKUP=${HOME}/Documents/backup
 
-OX_OXIDE[bkox]=${OX_BACKUP}/custom.sh
+# shell
+OX_OXIDE[bkox]=${OX_BACKUP}/shell/custom.sh
 OX_OXIDE[bkzs]=${OX_BACKUP}/shell/.zshrc
 OX_OXIDE[bkbs]=${OX_BACKUP}/shell/.bash_profile
-OX_OXIDE[bksc]=${OX_BACKUP}/install/source.list
-# OX_OXIDE[bkwz]=${OX_BACKUP}/terminal/wezterm.lua
+OX_OXIDE[bkz]=${OX_BACKUP}/shell/db.zo
+OX_OXIDE[bklx]=${OX_BACKUP}/install/source.list
+
+# terminal
 # OX_OXIDE[bkvi]=${OX_BACKUP}/.vimrc
+# OX_OXIDE[bkwz]=${OX_BACKUP}/terminal/wezterm.lua
+# OX_OXIDE[bkal]=${OX_BACKUP}/terminal/alacritty.yml
 
 # system file
 OX_ELEMENT[vi]=${HOME}/.vimrc
