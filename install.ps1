@@ -114,7 +114,7 @@ if ( $(uname).Contains("Windows") ) {
 
 if (Get-Command code -ErrorAction SilentlyContinue) {
     scoop install vscode
-    reg import \"C:\\Scoop\\apps\\current\\install-associations.reg\"
+    reg import "C:\Scoop\apps\vscode\current\install-associations.reg"
 }
 
 echo "Oxidizer installation complete!"
