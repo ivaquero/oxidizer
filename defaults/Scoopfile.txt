@@ -1,7 +1,6 @@
 bat
 bottom
 dust
-fd
 gitui
 hyperfine
 lsd
