@@ -80,11 +80,12 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
   - [x] Use `dust` instead of `du`
   - [x] Use `lsd` instead of `ls`
 - non-coreutils
-  - [x] Use `tre` instead of `tree`
+  - [x] Use `hyperfine` instead of `time`
   - [x] Use `ripgrep` instead of `grep`
   - [x] Use `sd` instead of `sed`
   - [x] Use `tealdeer` instead of `tldr` or `man`
-  - [x] Use `zoxide` instead of `cd` or `z.lua`
+  - [x] Use `tre` instead of `tree`
+  - [x] Use `zoxide` instead of `cd` or `z`
   - [ ] Use `fd` instead of `find`
   - [ ] Use `tokei` instead of `cloc`
   - [ ] Use `starship` instead of `powerline10k` or `ohmyposh`
@@ -106,10 +107,9 @@ Oxidizer is originally designed for **non-administrator** users. It quickly sets
 
 ### 2.4. Other Useful Rust Tools
 
-- [x] `hyperfine`: Command-line benchmarking tool
+- [x] `onefetch`: Command-line Git information tool
 - [x] `ouch`: Painless compression and decompression tool
 - [x] `pueue`: Command-line task management tool for sequential and parallel execution of long-running tasks.
-- [x] `onefetch`: Command-line Git information tool
 - [ ] `espanso`: Text Expander written in Rust (try it for fun!)
 
 ### 2.5. Summary of Plugins
