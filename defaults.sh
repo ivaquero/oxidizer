@@ -92,10 +92,11 @@ OX_ELEMENT[vi]=${HOME}/.vimrc
 # register proxy ports
 ##########################################################
 
-declare -A OX_PROXY
 # c: clash, v: v2ray
-OX_PROXY[c]=7890
-OX_PROXY[v]=1080
+declare -A OX_PROXY=(
+    [c]=7890
+    [v]=1080
+)
 
 OX_ELEMENT[cv]="${HOME}/.config/clash-verge/verge.yaml"
 OX_OXIDE[bkcv]="${OX_BACKUP}/app/verge.yaml"
@@ -154,17 +155,18 @@ export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_CLEANUP_MAX_AGE_DAYS="7"
 
 # brew mirrors for faster download, use `bmr` to use
-# declare -A HOMEBREW_MIRROR
-# HOMEBREW_MIRROR[ts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
-# HOMEBREW_MIRROR[zk]="mirrors.ustc.edu.cn/git/homebrew"
+# declare -A HOMEBREW_MIRROR=(
+#     [ts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
+#     [zk]="mirrors.ustc.edu.cn/git/homebrew"
+# )
 
 # predefined brew services
 # set the length of key <= 3
-declare -A HOMEBREW_SERVICE
-
-HOMEBREW_SERVICE[pu]="pueue"
-# HOMEBREW_SERVICE[pd]="podman"
-# HOMEBREW_SERVICE[pg]="postgresql@15"
+declare -A HOMEBREW_SERVICE=(
+    [pu]="pueue"
+    [pg]="postgresql@15"
+    [pd]="podman"
+)
 
 ##########################################################
 # pueue settings
@@ -193,9 +195,10 @@ upp() {
 
 # # predefined conda environments
 # # set the length of key <= 3
-# declare -A OX_CONDA_ENV
-
-# OX_CONDA_ENV[b]="base"
+# declare -A OX_CONDA_ENV=(
+#     [b]="base"
+#     [k]="kaggle"
+# )
 
 # # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
 # OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
