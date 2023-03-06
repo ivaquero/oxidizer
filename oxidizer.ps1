@@ -6,31 +6,31 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
 # Oxidizer configuration files
 ##########################################################
 
-$Global:OX_OXYGEN = @{}
-# defaults
-$Global:OX_OXYGEN.oxd = "$env:OXIDIZER\defaults.ps1"
-$Global:OX_OXYGEN.oxz = "$env:OXIDIZER\oxidizer.ps1"
-$Global:OX_OXYGEN.oxwz = "$env:OXIDIZER\defaults\wezterm.lua"
 # plugins
-$Global:OX_OXYGEN.oxps = "$env:OXIDIZER\plugins\ox-scoop.ps1"
-$Global:OX_OXYGEN.oxpw = "$env:OXIDIZER\plugins\ox-windows.ps1"
-$Global:OX_OXYGEN.oxpg = "$env:OXIDIZER\plugins\ox-git.ps1"
-$Global:OX_OXYGEN.oxpc = "$env:OXIDIZER\plugins\ox-conda.ps1"
-$Global:OX_OXYGEN.oxpbw = "$env:OXIDIZER\plugins\ox-bitwarden.ps1"
-$Global:OX_OXYGEN.oxpcn = "$env:OXIDIZER\plugins\ox-conan.ps1"
-$Global:OX_OXYGEN.oxpdk = "$env:OXIDIZER\plugins\ox-docker.ps1"
-$Global:OX_OXYGEN.oxpes = "$env:OXIDIZER\plugins\ox-espanso.ps1"
-$Global:OX_OXYGEN.oxpfm = "$env:OXIDIZER\plugins\ox-formats.ps1"
-$Global:OX_OXYGEN.oxphx = "$env:OXIDIZER\plugins\ox-helix.ps1"
-$Global:OX_OXYGEN.oxpjl = "$env:OXIDIZER\plugins\ox-julia.ps1"
-$Global:OX_OXYGEN.oxpjn = "$env:OXIDIZER\plugins\ox-jupyter.ps1"
-$Global:OX_OXYGEN.oxpnj = "$env:OXIDIZER\plugins\ox-node.ps1"
-$Global:OX_OXYGEN.oxppu = "$env:OXIDIZER\plugins\ox-pueue.ps1"
-$Global:OX_OXYGEN.oxprb = "$env:OXIDIZER\plugins\ox-ruby.ps1"
-$Global:OX_OXYGEN.oxprs = "$env:OXIDIZER\plugins\ox-rust.ps1"
-$Global:OX_OXYGEN.oxptl = "$env:OXIDIZER\plugins\ox-texlive.ps1"
-$Global:OX_OXYGEN.oxput = "$env:OXIDIZER\plugins\ox-utils.ps1"
-$Global:OX_OXYGEN.oxpvs = "$env:OXIDIZER\plugins\ox-vscode.ps1"
+$Global:OX_OXYGEN = @{
+    'oxd' = "$env:OXIDIZER\defaults.ps1"
+    'oxz' = "$env:OXIDIZER\oxidizer.ps1"
+    'oxwz' = "$env:OXIDIZER\defaults\wezterm.lua"
+    'oxps' = "$env:OXIDIZER\plugins\ox-scoop.ps1"
+    'oxpw' = "$env:OXIDIZER\plugins\ox-windows.ps1"
+    'oxpg' = "$env:OXIDIZER\plugins\ox-git.ps1"
+    'oxpc' = "$env:OXIDIZER\plugins\ox-conda.ps1"
+    'oxpbw' = "$env:OXIDIZER\plugins\ox-bitwarden.ps1"
+    'oxpcn' = "$env:OXIDIZER\plugins\ox-conan.ps1"
+    'oxpdk' = "$env:OXIDIZER\plugins\ox-docker.ps1"
+    'oxpes' = "$env:OXIDIZER\plugins\ox-espanso.ps1"
+    'oxpfm' = "$env:OXIDIZER\plugins\ox-formats.ps1"
+    'oxphx' = "$env:OXIDIZER\plugins\ox-helix.ps1"
+    'oxpjl' = "$env:OXIDIZER\plugins\ox-julia.ps1"
+    'oxpjn' = "$env:OXIDIZER\plugins\ox-jupyter.ps1"
+    'oxpnj' = "$env:OXIDIZER\plugins\ox-node.ps1"
+    'oxppu' = "$env:OXIDIZER\plugins\ox-pueue.ps1"
+    'oxprb' = "$env:OXIDIZER\plugins\ox-ruby.ps1"
+    'oxprs' = "$env:OXIDIZER\plugins\ox-rust.ps1"
+    'oxptl' = "$env:OXIDIZER\plugins\ox-texlive.ps1"
+    'oxput' = "$env:OXIDIZER\plugins\ox-utils.ps1"
+    'oxpvs' = "$env:OXIDIZER\plugins\ox-vscode.ps1"
+}
 
 ##########################################################
 # System configuration files
@@ -38,24 +38,24 @@ $Global:OX_OXYGEN.oxpvs = "$env:OXIDIZER\plugins\ox-vscode.ps1"
 
 $Global:OX_ELEMENT = @{}
 
-$Global:OX_ELEMENT.ox = "$env:OXIDIZER\custom.ps1"
-$Global:OX_ELEMENT.wz = "$env:SCOOP\persist\wezterm\wezterm.lua"
-$Global:OX_ELEMENT.ps = $PROFILE
+$Global:OX_ELEMENT = @{
+    'ox' = "$env:OXIDIZER\custom.ps1"
+    'wz' = "$env:SCOOP\persist\wezterm\wezterm.lua"
+    'ps' = $PROFILE
+}
 
 $Global:OX_OXIDE = @{}
 
 . $Global:OX_ELEMENT.ox
 
-if (!(Test-Path -Path "$env:OX_BACKUP\shell")) {
-    mkdir "$env:OX_BACKUP\shell"
-}
+$directories = @(
+    "$env:OX_BACKUP\shell",
+    "$env:OX_BACKUP\install",
+    "$env:OX_BACKUP\apps"
+)
 
-if (!(Test-Path -Path "$env:OX_BACKUP\install")) {
-    mkdir "$env:OX_BACKUP\install"
-}
-
-if (!(Test-Path -Path "$env:OX_BACKUP\apps")) {
-    mkdir "$env:OX_BACKUP\apps"
+ForEach ($directory in $directories) {
+    mkdir $directory
 }
 
 $Global:OX_APPHOME = @{}

@@ -132,9 +132,7 @@ OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 # zellij settings
 ##########################################################
 
-# if [[ ! -d ${OX_BACKUP}/zellij ]]; then
-#     mkdir -p ${OX_BACKUP}/zellij
-# fi
+# mkdir -p ${OX_BACKUP}/zellij
 
 # OX_OXIDE[bkzj]=${OX_BACKUP}/zellij/config.yaml
 # OX_OXIDE[bkzjl_]=${OX_BACKUP}/zellij/layouts
@@ -206,9 +204,7 @@ upp() {
 # rust settings
 ##########################################################
 
-# if [[ ! -d ${OX_BACKUP}/rust ]]; then
-#     mkdir -p ${OX_BACKUP}/rust
-# fi
+# mkdir -p ${OX_BACKUP}/rust
 
 # OX_OXIDE[bkcg]=${OX_BACKUP}/rust/config.toml
 # OX_OXIDE[bkrs]=${OX_BACKUP}/rust/settings.toml
@@ -217,9 +213,7 @@ upp() {
 # julia settings
 ##########################################################
 
-# if [[ ! -d ${OX_BACKUP}/julia ]]; then
-#     mkdir -p ${OX_BACKUP}/julia
-# fi
+# mkdir -p ${OX_BACKUP}/julia
 
 # OX_OXIDE[bkjl]=${OX_BACKUP}/julia/startup.jl
 # OX_OXIDE[bkjlx]=${OX_BACKUP}/julia/julia-pkgs.txt
@@ -228,9 +222,7 @@ upp() {
 # conan settings
 ##########################################################
 
-# if [[ ! -d ${OX_BACKUP}/conan ]]; then
-#     mkdir -p ${OX_BACKUP}/conan
-# fi
+# mkdir -p ${OX_BACKUP}/conan
 
 # OX_OXIDE[bkcn]=${OX_BACKUP}/conan/conan.conf
 # OX_OXIDE[bkcnr]=${OX_BACKUP}/conan/remotes.json
@@ -248,9 +240,7 @@ upp() {
 # vscode settings
 ##########################################################
 
-# if [[ ! -d ${OX_BACKUP}/vscode ]]; then
-#     mkdir -p ${OX_BACKUP}/vscode
-# fi
+# mkdir -p ${OX_BACKUP}/vscode
 
 # # OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.json
 # OX_OXIDE[bkvsk]=${OX_BACKUP}/vscode/keybindings.json
@@ -298,30 +288,28 @@ alias hf="hyperfine"
 # shell
 ##########################################################
 
-case ${SHELL} in
-*zsh)
-    # turn case sensitivity off
-    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-    # pasting with tabs doesn't perform completion
-    zstyle ':completion:' insert-tab pending
-
-    # global
-    alias -g w0="| rg '\s0\.\d+'"
-
-    # test
-    alias tt="hyperfine --warmup 3 --shell zsh 'source ~/.zshrc'"
-    ;;
-*bash)
-    # turn case sensitivity off
-    if [[ ! -e ~/.inputrc ]]; then
-        echo '$include /etc/inputrc' >~/.inputrc
-    fi
-    echo 'set completion-ignore-case On' >>~/.inputrc
-
-    # test
-    alias tt="hyperfine --warmup 3 --shell bash 'source ~/.bash_profile'"
-    ;;
-esac
+weather() {
+    case $2 in
+    -a)
+        curl wttr.in/$1
+        ;;
+    -d)
+        curl v2d.wttr.in/$1
+        ;;
+    -n)
+        curl v2n.wttr.in/$1
+        ;;
+    -g)
+        curl v3.wttr.in/$1
+        ;;
+    -h)
+        printf "param 1:\n city: new+york\n airport(codes): muc \n resort: %sEiffel+Tower\n ip address: @github.com\n help: :help\n" \
+            "${HOME}" && printf "%s" \
+            "param 2:\n a: all\n d/n: day/night\n g: geographical\n f: format\n"
+        ;;
+    *) curl "v2.wttr.in/$1" ;;
+    esac
+}
 
 ##########################################################
 # starship
@@ -362,7 +350,7 @@ weather() {
         curl v3.wttr.in/$1
         ;;
     -h)
-        echo "param 1:\n city: new+york\n airport(codes): muc \n resort: ~Eiffel+Tower\n ip address: @github.com\n help: :help"
+        echo "param 1:\n city: new+york\n airport(codes): muc \n resort: ${HOME}Eiffel+Tower\n ip address: @github.com\n help: :help"
         echo "param 2:\n a: all\n d: day \n n: night\n g: geographical\n f: format"
         ;;
     *)
@@ -370,12 +358,6 @@ weather() {
         ;;
     esac
 }
-
-##########################################################
-# PATH
-##########################################################
-
-export PATH="$HOMEBREW_PREFIX/opt/uutils-coreutils/libexec/uubin:$PATH"
 
 ##########################################################
 # startup commands

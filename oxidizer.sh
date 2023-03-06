@@ -1,71 +1,61 @@
-if [[ -z ${OXIDIZER} ]]; then
-    export OXIDIZER=${HOME}/oxidizer
-fi
+# set default value for OXIDIZER
+export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 ##########################################################
 # Oxidizer configuration files
 ##########################################################
 
-declare -A OX_OXYGEN
-# defaults
-OX_OXYGEN[oxd]=${OXIDIZER}/defaults.sh
-OX_OXYGEN[oxwz]=${OXIDIZER}/defaults/wezterm.lua
 # plugins
-OX_OXYGEN[oxpm]=${OXIDIZER}/plugins/ox-macos.sh
-OX_OXYGEN[oxpd]=${OXIDIZER}/plugins/ox-debians.sh
-OX_OXYGEN[oxpb]=${OXIDIZER}/plugins/ox-brew.sh
-OX_OXYGEN[oxpg]=${OXIDIZER}/plugins/ox-git.sh
-OX_OXYGEN[oxpc]=${OXIDIZER}/plugins/ox-conda.sh
-OX_OXYGEN[oxpbw]=${OXIDIZER}/plugins/ox-bitwarden.sh
-OX_OXYGEN[oxpcn]=${OXIDIZER}/plugins/ox-conan.sh
-OX_OXYGEN[oxpct]=${OXIDIZER}/plugins/ox-container.sh
-OX_OXYGEN[oxpes]=${OXIDIZER}/plugins/ox-espanso.sh
-OX_OXYGEN[oxpfm]=${OXIDIZER}/plugins/ox-formats.sh
-OX_OXYGEN[oxphx]=${OXIDIZER}/plugins/ox-helix.sh
-OX_OXYGEN[oxpjl]=${OXIDIZER}/plugins/ox-julia.sh
-OX_OXYGEN[oxpjn]=${OXIDIZER}/plugins/ox-jupyter.sh
-OX_OXYGEN[oxpnj]=${OXIDIZER}/plugins/ox-node.sh
-OX_OXYGEN[oxppd]=${OXIDIZER}/plugins/ox-podman.sh
-OX_OXYGEN[oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
-OX_OXYGEN[oxprs]=${OXIDIZER}/plugins/ox-rust.sh
-OX_OXYGEN[oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
-OX_OXYGEN[oxput]=${OXIDIZER}/plugins/ox-utils.sh
-OX_OXYGEN[oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
-OX_OXYGEN[oxpzj]=${OXIDIZER}/plugins/ox-zellij.sh
+declare -A OX_OXYGEN=(
+    [oxd]=${OXIDIZER}/defaults.sh
+    [oxwz]=${OXIDIZER}/defaults/wezterm.lua
+    [oxpm]=${OXIDIZER}/plugins/ox-macos.sh
+    [oxpd]=${OXIDIZER}/plugins/ox-debians.sh
+    [oxpb]=${OXIDIZER}/plugins/ox-brew.sh
+    [oxpg]=${OXIDIZER}/plugins/ox-git.sh
+    [oxpc]=${OXIDIZER}/plugins/ox-conda.sh
+    [oxpbw]=${OXIDIZER}/plugins/ox-bitwarden.sh
+    [oxpcn]=${OXIDIZER}/plugins/ox-conan.sh
+    [oxpct]=${OXIDIZER}/plugins/ox-container.sh
+    [oxpes]=${OXIDIZER}/plugins/ox-espanso.sh
+    [oxpfm]=${OXIDIZER}/plugins/ox-formats.sh
+    [oxphx]=${OXIDIZER}/plugins/ox-helix.sh
+    [oxpjl]=${OXIDIZER}/plugins/ox-julia.sh
+    [oxpjn]=${OXIDIZER}/plugins/ox-jupyter.sh
+    [oxpnj]=${OXIDIZER}/plugins/ox-node.sh
+    [oxppd]=${OXIDIZER}/plugins/ox-podman.sh
+    [oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
+    [oxprs]=${OXIDIZER}/plugins/ox-rust.sh
+    [oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
+    [oxput]=${OXIDIZER}/plugins/ox-utils.sh
+    [oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
+    [oxpzj]=${OXIDIZER}/plugins/ox-zellij.sh
+)
 
 ##########################################################
 # System configuration files
 ##########################################################
 
-declare -A OX_ELEMENT
-
-OX_ELEMENT[ox]=${OXIDIZER}/custom.sh
-OX_ELEMENT[wz]=${HOME}/.config/wezterm/wezterm.lua
-OX_ELEMENT[zs]=${HOME}/.zshrc
-OX_ELEMENT[bs]=${HOME}/.bash_profile
-OX_ELEMENT[fs]=${HOME}/.config/fish/config.fish
+declare -A OX_ELEMENT=(
+    [ox]=${OXIDIZER}/custom.sh
+    [wz]=${HOME}/.config/wezterm/wezterm.lua
+    [zs]=${HOME}/.zshrc
+    [bs]=${HOME}/.bash_profile
+    [fs]=${HOME}/.config/fish/config.fish
+)
 
 declare -A OX_OXIDE
 
 . ${OX_ELEMENT[ox]}
 
-if [[ ! -d ${OX_BACKUP}/shell ]]; then
-    mkdir -p ${OX_BACKUP}/shell
-fi
-
-if [[ ! -d ${OX_BACKUP}/install ]]; then
-    mkdir -p ${OX_BACKUP}/install
-fi
-
-if [[ ! -d ${OX_BACKUP}/apps ]]; then
-    mkdir -p ${OX_BACKUP}/apps
-fi
+# create directories if they don't exist
+mkdir -p "${OX_BACKUP}"/{shell,install,apps}
 
 ##########################################################
 # Shell
 ##########################################################
 
-export SHELLS=/private/etc/shells
+SHELLS=/private/etc/shells
 
 add_shell() {
     echo $1 | sudo tee -a ${SHELLS}

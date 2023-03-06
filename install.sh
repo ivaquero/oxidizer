@@ -1,7 +1,4 @@
-if [[ -z ${OXIDIZER} ]]; then
-    export OXIDIZER="${HOME}/oxidizer"
-fi
-
+export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 printf "📦 Installing Oxidizer\n"
 
 ###################################################
@@ -114,13 +111,13 @@ printf "⚙️ Adding Oxidizer into ${OX_SHELL}...\n"
 echo "# Oxidizer" >>${OX_SHELL}
 
 if [[ -z ${OXIDIZER} ]]; then
-    echo '
-    export OXIDIZER=${HOME}/oxidizer
-    source ${OXIDIZER}/oxidizer.sh
-    ' >>${OX_SHELL}
+    OXIDIZER="${HOME}/oxidizer"
+    append_str='export OXIDIZER='"${OXIDIZER}"' && source '"${OXIDIZER}"'/oxidizer.sh'
 else
-    echo "source ${OXIDIZER}/oxidizer.sh" >>${OX_SHELL}
+    append_str='source '"${OXIDIZER}"'/oxidizer.sh'
 fi
+
+echo "${append_str}" >>"${OX_SHELL}"
 
 echo "⚙️ Adding Custom settings..."
 cp ${OXIDIZER}/defaults.sh ${OXIDIZER}/custom.sh
@@ -135,7 +132,7 @@ sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${OX_SHELL}
 # Loading Plugins
 ###################################################
 
-if [[ ! -d ${OXIDIZER}/plugins ]]; then
+if [ ! -d ${OXIDIZER}/plugins ]]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
 

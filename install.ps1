@@ -98,9 +98,7 @@ sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 # Loading Plugins
 ###################################################
 
-if (!(Test-Path -Path "$env:OXIDIZER\plugins")) {
-    mkdir -p "$env:OXIDIZER\plugins"
-}
+mkdir -p "$env:OXIDIZER\plugins"
 
 curl -o "$env:OXIDIZER\plugins\ox-utils.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-utils.ps1
 curl -o "$env:OXIDIZER\plugins\ox-pueue.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-pueue.ps1

@@ -70,9 +70,8 @@ $Global:OX_OXIDE.bkw = "$env:OX_BACKUP\install\Wingetfile.json"
 # $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
 # $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
-# if (!(Test-Path -Path "$env:OX_BACKUP\terminal")) {
-#     mkdir "$env:OX_BACKUP\terminal"
-# }
+# mkdir "$env:OX_BACKUP\terminal"
+
 # $Global:OX_OXIDE.bkal = "$env:OX_BACKUP\terminal\alacritty.yml"
 # $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
 
@@ -157,9 +156,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # rust settings
 ##########################################################
 
-# if (!(Test-Path -Path "$env:OX_BACKUP\rust")) {
-#     mkdir "$env:OX_BACKUP\rust"
-# }
+# mkdir "$env:OX_BACKUP\rust"
 
 # $Global:OX_OXIDE.bkcg = "$env:OX_BACKUP\rust\config.toml"
 # $Global:OX_OXIDE.bkrs = "$env:OX_BACKUP\rust\settings.toml"
@@ -168,9 +165,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # julia settings
 ##########################################################
 
-# if (!(Test-Path -Path "$env:OX_BACKUP\julia")) {
-#     mkdir "$env:OX_BACKUP\julia"
-# }
+# mkdir "$env:OX_BACKUP\julia"
 
 # $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\startup.jl"
 # $Global:OX_OXIDE.bkjlx = "$env:OX_BACKUP\julia\julia-pkgs.txt"
@@ -179,9 +174,7 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # conan settings
 ##########################################################
 
-# if (!(Test-Path -Path "$env:OX_BACKUP\conan")) {
-#     mkdir "$env:OX_BACKUP\conan"
-# }
+# mkdir "$env:OX_BACKUP\conan"
 
 # $Global:OX_OXIDE.bkcn = "$env:OX_BACKUP\conan\conan.conf"
 # $Global:OX_OXIDE.bkcnr = "$env:OX_BACKUP\conan\remotes.json"
@@ -199,14 +192,12 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # vscode settings
 ##########################################################
 
-# if (!(Test-Path -Path "$env:OX_BACKUP\vscode")) {
-#     mkdir "$env:OX_BACKUP\vscode"
-# }
+mkdir "$env:OX_BACKUP\vscode"
 
-# $Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"
-# $Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\keybindings.json"
-# $Global:OX_OXIDE.bkvss_ = "$env:OX_BACKUP\vscode\snippets"
-# $Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
+$Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"
+$Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\keybindings.json"
+$Global:OX_OXIDE.bkvss_ = "$env:OX_BACKUP\vscode\snippets"
+$Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
 
 ##########################################################
 # other configurations
