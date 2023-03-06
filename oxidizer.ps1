@@ -55,8 +55,8 @@ $directories = @(
 )
 
 ForEach ($directory in $directories) {
-    if (!(Test-Path -Path "$env:OX_BACKUP\$directory")) {
-        mkdir "$env:OX_BACKUP\$directory"
+    if (!(Test-Path -Path "$directory")) {
+        mkdir $directory
     }
 }
 
