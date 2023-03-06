@@ -55,7 +55,9 @@ $directories = @(
 )
 
 ForEach ($directory in $directories) {
-    mkdir $directory
+    if (!(Test-Path -Path "$env:OX_BACKUP\$directory")) {
+        mkdir "$env:OX_BACKUP\$directory"
+    }
 }
 
 $Global:OX_APPHOME = @{}
