@@ -132,9 +132,7 @@ sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${OX_SHELL}
 # Loading Plugins
 ###################################################
 
-if [ ! -d ${OXIDIZER}/plugins ]]; then
-    mkdir -p ${OXIDIZER}/plugins
-fi
+mkdir -p ${OXIDIZER}/plugins
 
 curl -o ${OXIDIZER}/plugins/ox-brew.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-brew.sh
 curl -o ${OXIDIZER}/plugins/ox-utils.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-utils.sh
