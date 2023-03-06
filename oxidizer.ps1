@@ -136,7 +136,7 @@ function iiox {
 
 # update Oxidizer
 function upox {
-    z $env:OXIDIZER
+    cd $env:OXIDIZER
     git fetch origin master
     git reset --hard origin/master
 
