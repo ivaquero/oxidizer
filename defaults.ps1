@@ -22,27 +22,22 @@ $env:EDITOR_T = 'vi'
 # select ox-plugins
 ##########################################################
 
-# toolchain specific (highly recommended)
 # oxpg: ox-git
-#
-# language & software-specific
 # oxpc: ox-conda
 # oxpcn: ox-conan
-# oxpct: ox-container
-# oxpes: ox-espanso
+# oxpfm: ox-formats
 # oxphx: ox-helix
 # oxpjl: ox-julia
-# oxpjn: ox-jupyter
-# oxpnj: ox-node
+# oxpnj: ox-nodejs
 # oxprs: ox-rust
+# oxpbw: ox-bitwarden
+# oxpct: ox-container
+# oxpes: ox-espanso
+# oxpjn: ox-jupyter
 # oxptl: ox-texlive
 # oxpvs: ox-vscode
-#
-# other-shortcuts
-# oxpfm: ox-formats
-# oxpbw: ox-bitwarden
+
 $Global:OX_PLUGINS = @(
-    'oxpg',
     'oxpfm',
     'oxpvs'
 )
