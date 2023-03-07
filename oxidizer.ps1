@@ -36,8 +36,6 @@ $Global:OX_OXYGEN = @{
 # System configuration files
 ##########################################################
 
-$Global:OX_ELEMENT = @{}
-
 $Global:OX_ELEMENT = @{
     'ox' = "$env:OXIDIZER\custom.ps1"
     'wz' = "$env:SCOOP\persist\wezterm\wezterm.lua"
@@ -45,8 +43,6 @@ $Global:OX_ELEMENT = @{
 }
 
 $Global:OX_OXIDE = @{}
-
-. $Global:OX_ELEMENT.ox
 
 $directories = @(
     "$env:OX_BACKUP\shell",
@@ -72,9 +68,11 @@ ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
     . $Global:OX_OXYGEN.$($core_plugin)
 }
 
-if ( $(uname).Contains("Windows") ) {
+if ($(uname).Contains("Windows")) {
     . $Global:OX_OXYGEN.oxps
 }
+
+. $Global:OX_ELEMENT.ox
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
     . $Global:OX_OXYGEN.$($plugin)
