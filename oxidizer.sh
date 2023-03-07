@@ -46,8 +46,6 @@ declare -A OX_ELEMENT=(
 
 declare -A OX_OXIDE
 
-. ${OX_ELEMENT[ox]}
-
 # create directories if they don't exist
 if [ ! -d "${OX_BACKUP}"/{shell,install,apps} ]; then
     mkdir -p "${OX_BACKUP}"/{shell,install,apps}
@@ -87,6 +85,8 @@ case $(uname -a) in
 esac
 
 declare -a OX_PLUGINS
+
+. ${OX_ELEMENT[ox]}
 
 for plugin in ${OX_PLUGINS[@]}; do
     . ${OX_OXYGEN[$plugin]}
