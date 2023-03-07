@@ -133,7 +133,9 @@ OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 # zellij settings
 ##########################################################
 
-# mkdir -p ${OX_BACKUP}/zellij
+# if [ ! -d ${OX_BACKUP}/zellij ]; then
+#     mkdir -p ${OX_BACKUP}/zellij
+# fi
 
 # OX_OXIDE[bkzj]=${OX_BACKUP}/zellij/config.yaml
 # OX_OXIDE[bkzjl_]=${OX_BACKUP}/zellij/layouts
@@ -207,7 +209,9 @@ upp() {
 # rust settings
 ##########################################################
 
-# mkdir -p ${OX_BACKUP}/rust
+# if [ ! -d ${OX_BACKUP}/rust ]; then
+#     mkdir -p ${OX_BACKUP}/rust
+# fi
 
 # OX_OXIDE[bkcg]=${OX_BACKUP}/rust/config.toml
 # OX_OXIDE[bkrs]=${OX_BACKUP}/rust/settings.toml
@@ -216,7 +220,9 @@ upp() {
 # julia settings
 ##########################################################
 
-# mkdir -p ${OX_BACKUP}/julia
+# if [ ! -d ${OX_BACKUP}/julia ]; then
+#     mkdir -p ${OX_BACKUP}/julia
+# fi
 
 # OX_OXIDE[bkjl]=${OX_BACKUP}/julia/startup.jl
 # OX_OXIDE[bkjlx]=${OX_BACKUP}/julia/julia-pkgs.txt
@@ -225,7 +231,9 @@ upp() {
 # conan settings
 ##########################################################
 
-# mkdir -p ${OX_BACKUP}/conan
+# if [ ! -d ${OX_BACKUP}/conan ]; then
+#     mkdir -p ${OX_BACKUP}/conan
+# fi
 
 # OX_OXIDE[bkcn]=${OX_BACKUP}/conan/conan.conf
 # OX_OXIDE[bkcnr]=${OX_BACKUP}/conan/remotes.json
@@ -243,7 +251,9 @@ upp() {
 # vscode settings
 ##########################################################
 
-# mkdir -p ${OX_BACKUP}/vscode
+# if [ ! -d ${OX_BACKUP}/vscode ]; then
+#     mkdir -p ${OX_BACKUP}/vscode
+# fi
 
 # # OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.json
 # OX_OXIDE[bkvsk]=${OX_BACKUP}/vscode/keybindings.json

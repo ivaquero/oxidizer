@@ -49,7 +49,9 @@ declare -A OX_OXIDE
 . ${OX_ELEMENT[ox]}
 
 # create directories if they don't exist
-mkdir -p "${OX_BACKUP}"/{shell,install,apps}
+if [ ! -d "${OX_BACKUP}"/{shell,install,apps} ]; then
+    mkdir -p "${OX_BACKUP}"/{shell,install,apps}
+fi
 
 ##########################################################
 # Shell
