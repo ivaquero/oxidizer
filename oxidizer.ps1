@@ -43,19 +43,6 @@ $Global:OX_ELEMENT = @{
 }
 
 $Global:OX_OXIDE = @{}
-
-$directories = @(
-    "$env:OX_BACKUP\shell",
-    "$env:OX_BACKUP\install",
-    "$env:OX_BACKUP\apps"
-)
-
-ForEach ($directory in $directories) {
-    if (!(Test-Path -Path "$directory")) {
-        mkdir $directory
-    }
-}
-
 $Global:OX_APPHOME = @{}
 
 ##########################################################
@@ -76,6 +63,18 @@ if ($(uname).Contains("Windows")) {
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
     . $Global:OX_OXYGEN.$($plugin)
+}
+
+$directories = @(
+    "$env:OX_BACKUP\shell",
+    "$env:OX_BACKUP\install",
+    "$env:OX_BACKUP\apps"
+)
+
+ForEach ($directory in $directories) {
+    if (!(Test-Path -Path "$directory")) {
+        mkdir $directory
+    }
 }
 
 ##########################################################

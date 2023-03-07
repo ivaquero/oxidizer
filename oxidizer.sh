@@ -46,11 +46,6 @@ declare -A OX_ELEMENT=(
 
 declare -A OX_OXIDE
 
-# create directories if they don't exist
-if [ ! -d "${OX_BACKUP}"/{shell,install,apps} ]; then
-    mkdir -p "${OX_BACKUP}"/{shell,install,apps}
-fi
-
 ##########################################################
 # Shell
 ##########################################################
@@ -91,6 +86,19 @@ declare -a OX_PLUGINS
 for plugin in ${OX_PLUGINS[@]}; do
     . ${OX_OXYGEN[$plugin]}
 done
+
+# create directories if they don't exist
+if [ ! -d ${OX_BACKUP}/shell ]; then
+    mkdir -p ${OX_BACKUP}/shell
+fi
+
+if [ ! -d ${OX_BACKUP}/install ]; then
+    mkdir -p ${OX_BACKUP}/install
+fi
+
+if [ ! -d ${OX_BACKUP}/apps ]; then
+    mkdir -p ${OX_BACKUP}/apps
+fi
 
 ##########################################################
 # Oxidizer management
