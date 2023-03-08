@@ -136,16 +136,16 @@ if [ ! -d ${OXIDIZER}/plugins ]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
 
-curl -o ${OXIDIZER}/plugins/ox-brew.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-brew.sh
-curl -o ${OXIDIZER}/plugins/ox-utils.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-utils.sh
-curl -o ${OXIDIZER}/plugins/ox-pueue.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-pueue.sh
+curl -o -s ${OXIDIZER}/plugins/ox-brew.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-brew.sh
+curl -o -s ${OXIDIZER}/plugins/ox-utils.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-utils.sh
+curl -o -s ${OXIDIZER}/plugins/ox-pueue.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-pueue.sh
 
 case $(uname -a) in
 *Darwin*)
-    curl -o ${OXIDIZER}/plugins/ox-macos.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-macos.sh
+    curl -o -s ${OXIDIZER}/plugins/ox-macos.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-macos.sh
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    curl -o ${OXIDIZER}/plugins/ox-debians.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-debians.sh
+    curl -o -s ${OXIDIZER}/plugins/ox-debians.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-debians.sh
     ;;
 esac
 
