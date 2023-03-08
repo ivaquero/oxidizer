@@ -8,7 +8,7 @@ printf "📦 Installing Oxidizer\n"
 if test ! "$(command -v brew)"; then
     printf "📦 Homebrew not installed. Installing.\n"
     if [[ $(uname -s) = "Linux" ]] && [[ $(uname -m) = "aarch64" ]]; then
-        echo "⚠️ Oxidizer doesn't support limited Linux-on-ARM yet."
+        echo "⚠️ Oxidizer doesn't support limited Linux-son-ARM yet."
         sleep 5
         exit
     elif [[ ${BREW_CN} ]]; then
@@ -136,16 +136,16 @@ if [ ! -d ${OXIDIZER}/plugins ]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
 
-curl -o ${OXIDIZER}/plugins/ox-brew.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-brew.sh
-curl -o ${OXIDIZER}/plugins/ox-utils.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-utils.sh
-curl -o ${OXIDIZER}/plugins/ox-pueue.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-pueue.sh
+curl -so ${OXIDIZER}/plugins/ox-brew.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-brew.sh
+curl -so ${OXIDIZER}/plugins/ox-utils.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-utils.sh
+curl -so ${OXIDIZER}/plugins/ox-pueue.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-pueue.sh
 
 case $(uname -a) in
 *Darwin*)
-    curl -o ${OXIDIZER}/plugins/ox-macos.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-macos.sh
+    curl -so ${OXIDIZER}/plugins/ox-macos.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-macos.sh
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    curl -o ${OXIDIZER}/plugins/ox-debians.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-debians.sh
+    curl -so ${OXIDIZER}/plugins/ox-debians.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-debians.sh
     ;;
 esac
 
