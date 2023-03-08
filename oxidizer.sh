@@ -26,7 +26,6 @@ declare -A OX_OXYGEN=(
     [oxppd]=${OXIDIZER}/plugins/ox-podman.sh
     [oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
     [oxprs]=${OXIDIZER}/plugins/ox-rust.sh
-    [oxpss]=${OXIDIZER}/plugins/ox-starship.sh
     [oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
     [oxput]=${OXIDIZER}/plugins/ox-utils.sh
     [oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
@@ -184,6 +183,30 @@ upox() {
         curl -so ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
     done
 }
+
+##########################################################
+# Starship
+##########################################################
+
+if test "$(command -v starship)"; then
+    # config files
+    export STARSHIP_CONFIG=${HOME}/.config/starship.toml
+    OX_ELEMENT[ss]=${STARSHIP_CONFIG}
+    # backup files
+    OX_OXIDE[ss]=${OX_BACKUP}/shell/starship.toml
+
+    case ${SHELL} in
+    *zsh)
+        eval "$(starship init zsh)"
+        ;;
+    *bash)
+        eval "$(starship init bash)"
+        ;;
+    *fish)
+        eval "$(starship init fish)"
+        ;;
+    esac
+fi
 
 if [[ ${OX_STARTUP} ]]; then
     startup

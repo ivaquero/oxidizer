@@ -26,7 +26,6 @@ $env:EDITOR_T = 'vi'
 # oxpjl: ox-julia
 # oxpnj: ox-nodejs
 # oxprs: ox-rust
-# oxpss: ox-starship
 # oxpbw: ox-bitwarden
 # oxpct: ox-container
 # oxpes: ox-espanso

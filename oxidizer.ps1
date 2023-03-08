@@ -27,7 +27,6 @@ $Global:OX_OXYGEN = @{
     'oxppu' = "$env:OXIDIZER\plugins\ox-pueue.ps1"
     'oxprb' = "$env:OXIDIZER\plugins\ox-ruby.ps1"
     'oxprs' = "$env:OXIDIZER\plugins\ox-rust.ps1"
-    'oxpss' = "$env:OXIDIZER\plugins\ox-starship.ps1"
     'oxptl' = "$env:OXIDIZER\plugins\ox-texlive.ps1"
     'oxput' = "$env:OXIDIZER\plugins\ox-utils.ps1"
     'oxpvs' = "$env:OXIDIZER\plugins\ox-vscode.ps1"
@@ -144,6 +143,20 @@ function upox {
         $plugin_file = $(basename $Global:OX_OXYGEN.$($plugin))
         curl -o $Global:OX_OXYGEN.$($plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$plugin_file
     }
+}
+
+##########################################################
+# Starship
+##########################################################
+
+if (Get-Command starship -ErrorAction SilentlyContinue) {
+    # config files
+    $env:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
+    $Global:OX_ELEMENT.ss = $env:STARSHIP_CONFIG
+    # backup files
+    $Global:OX_OXIDE.ss = "$env:OX_BACKUP\shell\starship.toml"
+
+    Invoke-Expression (&starship init powershell)
 }
 
 if ($Global:OX_STARTUP) {

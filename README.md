@@ -140,7 +140,6 @@ All of the plugins are hosted in [Oxidizer-Plugins](https://github.com/ivaquero/
   - Pueue
   - Container
   - Helix
-  - Starship
 - CLI for GUI
   - Bitwarden
   - Jupyter
