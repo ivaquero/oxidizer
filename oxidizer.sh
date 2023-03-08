@@ -158,10 +158,10 @@ iiox() {
 
 # update Oxidizer
 upox() {
-    z ${OXIDIZER}
+    cd ${OXIDIZER}
     git fetch origin master
     git reset --hard origin/master
-    z -
+    cd ${HOME}
 
     for core_plugin in ${OX_CORE_PLUGINS[@]}; do
         local core_plugin_file=$(basename ${OX_OXYGEN[$core_plugin]})
