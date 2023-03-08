@@ -1,28 +1,13 @@
+##########################################################
 # conventions
-#
+##########################################################
+
 # uppercase for global variables
 # lowercase for local variables
 
 ##########################################################
 # basic settings
 ##########################################################
-
-# change editor
-# $1: name
-che() {
-    sd "EDITOR=\'.*\'" "EDITOR=\'$1\'" ${OX_ELEMENT[ox]}
-    case ${SHELL} in
-    *zsh)
-        . ${OX_ELEMENT[zs]}
-        ;;
-    *bash)
-        . ${OX_ELEMENT[bs]}
-        ;;
-    *fish)
-        . ${OX_ELEMENT[fs]}
-        ;;
-    esac
-}
 
 # default editor, can be changed by function `che()`
 export EDITOR='code'
@@ -41,6 +26,7 @@ export EDITOR_T='vi'
 # oxpjl: ox-julia
 # oxpnj: ox-nodejs
 # oxprs: ox-rust
+# oxpss: ox-starship
 # oxpzj: ox-zellij
 # oxpbw: ox-bitwarden
 # oxpct: ox-container
@@ -67,20 +53,16 @@ export OX_BACKUP_PROG=(brew)
 # backup file path
 export OX_BACKUP=${HOME}/Documents/backup
 
-# shell
+# shell backups
 OX_OXIDE[bkox]=${OX_BACKUP}/shell/custom.sh
-OX_OXIDE[bkzs]=${OX_BACKUP}/shell/.zshrc
-OX_OXIDE[bkbs]=${OX_BACKUP}/shell/.bash_profile
-OX_OXIDE[bkz]=${OX_BACKUP}/shell/db.zo
-OX_OXIDE[bklx]=${OX_BACKUP}/install/source.list
+# OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
 
 # terminal
-# OX_OXIDE[bkvi]=${OX_BACKUP}/.vimrc
+
 # OX_OXIDE[bkwz]=${OX_BACKUP}/terminal/wezterm.lua
 # OX_OXIDE[bkal]=${OX_BACKUP}/terminal/alacritty.yml
 
 # system file
-OX_ELEMENT[vi]=${HOME}/.vimrc
 # OX_ELEMENT[al]=${HOME}/.config/alacritty/alacritty.yml
 
 ##########################################################
@@ -125,28 +107,8 @@ OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
 OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 
 ##########################################################
-# zellij settings
-##########################################################
-
-# if [ ! -d ${OX_BACKUP}/zellij ]; then
-#     mkdir -p ${OX_BACKUP}/zellij
-# fi
-
-# OX_OXIDE[bkzj]=${OX_BACKUP}/zellij/config.yaml
-# OX_OXIDE[bkzjl_]=${OX_BACKUP}/zellij/layouts
-
-##########################################################
-# helix settings
-##########################################################
-
-# OX_OXIDE[bkhx]=${OX_BACKUP}/helix/config.toml
-# OX_OXIDE[bkhxl]=${OX_BACKUP}/helix/languages.toml
-
-##########################################################
 # brew settings
 ##########################################################
-
-OX_OXIDE[bkb]=${OX_BACKUP}/install/Brewfile
 
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_CLEANUP_MAX_AGE_DAYS="7"
@@ -169,10 +131,6 @@ declare -A HOMEBREW_SERVICE=(
 # pueue settings
 ##########################################################
 
-# backup files
-OX_OXIDE[bkpu]=${OX_BACKUP}/pueue/pueue.yml
-OX_OXIDE[bkpua]=${OX_BACKUP}/pueue/pueue_aliases.yml
-
 # pueue demo
 upp() {
     pueue group add up_all
@@ -187,9 +145,6 @@ upp() {
 # conda settings
 ##########################################################
 
-# # backup files
-# OX_OXIDE[bkc]=${OX_BACKUP}/conda/.condarc
-
 # # predefined conda environments
 # # set the length of key <= 3
 # declare -A OX_CONDA_ENV=(
@@ -201,69 +156,10 @@ upp() {
 # OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
 
 ##########################################################
-# rust settings
-##########################################################
-
-# if [ ! -d ${OX_BACKUP}/rust ]; then
-#     mkdir -p ${OX_BACKUP}/rust
-# fi
-
-# OX_OXIDE[bkcg]=${OX_BACKUP}/rust/config.toml
-# OX_OXIDE[bkrs]=${OX_BACKUP}/rust/settings.toml
-
-##########################################################
-# julia settings
-##########################################################
-
-# if [ ! -d ${OX_BACKUP}/julia ]; then
-#     mkdir -p ${OX_BACKUP}/julia
-# fi
-
-# OX_OXIDE[bkjl]=${OX_BACKUP}/julia/startup.jl
-# OX_OXIDE[bkjlx]=${OX_BACKUP}/julia/julia-pkgs.txt
-
-##########################################################
-# conan settings
-##########################################################
-
-# if [ ! -d ${OX_BACKUP}/conan ]; then
-#     mkdir -p ${OX_BACKUP}/conan
-# fi
-
-# OX_OXIDE[bkcn]=${OX_BACKUP}/conan/conan.conf
-# OX_OXIDE[bkcnr]=${OX_BACKUP}/conan/remotes.json
-# OX_OXIDE[bkcnd]=${OX_BACKUP}/conan/profiles/default
-
-##########################################################
-# espanso settings
-##########################################################
-
-# OX_OXIDE[bkes]=${OX_BACKUP}/espanso/config/default.yml
-# OX_OXIDE[bkesx]=${OX_BACKUP}/espanso/match/base.yml
-# OX_OXIDE[bkesx_]=${OX_BACKUP}/espanso/match/packages
-
-##########################################################
 # vscode settings
 ##########################################################
 
-# if [ ! -d ${OX_BACKUP}/vscode ]; then
-#     mkdir -p ${OX_BACKUP}/vscode
-# fi
-
 # # OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.json
-# OX_OXIDE[bkvsk]=${OX_BACKUP}/vscode/keybindings.json
-# OX_OXIDE[bkvss_]=${OX_BACKUP}/vscode/snippets
-# OX_OXIDE[bkvsx]=${OX_BACKUP}/vscode/vscode-exts.txt
-
-##########################################################
-# other settings
-##########################################################
-
-# nodejs
-# OX_OXIDE[bknj]=${OX_BACKUP}/javascript/.npmrc
-# OX_OXIDE[bknjx]=${OX_BACKUP}/javascript/node-pkgs.txt
-# texlive
-# OX_OXIDE[bktl]=${OX_BACKUP}/tex/texlive-pkgs.txt
 
 ##########################################################
 # common aliases
@@ -287,8 +183,6 @@ alias c="clear"
 alias ccc="local HISTSIZE=0 && history -p && reset"
 
 # tools
-alias z.="z .."
-alias z..="z ../.."
 alias zz="z -"
 alias hf="hyperfine"
 
@@ -316,54 +210,6 @@ weather() {
             "param 2:\n a: all\n d/n: day/night\n g: geographical\n f: format\n"
         ;;
     *) curl "v2.wttr.in/$1" ;;
-    esac
-}
-
-##########################################################
-# starship
-##########################################################
-
-# case ${SHELL} in
-# *zsh)
-#     eval "$(starship init zsh)"
-#     ;;
-# *bash)
-#     eval "$(starship init bash)"
-#     ;;
-# *fish)
-#     eval "$(starship init fish)"
-#     ;;
-# esac
-
-# export STARSHIP_CONFIG="${HOME}/.config/starship.toml"
-# OX_ELEMENT[ss]=${STARSHIP_CONFIG}
-
-##########################################################
-# weather
-##########################################################
-
-# -a: all, -g: geographical, -d: day, -n: night
-weather() {
-    case $2 in
-    -a)
-        curl wttr.in/$1
-        ;;
-    -d)
-        curl v2d.wttr.in/$1
-        ;;
-    -n)
-        curl v2d.wttr.in/$1
-        ;;
-    -g)
-        curl v3.wttr.in/$1
-        ;;
-    -h)
-        echo "param 1:\n city: new+york\n airport(codes): muc \n resort: ${HOME}Eiffel+Tower\n ip address: @github.com\n help: :help"
-        echo "param 2:\n a: all\n d: day \n n: night\n g: geographical\n f: format"
-        ;;
-    *)
-        curl v2.wttr.in/$1
-        ;;
     esac
 }
 

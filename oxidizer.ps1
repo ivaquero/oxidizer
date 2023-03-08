@@ -49,32 +49,23 @@ $Global:OX_APPHOME = @{}
 # PowerShell & Plugins
 ##########################################################
 
-$Global:OX_CORE_PLUGINS = @('oxput', 'oxppu', 'oxpw')
-
-ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
-    . $Global:OX_OXYGEN.$($core_plugin)
-}
-
-if ($(uname).Contains("Windows")) {
-    . $Global:OX_OXYGEN.oxps
-}
-
 . $Global:OX_ELEMENT.ox
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
     . $Global:OX_OXYGEN.$($plugin)
 }
 
-$directories = @(
-    "$env:OX_BACKUP\shell",
-    "$env:OX_BACKUP\install",
-    "$env:OX_BACKUP\apps"
-)
+if (!(Test-Path -Path "$env:OX_BACKUP\shell")) {
+    mkdir $env:OX_BACKUP\shell
+}
 
-ForEach ($directory in $directories) {
-    if (!(Test-Path -Path "$directory")) {
-        mkdir $directory
-    }
+$Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
+
+# loading core plugins
+$Global:OX_CORE_PLUGINS = @('oxps', 'oxput', 'oxppu', 'oxpw')
+
+ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
+    . $Global:OX_OXYGEN.$($core_plugin)
 }
 
 ##########################################################

@@ -26,6 +26,7 @@ declare -A OX_OXYGEN=(
     [oxppd]=${OXIDIZER}/plugins/ox-podman.sh
     [oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
     [oxprs]=${OXIDIZER}/plugins/ox-rust.sh
+    [oxpss]=${OXIDIZER}/plugins/ox-starship.sh
     [oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
     [oxput]=${OXIDIZER}/plugins/ox-utils.sh
     [oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
@@ -42,6 +43,7 @@ declare -A OX_ELEMENT=(
     [zs]=${HOME}/.zshrc
     [bs]=${HOME}/.bash_profile
     [fs]=${HOME}/.config/fish/config.fish
+    [vi]=${HOME}/.vimrc
 )
 
 declare -A OX_OXIDE
@@ -63,9 +65,27 @@ alias shells="cat ${SHELLS}"
 # Zsh & Plugins
 ##########################################################
 
+declare -a OX_PLUGINS
+
+. ${OX_ELEMENT[ox]}
+
+for plugin in ${OX_PLUGINS[@]}; do
+    . ${OX_OXYGEN[$plugin]}
+done
+
+# shell backup
+if [ ! -d ${OX_BACKUP}/shell ]; then
+    mkdir -p ${OX_BACKUP}/shell
+fi
+
+OX_OXIDE[bkzs]=${OX_BACKUP}/shell/.zshrc
+OX_OXIDE[bkbs]=${OX_BACKUP}/shell/.bash_profile
+OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
+
 declare -a OX_CORE_PLUGINS
 OX_CORE_PLUGINS=(oxpb oxput oxppu)
 
+# loading core plugins
 for core_plugin in ${OX_CORE_PLUGINS[@]}; do
     . ${OX_OXYGEN[$core_plugin]}
 done
@@ -78,27 +98,6 @@ case $(uname -a) in
     . ${OX_OXYGEN[oxpd]}
     ;;
 esac
-
-declare -a OX_PLUGINS
-
-. ${OX_ELEMENT[ox]}
-
-for plugin in ${OX_PLUGINS[@]}; do
-    . ${OX_OXYGEN[$plugin]}
-done
-
-# create directories if they don't exist
-if [ ! -d ${OX_BACKUP}/shell ]; then
-    mkdir -p ${OX_BACKUP}/shell
-fi
-
-if [ ! -d ${OX_BACKUP}/install ]; then
-    mkdir -p ${OX_BACKUP}/install
-fi
-
-if [ ! -d ${OX_BACKUP}/apps ]; then
-    mkdir -p ${OX_BACKUP}/apps
-fi
 
 ##########################################################
 # Oxidizer management

@@ -9,7 +9,7 @@ Simple & Extensible Dotfile Manager using Rust Toolchains (PRs and Forks are wel
 
 <p align="left">
 <a href="README.md">English</a> |
-<a href="https://github.com/ivaquero/oxidizer/wiki/Oxidizer-%E6%A6%82%E8%A7%88">简体中文</a>
+<a href="https://github.com/ivaquero/oxidizer/blob/master/README_CN.md">简体中文</a>
 </p>
 
 Let's Oxidize Development Environments
@@ -140,6 +140,7 @@ All of the plugins are hosted in [Oxidizer-Plugins](https://github.com/ivaquero/
   - Pueue
   - Container
   - Helix
+  - Starship
 - CLI for GUI
   - Bitwarden
   - Jupyter
@@ -203,6 +204,7 @@ The table below lists the information of specific configuration files:
 |     pueue      |    `pua`     |     `pueue_aliases.yml`      |
 |     cargo      |     `cg`     |        `config.toml`         |
 |     rustup     |     `rs`     |       `settings.toml`        |
+|    starship    |     `ss`     |       `starship.toml`        |
 |     vscode     |     `vs`     |       `settings.json`        |
 |     vscode     |    `vsk`     |      `keybindings.json`      |
 |     vscode     |    `vss_`    |          `snippets`          |

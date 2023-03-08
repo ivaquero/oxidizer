@@ -1,17 +1,13 @@
+##########################################################
 # conventions
-#
-# uppercase for globvariables
-# lowercase for locvariables
+##########################################################
+
+# uppercase for global variables
+# lowercase for local variables
 
 ##########################################################
 # basic settings
 ##########################################################
-
-# change editor
-function che {
-    param ( $editor )
-    sd "EDITOR = \'.*\'" "EDITOR = \'$editor\'" $Global:OX_ELEMENT.ox
-}
 
 # default editor, can be changed by function `che()`
 $env:EDITOR = 'code'
@@ -30,6 +26,7 @@ $env:EDITOR_T = 'vi'
 # oxpjl: ox-julia
 # oxpnj: ox-nodejs
 # oxprs: ox-rust
+# oxpss: ox-starship
 # oxpbw: ox-bitwarden
 # oxpct: ox-container
 # oxpes: ox-espanso
@@ -55,20 +52,14 @@ $env:OX_BACKUP = "$HOME\Documents\backup"
 
 # shell
 $Global:OX_OXIDE.bkox = "$env:OX_BACKUP\custom.ps1"
-$Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
-$Global:OX_OXIDE.bkz = "$env:OX_BACKUP\shell\db.zo"
-$Global:OX_OXIDE.bks = "$env:OX_BACKUP\install\Scoopfile.json"
-$Global:OX_OXIDE.bkw = "$env:OX_BACKUP\install\Wingetfile.json"
 
 # terminal
-# $Global:OX_ELEMENT.vi = "$HOME\.vimrc"
 # $Global:OX_ELEMENT.al = "$env:APPDATA\alacritty\alacritty.yml"
 # $Global:OX_ELEMENT.wz = "$env:APPDATA\wezterm\wezterm.lua"
 
-if (!(Test-Path -Path "$env:OX_BACKUP\terminal")) {
-    mkdir "$env:OX_BACKUP\terminal"
-}
-
+# if (!(Test-Path -Path "$env:OX_BACKUP\terminal")) {
+#     mkdir "$env:OX_BACKUP\terminal"
+# }
 # $Global:OX_OXIDE.bkal = "$env:OX_BACKUP\terminal\alacritty.yml"
 # $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
 
@@ -77,9 +68,10 @@ if (!(Test-Path -Path "$env:OX_BACKUP\terminal")) {
 ##########################################################
 
 # c: clash, v: v2ray
-$Global:OX_PROXY = @{}
-$Global:OX_PROXY.c = '7890'
-$Global:OX_PROXY.v = '1080'
+$Global:OX_PROXY = @{
+    'c' = '7890'
+    'v' = '1080'
+}
 
 ##########################################################
 # select export and import configurations
@@ -118,10 +110,6 @@ $Global:OX_OXIDE.bkgi = "$env:OX_BACKUP\git\.gitignore"
 # pueue settings
 ##########################################################
 
-# backup files
-$Global:OX_OXIDE.bkpu = "$env:OX_BACKUP\pueue\pueue.yml"
-$Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
-
 # pueue demo
 # function upp {
 #     pueue group add up_all
@@ -137,82 +125,20 @@ $Global:OX_OXIDE.bkpua = "$env:OX_BACKUP\pueue\pueue_aliases.yml"
 # conda settings
 ##########################################################
 
-# # backup files
-# $Global:OX_OXIDE.bkc = "$env:OX_BACKUP\conda\.condarc"
-
 # # predefined conda environments
 # # set the length of key < 3
-# $Global:OX_CONDA_ENV = @{}
-
-# $Global:OX_CONDA_ENV.b = 'base'
+# $Global:OX_CONDA_ENV = @{
+#     b = 'base'
+# }
 
 # # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
 # # $Global:OX_OXIDE.bkceb = "$env:OX_BACKUP\conda\conda-base.txt"
 
 ##########################################################
-# rust settings
-##########################################################
-
-# if (!(Test-Path -Path "$env:OX_BACKUP\rust")) {
-#     mkdir "$env:OX_BACKUP\rust"
-# }
-
-# $Global:OX_OXIDE.bkcg = "$env:OX_BACKUP\rust\config.toml"
-# $Global:OX_OXIDE.bkrs = "$env:OX_BACKUP\rust\settings.toml"
-
-##########################################################
-# julia settings
-##########################################################
-
-# if (!(Test-Path -Path "$env:OX_BACKUP\julia")) {
-#     mkdir "$env:OX_BACKUP\julia"
-# }
-
-# $Global:OX_OXIDE.bkjl = "$env:OX_BACKUP\julia\startup.jl"
-# $Global:OX_OXIDE.bkjlx = "$env:OX_BACKUP\julia\julia-pkgs.txt"
-
-##########################################################
-# conan settings
-##########################################################
-
-# if (!(Test-Path -Path "$env:OX_BACKUP\conan")) {
-#     mkdir "$env:OX_BACKUP\vscode"
-# }
-
-# $Global:OX_OXIDE.bkcn = "$env:OX_BACKUP\conan\conan.conf"
-# $Global:OX_OXIDE.bkcnr = "$env:OX_BACKUP\conan\remotes.json"
-# $Global:OX_OXIDE.bkcnd = "$env:OX_BACKUP\conan\profiles\default"
-
-##########################################################
-# espanso settings
-##########################################################
-
-# $Global:OX_OXIDE.bkes = "$env:OX_BACKUP\espanso\config\default.yml"
-# $Global:OX_OXIDE.bkesx = "$env:OX_BACKUP\espanso\match\base.yml"
-# $Global:OX_OXIDE.bkesx_ = "$env:OX_BACKUP\espanso\match\packages"
-
-##########################################################
 # vscode settings
 ##########################################################
 
-if (!(Test-Path -Path "$env:OX_BACKUP\vscode")) {
-    mkdir "$env:OX_BACKUP\vscode"
-}
-
 $Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"
-$Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\keybindings.json"
-$Global:OX_OXIDE.bkvss_ = "$env:OX_BACKUP\vscode\snippets"
-$Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
-
-##########################################################
-# other configurations
-##########################################################
-
-# nodejs
-# $Global:OX_OXIDE.bknj = "$env:OX_BACKUP\javascript\.npmrc"
-# $Global:OX_OXIDE.bknjx = "$env:OX_BACKUP\javascript\node-pkgs.txt"
-# texlive
-# $Global:OX_OXIDE.bktl = "$env:OX_BACKUP\tex\texlive-pkgs.txt"
 
 ##########################################################
 # common aliases
@@ -233,20 +159,9 @@ function rr { rm -rf $args }
 function c { clear }
 
 # tools
-function z. { z .. }
-function z.. { z ..\.. }
 function zz { z - }
 function hf { hyperfine $args }
 function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
-
-# ##########################################################
-# # starship
-# ##########################################################
-
-# Invoke-Expression (&starship init powershell)
-
-# $env:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
-# $Global:OX_ELEMENT.ss = $env:STARSHIP_CONFIG
 
 ##########################################################
 # weather
