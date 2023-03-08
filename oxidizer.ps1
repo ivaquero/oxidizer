@@ -127,7 +127,7 @@ function upox {
     cd $env:OXIDIZER
     git fetch origin master
     git reset --hard origin/master
-    cd $env:HOME
+    cd $HOME
 
     ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
         $core_plugin_file = $(basename $Global:OX_OXYGEN.$($core_plugin))
