@@ -62,7 +62,7 @@ To keep up the updates, simply use `upox` function.
 
 ## 2. Motivation
 
-Oxidizer is originally designed for **non-administrator** users. It quickly sets up a minimal but powerful coding environment, and it aims to provide with following features:
+Oxidizer is originally designed for **non-administrator** users. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
 
 - Cross-Platform (Mainly Rust Tool chains)
 - Minimal Dependencies & Minimal Installation

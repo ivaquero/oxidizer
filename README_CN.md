@@ -5,7 +5,12 @@
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
-基于 Rust 工具链的简单 & 可扩展 Dotfile 管理方案（欢迎 PR 和 Fork）
+基于 Rust 工具链的简单 & 可扩展 dotfile 管理方案（欢迎 PR 和 Fork）
+
+<p align="left">
+<a href="README.md">English</a> |
+<a href="https://github.com/ivaquero/oxidizer/blob/master/README_CN.md">简体中文</a>
+</p>
 
 ## 1. 从这里开始
 
@@ -45,13 +50,13 @@ edf ox
 
 ## 2. Oxidizer 的主要目标
 
-Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台统一的工作环境。
+Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台统一的工作环境，避免重复和繁琐的环境配置劳动，其具有特点
 
 - 跨平台（主要基于 Rust 工具链）
 - 最少依赖 & 最少安装
 - 可扩展架构
 - 统一接口 & 丝滑操作
-- 超级快！（当前载入时间 < 1 秒）
+- 超级快！（载入时间 < 1 秒）
 
 ### 2.1. CLI 工具替换
 
