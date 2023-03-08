@@ -27,6 +27,7 @@ $Global:OX_OXYGEN = @{
     'oxppu' = "$env:OXIDIZER\plugins\ox-pueue.ps1"
     'oxprb' = "$env:OXIDIZER\plugins\ox-ruby.ps1"
     'oxprs' = "$env:OXIDIZER\plugins\ox-rust.ps1"
+    'oxpss' = "$env:OXIDIZER\plugins\ox-starship.ps1"
     'oxptl' = "$env:OXIDIZER\plugins\ox-texlive.ps1"
     'oxput' = "$env:OXIDIZER\plugins\ox-utils.ps1"
     'oxpvs' = "$env:OXIDIZER\plugins\ox-vscode.ps1"

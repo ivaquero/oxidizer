@@ -100,13 +100,6 @@ $Global:OX_OXIDE.bkg = "$env:OX_BACKUP\.gitconfig"
 $Global:OX_OXIDE.bkgi = "$env:OX_BACKUP\git\.gitignore"
 
 ##########################################################
-# helix settings
-##########################################################
-
-# $Global:OX_OXIDE.bkhx = "$env:OX_BACKUP\helix\config.toml"
-# $Global:OX_OXIDE.bkhxl = "$env:OX_BACKUP\helix\languages.toml"
-
-##########################################################
 # pueue settings
 ##########################################################
 
@@ -196,5 +189,5 @@ $env:OX_DOWNLOAD = "$HOME\Desktop"
 $Global:OX_STARTUP = 1
 
 function startup {
-    Set-Location "$HOME\Desktop"
+    cd "$HOME\Desktop"
 }
