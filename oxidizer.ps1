@@ -50,7 +50,7 @@ $Global:OX_APPHOME = @{}
 ##########################################################
 
 # load system plugin
-. $Global:OX_ELEMENT.oxpw
+. $Global:OX_OXYGEN.oxpw
 
 # load custom plugins
 . $Global:OX_ELEMENT.ox
@@ -139,7 +139,6 @@ function upox {
         git fetch origin main
         git reset --hard origin/main
     }
-
     cd $HOME
 }
 
