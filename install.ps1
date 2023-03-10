@@ -88,21 +88,16 @@ echo "Adding Custom settings..."
 
 cp -R -v "$env:OXIDIZER\defaults.ps1" "$env:OXIDIZER\custom.ps1"
 
-# loading zoxide
+# load zoxide
 sd '.* OX_STARTUP=.*' '$Global:OX_STARTUP=1' "$env:OXIDIZER\custom.ps1"
 
 # set path of oxidizer
 sd '= .*\\oxidizer.ps1' "= $env:OXIDIZER\oxidizer.ps1" $PROFILE
 
 ###################################################
-# Loading Plugins
+# Load Plugins
 ###################################################
 
-if (!(Test-Path -Path "$env:OXIDIZER\plugins")) {
-    mkdir "$env:OXIDIZER\plugins"
-}
-
-cd "$env:OXIDIZER\plugins"
 git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git
 
 . $PROFILE

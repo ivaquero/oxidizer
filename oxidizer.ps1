@@ -136,8 +136,8 @@ function upox {
     }
     else {
         cd "$env:OXIDIZER\oxplugins-pwsh"
-        git fetch origin master
-        git reset --hard origin/master
+        git fetch origin main
+        git reset --hard origin/main
     }
 
     cd $HOME

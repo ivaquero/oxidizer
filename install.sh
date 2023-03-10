@@ -103,7 +103,7 @@ case ${SHELL} in
 esac
 
 ###################################################
-# Injecting Oxidizer
+# Inject Oxidizer
 ###################################################
 
 printf "⚙️ Adding Oxidizer into ${OX_SHELL}...\n"
@@ -122,31 +122,17 @@ echo "${append_str}" >>"${OX_SHELL}"
 echo "⚙️ Adding Custom settings..."
 cp ${OXIDIZER}/defaults.sh ${OXIDIZER}/custom.sh
 
-# loading zoxide
+# load zoxide
 sd ".* OX_STARTUP=.*" "export OX_STARTUP=1" ${OXIDIZER}/custom.sh
 
 # set path of oxidizer
 sd "source OXIDIZER=.*" "source OXIDIZER=${OXIDIZER}/oxidizer.sh" ${OX_SHELL}
 
 ###################################################
-# Loading Plugins
+# Load Plugins
 ###################################################
 
-if [ ! -d ${OXIDIZER}/plugins ]; then
-    mkdir -p ${OXIDIZER}/plugins
-fi
-
-cd ${OXIDIZER}/plugins
 git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git
-
-case $(uname -a) in
-*Darwin*)
-    curl -so ${OXIDIZER}/plugins/ox-macos.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-macos.sh
-    ;;
-*Ubuntu* | *Debian* | *WSL*)
-    curl -so ${OXIDIZER}/plugins/ox-debians.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-debians.sh
-    ;;
-esac
 
 ###################################################
 # Editor

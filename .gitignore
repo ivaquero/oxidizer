@@ -8,6 +8,4 @@
 # oxidizer
 backup/*
 custom.*
-plugins/*
-zsh-plugins/*
-pwsh-plugins/*
+plugins-*/*

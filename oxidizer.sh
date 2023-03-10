@@ -167,8 +167,8 @@ upox() {
         git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git
     else
         cd ${OXIDIZER}/oxplugins-zsh
-        git fetch origin master
-        git reset --hard origin/master
+        git fetch origin main
+        git reset --hard origin/main
     fi
 
     cd ${HOME}
