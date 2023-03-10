@@ -64,6 +64,17 @@ alias shells="cat ${SHELLS}"
 # Zsh & Plugins
 ##########################################################
 
+# load system plugin
+case $(uname -a) in
+*Darwin*)
+    . ${OX_OXYGEN[oxpm]}
+    ;;
+*Ubuntu* | *Debian* | *WSL*)
+    . ${OX_OXYGEN[oxpd]}
+    ;;
+esac
+
+# load custom plugins
 declare -a OX_PLUGINS
 
 . ${OX_ELEMENT[ox]}
@@ -84,19 +95,10 @@ OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
 declare -a OX_CORE_PLUGINS
 OX_CORE_PLUGINS=(oxpb oxput oxppu)
 
-# loading core plugins
+# load core plugins
 for core_plugin in ${OX_CORE_PLUGINS[@]}; do
     . ${OX_OXYGEN[$core_plugin]}
 done
-
-case $(uname -a) in
-*Darwin*)
-    . ${OX_OXYGEN[oxpm]}
-    ;;
-*Ubuntu* | *Debian* | *WSL*)
-    . ${OX_OXYGEN[oxpd]}
-    ;;
-esac
 
 ##########################################################
 # Oxidizer management

@@ -49,6 +49,10 @@ $Global:OX_APPHOME = @{}
 # PowerShell & Plugins
 ##########################################################
 
+# load system plugin
+. $Global:OX_ELEMENT.oxpw
+
+# load custom plugins
 . $Global:OX_ELEMENT.ox
 
 ForEach ($plugin in $Global:OX_PLUGINS) {
@@ -58,11 +62,10 @@ ForEach ($plugin in $Global:OX_PLUGINS) {
 if (!(Test-Path -Path "$env:OX_BACKUP\shell")) {
     mkdir $env:OX_BACKUP\shell
 }
-
 $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 
-# loading core plugins
-$Global:OX_CORE_PLUGINS = @('oxps', 'oxput', 'oxppu', 'oxpw')
+# load core plugins
+$Global:OX_CORE_PLUGINS = @('oxps', 'oxput', 'oxppu')
 
 ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
     . $Global:OX_OXYGEN.$($core_plugin)
