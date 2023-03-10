@@ -184,6 +184,7 @@ upox() {
         local plugin_file=$(basename ${OX_OXYGEN[$plugin]})
         curl -so ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
     done
+    echo 'Oxidizer Updated'
 }
 
 ##########################################################

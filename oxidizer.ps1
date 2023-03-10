@@ -146,6 +146,7 @@ function upox {
         $plugin_file = $(basename $Global:OX_OXYGEN.$($plugin))
         curl -o $Global:OX_OXYGEN.$($plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$plugin_file
     }
+    echo 'Oxidizer Updated'
 }
 
 ##########################################################
