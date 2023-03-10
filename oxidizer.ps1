@@ -130,23 +130,17 @@ function upox {
     cd $env:OXIDIZER
     git fetch origin master
     git reset --hard origin/master
+
+    cd "$env:OXIDIZER\plugins"
+    if (!(Test-Path -Path "$env:OXIDIZER\plugins\.git")) {
+        git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git
+    }
+    else {
+        git fetch origin master
+        git reset --hard origin/master
+    }
+
     cd $HOME
-
-    ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
-        $core_plugin_file = $(basename $Global:OX_OXYGEN.$($core_plugin))
-        curl -o $Global:OX_OXYGEN.$($core_plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$core_plugin_file
-    }
-
-    if ( $(uname).Contains("Windows") ) {
-        $scoop_plugin_file = $(basename $Global:OX_OXYGEN.oxps)
-        curl -o $Global:OX_OXYGEN.oxps https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$scoop_plugin_file
-    }
-
-    ForEach ($plugin in $Global:OX_PLUGINS) {
-        $plugin_file = $(basename $Global:OX_OXYGEN.$($plugin))
-        curl -o $Global:OX_OXYGEN.$($plugin) https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/$plugin_file
-    }
-    echo 'Oxidizer Updated'
 }
 
 ##########################################################

@@ -136,9 +136,8 @@ if [ ! -d ${OXIDIZER}/plugins ]; then
     mkdir -p ${OXIDIZER}/plugins
 fi
 
-curl -so ${OXIDIZER}/plugins/ox-brew.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-brew.sh
-curl -so ${OXIDIZER}/plugins/ox-utils.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-utils.sh
-curl -so ${OXIDIZER}/plugins/ox-pueue.sh https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/ox-pueue.sh
+cd ${OXIDIZER}/plugins
+git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git
 
 case $(uname -a) in
 *Darwin*)

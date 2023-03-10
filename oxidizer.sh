@@ -162,29 +162,16 @@ upox() {
     cd ${OXIDIZER}
     git fetch origin master
     git reset --hard origin/master
+
+    cd ${OXIDIZER}/plugins
+    if [ ! -d ${OXIDIZER}/plugins/.git ]; then
+        git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git
+    else
+        git fetch origin master
+        git reset --hard origin/master
+    fi
+
     cd ${HOME}
-
-    for core_plugin in ${OX_CORE_PLUGINS[@]}; do
-        local core_plugin_file=$(basename ${OX_OXYGEN[$core_plugin]})
-        curl -so ${OX_OXYGEN[$core_plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$core_plugin_file
-    done
-
-    case $(uname -a) in
-    *Darwin*)
-        local macos_plugin_file=$(basename ${OX_OXYGEN[oxpm]})
-        curl -so ${OX_OXYGEN[oxpm]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$macos_plugin_file
-        ;;
-    *Ubuntu* | *Debian* | *WSL*)
-        local debian_plugin_file=$(basename ${OX_OXYGEN[oxpd]})
-        curl -so ${OX_OXYGEN[oxpd]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$debian_plugin_file
-        ;;
-    esac
-
-    for plugin in ${OX_PLUGINS[@]}; do
-        local plugin_file=$(basename ${OX_OXYGEN[$plugin]})
-        curl -so ${OX_OXYGEN[$plugin]} https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/zsh-plugins/$plugin_file
-    done
-    echo 'Oxidizer Updated'
 }
 
 ##########################################################

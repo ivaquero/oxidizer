@@ -102,13 +102,8 @@ if (!(Test-Path -Path "$env:OXIDIZER\plugins")) {
     mkdir "$env:OXIDIZER\plugins"
 }
 
-curl -o "$env:OXIDIZER\plugins\ox-utils.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-utils.ps1
-curl -o "$env:OXIDIZER\plugins\ox-pueue.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-pueue.ps1
-curl -o "$env:OXIDIZER\plugins\ox-windows.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-windows.ps1
-
-if ( $(uname).Contains("Windows") ) {
-    curl -o "$env:OXIDIZER\plugins\ox-scoop.ps1" https://raw.githubusercontent.com/ivaquero/oxidizer-plugins/main/pwsh-plugins/ox-scoop.ps1
-}
+cd "$env:OXIDIZER\plugins"
+git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git
 
 . $PROFILE
 

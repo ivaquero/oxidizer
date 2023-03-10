@@ -118,34 +118,38 @@ Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `cust
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
-All of the plugins are hosted in [Oxidizer-Plugins](https://github.com/ivaquero/oxidizer-plugins)
+The plugins are hosted in [OxPlugins-Zsh](https://github.com/ivaquero/oxplugins-zsh)和[OxPlugins-PowerShell](https://github.com/ivaquero/oxplugins-pwsh)
 
-- Package Manager
-  - Brew
-  - Scoop
-  - Conan
-  - Conda
-- System Shortcuts
-  - macOS
-  - apt
-  - Scoop
-  - Utility
-  - Formats
-- Language
-  - Julia
-  - Node
-  - Rust
-- Useful CLI
-  - Git
-  - Pueue
-  - Container
-  - Helix
-- CLI for GUI
-  - Bitwarden
-  - Jupyter
-  - Espanso
-  - TeXLive
-  - VSCode
+|                      Plugin                       | Linux | macOS | Windows | Autoload? |
+| :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
+|     [Brew](https://github.com/Homebrew/brew)      |   ✅   |   ✅   |    ❌    |     ✅     |
+| [Scoop](https://github.com/ScoopInstaller/Scoop)  |   ❌   |   ❌   |    ✅    |     ✅     |
+|     [Pueue](https://github.com/Nukesor/pueue)     |   ✅   |   ✅   |    ✅    |     ✅     |
+|                      System                       |  ✅¹   |   ✅   |    ✅    |     ✅     |
+|                      Utility                      |   ✅   |   ✅   |    ✅    |     ✅     |
+|            [Git](https://git-scm.com/)            |   ✅   |   ✅   |    ✅    |           |
+| [Bitwarden](https://github.com/bitwarden/clients) |   🕒   |   🕒   |    🕒    |           |
+|    [Conan](https://github.com/conan-io/conan)     |   ✅   |   ✅   |    ✅    |           |
+|      [Conda](https://github.com/conda/conda)      |   ✅   |   ✅   |    ✅    |           |
+|    [Julia](https://github.com/JuliaLang/julia)    |   ✅   |   ✅   |    🚧    |           |
+|   [Jupyter](https://github.com/jupyter/jupyter)   |   ✅   |   ✅   |    ✅    |           |
+|      [Node](https://github.com/nodejs/node)       |   ✅   |   ✅   |    🚧    |           |
+|     [Rust](https://github.com/rust-lang/rust)     |   ✅   |   ✅   |    ✅    |           |
+|   [Espanso](https://github.com/espanso/espanso)   |   ✅   |   ✅   |    ✅    |           |
+|        [TeXLive](https://tug.org/texlive/)        |   ✅   |   ✅   |    ✅    |           |
+|   [VSCode](https://github.com/microsoft/vscode)   |   ✅   |   ✅   |    ✅    |           |
+|                    Container²                     |   ✅   |   ✅   |    ✅    |           |
+|                      Formats                      |   🕒   |   🕒   |    🕒    |           |
+|  [Helix](https://github.com/helix-editor/helix)   |   🕒   |   🕒   |    🕒    |           |
+
+✅: complete functionality
+🚧: partial functionality
+🕒: basic functionality, needs more features
+❌: not exist
+
+> ¹: Currently, on Linux only provide with Debian-family shortcuts
+>
+> ²: Only for [Docker](https://docker.com/) and [Podman](https://github.com/containers/podman).
 
 Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypass the requirement of administrator privilege.
 

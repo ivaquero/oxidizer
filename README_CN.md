@@ -102,6 +102,8 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 ### 2.5. 插件总结
 
+插件位于 [OxPlugins-Zsh](https://github.com/ivaquero/oxplugins-zsh)和[OxPlugins-PowerShell](https://github.com/ivaquero/oxplugins-pwsh)
+
 |                       插件                        | Linux | macOS | Windows | 自动加载？ |
 | :-----------------------------------------------: | :---: | :---: | :-----: | :--------: |
 |     [Brew](https://github.com/Homebrew/brew)      |   ✅   |   ✅   |    ❌    |     ✅      |
