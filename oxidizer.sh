@@ -9,27 +9,27 @@ export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 declare -A OX_OXYGEN=(
     [oxd]=${OXIDIZER}/defaults.sh
     [oxwz]=${OXIDIZER}/defaults/wezterm.lua
-    [oxpm]=${OXIDIZER}/plugins/ox-macos.sh
-    [oxpd]=${OXIDIZER}/plugins/ox-debians.sh
-    [oxpb]=${OXIDIZER}/plugins/ox-brew.sh
-    [oxpg]=${OXIDIZER}/plugins/ox-git.sh
-    [oxpc]=${OXIDIZER}/plugins/ox-conda.sh
-    [oxpbw]=${OXIDIZER}/plugins/ox-bitwarden.sh
-    [oxpcn]=${OXIDIZER}/plugins/ox-conan.sh
-    [oxpct]=${OXIDIZER}/plugins/ox-container.sh
-    [oxpes]=${OXIDIZER}/plugins/ox-espanso.sh
-    [oxpfm]=${OXIDIZER}/plugins/ox-formats.sh
-    [oxphx]=${OXIDIZER}/plugins/ox-helix.sh
-    [oxpjl]=${OXIDIZER}/plugins/ox-julia.sh
-    [oxpjn]=${OXIDIZER}/plugins/ox-jupyter.sh
-    [oxpnj]=${OXIDIZER}/plugins/ox-node.sh
-    [oxppd]=${OXIDIZER}/plugins/ox-podman.sh
-    [oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
-    [oxprs]=${OXIDIZER}/plugins/ox-rust.sh
-    [oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
-    [oxput]=${OXIDIZER}/plugins/ox-utils.sh
-    [oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
-    [oxpzj]=${OXIDIZER}/plugins/ox-zellij.sh
+    [oxpm]=${OXIDIZER}/oxplugins-zsh/ox-macos.sh
+    [oxpd]=${OXIDIZER}/oxplugins-zsh/ox-debians.sh
+    [oxpb]=${OXIDIZER}/oxplugins-zsh/ox-brew.sh
+    [oxpg]=${OXIDIZER}/oxplugins-zsh/ox-git.sh
+    [oxpc]=${OXIDIZER}/oxplugins-zsh/ox-conda.sh
+    [oxpbw]=${OXIDIZER}/oxplugins-zsh/ox-bitwarden.sh
+    [oxpcn]=${OXIDIZER}/oxplugins-zsh/ox-conan.sh
+    [oxpct]=${OXIDIZER}/oxplugins-zsh/ox-container.sh
+    [oxpes]=${OXIDIZER}/oxplugins-zsh/ox-espanso.sh
+    [oxpfm]=${OXIDIZER}/oxplugins-zsh/ox-formats.sh
+    [oxphx]=${OXIDIZER}/oxplugins-zsh/ox-helix.sh
+    [oxpjl]=${OXIDIZER}/oxplugins-zsh/ox-julia.sh
+    [oxpjn]=${OXIDIZER}/oxplugins-zsh/ox-jupyter.sh
+    [oxpnj]=${OXIDIZER}/oxplugins-zsh/ox-node.sh
+    [oxppd]=${OXIDIZER}/oxplugins-zsh/ox-podman.sh
+    [oxppu]=${OXIDIZER}/oxplugins-zsh/ox-pueue.sh
+    [oxprs]=${OXIDIZER}/oxplugins-zsh/ox-rust.sh
+    [oxptl]=${OXIDIZER}/oxplugins-zsh/ox-texlive.sh
+    [oxput]=${OXIDIZER}/oxplugins-zsh/ox-utils.sh
+    [oxpvs]=${OXIDIZER}/oxplugins-zsh/ox-vscode.sh
+    [oxpzj]=${OXIDIZER}/oxplugins-zsh/ox-zellij.sh
 )
 
 ##########################################################
@@ -163,10 +163,10 @@ upox() {
     git fetch origin master
     git reset --hard origin/master
 
-    cd ${OXIDIZER}/plugins
-    if [ ! -d ${OXIDIZER}/plugins/.git ]; then
+    if [ ! -d ${OXIDIZER}/oxplugins-zsh ]; then
         git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git
     else
+        cd ${OXIDIZER}/oxplugins-zsh
         git fetch origin master
         git reset --hard origin/master
     fi

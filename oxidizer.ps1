@@ -11,25 +11,25 @@ $Global:OX_OXYGEN = @{
     'oxd' = "$env:OXIDIZER\defaults.ps1"
     'oxz' = "$env:OXIDIZER\oxidizer.ps1"
     'oxwz' = "$env:OXIDIZER\defaults\wezterm.lua"
-    'oxps' = "$env:OXIDIZER\plugins\ox-scoop.ps1"
-    'oxpw' = "$env:OXIDIZER\plugins\ox-windows.ps1"
-    'oxpg' = "$env:OXIDIZER\plugins\ox-git.ps1"
-    'oxpc' = "$env:OXIDIZER\plugins\ox-conda.ps1"
-    'oxpbw' = "$env:OXIDIZER\plugins\ox-bitwarden.ps1"
-    'oxpcn' = "$env:OXIDIZER\plugins\ox-conan.ps1"
-    'oxpdk' = "$env:OXIDIZER\plugins\ox-docker.ps1"
-    'oxpes' = "$env:OXIDIZER\plugins\ox-espanso.ps1"
-    'oxpfm' = "$env:OXIDIZER\plugins\ox-formats.ps1"
-    'oxphx' = "$env:OXIDIZER\plugins\ox-helix.ps1"
-    'oxpjl' = "$env:OXIDIZER\plugins\ox-julia.ps1"
-    'oxpjn' = "$env:OXIDIZER\plugins\ox-jupyter.ps1"
-    'oxpnj' = "$env:OXIDIZER\plugins\ox-node.ps1"
-    'oxppu' = "$env:OXIDIZER\plugins\ox-pueue.ps1"
-    'oxprb' = "$env:OXIDIZER\plugins\ox-ruby.ps1"
-    'oxprs' = "$env:OXIDIZER\plugins\ox-rust.ps1"
-    'oxptl' = "$env:OXIDIZER\plugins\ox-texlive.ps1"
-    'oxput' = "$env:OXIDIZER\plugins\ox-utils.ps1"
-    'oxpvs' = "$env:OXIDIZER\plugins\ox-vscode.ps1"
+    'oxps' = "$env:OXIDIZER\oxplugins-pwsh\ox-scoop.ps1"
+    'oxpw' = "$env:OXIDIZER\oxplugins-pwsh\ox-windows.ps1"
+    'oxpg' = "$env:OXIDIZER\oxplugins-pwsh\ox-git.ps1"
+    'oxpc' = "$env:OXIDIZER\oxplugins-pwsh\ox-conda.ps1"
+    'oxpbw' = "$env:OXIDIZER\oxplugins-pwsh\ox-bitwarden.ps1"
+    'oxpcn' = "$env:OXIDIZER\oxplugins-pwsh\ox-conan.ps1"
+    'oxpdk' = "$env:OXIDIZER\oxplugins-pwsh\ox-docker.ps1"
+    'oxpes' = "$env:OXIDIZER\oxplugins-pwsh\ox-espanso.ps1"
+    'oxpfm' = "$env:OXIDIZER\oxplugins-pwsh\ox-formats.ps1"
+    'oxphx' = "$env:OXIDIZER\oxplugins-pwsh\ox-helix.ps1"
+    'oxpjl' = "$env:OXIDIZER\oxplugins-pwsh\ox-julia.ps1"
+    'oxpjn' = "$env:OXIDIZER\oxplugins-pwsh\ox-jupyter.ps1"
+    'oxpnj' = "$env:OXIDIZER\oxplugins-pwsh\ox-node.ps1"
+    'oxppu' = "$env:OXIDIZER\oxplugins-pwsh\ox-pueue.ps1"
+    'oxprb' = "$env:OXIDIZER\oxplugins-pwsh\ox-ruby.ps1"
+    'oxprs' = "$env:OXIDIZER\oxplugins-pwsh\ox-rust.ps1"
+    'oxptl' = "$env:OXIDIZER\oxplugins-pwsh\ox-texlive.ps1"
+    'oxput' = "$env:OXIDIZER\oxplugins-pwsh\ox-utils.ps1"
+    'oxpvs' = "$env:OXIDIZER\oxplugins-pwsh\ox-vscode.ps1"
 }
 
 ##########################################################
@@ -131,11 +131,11 @@ function upox {
     git fetch origin master
     git reset --hard origin/master
 
-    cd "$env:OXIDIZER\plugins"
-    if (!(Test-Path -Path "$env:OXIDIZER\plugins\.git")) {
+    if (!(Test-Path -Path "$env:OXIDIZER\oxplugins-pwsh")) {
         git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git
     }
     else {
+        cd "$env:OXIDIZER\oxplugins-pwsh"
         git fetch origin master
         git reset --hard origin/master
     }
