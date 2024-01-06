@@ -127,7 +127,7 @@ sed -i.bak "s|.* OX_STARTUP=.*|export OX_STARTUP=1|" "${OXIDIZER}"/custom.sh
 # Load Plugins
 ###################################################
 
-git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git "${OXIDIZER}"/plugins
+git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
 
 ###################################################
 # Editor

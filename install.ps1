@@ -92,7 +92,7 @@ sed -i.bak "s|.* OX_STARTUP = .*|$Global:OX_STARTUP=1|" "$env:OXIDIZER\custom.ps
 # Load Plugins
 ###################################################
 
-git clone --depth=1 https://github.com/ivaquero/oxplugins-zsh.git $env:OXIDIZER\plugins
+git clone --depth=1 https://github.com/ivaquero/oxplugins.git $env:OXIDIZER\plugins
 
 Write-Output "Oxidizer installation complete!"
 Write-Output "Please use it in Git Bash and hit 'edf ox' to tweak your preferences.\n"

@@ -120,7 +120,7 @@ Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `cust
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
-The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins-zsh)
+The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins)
 
 > [OxPlugins-PowerShell](https://github.com/ivaquero/oxplugins-pwsh) has stopped maintenance.
 
