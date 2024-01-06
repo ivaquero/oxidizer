@@ -1,0 +1,7 @@
+bat
+fd
+gitui
+lsd
+ouch
+ripgrep
+zoxide

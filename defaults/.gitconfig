@@ -1,0 +1,112 @@
+[user]
+name = yourname
+email = youremail@outlook.com
+
+[credential]
+helper = store
+
+[commit]
+gpgsign = false
+
+[gpg]
+program = gpg
+
+[pull]
+rebase = false
+
+[merge]
+conflictstyle = diff3
+
+[diff]
+colorMoved = default
+
+[alias]
+# basics
+cf = config
+h = help
+ii = init
+ui = !gitui
+# summary
+cnt = rev-list --count HEAD
+sum = !onefetch
+# helper
+cmpr = repack -a -d -f --depth=300 --window=300 --window-memory=1g
+# clone
+cln = clone
+cln-clean = cln --depth 1 --no-checkout
+# add
+a = add
+aa = a --all
+# branch
+br = branch
+br-ls = br --all
+br-rm = br --delete
+br-rm-rmt = br --delete --remotes
+# commit
+c = commit
+ci = c --interactive
+# checkout
+co = checkout
+cob = co -b
+# clean
+cl = clean
+cl-ign = !git rm -rf --cached . && git add .
+ls-blob = !"git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | grep 'blob' | sort -k 2 -n"
+ls-blob-10 = !"git ls-blob | tail -n 10"
+# diff
+df = diff
+# fetch
+f = fetch
+# grep
+gr = grep
+grn = gr --line-number
+# log
+lg = log
+lgg = lg --graph
+lgo = lg --oneline
+lgor = lgo --oneline --reverse
+# ls-files
+ls = ls-files
+lsd = ls --debug
+lsfn = ls --full-name
+# merge
+m = merge
+# pull
+p = pull
+# push
+ps = push
+pbl = push --set-upstream origin
+# rebase
+rb = rebase
+rbi = rebase --interactive
+# reset
+undo = reset --soft HEAD^
+unstage = reset HEAD --
+# revert
+rv = revert
+# status
+st = status
+# tag
+tg = tag
+tg-rm = tg --delete
+tg-rm-rmt = push origin --delete
+tg-ls = tg --list
+tg-cl = tg --cleanup
+tg-edit = tg --edit
+tg-annot = tg --annotate
+# origin
+org-add = remote add origin
+org-add-url = remote set-url
+org-rnm = remote rename origin
+# filter-repo
+flt = filter-repo
+flt-id = flt --strip-blobs-with-ids
+flt-path = flt --invert-paths --path-glob
+flt-size = flt --strip-blobs-bigger-than
+
+# [http]
+# version = HTTP/1.1
+# proxy = http://127.0.0.1:7890
+
+# [https]
+# proxy = https://127.0.0.1:7890

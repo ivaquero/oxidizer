@@ -1,0 +1,34 @@
+# channel
+channels:
+  - conda-forge
+
+# path
+envs_dirs:
+  - ~/.conda/envs
+pkgs_dirs:
+  - ~/.conda/pkgs
+
+# network
+remote_max_retries: 1
+ssl_verify: true
+
+# solver
+auto_update_conda: true
+channel_priority: strict
+pip_interop_enabled: true
+create_default_packages:
+  - conda-tree
+pinned_packages: []
+disallow:
+  - anaconda
+add_pip_as_python_dependency: false
+use_pip: false
+
+# package
+rollback_enabled: true
+allow_softlinks: true
+safety_checks: enabled
+
+# output
+show_channel_urls: true
+report_errors: false
