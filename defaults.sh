@@ -50,7 +50,12 @@ OX_PLUGINS=(
 # backup file path
 export OX_BACKUP=${HOME}/Documents/backup
 
-# shell backups
+# shellscripts
+# the key should meet the following requirements
+# 1. starts with `bk`
+# 2. keeps consistent with the key in `OX_ELEMENT` (if it exists)
+
+# the oxidizer backup path
 OX_OXIDE[bkox]=${OX_BACKUP}/shell/custom.sh
 # OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
 
