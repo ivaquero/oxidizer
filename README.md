@@ -163,17 +163,17 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
 
 ![design](https://raw.githubusercontent.com/ivaquero/backup/master/docs/design.drawio.png)
 
-- `frf`
+- `rff`
   - refresh file by `source`
 - `edf`
   - edit file by `$EDITOR` (default: VSCode)
 - `brf`
   - file: browse by `bat` / `cat`
   - folder: browse by `lsd` / `ls`
-- `oxf`
-  - oxidize file: backup configuration file to backup folder
 - `rdf`
   - reduce file: owerwrite configuation file by backup (customized) file
+- `oxf`
+  - oxidize file: backup configuration file to backup folder
 - `clzf`
   - catalyze file: owerwrite configuartion file by Oxidizer defaults
 - `ppgf`

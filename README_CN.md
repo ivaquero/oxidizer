@@ -149,17 +149,17 @@ Oxidizer 通过 Homebrew 或 Scoop 管理包和软件，以绕过管理员权限
 
 ![design](https://raw.githubusercontent.com/ivaquero/backup/master/docs/design.drawio.png)
 
-- `frf`
+- `rff`
   - 通过 `source` 刷新
 - `edf`
   - 通过 `$EDITOR` 编辑（默认：VSCode）
 - `brf`
   - 通过 `bat`/`cat` 浏览文件
   - 文件夹：通过 `lsd`/`ls` 浏览
-- `oxf` (oxidize file)
-  - 氧化文件：在 `$OX_ELEMENT` 中覆盖对应的 `$OX_OXIDE` 文件配置
 - `rdf` (reduce file)
   - 还原文件：在 `$OX_OXIDE` 中覆盖对应的 `$OX_ELEMENT` 文件配置
+- `oxf` (oxidize file)
+  - 氧化文件：在 `$OX_ELEMENT` 中覆盖对应的 `$OX_OXIDE` 文件配置
 - `clzf` (catalyze file)
   - 催化文件：在 `$OX_OXYGEN` 中覆盖对应的 `$OX_ELEMENT` 文件配置
 - `ppgf` (propagate file)
