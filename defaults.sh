@@ -171,6 +171,14 @@ alias own="sudo chown -R $(whoami)"
 alias man="tldr"
 alias hf="hyperfine"
 
+# oxidizer
+# export config
+alias epf="oxf"
+# import config
+alias ipf="rdf"
+# initialize config
+alias iif="clzf"
+
 ##########################################################
 # shell
 ##########################################################
