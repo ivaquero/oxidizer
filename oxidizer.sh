@@ -11,6 +11,7 @@ declare -A OX_OXYGEN=(
     [oxwz]=${OXIDIZER}/defaults/wezterm.lua
     [oxpm]=${OXIDIZER}/plugins/ox-macos.sh
     [oxpd]=${OXIDIZER}/plugins/ox-debians.sh
+    [oxpr]=${OXIDIZER}/plugins/ox-rehats.sh
     [oxpw]=${OXIDIZER}/plugins/ox-windows.sh
     [oxpb]=${OXIDIZER}/plugins/ox-brew.sh
     [oxps]=${OXIDIZER}/plugins/ox-scoop.sh
@@ -126,7 +127,7 @@ upox() {
     git fetch origin master
     git reset --hard origin/master
 
-    if [ ! -d "${OXIDIZER}"/plugins ]; then
+    if [[ ! -d "${OXIDIZER}"/plugins ]]; then
         printf "\n\nCloning Oxidizer Plugins...\n"
         git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
     else
@@ -138,7 +139,7 @@ upox() {
 
     cd "${OXIDIZER}" || exit
     ox_change=$(git diff defaults.sh)
-    if [ -n "$ox_change" ]; then
+    if [[ -n "$ox_change" ]]; then
         printf "\n\nDefaults changed, don't forget to update your custom.sh accordingly...\n"
         printf "Compare the difference using 'edf oxd'"
     fi
