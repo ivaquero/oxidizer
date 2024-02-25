@@ -198,8 +198,14 @@ ccc() {
 # configuration
 case ${SHELL} in
 *zsh)
+    autoload -Uz edit-command-line
+    zle -N edit-command-line
     # turn case sensitivity off
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+    # other options
+    zstyle ':completion:*' menu select
+    zstyle ":completion:*" file-sort change
+    zstyle ":completion:*" use-cache yes
     # pasting with tabs doesn't perform completion
     zstyle ':completion:' insert-tab pending
     ;;
