@@ -159,7 +159,7 @@ OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 alias ..="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
-alias z="cd -"
+alias zz="cd -"
 alias cat="bat"
 alias ls="lsd"
 alias ll="ls -l"
@@ -169,6 +169,7 @@ alias du="dust"
 alias e="echo"
 alias rr="rm -rf"
 alias c="clear"
+# shellcheck disable=SC2139
 alias own="sudo chown -R $(whoami)"
 
 # tools
@@ -216,6 +217,7 @@ case ${SHELL} in
 *bash)
     # turn case sensitivity off
     if [ ! -e "${HOME}"/.inputrc ]; then
+        # shellcheck disable=SC2016
         echo '$include /etc/inputrc' >"${HOME}"/.inputrc
     fi
     echo 'set completion-ignore-case On' >>"${HOME}"/.inputrc
