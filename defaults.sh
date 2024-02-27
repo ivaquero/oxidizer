@@ -156,6 +156,10 @@ OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 ##########################################################
 
 # shortcuts
+alias ..="cd .."
+alias ...="cd ../.."
+alias ~="cd ~"
+alias z="cd -"
 alias cat="bat"
 alias ls="lsd"
 alias ll="ls -l"
