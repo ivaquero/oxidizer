@@ -92,7 +92,7 @@ case $(uname -a) in
 esac
 
 for core_plugin in "${OX_CORE_PLUGINS[@]}"; do
-    . ${OX_OXYGEN[$core_plugin]}
+    . "${OX_OXYGEN[$core_plugin]}"
 done
 
 ##########################################################

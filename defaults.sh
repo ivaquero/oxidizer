@@ -240,8 +240,8 @@ tt() {
 # startup commands
 ##########################################################
 
-# installer donwloaded path: works for function `brp()`
-# use `which brp` to chech `brp()` in details
+# installer downloaded path: works for function `brp()`
+# use `which brp` to check `brp()` in details
 export OX_DOWNLOAD=${HOME}/Desktop
 export OX_STARTUP=1
 

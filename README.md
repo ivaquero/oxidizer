@@ -171,11 +171,11 @@ Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypa
   - file: browse by `bat` / `cat`
   - folder: browse by `lsd` / `ls`
 - `rdf`
-  - reduce file: owerwrite configuation file by backup (customized) file
+  - reduce file: overwrite configuration file by backup (customized) file
 - `oxf`
   - oxidize file: backup configuration file to backup folder
 - `clzf`
-  - catalyze file: owerwrite configuartion file by Oxidizer defaults
+  - catalyze file: overwrite configuration file by Oxidizer defaults
 - `ppgf`
   - propagate file: backup Oxidizer defaults to backup folder
 

@@ -45,7 +45,7 @@ brew tap "homebrew/bundle"
 
 printf "📦 Installing essential Oxidizer toolchains...\n"
 
-cat ${OXIDIZER}/defaults/Brewfile.txt | while read -r pkg; do
+cat "${OXIDIZER}"/defaults/Brewfile.txt | while read -r pkg; do
     case $pkg in
     ripgrep)
         cmd='rg'
@@ -57,7 +57,7 @@ cat ${OXIDIZER}/defaults/Brewfile.txt | while read -r pkg; do
         cmd=$pkg
         ;;
     esac
-    if test ! "$(command -v $cmd)"; then
+    if test ! "$(command -v "$cmd")"; then
         brew install "$pkg"
     fi
 done
