@@ -65,18 +65,19 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 ☑️ 表示默认安装
 
 - coreutils
-  - [x] 使用 [uutils-coreutils](https://github.com/uutils/coreutils) 替换 `coreutils`（仅 Windows）
   - [x] 使用 [bat](https://github.com/sharkdp/bat) 替换 `cat`
   - [x] 使用 [lsd](https://github.com/Peltoche/lsd) 替换 `ls`
+  - [ ] 使用 [uutils-coreutils](https://github.com/uutils/coreutils) 替换 `coreutils`
 - non-coreutils
+  - [x] 使用 [dust](https://github.com/bootandy/dust) 替换 `du`
   - [x] 使用 [fd](https://github.com/sharkdp/fd) 替换 `find`
-  - [x] 使用 [zoxide](https://github.com/ajeetdsouza/zoxide) 替换 `cd` 和 `z`
   - [x] 使用 [ripgrep](https://github.com/BurntSushi/ripgrep) 替换 `grep`
-  - [ ] 使用 [dust](https://github.com/bootandy/dust) 替换 `du`
+  - [x] 使用 [sd](https://github.com/chmln/sd) 替换 `sed`
+  - [x] 使用 [tealdeer](https://github.com/dbrgn/tealdeer) 替换 `tldr` 和 `man`
+  - [x] 使用 [zoxide](https://github.com/ajeetdsouza/zoxide) 替换 `cd` 和 `z`
   - [ ] 使用 [hyperfine](https://github.com/sharkdp/hyperfine) 替换 `time`
   - [ ] 使用 [procs](https://github.com/dalance/procs) 替换 `ps`
   - [ ] 使用 [starship](https://github.com/starship/starship) 替换 `powerline10k` 和 `ohmyposh`
-  - [ ] 使用 [tealdeer](https://github.com/dbrgn/tealdeer) 替换 `tldr` 和 `man`
   - [ ] 使用 [tokei](https://github.com/XAMPPRocky/tokei) 替换 `cloc`
   - [ ] 使用 [tre](https://github.com/dduan/tre) 替换 `tree`
 
@@ -84,8 +85,8 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 ### 2.2. TUI 工具替换
 
-- [x] 使用 [gitui](https://github.com/extrawurst/gitui) 替换 `lazygit`
 - [ ] 使用 [bottom](https://github.com/ClementTsang/bottom) 替换 `top` 和 `htop`
+- [ ] 使用 [gitui](https://github.com/extrawurst/gitui) 替换 `lazygit`
 - [ ] 使用 [yazi](https://github.com/sxyazi/yazi) 替换 `range`
 - [ ] 使用 [helix](https://github.com/helix-editor/helix) 替换 `vim` （非平替）
 - [ ] 使用 [zellij](https://github.com/zellij-org/zellij) 替换 `tmux`（目前不支持 Windows）

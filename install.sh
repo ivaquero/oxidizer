@@ -50,6 +50,9 @@ cat "${OXIDIZER}"/defaults/Brewfile.txt | while read -r pkg; do
     ripgrep)
         cmd='rg'
         ;;
+    tealdeer)
+        cmd='tldr'
+        ;;
     zoxide)
         cmd='z'
         ;;

@@ -1,9 +1,10 @@
 bat
+dust
 fd
-gitui
 lsd
 ouch
 ripgrep
+sd
+tealdeer
 zoxide
-sed
 sudo

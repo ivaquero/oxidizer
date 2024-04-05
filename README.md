@@ -75,18 +75,19 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 > ☑️ means required in the installation.
 
 - coreutils
-  - [x] Use [uutils-coreutils](https://github.com/uutils/coreutils) instead of `coreutils` (only required on Windows)
   - [x] Use [bat](https://github.com/sharkdp/bat) instead of `cat`
   - [x] Use [lsd](https://github.com/Peltoche/lsd) instead of `ls`
+  - [x] Use [uutils-coreutils](https://github.com/uutils/coreutils) instead of `coreutils`
 - non-coreutils
+  - [x] Use [dust](https://github.com/bootandy/dust) instead of `du`
   - [x] Use [fd](https://github.com/sharkdp/fd) instead of `find`
-  - [x] Use [zoxide](https://github.com/ajeetdsouza/zoxide) instead of `cd` or `z`
   - [x] Use [ripgrep](https://github.com/BurntSushi/ripgrep) instead of `grep`
-  - [ ] Use [dust](https://github.com/bootandy/dust) instead of `du`
+  - [x] Use [sd](https://github.com/chmln/sd) instead of `sed`
+  - [x] Use [tealdeer](https://github.com/dbrgn/tealdeer) instead of `tldr` or `man`
+  - [x] Use [zoxide](https://github.com/ajeetdsouza/zoxide) instead of `cd` or `z`
   - [ ] Use [hyperfine](https://github.com/sharkdp/hyperfine) instead of `time`
   - [ ] Use [procs](https://github.com/dalance/procs) instead of `ps`
   - [ ] Use [starship](https://github.com/starship/starship) instead of `powerline10k` or `ohmyposh`
-  - [ ] Use [tealdeer](https://github.com/dbrgn/tealdeer) instead of `tldr` or `man`
   - [ ] Use [tokei](https://github.com/XAMPPRocky/tokei) instead of `cloc`
   - [ ] Use [tre](https://github.com/dduan/tre) instead of `tree`
 
@@ -94,8 +95,8 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 
 ### 2.2. TUI Tools Replacement
 
-- [x] Use [gitui](https://github.com/extrawurst/gitui) instead of `lazygit`
 - [ ] Use [bottom](https://github.com/ClementTsang/bottom) instead of `top` or `htop`
+- [ ] Use [gitui](https://github.com/extrawurst/gitui) instead of `lazygit`
 - [ ] Use [yazi](https://github.com/sxyazi/yazi) instead of `range`
 - [ ] Use [helix](https://github.com/helix-editor/helix) instead of `vim` (Not drop-in)
 - [ ] Use [zellij](https://github.com/zellij-org/zellij) instead of `tmux` (Not supported on Windows)
