@@ -72,12 +72,6 @@ OX_OXIDE[bkox]=${OX_BACKUP}/shell/custom.sh
 
 OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
 
-up_vim() {
-    z "$HOME/.config/nvim"
-    git fetch origin main
-    git reset --hard origin/main
-}
-
 ##########################################################
 # terminal
 ##########################################################
