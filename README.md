@@ -123,34 +123,34 @@ Of course, you are allowed to write your own plugins, see [Writing A Plugin](htt
 
 The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins) [OxPlugins-PowerShell](https://github.com/ivaquero/oxpluginsw) has stopped maintenance.
 
-|  Abbr.   |    Category     |            Support             | AutoLoad? |
-| :------: | :-------------: | :----------------------------: | :-------: |
-| `oxpbg`  | Better to Have  |              Git               |           |
-| `oxpom`  |  OS Shortcuts   |             macOS              |     ✓     |
-| `oxpod`  |  OS Shortcuts   |      Debian-Based Systems      |     ✓     |
-| `oxpor`  |  OS Shortcuts   |      RedHat-Based Systems      |     ✓     |
-| `oxpow`  |  OS Shortcuts   |    Windows (include winget)    |     ✓     |
-| `oxppb`  | Package Manager |    Homebrew (macOS & Linux)    |     ✓     |
-| `oxpps`  | Package Manager |        Scoop (Windows)         |     ✓     |
-| `oxppc`  | Package Manager |    Conda (Multi-Languages)     |           |
-| `oxppcn` | Package Manager |          Conan (C++)           |           |
-| `oxppn`  | Package Manager |        NPM (JavaScript)        |           |
-| `oxpptl` | Package Manager |        tlmgr (TeXLive)         |           |
-| `oxpljl` |    Language     |             Julia              |           |
-| `oxplrb` |    Language     |       Ruby (include gem)       |           |
-| `oxplrs` |    Language     |  Rust (include cargo, rustup)  |           |
-| `oxpsc`  |     Service     |  Container (Docker & Podman)   |           |
-| `oxpsp`  |     Service     |             Pueue              |           |
-| `oxpcbw` |     App CLI     |           Bitwarden            |           |
-| `oxpces` |     App CLI     |            Espanso             |           |
-| `oxpcjr` |     App CLI     | Jupyter (notebook, lab, book)  |           |
-| `oxpcvs` |     App CLI     |             VSCode             |           |
-| `oxpuf`  |  System Utils   |         File Operation         |     ✓     |
-| `oxpufm` |  System Utils   |       Formats Conversion       |           |
-| `oxpunw` |  System Utils   |     Network Configuration      |     ✓     |
-| `oxptwr` | Terminal Utils  |      Weather (wttr-based)      |           |
-| `oxptzj` | Terminal Utils  |     Zellij (macOS & Linux)     |           |
-| `oxpxns` |   Extra Utils   | Notes Apps (Obsidian & Logseq) |           |
+| Plugin Abbr. |       Category       |            Support             | Must? |
+| :----------: | :------------------: | :----------------------------: | :---: |
+|   `oxpbg`    |    Better to Have    |              Git               |       |
+|   `oxpom`    |     OS Shortcuts     |             macOS              |   ✓   |
+|   `oxpod`    |     OS Shortcuts     |      Debian-Based Systems      |   ✓   |
+|   `oxpor`    |     OS Shortcuts     |      RedHat-Based Systems      |   ✓   |
+|   `oxpow`    |     OS Shortcuts     |    Windows (include winget)    |   ✓   |
+|   `oxppb`    |   Package Manager    |    Homebrew (macOS & Linux)    |   ✓   |
+|   `oxpps`    |   Package Manager    |        Scoop (Windows)         |   ✓   |
+|   `oxppc`    |   Package Manager    |    Conda (Multi-Languages)     |       |
+|   `oxppcn`   |   Package Manager    |          Conan (C++)           |       |
+|   `oxppn`    |   Package Manager    |        NPM (JavaScript)        |       |
+|   `oxpptl`   |   Package Manager    |        tlmgr (TeXLive)         |       |
+|   `oxpljl`   | Programming Language |             Julia              |       |
+|   `oxplrb`   | Programming Language |       Ruby (include gem)       |       |
+|   `oxplrs`   | Programming Language |  Rust (include cargo, rustup)  |       |
+|   `oxpsc`    |       Service        |  Container (Docker & Podman)   |       |
+|   `oxpsp`    |       Service        |             Pueue              |       |
+|   `oxpcbw`   |       App CLI        |           Bitwarden            |       |
+|   `oxpces`   |       App CLI        |            Espanso             |       |
+|   `oxpcjr`   |       App CLI        | Jupyter (notebook / lab, book) |       |
+|   `oxpcvs`   |       App CLI        |             VSCode             |       |
+|   `oxpuf`    |     System Utils     |         File Operation         |   ✓   |
+|   `oxpufm`   |     System Utils     |       Formats Conversion       |       |
+|   `oxpunw`   |     System Utils     |     Network Configuration      |   ✓   |
+|   `oxptwr`   |    Terminal Utils    |      Weather (wttr-based)      |       |
+|   `oxptzj`   |    Terminal Utils    |     Zellij (macOS & Linux)     |       |
+|   `oxpxns`   |     Extra Utils      | Notes Apps (Obsidian & Logseq) |       |
 
 To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/oxidizer/custom.sh`, like
 
@@ -175,11 +175,11 @@ Oxidizer uses `Homebrew` or `Scoop to` manage packages and software programs to 
 - `brf`
   - file: browse by `bat` / `cat`
   - folder: browse by `lsd` / `ls`
-- `rdf`
+- `rdf` (alias: `ipf`, means import file)
   - reduce file: overwrite configuration file by backup (customized) file
-- `oxf`
+- `oxf` (alias: `epf`, means export file)
   - oxidize file: backup configuration file to backup folder
-- `clzf`
+- `clzf` (alias: `iif`, means initialize file)
   - catalyze file: overwrite configuration file by Oxidizer defaults
 - `ppgf`
   - propagate file: backup Oxidizer defaults to backup folder
@@ -190,44 +190,43 @@ When you use `oxf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` 
 
 The table below lists the information of specific configuration files:
 
-|     Origin     | Abbreviation |      Corresponding File      |
-| :------------: | :----------: | :--------------------------: |
-|    oxidizer    |     `ox`     |         `custom.sh`          |
-|      zsh       |     `zs`     |           `.zshrc`           |
-|   powershell   |     `ps`     |        `Profile.ps1`         |
-| linux (debian) |     `sc`     |   `/etc/apt/sources.list`    |
-|    wezterm     |     `wz`     |        `wezterm.lua`         |
-|     conda      |     `c`      |          `.condarc`          |
-|      git       |     `g`      |         `.gitconfig`         |
-|      git       |     `gi`     |         `.gitignore`         |
-|     conan      |     `cn`     |         `conan.conf`         |
-|     conan      |    `cnr`     |        `remotes.json`        |
-|     conan      |    `cnd`     |      `profiles/default`      |
-|    espanso     |     `es`     |        `default.yml`         |
-|    espanso     |    `esb`     |       `match/base.yml`       |
-|    espanso     |    `esx_`    |       `match/packages`       |
-|     julia      |     `jl`     |         `startup.jl`         |
-|     julia      |    `jlx`     |       `julia-pkgs.txt`       |
-|     julia      |    `jlp`     |        `Project.toml`        |
-|     julia      |    `jlm`     |       `Manifest.toml`        |
-|    jupyter     |     `jr`     | `jupyter_notebook_config.py` |
-|     latex      |     `tl`     |        `texlive-pkgs`        |
-|      node      |     `nj`     |           `.npmrc`           |
-|      node      |    `njx`     |       `node-pkgs.txt`        |
-|     pueue      |     `pu`     |         `pueue.yml`          |
-|     pueue      |    `pua`     |     `pueue_aliases.yml`      |
-|     cargo      |     `cg`     |        `config.toml`         |
-|     rustup     |     `rs`     |       `settings.toml`        |
-|    starship    |     `ss`     |       `starship.toml`        |
-|     vscode     |     `vs`     |       `settings.json`        |
-|     vscode     |    `vsk`     |      `keybindings.json`      |
-|     vscode     |    `vss_`    |          `snippets`          |
-|     vscode     |    `vsx`     |      `vscode-pkgs.txt`       |
-|     winget     |     `w`      |        `winget.json`         |
-|     zellij     |     `zj`     |         `config.kdl`         |
-|     zellij     |    `zjl_`    |          `layouts`           |
+|   Origin   | File Abbr. |             File             |  in Plugin  |
+| :--------: | :--------: | :--------------------------: | :---------: |
+|  oxidizer  |    `ox`    |         `custom.sh`          |             |
+|    zsh     |    `zs`    |           `.zshrc`           |  built-in   |
+|  starship  |    `ss`    |       `starship.toml`        |  built-in   |
+|  wezterm   |    `wz`    |        `wezterm.lua`         | `custom.sh` |
+|   debian   |    `sc`    |   `/etc/apt/sources.list`    |   `oxpod`   |
+|   winget   |    `w`     |        `winget.json`         |   `oxpow`   |
+|    git     |    `gi`    |         `.gitignore`         |   `oxpbg`   |
+|    git     |    `g`     |         `.gitconfig`         |   `oxpbg`   |
+|   conda    |    `c`     |          `.condarc`          |   `oxppc`   |
+|   conan    |    `cn`    |         `conan.conf`         |  `oxppcn`   |
+|   conan    |   `cnr`    |        `remotes.json`        |  `oxppcn`   |
+|   conan    |   `cnd`    |      `profiles/default`      |  `oxppcn`   |
+| javascript |   `jsx`    |        `js-pkgs.txt`         |   `oxppn`   |
+|    npm     |    `n`     |           `.npmrc`           |   `oxppn`   |
+|   latex    |    `tl`    |        `texlive-pkgs`        |  `oxpptl`   |
+|   julia    |    `jl`    |         `startup.jl`         |  `oxpljl`   |
+|   julia    |   `jlx`    |       `julia-pkgs.txt`       |  `oxpljl`   |
+|   julia    |   `jlp`    |        `Project.toml`        |  `oxpljl`   |
+|   julia    |   `jlm`    |       `Manifest.toml`        |  `oxpljl`   |
+|   cargo    |    `cg`    |        `config.toml`         |   `oxlrs`   |
+|   rustup   |    `rs`    |       `settings.toml`        |   `oxlrs`   |
+|  espanso   |    `es`    |        `default.yml`         |  `oxpces`   |
+|  espanso   |   `esb`    |       `match/base.yml`       |  `oxpces`   |
+|  espanso   |   `esx_`   |       `match/packages`       |  `oxpces`   |
+|   vscode   |    `vs`    |       `settings.json`        |  `oxpcvs`   |
+|   vscode   |   `vsk`    |      `keybindings.json`      |  `oxpcvs`   |
+|   vscode   |   `vss_`   |          `snippets`          |  `oxpcvs`   |
+|   vscode   |   `vsx`    |      `vscode-pkgs.txt`       |  `oxpcvs`   |
+|  jupyter   |    `jr`    | `jupyter_notebook_config.py` |  `oxpcjr`   |
+|   pueue    |    `pu`    |         `pueue.yml`          |   `oxpsp`   |
+|   pueue    |   `pua`    |     `pueue_aliases.yml`      |   `oxpsp`   |
+|   zellij   |    `zj`    |         `config.kdl`         |  `oxptzj`   |
+|   zellij   |   `zjl_`   |          `layouts`           |  `oxptzj`   |
 
-> `_` denotes a folder
+> `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
 
 Oxidizer uses [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
 
@@ -237,7 +236,7 @@ Oxidizer uses [ouch](https://github.com/ouch-org/ouch) to deal with compression 
 
 ## 4. Software Information Management
 
-`back_*` and `up_*` work for `brew`, `scoop`, `conda`, `vscode` (only for windows), `julia`, `texlive`, `node`. `clean_*` works for `brew` and `conda`.
+`back_*` and `up_*` work for `brew`, `scoop`, `conda`, `vscode` (only for windows), `julia`, `tlmgr`, `npm`. `clean_*` works for `brew` and `conda`.
 
 - `back_*`
   - file: export package/extension info into `$OX_BACKUP` folder

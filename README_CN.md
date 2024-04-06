@@ -16,7 +16,7 @@
 
 ## 1. 从这里开始
 
-对 macOS / Linux (Intel)
+对 macOS / Linux（Intel）
 
 ```sh
 git clone --depth=1 https://github.com/ivaquero/oxidizer.git $OXIDIZER && bash $OXIDIZER/install.sh
@@ -117,37 +117,38 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 | `oxpom`  |   系统快捷操作   |             macOS              |     ✓      |
 | `oxpod`  |   系统快捷操作   |      Debian-Based Systems      |     ✓      |
 | `oxpor`  |   系统快捷操作   |      RedHat-Based Systems      |     ✓      |
-| `oxpow`  |   系统快捷操作   |     Windows (包括 winget)      |     ✓      |
-| `oxppb`  |     包管理器     |    Homebrew (macOS & Linux)    |     ✓      |
-| `oxpps`  |     包管理器     |        Scoop (Windows)         |     ✓      |
-| `oxppc`  |     包管理器     | Conda (多语言，主要是 Python ) |            |
-| `oxppcn` |     包管理器     |          Conan (C++)           |            |
-| `oxppn`  |     包管理器     |        NPM (JavaScript)        |            |
-| `oxpptl` |     包管理器     |        tlmgr (TeXLive)         |            |
+| `oxpow`  |   系统快捷操作   |     Windows（包括 winget）     |     ✓      |
+| `oxppb`  |     包管理器     |   Homebrew（macOS & Linux）    |     ✓      |
+| `oxpps`  |     包管理器     |        Scoop（Windows）        |     ✓      |
+| `oxppc`  |     包管理器     | Conda（多语言，主要是 Python） |            |
+| `oxppcn` |     包管理器     |          Conan（C++）          |            |
+| `oxppn`  |     包管理器     |       NPM（JavaScript）        |            |
+| `oxpptl` |     包管理器     |        tlmgr（TeXLive）        |            |
 | `oxpljl` |     编程语言     |             Julia              |            |
-| `oxplrb` |     编程语言     |        Ruby (包括 gem)         |            |
-| `oxplrs` |     编程语言     |   Rust (包括 cargo, rustup)    |            |
-| `oxpsc`  |       服务       |  Container (Docker & Podman)   |            |
+| `oxplrb` |     编程语言     |        Ruby（包括 gem）        |            |
+| `oxplrs` |     编程语言     |   Rust（包括 cargo, rustup）   |            |
+| `oxpsc`  |       服务       |  Container（Docker & Podman）  |            |
 | `oxpsp`  |       服务       |             Pueue              |            |
 | `oxpcbw` | 软件的命令行界面 |           Bitwarden            |            |
 | `oxpces` | 软件的命令行界面 |            Espanso             |            |
-| `oxpcjr` | 软件的命令行界面 | Jupyter (notebook, lab, book)  |            |
+| `oxpcjr` | 软件的命令行界面 | Jupyter（notebook, lab, book） |            |
 | `oxpcvs` | 软件的命令行界面 |             VSCode             |            |
 | `oxpuf`  |     系统工具     |            文件操作            |     ✓      |
 | `oxpufm` |     系统工具     |            格式转换            |            |
 | `oxpunw` |     系统工具     |            网络配置            |     ✓      |
-| `oxptwr` |     终端工具     |        天气 (基于 wttr)        |            |
-| `oxptzj` |     终端工具     |     Zellij (macOS & Linux)     |            |
-| `oxpxns` |       其他       |  笔记备份 (Obsidian & Logseq)  |            |
+| `oxptwr` |     终端工具     |       天气（基于 wttr）        |            |
+| `oxptzj` |     终端工具     |    Zellij（macOS & Linux）     |            |
+| `oxpxns` |       其他       | 笔记备份（Obsidian & Logseq）  |            |
 
 将对应的缩写放入 `~/oxidizer/custom.sh` 的 `OX_PLUGINS` 即可加载插件
 
-````sh
+```sh
 OX_PLUGINS=(
-    oxpbg
-    oxpufm
-    oxplrs
+oxpbg
+oxpufm
+oxplrs
 )
+```
 
 Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员权限的要求。
 
@@ -162,13 +163,13 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 - `brf`
   - 通过 `bat`/`cat` 浏览文件
   - 文件夹：通过 `lsd`/`ls` 浏览
-- `rdf` (reduce file)
+- `rdf` （reduce file）
   - 还原文件：在 `$OX_OXIDE` 中覆盖对应的 `$OX_ELEMENT` 文件配置
-- `oxf` (oxidize file)
+- `oxf` （oxidize file）
   - 氧化文件：在 `$OX_ELEMENT` 中覆盖对应的 `$OX_OXIDE` 文件配置
-- `clzf` (catalyze file)
+- `clzf` （catalyze file）
   - 催化文件：在 `$OX_OXYGEN` 中覆盖对应的 `$OX_ELEMENT` 文件配置
-- `ppgf` (propagate file)
+- `ppgf` （propagate file）
   - 传播文件：在 `$OX_OXYGEN` 中覆盖对应的 `$OX_OXIDE` 文件配置
 
 例如，当你想编辑 `~/.zshrc`，键入 `edf zs`。
@@ -177,43 +178,43 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 
 下表罗列了每个配置文件的缩写：
 
-|      来源      |  代号  |           对应文件           |
-| :------------: | :----: | :--------------------------: |
-|    oxidizer    |  `ox`  |         `custom.sh`          |
-|      zsh       |  `zs`  |           `.zshrc`           |
-|   powershell   |  `ps`  |        `Profile.ps1`         |
-| linux (debian) |  `sc`  |   `/etc/apt/sources.list`    |
-|    wezterm     |  `wz`  |        `wezterm.lua`         |
-|     conda      |  `c`   |          `.condarc`          |
-|      git       |  `g`   |         `.gitconfig`         |
-|      git       |  `gi`  |         `.gitignore`         |
-|     conan      |  `cn`  |         `conan.conf`         |
-|     conan      | `cnr`  |        `remotes.json`        |
-|     conan      | `cnd`  |      `profiles/default`      |
-|    espanso     |  `es`  |        `default.yml`         |
-|    espanso     | `esb`  |       `match/base.yml`       |
-|    espanso     | `esx_` |       `match/packages`       |
-|     julia      |  `jl`  |         `startup.jl`         |
-|     julia      | `jlx`  |       `julia-pkgs.txt`       |
-|     julia      | `jlp`  |        `Project.toml`        |
-|     julia      | `jlm`  |       `Manifest.toml`        |
-|    jupyter     |  `jn`  | `jupyter_notebook_config.py` |
-|     latex      |  `tl`  |        `texlive-pkgs`        |
-|      node      |  `nj`  |           `.npmrc`           |
-|      node      | `njx`  |       `node-pkgs.txt`        |
-|     pueue      |  `pu`  |         `pueue.yml`          |
-|     pueue      | `pua`  |     `pueue_aliases.yml`      |
-|     cargo      |  `cg`  |        `config.toml`         |
-|     rustup     |  `rs`  |       `settings.toml`        |
-|     vscode     |  `vs`  |       `settings.json`        |
-|     vscode     | `vsk`  |      `keybindings.json`      |
-|     vscode     | `vss_` |          `snippets`          |
-|     vscode     | `vsx`  |      `vscode-pkgs.txt`       |
-|     winget     |  `w`   |        `winget.json`         |
-|     zellij     |  `zj`  |         `config.kdl`         |
-|     zellij     | `zjl_` |          `layouts`           |
+|    来源    |  代号  |           对应文件           |  定义扩展   |
+| :--------: | :----: | :--------------------------: | :---------: |
+|  oxidizer  |  `ox`  |         `custom.sh`          |             |
+|    zsh     |  `zs`  |           `.zshrc`           |  built-in   |
+|  starship  |  `ss`  |       `starship.toml`        |  built-in   |
+|  wezterm   |  `wz`  |        `wezterm.lua`         | `custom.sh` |
+|   debian   |  `sc`  |   `/etc/apt/sources.list`    |   `oxpod`   |
+|   winget   |  `w`   |        `winget.json`         |   `oxpow`   |
+|    git     |  `gi`  |         `.gitignore`         |   `oxpbg`   |
+|    git     |  `g`   |         `.gitconfig`         |   `oxpbg`   |
+|   conda    |  `c`   |          `.condarc`          |   `oxppc`   |
+|   conan    |  `cn`  |         `conan.conf`         |  `oxppcn`   |
+|   conan    | `cnr`  |        `remotes.json`        |  `oxppcn`   |
+|   conan    | `cnd`  |      `profiles/default`      |  `oxppcn`   |
+| javascript | `jsx`  |        `js-pkgs.txt`         |   `oxppn`   |
+|    npm     |  `n`   |           `.npmrc`           |   `oxppn`   |
+|   latex    |  `tl`  |        `texlive-pkgs`        |  `oxpptl`   |
+|   julia    |  `jl`  |         `startup.jl`         |  `oxpljl`   |
+|   julia    | `jlx`  |       `julia-pkgs.txt`       |  `oxpljl`   |
+|   julia    | `jlp`  |        `Project.toml`        |  `oxpljl`   |
+|   julia    | `jlm`  |       `Manifest.toml`        |  `oxpljl`   |
+|   cargo    |  `cg`  |        `config.toml`         |   `oxlrs`   |
+|   rustup   |  `rs`  |       `settings.toml`        |   `oxlrs`   |
+|  espanso   |  `es`  |        `default.yml`         |  `oxpces`   |
+|  espanso   | `esb`  |       `match/base.yml`       |  `oxpces`   |
+|  espanso   | `esx_` |       `match/packages`       |  `oxpces`   |
+|   vscode   |  `vs`  |       `settings.json`        |  `oxpcvs`   |
+|   vscode   | `vsk`  |      `keybindings.json`      |  `oxpcvs`   |
+|   vscode   | `vss_` |          `snippets`          |  `oxpcvs`   |
+|   vscode   | `vsx`  |      `vscode-pkgs.txt`       |  `oxpcvs`   |
+|  jupyter   |  `jr`  | `jupyter_notebook_config.py` |  `oxpcjr`   |
+|   pueue    |  `pu`  |         `pueue.yml`          |   `oxpsp`   |
+|   pueue    | `pua`  |     `pueue_aliases.yml`      |   `oxpsp`   |
+|   zellij   |  `zj`  |         `config.kdl`         |  `oxptzj`   |
+|   zellij   | `zjl_` |          `layouts`           |  `oxptzj`   |
 
-> `_` 表示文件夹
+> `_` 表示文件夹，你可以详细查看每个相关文件缩写 these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
 
 Oxidizer 使用 [ouch](https://github.com/ouch-org/ouch) 压缩或解压缩文件，提供 3 个快捷命令
 
@@ -230,7 +231,7 @@ Oxidizer 使用 [ouch](https://github.com/ouch-org/ouch) 压缩或解压缩文�
 - `clean_*`
   - 文件：根据自定义文件夹 `$OX_BACKUP` 中的配置文件清理
 
-`back_*` 和 `up_*` 适用于 `brew`，`scoop`，`conda`，`vscode`，`espanso`，`julia`，`texlive`，`node`；`clean_*` 适用于 `brew`，`conda`。
+`back_*` 和 `up_*` 适用于 `brew`，`scoop`，`conda`，`vscode`，`espanso`，`julia`，`tlmgr`，`npm`；`clean_*` 适用于 `brew`，`conda`。
 
 ## 5. 包管理
 
@@ -275,7 +276,7 @@ Oxidizer 致力于为各个包管理器提供统一的接口，以减轻敲击�
 pueued -d
 # or macOS / Linux
 bss pu
-````
+```
 
 一些包管理器还有项目管理功能
 
@@ -341,19 +342,19 @@ conda install -c conda-forge mamba conda-tree
 
 除了上面**包管理**提及的 Conda 命令，Conda 插件还提供了 Conda 环境管理的快捷命令，均以 `ce` 开头
 
-- `cerat`: reactivate environment, works live `ceat`
-- `ceq`: quit environment (`q` is for `kill/quit`)
-- `cecr`: create
-- `cerm`: remove environment, works live `ceat` but won't remove `base` env
-- `cels`: environment list
-- `cedf`: compare packages between conda environments
-- `cern`: renames an existing environment
-- `cesd`: change environment's `conda-forge subdir`
-  - `i`: for `osx-64` or `linux-64` or `win-64`
-  - `a`: for `osx-arm64` or `linux-aarch64` or `win-arm64`
-  - `p`: for `ppc64le`
-  - `s`: for `linux-s390x`
-- `ceep`: export environment
+- `cerat`: 重启环境，类似 `ceat`
+- `ceq`: 退出环境（`q` 代表 `kill/quit`）
+- `cecr`: 创建环境
+- `cerm`: 删除环境，类似 `ceat` 但不删除 `base` 环境
+- `cels`: 环境包列表
+- `cedf`: 对比环境
+- `cern`: 重命名环境
+- `cesd`: 改变架构 `conda-forge subdir`
+  - `i`: 对 `osx-64` 或 `linux-64` 或 `win-64`
+  - `a`: 对 `osx-arm64` 或 `linux-aarch64` huo `win-arm64`
+  - `p`: 对 `ppc64le`
+  - `s`: 对 `linux-s390x`
+- `ceep`: 导出环境
 
 ## 6. 项目管理
 
