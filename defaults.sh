@@ -65,9 +65,22 @@ export OX_BACKUP=${HOME}/Documents/backup
 
 # the oxidizer backup path
 OX_OXIDE[bkox]=${OX_BACKUP}/shell/custom.sh
-# OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
 
+##########################################################
+# vim & neovim
+##########################################################
+
+OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
+
+up_vim() {
+    z "$HOME/.config/nvim"
+    git fetch origin main
+    git reset --hard origin/main
+}
+
+##########################################################
 # terminal
+##########################################################
 case $(uname -a) in
 *Darwin* | *Ubuntu* | *Debian*)
     OX_ELEMENT[wz]=${HOME}/.config/wezterm/wezterm.lua
@@ -99,65 +112,6 @@ declare -A OX_PROXY=(
 #     [bts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
 #     [bzk]="mirrors.ustc.edu.cn/git/homebrew"
 # )
-
-##########################################################
-# brew settings
-##########################################################
-
-case $(uname -a) in
-*Darwin* | *Ubuntu* | *Debian*)
-    export HOMEBREW_NO_AUTO_UPDATE=1
-    export HOMEBREW_NO_ENV_HINTS=1
-    export HOMEBREW_CLEANUP_MAX_AGE_DAYS="3"
-
-    # predefined brew services
-    # set the length of key <= 3
-    declare -A HOMEBREW_SERVICE=(
-        [pu]="pueue"
-        [pg]="postgresql@15"
-        [pd]="podman"
-    )
-    ;;
-esac
-
-##########################################################
-# pueue settings
-##########################################################
-
-# pueue demo
-upp() {
-    pueue group add up_all
-    pueue parallel 3 -g up_all
-    pueue add -g up_all 'brew update && brew upgrade'
-    pueue add -g up_all 'conda update --all --yes'
-    # or use predefined items in pueue_aliases
-    # pueue add -g up_all 'cup'
-}
-
-##########################################################
-# conda settings
-##########################################################
-
-# # predefined conda environments
-# # set the length of key <= 3
-# declare -A OX_CONDA_ENV=(
-#     [b]="base"
-#     [k]="kaggle"
-# )
-
-# # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
-# OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
-
-##########################################################
-# others settings
-##########################################################
-
-# git
-OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
-OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
-# OX_OXIDE[bkesb]=${OX_BACKUP}/espanso/match/base.yml
-# vscode
-# OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.jsonc
 
 ##########################################################
 # common aliases
@@ -257,6 +211,65 @@ startup() {
     # start directory
     cd "${HOME}"/Desktop || exit
 }
+
+##########################################################
+# brew settings
+##########################################################
+
+case $(uname -a) in
+*Darwin* | *Ubuntu* | *Debian*)
+    export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_ENV_HINTS=1
+    export HOMEBREW_CLEANUP_MAX_AGE_DAYS="3"
+
+    # predefined brew services
+    # set the length of key <= 3
+    declare -A HOMEBREW_SERVICE=(
+        [pu]="pueue"
+        [pg]="postgresql@15"
+        [pd]="podman"
+    )
+    ;;
+esac
+
+##########################################################
+# pueue settings
+##########################################################
+
+# pueue demo
+upp() {
+    pueue group add up_all
+    pueue parallel 3 -g up_all
+    pueue add -g up_all 'brew update && brew upgrade'
+    pueue add -g up_all 'conda update --all --yes'
+    # or use predefined items in pueue_aliases
+    # pueue add -g up_all 'cup'
+}
+
+##########################################################
+# conda settings
+##########################################################
+
+# # predefined conda environments
+# # set the length of key <= 3
+# declare -A OX_CONDA_ENV=(
+#     [b]="base"
+#     [k]="kaggle"
+# )
+
+# # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
+# OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
+
+##########################################################
+# others settings
+##########################################################
+
+# git
+OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
+OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
+# OX_OXIDE[bkesb]=${OX_BACKUP}/espanso/match/base.yml
+# vscode
+# OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.jsonc
 
 ##########################################################
 # notes apps
