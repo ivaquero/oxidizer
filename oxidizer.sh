@@ -9,33 +9,32 @@ export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 declare -A OX_OXYGEN=(
     [oxd]=${OXIDIZER}/defaults.sh
     [oxwz]=${OXIDIZER}/defaults/wezterm.lua
-    [oxpm]=${OXIDIZER}/plugins/ox-macos.sh
-    [oxpd]=${OXIDIZER}/plugins/ox-debians.sh
-    [oxpr]=${OXIDIZER}/plugins/ox-rehats.sh
-    [oxpw]=${OXIDIZER}/plugins/ox-windows.sh
-    [oxpb]=${OXIDIZER}/plugins/ox-brew.sh
-    [oxps]=${OXIDIZER}/plugins/ox-scoop.sh
-    [oxpg]=${OXIDIZER}/plugins/ox-git.sh
-    [oxpc]=${OXIDIZER}/plugins/ox-conda.sh
-    [oxpbw]=${OXIDIZER}/plugins/ox-bitwarden.sh
-    [oxpcn]=${OXIDIZER}/plugins/ox-conan.sh
-    [oxpct]=${OXIDIZER}/plugins/ox-container.sh
-    [oxpes]=${OXIDIZER}/plugins/ox-espanso.sh
-    [oxpfm]=${OXIDIZER}/plugins/ox-formats.sh
-    [oxpjl]=${OXIDIZER}/plugins/ox-julia.sh
-    [oxpjn]=${OXIDIZER}/plugins/ox-jupyter.sh
-    [oxpnj]=${OXIDIZER}/plugins/ox-node.sh
-    [oxpns]=${OXIDIZER}/plugins/ox-notes.sh
-    [oxpnw]=${OXIDIZER}/plugins/ox-network.sh
-    [oxppd]=${OXIDIZER}/plugins/ox-podman.sh
-    [oxppu]=${OXIDIZER}/plugins/ox-pueue.sh
-    [oxprb]=${OXIDIZER}/plugins/ox-ruby.sh
-    [oxprs]=${OXIDIZER}/plugins/ox-rust.sh
-    [oxptl]=${OXIDIZER}/plugins/ox-texlive.sh
-    [oxput]=${OXIDIZER}/plugins/ox-utils.sh
-    [oxpvs]=${OXIDIZER}/plugins/ox-vscode.sh
-    [oxpwr]=${OXIDIZER}/plugins/ox-weather.sh
-    [oxpzj]=${OXIDIZER}/plugins/ox-zellij.sh
+    [oxpbg]=${OXIDIZER}/plugins/ox-bone-git.sh
+    [oxpom]=${OXIDIZER}/plugins/ox-os-macos.sh
+    [oxpod]=${OXIDIZER}/plugins/ox-os-debians.sh
+    [oxpor]=${OXIDIZER}/plugins/ox-os-rehats.sh
+    [oxpow]=${OXIDIZER}/plugins/ox-os-windows.sh
+    [oxppb]=${OXIDIZER}/plugins/ox-pkg-brew.sh
+    [oxpps]=${OXIDIZER}/plugins/ox-pkg-scoop.sh
+    [oxppc]=${OXIDIZER}/plugins/ox-pkg-conda.sh
+    [oxppcn]=${OXIDIZER}/plugins/ox-pkg-conan.sh
+    [oxppn]=${OXIDIZER}/plugins/ox-pkg-npm.sh
+    [oxpptl]=${OXIDIZER}/plugins/ox-pkg-texlive.sh
+    [oxpuf]=${OXIDIZER}/plugins/ox-utils-files.sh
+    [oxpufm]=${OXIDIZER}/plugins/ox-utils-formats.sh
+    [oxpunw]=${OXIDIZER}/plugins/ox-utils-network.sh
+    [oxpljl]=${OXIDIZER}/plugins/ox-lang-julia.sh
+    [oxplrb]=${OXIDIZER}/plugins/ox-lang-ruby.sh
+    [oxplrs]=${OXIDIZER}/plugins/ox-lang-rust.sh
+    [oxpcbw]=${OXIDIZER}/plugins/ox-cli-bitwarden.sh
+    [oxpces]=${OXIDIZER}/plugins/ox-cli-espanso.sh
+    [oxpcjr]=${OXIDIZER}/plugins/ox-cli-jupyter.sh
+    [oxpcvs]=${OXIDIZER}/plugins/ox-cli-vscode.sh
+    [oxpsc]=${OXIDIZER}/plugins/ox-svc-container.sh
+    [oxpsp]=${OXIDIZER}/plugins/ox-svc-pueue.sh
+    [oxptwr]=${OXIDIZER}/plugins/ox-term-weather.sh
+    [oxptzj]=${OXIDIZER}/plugins/ox-term-zellij.sh
+    [oxpxns]=${OXIDIZER}/plugins/ox-xtra-notes.sh
 )
 
 ##########################################################
@@ -56,13 +55,13 @@ declare -A OX_OXIDE
 # load system plugin
 case $(uname -a) in
 *Darwin*)
-    . "${OX_OXYGEN[oxpm]}"
+    . "${OX_OXYGEN[oxpom]}"
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    . "${OX_OXYGEN[oxpd]}"
+    . "${OX_OXYGEN[oxpod]}"
     ;;
 *MINGW*)
-    . "${OX_OXYGEN[oxpw]}"
+    . "${OX_OXYGEN[oxpow]}"
     ;;
 esac
 
@@ -84,10 +83,10 @@ done
 declare -a OX_CORE_PLUGINS
 case $(uname -a) in
 *Darwin* | *Ubuntu* | *Debian* | *WSL*)
-    OX_CORE_PLUGINS=(oxpb oxput oxpnw)
+    OX_CORE_PLUGINS=(oxppb oxpuf oxpunw)
     ;;
 *MINGW*)
-    OX_CORE_PLUGINS=(oxps oxput oxpnw)
+    OX_CORE_PLUGINS=(oxpps oxpuf oxpunw)
     ;;
 esac
 

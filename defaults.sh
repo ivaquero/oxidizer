@@ -19,28 +19,36 @@ export EDITOR_T='vi'
 # select ox-plugins
 ##########################################################
 
-# oxpg: ox-git
-# oxpc: ox-conda
-# oxpbw: ox-bitwarden
-# oxpcn: ox-conan
-# oxpct: ox-container
-# oxpes: ox-espanso
-# oxpfm: ox-format
-# oxpjl: ox-julia
-# oxpjn: ox-jupyter
-# oxpnj: ox-nodejs
-# oxpns: ox-notes
-# oxppu: ox-pueue
-# oxprb: ox-ruby
-# oxprs: ox-rust
-# oxptl: ox-texlive
-# oxpvs: ox-vscode
-# oxpwr: ox-weather
-# oxpzj: ox-zellij
+# better have
+# - oxpbg: git
+# package managers
+# - oxppc: conda
+# - oxppc: conan (c++)
+# - oxppn: npm
+# - oxppt: tlmgr (texlive)
+# languages
+# - oxplj: julia
+# - oxplr: ruby (include gem)
+# - oxplr: rust (include cargo)
+# services
+# - oxpsc: container (docker & podman)
+# - oxpsp: pueue
+# app cli
+# - oxpcbw: bitwarden
+# - oxpces: espanso
+# - oxpcjr: jupyter (notebook, lab, book)
+# - oxpcv: vscode
+# system utils
+# - oxpufm: format conversion
+# terminal utils
+# - oxptwr: weather
+# - oxptzj: zellij
+# extra utils
+# - oxpxns: notes
 
 OX_PLUGINS=(
-    oxpg
-    oxpwr
+    oxpbg
+    oxpufm
 )
 
 ##########################################################
@@ -122,7 +130,7 @@ upp() {
     pueue parallel 3 -g up_all
     pueue add -g up_all 'brew update && brew upgrade'
     pueue add -g up_all 'conda update --all --yes'
-    # or use predefined items in pueue_aliase
+    # or use predefined items in pueue_aliases
     # pueue add -g up_all 'cup'
 }
 

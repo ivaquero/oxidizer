@@ -111,40 +111,45 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 > [OxPlugins-PowerShell](https://github.com/ivaquero/oxplugins-pwsh) 已停止维护。
 
-|                       插件                        | Linux | macOS | Windows | 自动加载？ |
-| :-----------------------------------------------: | :---: | :---: | :-----: | :--------: |
-|     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |     ✅     |
-| [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |     ✅     |
-|     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |     ✅     |
-|                      System                       |  ✅¹  |  ✅   |   ✅    |     ✅     |
-|                   File Utility                    |  ✅   |  ✅   |   ✅    |     ✅     |
-|            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |            |
-| [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |            |
-|    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |            |
-|      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |            |
-|    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |            |
-|   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |            |
-|      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   ✅    |            |
-|     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |            |
-|   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |            |
-|        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |            |
-|   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |            |
-|                    Container²                     |  ✅   |  ✅   |   ✅    |            |
-|                Formats（格式转换）                |  🕒   |  🕒   |   🕒    |            |
-|               Network（代理与镜像）               |  🕒   |  🕒   |   🕒    |            |
-|                      Weather                      |  🕒   |  🕒   |   🕒    |            |
-|                Notes （Obsidian）                 |  🕒   |  🕒   |   🕒    |            |
+| 插件缩写 |       类别       |             macOS              | 自动加载？ |
+| :------: | :--------------: | :----------------------------: | :--------: |
+| `oxpbg`  |       推荐       |              Git               |            |
+| `oxpom`  |   系统快捷操作   |             macOS              |     ✓      |
+| `oxpod`  |   系统快捷操作   |      Debian-Based Systems      |     ✓      |
+| `oxpor`  |   系统快捷操作   |      RedHat-Based Systems      |     ✓      |
+| `oxpow`  |   系统快捷操作   |     Windows (包括 winget)      |     ✓      |
+| `oxppb`  |     包管理器     |    Homebrew (macOS & Linux)    |     ✓      |
+| `oxpps`  |     包管理器     |        Scoop (Windows)         |     ✓      |
+| `oxppc`  |     包管理器     | Conda (多语言，主要是 Python ) |            |
+| `oxppcn` |     包管理器     |          Conan (C++)           |            |
+| `oxppn`  |     包管理器     |        NPM (JavaScript)        |            |
+| `oxpptl` |     包管理器     |        tlmgr (TeXLive)         |            |
+| `oxpljl` |     编程语言     |             Julia              |            |
+| `oxplrb` |     编程语言     |        Ruby (包括 gem)         |            |
+| `oxplrs` |     编程语言     |   Rust (包括 cargo, rustup)    |            |
+| `oxpsc`  |       服务       |  Container (Docker & Podman)   |            |
+| `oxpsp`  |       服务       |             Pueue              |            |
+| `oxpcbw` | 软件的命令行界面 |           Bitwarden            |            |
+| `oxpces` | 软件的命令行界面 |            Espanso             |            |
+| `oxpcjr` | 软件的命令行界面 | Jupyter (notebook, lab, book)  |            |
+| `oxpcvs` | 软件的命令行界面 |             VSCode             |            |
+| `oxpuf`  |     系统工具     |            文件操作            |     ✓      |
+| `oxpufm` |     系统工具     |            格式转换            |            |
+| `oxpunw` |     系统工具     |            网络配置            |     ✓      |
+| `oxptwr` |     终端工具     |        天气 (基于 wttr)        |            |
+| `oxptzj` |     终端工具     |     Zellij (macOS & Linux)     |            |
+| `oxpxns` |       其他       |  笔记备份 (Obsidian & Logseq)  |            |
 
-✅：完整功能
-🚧：部分功能
-🕒：基础功能，有待补充
-❌：不存在
+将对应的缩写放入 `~/oxidizer/custom.sh` 的 `OX_PLUGINS` 即可加载插件
 
-> ¹：目前在 Linux 只提供 Debian 系的相关快捷操作
->
-> ²: 仅支持 [Docker](https://docker.com/) 和 [Podman](https://github.com/containers/podman).
+````sh
+OX_PLUGINS=(
+    oxpbg
+    oxpufm
+    oxplrs
+)
 
-Oxidizer 通过 Homebrew 或 Scoop 管理包和软件，以绕过管理员权限的要求。
+Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员权限的要求。
 
 ## 3. 文件管理
 
@@ -270,7 +275,7 @@ Oxidizer 致力于为各个包管理器提供统一的接口，以减轻敲击�
 pueued -d
 # or macOS / Linux
 bss pu
-```
+````
 
 一些包管理器还有项目管理功能
 

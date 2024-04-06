@@ -121,44 +121,48 @@ Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `cust
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
-The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins)
+The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins) [OxPlugins-PowerShell](https://github.com/ivaquero/oxpluginsw) has stopped maintenance.
 
-> [OxPlugins-PowerShell](https://github.com/ivaquero/oxplugins-pwsh) has stopped maintenance.
+|  Abbr.   |    Category     |            Support             | AutoLoad? |
+| :------: | :-------------: | :----------------------------: | :-------: |
+| `oxpbg`  | Better to Have  |              Git               |           |
+| `oxpom`  |  OS Shortcuts   |             macOS              |     ✓     |
+| `oxpod`  |  OS Shortcuts   |      Debian-Based Systems      |     ✓     |
+| `oxpor`  |  OS Shortcuts   |      RedHat-Based Systems      |     ✓     |
+| `oxpow`  |  OS Shortcuts   |    Windows (include winget)    |     ✓     |
+| `oxppb`  | Package Manager |    Homebrew (macOS & Linux)    |     ✓     |
+| `oxpps`  | Package Manager |        Scoop (Windows)         |     ✓     |
+| `oxppc`  | Package Manager |    Conda (Multi-Languages)     |           |
+| `oxppcn` | Package Manager |          Conan (C++)           |           |
+| `oxppn`  | Package Manager |        NPM (JavaScript)        |           |
+| `oxpptl` | Package Manager |        tlmgr (TeXLive)         |           |
+| `oxpljl` |    Language     |             Julia              |           |
+| `oxplrb` |    Language     |       Ruby (include gem)       |           |
+| `oxplrs` |    Language     |  Rust (include cargo, rustup)  |           |
+| `oxpsc`  |     Service     |  Container (Docker & Podman)   |           |
+| `oxpsp`  |     Service     |             Pueue              |           |
+| `oxpcbw` |     App CLI     |           Bitwarden            |           |
+| `oxpces` |     App CLI     |            Espanso             |           |
+| `oxpcjr` |     App CLI     | Jupyter (notebook, lab, book)  |           |
+| `oxpcvs` |     App CLI     |             VSCode             |           |
+| `oxpuf`  |  System Utils   |         File Operation         |     ✓     |
+| `oxpufm` |  System Utils   |       Formats Conversion       |           |
+| `oxpunw` |  System Utils   |     Network Configuration      |     ✓     |
+| `oxptwr` | Terminal Utils  |      Weather (wttr-based)      |           |
+| `oxptzj` | Terminal Utils  |     Zellij (macOS & Linux)     |           |
+| `oxpxns` |   Extra Utils   | Notes Apps (Obsidian & Logseq) |           |
 
-|                      Plugin                       | Linux | macOS | Windows | Autoload? |
-| :-----------------------------------------------: | :---: | :---: | :-----: | :-------: |
-|     [Brew](https://github.com/Homebrew/brew)      |  ✅   |  ✅   |   ❌    |    ✅     |
-| [Scoop](https://github.com/ScoopInstaller/Scoop)  |  ❌   |  ❌   |   ✅    |    ✅     |
-|     [Pueue](https://github.com/Nukesor/pueue)     |  ✅   |  ✅   |   ✅    |    ✅     |
-|                      System                       |  ✅¹  |  ✅   |   ✅    |    ✅     |
-|     File Utility (backup/import config, etc.)     |  ✅   |  ✅   |   ✅    |    ✅     |
-|            [Git](https://git-scm.com/)            |  ✅   |  ✅   |   ✅    |           |
-| [Bitwarden](https://github.com/bitwarden/clients) |  🕒   |  🕒   |   🕒    |           |
-|    [Conan](https://github.com/conan-io/conan)     |  ✅   |  ✅   |   ✅    |           |
-|      [Conda](https://github.com/conda/conda)      |  ✅   |  ✅   |   ✅    |           |
-|    [Julia](https://github.com/JuliaLang/julia)    |  ✅   |  ✅   |   🚧    |           |
-|   [Jupyter](https://github.com/jupyter/jupyter)   |  ✅   |  ✅   |   ✅    |           |
-|      [Node](https://github.com/nodejs/node)       |  ✅   |  ✅   |   ✅    |           |
-|     [Rust](https://github.com/rust-lang/rust)     |  ✅   |  ✅   |   ✅    |           |
-|   [Espanso](https://github.com/espanso/espanso)   |  ✅   |  ✅   |   ✅    |           |
-|        [TeXLive](https://tug.org/texlive/)        |  ✅   |  ✅   |   ✅    |           |
-|   [VSCode](https://github.com/microsoft/vscode)   |  ✅   |  ✅   |   ✅    |           |
-|                    Container²                     |  ✅   |  ✅   |   ✅    |           |
-|               Formats (conversion)                |  🕒   |  🕒   |   🕒    |           |
-|            Network (proxy and mirror)             |  🕒   |  🕒   |   🕒    |           |
-|                      Weather                      |  🕒   |  🕒   |   🕒    |           |
-|                 Notes (obsidian)                  |  🕒   |  🕒   |   🕒    |           |
+To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/oxidizer/custom.sh`, like
 
-✅: complete functionality
-🚧: partial functionality
-🕒: basic functionality, needs more features
-❌: not exist
+```sh
+OX_PLUGINS=(
+    oxpbg
+    oxpufm
+    oxplrs
+)
+```
 
-> ¹: Currently, on Linux only provide with Debian-family shortcuts
->
-> ²: Only for [Docker](https://docker.com/) and [Podman](https://github.com/containers/podman).
-
-Oxidizer uses Homebrew or Scoop to manage packages and software programs to bypass the requirement of administrator privilege.
+Oxidizer uses `Homebrew` or `Scoop to` manage packages and software programs to bypass the requirement of administrator privilege.
 
 ## 3. File Management
 
@@ -206,7 +210,7 @@ The table below lists the information of specific configuration files:
 |     julia      |    `jlx`     |       `julia-pkgs.txt`       |
 |     julia      |    `jlp`     |        `Project.toml`        |
 |     julia      |    `jlm`     |       `Manifest.toml`        |
-|    jupyter     |     `jn`     | `jupyter_notebook_config.py` |
+|    jupyter     |     `jr`     | `jupyter_notebook_config.py` |
 |     latex      |     `tl`     |        `texlive-pkgs`        |
 |      node      |     `nj`     |           `.npmrc`           |
 |      node      |    `njx`     |       `node-pkgs.txt`        |
