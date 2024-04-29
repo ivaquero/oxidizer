@@ -23,7 +23,7 @@ export EDITOR_T='vi'
 # - oxpbg: git
 # package managers
 # - oxppc: conda
-# - oxppc: conan (c++)
+# - oxppcn: conan (c++)
 # - oxppn: npm
 # - oxppt: tlmgr (texlive)
 # languages
@@ -37,7 +37,7 @@ export EDITOR_T='vi'
 # - oxpcbw: bitwarden
 # - oxpces: espanso
 # - oxpcjr: jupyter (notebook, lab, book)
-# - oxpcv: vscode
+# - oxpcvs: vscode
 # system utils
 # - oxpufm: format conversion
 # terminal utils
