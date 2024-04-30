@@ -41,7 +41,7 @@ $pkgs = cat "$env:OXIDIZER\defaults\Scoopfile.txt"
 ForEach ( $pkg in $pkgs ) {
     Switch ($pkg) {
         ripgrep { $cmd = "rg" }
-        tealdeer { $cmd = "tldr" }
+        tlrc { $cmd = "tldr" }
         zoxide { $cmd = "z" }
         Default { $cmd = $pkg }
     }

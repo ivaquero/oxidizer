@@ -5,6 +5,6 @@ lsd
 ouch
 ripgrep
 sd
-tealdeer
+tlrc
 zoxide
 sudo
