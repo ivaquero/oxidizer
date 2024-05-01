@@ -7,6 +7,7 @@ if (Get-Command scoop -ErrorAction SilentlyContinue) {
 }
 else {
     Write-Output "Scoop Not Found. Installing..."
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Confirm
 
     $f_scoop = Join-Path $HOME "install.ps1"
 
@@ -63,7 +64,7 @@ $env:OX_SHELL = "$HOME/.bash_profile"
 
 Write-Output "Adding Oxidizer into $env:OX_SHELL..."
 
-if (!(Test-Path -Path $OX_SHELL)) {
+if (!(Test-Path -Path $env:OX_SHELL)) {
     New-Item -ItemType File -Force -Path $env:OX_SHELL
 }
 
@@ -84,9 +85,9 @@ if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
 }
 
 # load zoxide
-sed -i.bak "s|.* OX_STARTUP = .*|$Global:OX_STARTUP=1|" "$env:OXIDIZER\custom.ps1"
+sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1|" "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
-# sed -i.bak "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
+# sd "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
 # Write-Output $(cat $OX_SHELL | rg -o 'source .+')
 
 ###################################################
