@@ -69,7 +69,6 @@ if (!(Test-Path -Path $env:OX_SHELL)) {
 }
 
 Write-Output '# Oxidizer' >> $env:OX_SHELL
-
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
     Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
@@ -85,7 +84,7 @@ if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
 }
 
 # load zoxide
-sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1|" "$env:OXIDIZER\custom.ps1"
+sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
 # sd "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
 # Write-Output $(cat $OX_SHELL | rg -o 'source .+')

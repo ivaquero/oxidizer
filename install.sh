@@ -121,9 +121,9 @@ if [[ ! -f "${OXIDIZER}/"custom.sh ]]; then
 fi
 
 # load zoxide
-sed -i.bak "s|.* OX_STARTUP=.*|export OX_STARTUP=1|" "${OXIDIZER}"/custom.sh
+sd '.* OX_STARTUP=.*' 'export OX_STARTUP=1' "${OXIDIZER}"/custom.sh
 # set path of oxidizer
-# echo "source OXIDIZER=${OXIDIZER}/oxidizer.sh" | xargs -I '{}' sed -i.bak '' 's|source OXIDIZER=.*|{}|' ${OX_SHELL}
+# echo "source OXIDIZER=${OXIDIZER}/oxidizer.sh" | xargs -I '{}' sd '' 'source OXIDIZER=.*' '{}' ${OX_SHELL}
 # echo $(cat ${OX_SHELL} | rg -o 'source .+')
 
 ###################################################
