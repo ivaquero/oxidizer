@@ -1,7 +1,3 @@
-if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
-    $env:OXIDIZER = "$HOME\oxidizer"
-}
-
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Output "Scoop Already Installed"
 }
@@ -37,6 +33,12 @@ ForEach ( $bucket in $scoopBuckets ) {
     scoop bucket add $bucket
 }
 
+if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
+    $env:OXIDIZER = "$HOME\oxidizer"
+    Write-Output '# Oxidizer' >> $env:OX_SHELL
+    Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
+    Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
+}
 $pkgs = cat "$env:OXIDIZER\defaults\Scoopfile.txt"
 
 ForEach ( $pkg in $pkgs ) {
@@ -66,15 +68,6 @@ Write-Output "Adding Oxidizer into $env:OX_SHELL..."
 
 if (!(Test-Path -Path $env:OX_SHELL)) {
     New-Item -ItemType File -Force -Path $env:OX_SHELL
-}
-
-Write-Output '# Oxidizer' >> $env:OX_SHELL
-if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
-    Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
-    Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
-}
-else {
-    Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
 }
 
 Write-Output "Adding Custom settings..."
