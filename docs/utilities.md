@@ -2,9 +2,16 @@
 
 ### Formats
 
-- [x] Convert markdown: `mdto`
-  - [x] to PDF with Unicode (for CJK)
+- [x] Text Conversion Using `pandoc`
+- [x] Media Conversion Using `ffmpeg`
 
 ```sh
-mdto `filename` `format`
+# text
+todocx [filename]
+tohtml [filename]
+topdf [filename]
+totyp [filename]
+# media
+tomp3 [filename]
+tomp4 [filename]
 ```

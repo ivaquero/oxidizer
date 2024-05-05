@@ -66,9 +66,16 @@
 
 ### Formats
 
-- [x] `mdto`：转换 markdown
-  - [x] 转换至含有 Unicode 的 PDF（中文）
+- [x] 文本转换使用 `pandoc`
+- [x] 媒体转换使用 `ffmpeg`
 
 ```sh
-mdto `文件名` `格式`
+# 文本
+todocx [文件名]
+tohtml [文件名]
+topdf [文件名]
+totyp [文件名]
+# 媒体
+tomp3 [文件名]
+tomp4 [文件名]
 ```
