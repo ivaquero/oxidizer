@@ -19,10 +19,8 @@
 对 macOS / Linux（Intel）
 
 ```sh
-git clone --depth=1 https://github.com/ivaquero/oxidizer.git $OXIDIZER && bash $OXIDIZER/install.sh
-
-# 自定义安装路径
 export OXIDIZER=$HOME/oxidizer
+git clone --depth=1 https://github.com/ivaquero/oxidizer.git $OXIDIZER && bash $OXIDIZER/install.sh
 ```
 
 - 对中国大陆用户，可设置 `BREW_CN` 变量来下载安装 Homebrew：
@@ -34,10 +32,8 @@ export BREW_CN=1
 对 Windows
 
 ```powershell
-git clone --depth=1 https://github.com/ivaquero/oxidizer.git $env:OXIDIZER; . $env:OXIDIZER\install.ps1
-
-# 自定义安装路径
 $env:OXIDIZER = "$HOME\oxidizer"
+git clone --depth=1 https://github.com/ivaquero/oxidizer.git $env:OXIDIZER; . $env:OXIDIZER\install.ps1
 ```
 
 > 对于 Cmder 用户，你需要删除`%CMDER_ROOT%\vendor\profile.ps1`的最后一行`Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly`中的`-Options ReadOnly`。
