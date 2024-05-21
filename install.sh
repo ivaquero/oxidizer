@@ -19,9 +19,6 @@ if test ! "$(command -v brew)"; then
     fi
 fi
 
-printf "⚙️ Adding Custom settings...\n"
-cp -i -v "${OXIDIZER}"/defaults.sh "${OXIDIZER}"/custom.sh
-
 if [[ $(uname -s) = "Darwin" ]]; then
     printf "📦 Activating Homebrew on MacOS...\n"
     if [[ $(uname -m) = "arm64" ]]; then
