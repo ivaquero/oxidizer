@@ -5,7 +5,7 @@
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
-Simple & Extensible Dotfile Manager Unifying Your Terminal Operations (PRs and Forks are welcome !)
+A Simple & Extensible Dotfile Manager That Unifies Your Terminal Operations
 
 <p align="left">
 <a href="README.md">English</a> |

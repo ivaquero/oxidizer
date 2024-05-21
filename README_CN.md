@@ -5,7 +5,7 @@
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
-统一你终端操作的简单 & 可扩展的 dotfile 管理工具（欢迎 PR 和 Fork！）
+一个简单 & 可扩展的，用于统一终端操作的 dotfile 管理工具
 
 <p align="left">
 <a href="README.md">English</a> |
