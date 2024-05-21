@@ -69,9 +69,6 @@ done
 if [[ $(uname -s) = "Linux" ]]; then
     printf "📦 Adding Tap linuxbrew/fonts...\n"
     brew tap "linuxbrew/fonts"
-else
-    printf "📦 Adding Tap homebrew/cask-fonts...\n"
-    brew tap "homebrew/cask-fonts"
 fi
 
 ###################################################
