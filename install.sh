@@ -87,7 +87,11 @@ case ${SHELL} in
         printf "📦 Installing latest Bash...\n"
         brew install bash bash-completion
     fi
-    export OX_SHELL=${HOME}/.profile
+    if [[ -f "${HOME}/.bashrc" ]]; then
+        export OX_SHELL=${HOME}/.bashrc
+    elif [[ -f "${HOME}/.bash_profile" ]]; then
+        export OX_SHELL=${HOME}/.profile
+    fi
     echo 'export BASH_SILENCE_DEPRECATION_WARNING=1' >>"${OX_SHELL}"
     ;;
 esac

@@ -204,7 +204,7 @@ export OX_STARTUP=1
 
 startup() {
     # start directory
-    cd "${HOME}"/Desktop || exit
+    cd "${HOME}" || exit
 }
 
 ##########################################################
