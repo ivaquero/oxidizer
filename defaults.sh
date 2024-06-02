@@ -19,13 +19,11 @@ export EDITOR_T='vi'
 # select ox-plugins
 ##########################################################
 
-# better have
-# - oxpbg: git
 # package managers
 # - oxppc: conda
 # - oxppcn: conan (c++)
 # - oxppn: npm
-# - oxppt: tlmgr (texlive)
+# - oxpptl: tlmgr (texlive)
 # languages
 # - oxplj: julia
 # - oxplr: ruby (include gem)
@@ -34,6 +32,7 @@ export EDITOR_T='vi'
 # - oxpsc: container (docker & podman)
 # - oxpsp: pueue
 # app cli
+# - oxpcg: git
 # - oxpcbw: bitwarden
 # - oxpces: espanso
 # - oxpcjr: jupyter (notebook, lab, book)
@@ -47,7 +46,7 @@ export EDITOR_T='vi'
 # - oxpxns: notes
 
 OX_PLUGINS=(
-    oxpbg
+    oxpcg
     oxpufm
 )
 
