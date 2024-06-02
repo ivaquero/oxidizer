@@ -22,7 +22,7 @@ export EDITOR_T='vi'
 # package managers
 # - oxppc: conda
 # - oxppcn: conan (c++)
-# - oxppn: npm
+# - oxppnj: npm + yarn
 # - oxpptl: tlmgr (texlive)
 # languages
 # - oxplj: julia
