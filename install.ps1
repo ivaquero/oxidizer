@@ -135,14 +135,14 @@ git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
 # Extras Steps
 ###################################################
 
-. $PROFILE
-
 if ($(uname).Contains("Windows")) {
     if (Get-Command code -ErrorAction SilentlyContinue) {
         scoop install vscode
         reg import "C:\Scoop\apps\vscode\current\install-associations.reg"
     }
 }
+
+. $PROFILE
 
 Write-Output "Oxidizer installation complete!"
 Write-Output "Don't forget to restart your terminal and hit 'edf ox' to tweak your preferences.\n"

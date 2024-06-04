@@ -140,6 +140,4 @@ if ($(uname).Contains("Windows")) {
     Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
     Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
     Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
-
-    Import-Module "$env:SCOOP\modules\scoop-completion"
 }
