@@ -1,4 +1,4 @@
-if ($(uname).Contains("Windows")) {
+if (!($(uname).Contains("Darwin") || $(uname).Contains("Linux"))) {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         Write-Output "Scoop Already Installed"
     }
@@ -125,9 +125,11 @@ sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.sh"
 # Load Plugins
 ###################################################
 
-git clone --depth=1 https://github.com/ivaquero/oxplugins.git $env:OXIDIZER\plugins
+Set-Location $env:OXIDIZER
 
-git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER\addons
+git clone --depth=1 https://github.com/ivaquero/oxplugins.git ./plugins
+
+git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
 
 ###################################################
 # Extras Steps

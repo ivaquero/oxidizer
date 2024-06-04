@@ -1,5 +1,10 @@
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
-    $env:OXIDIZER = "$HOME\oxidizer"
+    if ($(uname).Contains("Darwin")) {
+        $env:OXIDIZER = "$env:HOME\oxidizer"
+    }
+    else {
+        $env:OXIDIZER = "$HOME\oxidizer"
+    }
 }
 
 ##########################################################
@@ -48,8 +53,11 @@ $Global:OX_OXIDE = @{}
 # Load Plugins
 ##########################################################
 
-# load system plugin
-. $Global:OX_OXYGEN.oxpow
+# load core plugins
+$Global:OX_CORE_PLUGINS = @('oxpow', 'oxpps', 'oxpuf')
+ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
+    . $Global:OX_OXYGEN.$($core_plugin)
+}
 
 # load custom plugins
 . $Global:OX_ELEMENT.ox
