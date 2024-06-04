@@ -25,9 +25,9 @@ export EDITOR_T='vi'
 # - oxppnj: npm + yarn
 # - oxpptl: tlmgr (texlive)
 # languages
-# - oxplj: julia
-# - oxplr: ruby (include gem)
-# - oxplr: rust (include cargo)
+# - oxpljl: julia
+# - oxplrb: ruby (include gem)
+# - oxplrs: rust (include cargo)
 # services
 # - oxpsc: container (docker & podman)
 # - oxpsp: pueue
