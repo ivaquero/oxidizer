@@ -56,7 +56,7 @@ if (!($(uname).Contains("Darwin") || $(uname).Contains("Linux"))) {
             Write-Output "Installing $pkg"
             scoop install $pkg
         }
-        scoop install dark innounp
+        scoop install dark innounp busybox
     }
 }
 

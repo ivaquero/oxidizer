@@ -7,4 +7,3 @@ atreplinit() do repl
 end
 
 ENV["JULIA_NUM_THREADS"] = 8
-
