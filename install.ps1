@@ -83,12 +83,9 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         Write-Output '
         $env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
     }
-    Write-Output '. $env:OXIDIZER\oxidizer.ps1' >> $PROFILE
-}
-else {
-    Write-Output ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
 }
 
+Write-Output ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
 Write-Output "Adding Custom settings..."
 
 if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {

@@ -107,7 +107,7 @@ function upox {
     $ox_change = $(git diff defaults.ps1)
     if ([string]::IsNullOrEmpty($ox_change)) {
         Write-Output "`n`nDefaults changed, don't forget to update your custom.ps1 accordingly...`n"
-        eWrite-Outputcho "Compare the difference using 'edf oxd'"
+        Write-Output "Compare the difference using 'edf oxd'"
     }
     Set-Location $HOME
 }
