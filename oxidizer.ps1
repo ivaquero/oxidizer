@@ -94,7 +94,7 @@ function upox {
 
     if (!(Test-Path -Path "$env:OXIDIZER\addons")) {
         Write-Output "`n`nCloning Oxidizer Plugins...`n"
-        git clone --depth=1 https://github.com/ivaquero/oxaddons.git $env:OXIDIZER\addons
+        git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER\addons
     }
     else {
         Set-Location "$env:OXIDIZER\addons"
