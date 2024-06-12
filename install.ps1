@@ -1,4 +1,4 @@
-if (!($(uname).Contains("Darwin") || $(uname).Contains("Linux"))) {
+if ($($env:OS).Contains("Windows")) {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         Write-Output "Scoop Already Installed"
     }
@@ -75,7 +75,7 @@ if (!(Test-Path -Path $PROFILE)) {
 Write-Output '# Oxidizer' >> $PROFILE
 
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
-    if ($(uname).Contains("Windows")) {
+    if ($($env:OS).Contains("Windows")) {
         Write-Output '
         $env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
     }
@@ -132,7 +132,7 @@ git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
 # Extras Steps
 ###################################################
 
-if ($(uname).Contains("Windows")) {
+if ($($env:OS).Contains("Windows")) {
     if (Get-Command code -ErrorAction SilentlyContinue) {
         scoop install vscode
         reg import "C:\Scoop\apps\vscode\current\install-associations.reg"

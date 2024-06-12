@@ -1,5 +1,5 @@
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
-    if ($(uname).Contains("Darwin")) {
+    if ($($env:OS).Contains("Darwin")) {
         $env:OXIDIZER = "$env:HOME\oxidizer"
     }
     else {
@@ -134,7 +134,7 @@ if ($Global:OX_STARTUP) {
 # Extras
 ##########################################################
 
-if ($(uname).Contains("Windows")) {
+if ($($env:OS).Contains("Windows")) {
     Import-Module PSReadLine
     Set-PSReadLineKeyHandler -Key Tab -Function Complete
     Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
