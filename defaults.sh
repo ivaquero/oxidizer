@@ -100,12 +100,6 @@ declare -A OX_PROXY=(
     [v]=1080
 )
 
-# use `mrb [key]` for brew mirror, use `mrbq` for quit brew mirror
-# declare -A MIRRORS=(
-#     [bts]="mirrors.tuna.tsinghua.edu.cn/git/homebrew"
-#     [bzk]="mirrors.ustc.edu.cn/git/homebrew"
-# )
-
 ##########################################################
 # common aliases
 ##########################################################
