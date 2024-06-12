@@ -46,8 +46,7 @@ $env:EDITOR_T = 'vi'
 
 $Global:OX_PLUGINS = @(
     'oxpcg',
-    'oxpcvs',
-    'oxptwr'
+    'oxpufm'
 )
 
 ##########################################################
