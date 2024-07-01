@@ -31,7 +31,6 @@ $Global:OX_OXYGEN = @{
     'oxpsct' = "$env:OXIDIZER\addons\ox-svc-container.ps1"
     'oxpspu' = "$env:OXIDIZER\addons\ox-svc-pueue.ps1"
     'oxptl'  = "$env:OXIDIZER\addons\ox-tlmgr.ps1"
-    'oxptwr' = "$env:OXIDIZER\addons\ox-term-weather.ps1"
     'oxpuf'  = "$env:OXIDIZER\addons\ox-utils-files.ps1"
     'oxpufm' = "$env:OXIDIZER\addons\ox-utils-formats.ps1"
     'oxpunw' = "$env:OXIDIZER\addons\ox-utils-.ps1"

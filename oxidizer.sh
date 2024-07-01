@@ -32,7 +32,6 @@ declare -A OX_OXYGEN=(
     [oxpunw]=${OXIDIZER}/plugins/ox-utils-network.sh
     [oxpsc]=${OXIDIZER}/plugins/ox-svc-container.sh
     [oxpsp]=${OXIDIZER}/plugins/ox-svc-pueue.sh
-    [oxptwr]=${OXIDIZER}/plugins/ox-term-weather.sh
     [oxptzj]=${OXIDIZER}/plugins/ox-term-zellij.sh
     [oxpxns]=${OXIDIZER}/plugins/ox-xtra-notes.sh
 )

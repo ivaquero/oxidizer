@@ -38,9 +38,6 @@ $env:EDITOR_T = 'vi'
 # - oxpcvs: vscode
 # system utils
 # - oxpufm: format conversion
-# terminal utils
-# - oxptwr: weather
-# - oxptzj: zellij
 # extra utils
 # - oxpxns: notes
 
