@@ -121,8 +121,7 @@ alias c="clear"
 alias own="sudo chown -R $(whoami)"
 
 # tools
-alias tldr="tlrc"
-alias man="tlrc"
+alias man="tldr"
 alias hf="hyperfine"
 
 # oxidizer

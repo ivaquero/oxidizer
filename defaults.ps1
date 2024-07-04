@@ -128,7 +128,7 @@ function rr { rm -rf $args }
 function c { clear }
 
 # tools
-function man { tdtlrc $args }
+function man { tldr $args }
 function hf { hyperfine $args }
 
 ##########################################################
