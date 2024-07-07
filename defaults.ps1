@@ -44,7 +44,7 @@ $env:EDITOR_T = 'vi'
 $Global:OX_PLUGINS = @(
     'oxpcg',
     'oxpufm',
-    'oxpcvs',
+    'oxpcvs'
 )
 
 ##########################################################
@@ -60,7 +60,9 @@ $Global:OX_OXIDE.bkox = "$env:OX_BACKUP\shell\custom.ps1"
 # terminal
 if ( Test-Path "$HOME\.wezterm.lua" ) {
     $Global:OX_ELEMENT.wz = "$HOME\.wezterm.lua"
-    NewNew-Item -Path $Global:OX_ELEMENT.wz -ItemType File
+}
+else {
+    New-Item -Path $Global:OX_ELEMENT.wz -ItemType File
 }
 $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
 
@@ -70,7 +72,7 @@ $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
 
 # c: clash, m: clash-meta, v: v2ray
 $Global:OX_PROXY = @{
-    'c' = '7890'
+    'c' = '7898'
     'm' = '7897'
     'v' = '1080'
 }
@@ -128,7 +130,7 @@ function rr { rm -rf $args }
 function c { clear }
 
 # tools
-function man { tldr $args }
+function man { tdtlrc $args }
 function hf { hyperfine $args }
 
 ##########################################################
