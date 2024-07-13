@@ -30,8 +30,9 @@ declare -A OX_OXYGEN=(
     [oxpuf]=${OXIDIZER}/plugins/ox-utils-files.sh
     [oxpufm]=${OXIDIZER}/plugins/ox-utils-formats.sh
     [oxpunw]=${OXIDIZER}/plugins/ox-utils-network.sh
-    [oxpsc]=${OXIDIZER}/plugins/ox-svc-container.sh
-    [oxpsp]=${OXIDIZER}/plugins/ox-svc-pueue.sh
+    [oxpsct]=${OXIDIZER}/plugins/ox-svc-container.sh
+    [oxpsol]=${OXIDIZER}/plugins/ox-svc-ollama.sh
+    [oxpspu]=${OXIDIZER}/plugins/ox-svc-pueue.sh
     [oxptzj]=${OXIDIZER}/plugins/ox-term-zellij.sh
     [oxpxns]=${OXIDIZER}/plugins/ox-xtra-notes.sh
 )

@@ -29,8 +29,9 @@ export EDITOR_T='vi'
 # - oxplrb: ruby (include gem)
 # - oxplrs: rust (include cargo)
 # services
-# - oxpsc: container (docker & podman)
-# - oxpsp: pueue
+# - oxpsct: container (docker & podman)
+# - oxpsol: ollama
+# - oxpspu: pueue
 # app cli
 # - oxpcg: git
 # - oxpcbw: bitwarden
