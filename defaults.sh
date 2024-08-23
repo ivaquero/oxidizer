@@ -270,12 +270,12 @@ declare -A OX_CONDA_ENV=(
 # predefined julia environments
 # set the length of key <= 3
 declare -A OX_JULIA_ENV=(
-    [b]="base"
+    [b]="${JULIA_DEPOT_PATH}/environments/v${JULIA_VERSION}"
     # [t]="tutorial"
 )
 
 # # julia env stats with bkjl, and should be consistent with OX_JULIA_ENV
-# OX_OXIDE[bkceb]=${OX_BACKUP}/julia/julia-base.txt
+# OX_OXIDE[bkjlb]=${OX_BACKUP}/julia/julia-base.txt
 
 ##########################################################
 # others settings

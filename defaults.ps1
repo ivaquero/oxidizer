@@ -101,14 +101,28 @@ $Global:OX_PROXY = @{
 # conda settings
 ##########################################################
 
-# # predefined conda environments
-# # set the length of key < 3
-# $Global:OX_CONDA_ENV = @{
-#     b = 'base'
-# }
+# predefined conda environments
+# set the length of key < 3
+$Global:OX_CONDA_ENV = @{
+    b = 'base'
+}
 
 # # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
 # # $Global:OX_OXIDE.bkceb = "$env:OX_BACKUP\conda\conda-base.txt"
+
+##########################################################
+# julia settings
+##########################################################
+
+# predefined julia environments
+# set the length of key <= 3
+$Global:OX_JULIA_ENV = @{
+    b = "$env:JULIA_DEPOT_PATH\environments\v$JULIA_VERSION"
+    # t = "tutorial"
+}
+
+# # julia env stats with bkjl, and should be consistent with OX_JULIA_ENV
+# $Global:OX_OXIDE.bkjlb = "$env:OX_BACKUP\julia\julia-base.txt"
 
 ##########################################################
 # other settings
