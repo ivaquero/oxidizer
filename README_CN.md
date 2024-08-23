@@ -192,8 +192,6 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 |    npm     |  `n`   |           `.npmrc`           |   `oxppn`   |
 |   latex    |  `tl`  |        `texlive-pkgs`        |  `oxpptl`   |
 |   julia    |  `jl`  |         `startup.jl`         |  `oxpljl`   |
-|   julia    | `jlbp` |        `Project.toml`        |  `oxpljl`   |
-|   julia    | `jlbm` |       `Manifest.toml`        |  `oxpljl`   |
 |   cargo    |  `cg`  |        `config.toml`         |   `oxlrs`   |
 |   rustup   |  `rs`  |       `settings.toml`        |   `oxlrs`   |
 |  espanso   |  `es`  |        `default.yml`         |  `oxpces`   |
