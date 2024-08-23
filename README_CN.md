@@ -110,12 +110,12 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 | 插件缩写 |       类别       |             macOS              | 自动加载？ |
 | :------: | :--------------: | :----------------------------: | :--------: |
 | `oxpbg`  |       推荐       |              Git               |            |
-| `oxpom`  |   系统快捷操作   |             macOS              |     ✓      |
-| `oxpod`  |   系统快捷操作   |      Debian-Based Systems      |     ✓      |
-| `oxpor`  |   系统快捷操作   |      RedHat-Based Systems      |     ✓      |
-| `oxpow`  |   系统快捷操作   |     Windows（包括 winget）     |     ✓      |
-| `oxppb`  |     包管理器     |   Homebrew（macOS & Linux）    |     ✓      |
-| `oxpps`  |     包管理器     |        Scoop（Windows）        |     ✓      |
+| `oxpom`  |   系统快捷操作   |             macOS              |     ✓     |
+| `oxpod`  |   系统快捷操作   |      Debian-Based Systems      |     ✓     |
+| `oxpor`  |   系统快捷操作   |      RedHat-Based Systems      |     ✓     |
+| `oxpow`  |   系统快捷操作   |     Windows（包括 winget）     |     ✓     |
+| `oxppb`  |     包管理器     |   Homebrew（macOS & Linux）    |     ✓     |
+| `oxpps`  |     包管理器     |        Scoop（Windows）        |     ✓     |
 | `oxppc`  |     包管理器     | Conda（多语言，主要是 Python） |            |
 | `oxppcn` |     包管理器     |          Conan（C++）          |            |
 | `oxppn`  |     包管理器     |       NPM（JavaScript）        |            |
@@ -129,9 +129,9 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 | `oxpces` | 软件的命令行界面 |            Espanso             |            |
 | `oxpcjr` | 软件的命令行界面 | Jupyter（notebook, lab, book） |            |
 | `oxpcvs` | 软件的命令行界面 |             VSCode             |            |
-| `oxpuf`  |     系统工具     |            文件操作            |     ✓      |
+| `oxpuf`  |     系统工具     |            文件操作            |     ✓     |
 | `oxpufm` |     系统工具     |            格式转换            |            |
-| `oxpunw` |     系统工具     |            网络配置            |     ✓      |
+| `oxpunw` |     系统工具     |            网络配置            |     ✓     |
 | `oxptwr` |     终端工具     |       天气（基于 wttr）        |            |
 | `oxptzj` |     终端工具     |    Zellij（macOS & Linux）     |            |
 | `oxpxns` |       其他       | 笔记备份（Obsidian & Logseq）  |            |
@@ -192,9 +192,8 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 |    npm     |  `n`   |           `.npmrc`           |   `oxppn`   |
 |   latex    |  `tl`  |        `texlive-pkgs`        |  `oxpptl`   |
 |   julia    |  `jl`  |         `startup.jl`         |  `oxpljl`   |
-|   julia    | `jlx`  |       `julia-pkgs.txt`       |  `oxpljl`   |
-|   julia    | `jlp`  |        `Project.toml`        |  `oxpljl`   |
-|   julia    | `jlm`  |       `Manifest.toml`        |  `oxpljl`   |
+|   julia    | `jlbp` |        `Project.toml`        |  `oxpljl`   |
+|   julia    | `jlbm` |       `Manifest.toml`        |  `oxpljl`   |
 |   cargo    |  `cg`  |        `config.toml`         |   `oxlrs`   |
 |   rustup   |  `rs`  |       `settings.toml`        |   `oxlrs`   |
 |  espanso   |  `es`  |        `default.yml`         |  `oxpces`   |

@@ -253,15 +253,29 @@ upp() {
 # conda settings
 ##########################################################
 
-# # predefined conda environments
-# # set the length of key <= 3
-# declare -A OX_CONDA_ENV=(
-#     [b]="base"
-#     [k]="kaggle"
-# )
+# predefined conda environments
+# set the length of key <= 3
+declare -A OX_CONDA_ENV=(
+    [b]="base"
+    # [k]="kaggle"
+)
 
 # # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
 # OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
+
+##########################################################
+# julia settings
+##########################################################
+
+# predefined julia environments
+# set the length of key <= 3
+declare -A OX_JULIA_ENV=(
+    [b]="base"
+    # [t]="tutorial"
+)
+
+# # julia env stats with bkjl, and should be consistent with OX_JULIA_ENV
+# OX_OXIDE[bkceb]=${OX_BACKUP}/julia/julia-base.txt
 
 ##########################################################
 # others settings

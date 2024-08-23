@@ -122,12 +122,12 @@ The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins) [Ox
 | Plugin Abbr. |       Category       |            Support             | Must? |
 | :----------: | :------------------: | :----------------------------: | :---: |
 |   `oxpbg`    |    Better to Have    |              Git               |       |
-|   `oxpom`    |     OS Shortcuts     |             macOS              |   ✓   |
-|   `oxpod`    |     OS Shortcuts     |      Debian-Based Systems      |   ✓   |
-|   `oxpor`    |     OS Shortcuts     |      RedHat-Based Systems      |   ✓   |
-|   `oxpow`    |     OS Shortcuts     |    Windows (include winget)    |   ✓   |
-|   `oxppb`    |   Package Manager    |    Homebrew (macOS & Linux)    |   ✓   |
-|   `oxpps`    |   Package Manager    |        Scoop (Windows)         |   ✓   |
+|   `oxpom`    |     OS Shortcuts     |             macOS              |  ✓   |
+|   `oxpod`    |     OS Shortcuts     |      Debian-Based Systems      |  ✓   |
+|   `oxpor`    |     OS Shortcuts     |      RedHat-Based Systems      |  ✓   |
+|   `oxpow`    |     OS Shortcuts     |    Windows (include winget)    |  ✓   |
+|   `oxppb`    |   Package Manager    |    Homebrew (macOS & Linux)    |  ✓   |
+|   `oxpps`    |   Package Manager    |        Scoop (Windows)         |  ✓   |
 |   `oxppc`    |   Package Manager    |    Conda (Multi-Languages)     |       |
 |   `oxppcn`   |   Package Manager    |          Conan (C++)           |       |
 |   `oxppn`    |   Package Manager    |        NPM (JavaScript)        |       |
@@ -141,9 +141,9 @@ The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins) [Ox
 |   `oxpces`   |       App CLI        |            Espanso             |       |
 |   `oxpcjr`   |       App CLI        | Jupyter (notebook / lab, book) |       |
 |   `oxpcvs`   |       App CLI        |             VSCode             |       |
-|   `oxpuf`    |     System Utils     |         File Operation         |   ✓   |
+|   `oxpuf`    |     System Utils     |         File Operation         |  ✓   |
 |   `oxpufm`   |     System Utils     |       Formats Conversion       |       |
-|   `oxpunw`   |     System Utils     |     Network Configuration      |   ✓   |
+|   `oxpunw`   |     System Utils     |     Network Configuration      |  ✓   |
 |   `oxptwr`   |    Terminal Utils    |      Weather (wttr-based)      |       |
 |   `oxptzj`   |    Terminal Utils    |     Zellij (macOS & Linux)     |       |
 |   `oxpxns`   |     Extra Utils      | Notes Apps (Obsidian & Logseq) |       |
@@ -204,9 +204,8 @@ The table below lists the information of specific configuration files:
 |    npm     |    `n`     |           `.npmrc`           |   `oxppn`   |
 |   latex    |    `tl`    |        `texlive-pkgs`        |  `oxpptl`   |
 |   julia    |    `jl`    |         `startup.jl`         |  `oxpljl`   |
-|   julia    |   `jlx`    |       `julia-pkgs.txt`       |  `oxpljl`   |
-|   julia    |   `jlp`    |        `Project.toml`        |  `oxpljl`   |
-|   julia    |   `jlm`    |       `Manifest.toml`        |  `oxpljl`   |
+|   julia    |   `jlbp`   |        `Project.toml`        |  `oxpljl`   |
+|   julia    |   `jlbm`   |       `Manifest.toml`        |  `oxpljl`   |
 |   cargo    |    `cg`    |        `config.toml`         |   `oxlrs`   |
 |   rustup   |    `rs`    |       `settings.toml`        |   `oxlrs`   |
 |  espanso   |    `es`    |        `default.yml`         |  `oxpces`   |
