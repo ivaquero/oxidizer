@@ -116,6 +116,9 @@ $Global:OX_CONDA_ENV = @{
 
 # predefined julia environments
 # set the length of key <= 3
+if ([string]::IsNullOrEmpty($env:JULIA_DEPOT_PATH)) {
+    $env:JULIA_DEPOT_PATH = "$HOME\.julia"
+}
 $Global:OX_JULIA_ENV = @{
     b = "$env:JULIA_DEPOT_PATH\environments\v$JULIA_VERSION"
     # t = "tutorial"
