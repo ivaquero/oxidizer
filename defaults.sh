@@ -271,7 +271,7 @@ declare -A OX_CONDA_ENV=(
 # set the length of key <= 3
 export JULIA_DEPOT_PATH=${JULIA_DEPOT_PATH:-"${HOME}/.julia"}
 declare -A OX_JULIA_ENV=(
-    [b]="${JULIA_DEPOT_PATH}/environments/v${JULIA_VERSION}"
+    [b]="${JULIA_DEPOT_PATH}/environments/v$(julia -v | rg -o "\d+\.\d+")"
     # [t]="tutorial"
 )
 

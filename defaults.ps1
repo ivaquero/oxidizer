@@ -120,7 +120,7 @@ if ([string]::IsNullOrEmpty($env:JULIA_DEPOT_PATH)) {
     $env:JULIA_DEPOT_PATH = "$HOME\.julia"
 }
 $Global:OX_JULIA_ENV = @{
-    b = "$env:JULIA_DEPOT_PATH\environments\v$JULIA_VERSION"
+    b = "$env:JULIA_DEPOT_PATH\environments\v$(julia -v | rg -o '\d+\.\d+')"
     # t = "tutorial"
 }
 
