@@ -316,7 +316,6 @@ bss pu
 - `brisc`：重装 cask
 - `bupc`：升级 cask
 
-- `bupg`：brew upgrade --greedy
 - `brp [cask]`：适用于下载文件替换缓存中的 brew cask
 
 ### 5.2. Conda 环境管理

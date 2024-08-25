@@ -332,7 +332,6 @@ suffix `c` is a flag to specify brew commands only work on casks
 - `brisc`: brew reinstall --cask
 - `bupc`: brew upgrade --cask
 
-- `bupg`: brew upgrade --greedy
 - `brp [cask]`: replace brew cache file by pre-downloaded file
 
 ### 5.2. Conda
