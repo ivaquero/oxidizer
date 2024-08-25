@@ -285,18 +285,19 @@ bss pu
 
 Some package managers also have functionality of project management
 
-| Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | gem `rb` | conan `cn` |
-| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :------: | :--------: |
-| `*ii`  | init/create |    ✅    |    ✅     |    ✅     |   ✅    |     ✅     |             |            |          |     ✅     |
-|  `*b`  |    build    |          |           |           |         |     ✅     |             |     ✅     |    ✅    |     ✅     |
-|  `*r`  |     run     |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |          |            |
-| `*ed`  |    edit     |    ✅    |           |           |         |            |             |            |          |            |
-| `*ct`  |     cat     |    ✅    |    ✅     |           |         |            |             |            |    ✅    |            |
-| `*ln`  |    link     |    ✅    |           |           |         |            |             |            |          |            |
-| `*ts`  |    test     |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |          |     ✅     |
-| `*au`  |    audit    |    ✅    |           |           |   ✅    |            |             |            |          |            |
-| `*fx`  |     fix     |    ✅    |           |           |   ✅    |     ✅     |             |            |          |            |
-| `*pb`  |   publish   |          |           |           |   ✅    |     ✅     |             |            |          |            |
+| Suffix | Action  | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | gem `rb` | conan `cn` |
+| :----: | :-----: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :------: | :--------: |
+| `*ii`  |  init   |          |           |    ✅     |   ✅    |     ✅     |             |            |          |            |
+| `*cr`  | create  |    ✅    |    ✅     |           |   ✅    |     ✅     |             |            |          |     ✅     |
+|  `*b`  |  build  |          |           |           |         |     ✅     |             |     ✅     |    ✅    |     ✅     |
+|  `*r`  |   run   |          |           |    ✅     |   ✅    |     ✅     |     ✅      |     ✅     |          |            |
+| `*ed`  |  edit   |    ✅    |           |           |         |            |             |            |          |            |
+| `*ct`  |   cat   |    ✅    |    ✅     |           |         |            |             |            |    ✅    |            |
+| `*ln`  |  link   |    ✅    |           |           |         |            |             |            |          |            |
+| `*ts`  |  test   |    ✅    |           |           |   ✅    |     ✅     |             |     ✅     |          |     ✅     |
+| `*au`  |  audit  |    ✅    |           |           |   ✅    |            |             |            |          |            |
+| `*fx`  |   fix   |    ✅    |           |           |   ✅    |     ✅     |             |            |          |            |
+| `*pb`  | publish |          |           |           |   ✅    |     ✅     |             |            |          |            |
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
