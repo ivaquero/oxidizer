@@ -72,10 +72,8 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
   - [x] 使用 [tlrc](https://github.com/tldr-pages/tlrc) 替换 `tldr` 和 `man`
   - [x] 使用 [zoxide](https://github.com/ajeetdsouza/zoxide) 替换 `cd` 和 `z`
   - [ ] 使用 [hyperfine](https://github.com/sharkdp/hyperfine) 替换 `time`
-  - [ ] 使用 [procs](https://github.com/dalance/procs) 替换 `ps`
   - [ ] 使用 [starship](https://github.com/starship/starship) 替换 `powerline10k` 和 `ohmyposh`
   - [ ] 使用 [tokei](https://github.com/XAMPPRocky/tokei) 替换 `cloc`
-  - [ ] 使用 [tre](https://github.com/dduan/tre) 替换 `tree`
 
 > `Nushell` 是一个 Rust 编写的全平台 Shell，但其目前不支持动态地址，而且其插件只支持 Rust 和 Python，而不是其内置的 Nu 语言。
 
@@ -103,9 +101,7 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 ### 2.5. 插件总结
 
-插件位于 [oxplugins](https://github.com/ivaquero/oxplugins)
-
-> [OxPlugins-PowerShell](https://github.com/ivaquero/oxplugins-pwsh) 已停止维护。
+插件位于 [oxplugins](https://github.com/ivaquero/oxplugins) 和  [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh)。
 
 | 插件缩写 |       类别       |             macOS              | 自动加载？ |
 | :------: | :--------------: | :----------------------------: | :--------: |
@@ -140,9 +136,9 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 ```sh
 OX_PLUGINS=(
-oxpbg
-oxpufm
-oxplrs
+  oxpbg
+  oxpufm
+  oxplrs
 )
 ```
 
@@ -319,12 +315,9 @@ bss pu
 - `bisc`：安装 cask
 - `brisc`：重装 cask
 - `bupc`：升级 cask
-- `bupg`：brew upgrade --greedy
 
-- `brp`：适用于下载文件替换缓存中的 brew cask
-  - `$1`：cask name
-- `bmr`：using brew mirror 使用 brew 镜像
-- `bmrq`：reset brew git source to official repositories 重置 brew 到官方源
+- `bupg`：brew upgrade --greedy
+- `brp [cask]`：适用于下载文件替换缓存中的 brew cask
 
 ### 5.2. Conda 环境管理
 

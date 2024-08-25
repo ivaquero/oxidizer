@@ -88,10 +88,8 @@ esac
 OX_OXIDE[bkwz]=${OX_BACKUP}/terminal/wezterm.lua
 
 ##########################################################
-# proxy and mirror settings
+# proxy settings
 ##########################################################
-
-# to use proxy and mirrors for faster download, don't forget to add `oxpnw` in `OX_PLUGINS`
 
 # c: clash, m: clash-meta, v: v2ray
 declare -A OX_PROXY=(

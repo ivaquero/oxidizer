@@ -73,7 +73,7 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 - coreutils
   - [x] Use [bat](https://github.com/sharkdp/bat) instead of `cat`
   - [x] Use [lsd](https://github.com/Peltoche/lsd) instead of `ls`
-  - [x] Use [uutils-coreutils](https://github.com/uutils/coreutils) instead of `coreutils`
+  - [ ] Use [uutils-coreutils](https://github.com/uutils/coreutils) instead of `coreutils`
 - non-coreutils
   - [x] Use [dust](https://github.com/bootandy/dust) instead of `du`
   - [x] Use [fd](https://github.com/sharkdp/fd) instead of `find`
@@ -82,10 +82,8 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
   - [x] Use [tlrc](https://github.com/tldr-pages/tlrc) instead of `tldr` or `man`
   - [x] Use [zoxide](https://github.com/ajeetdsouza/zoxide) instead of `cd` or `z`
   - [ ] Use [hyperfine](https://github.com/sharkdp/hyperfine) instead of `time`
-  - [ ] Use [procs](https://github.com/dalance/procs) instead of `ps`
   - [ ] Use [starship](https://github.com/starship/starship) instead of `powerline10k` or `ohmyposh`
   - [ ] Use [tokei](https://github.com/XAMPPRocky/tokei) instead of `cloc`
-  - [ ] Use [tre](https://github.com/dduan/tre) instead of `tree`
 
 > `Nushell` is a cross-platform written in Rust, but it doesn't support dynamical path for the moment.
 
@@ -108,7 +106,6 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 - [x] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
 - [ ] [pueue](https://github.com/Nukesor/pueue): Command-line task management tool for sequential and parallel execution of long-running tasks
 - [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects.
-- [ ] [navi](https://github.com/denisidoro/navi): An interactive cheatsheet tool for the command-line
 - [ ] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
 
 ### 2.5. Summary of Plugins
@@ -117,7 +114,7 @@ Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `cust
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
-The plugins are hosted in [OxPlugins](https://github.com/ivaquero/oxplugins) [OxPlugins-PowerShell](https://github.com/ivaquero/oxpluginsw) has stopped maintenance.
+The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as well as [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh).
 
 | Plugin Abbr. |       Category       |            Support             | Must? |
 | :----------: | :------------------: | :----------------------------: | :---: |
@@ -334,11 +331,9 @@ suffix `c` is a flag to specify brew commands only work on casks
 - `bisc`: brew install --cask
 - `brisc`: brew reinstall --cask
 - `bupc`: brew upgrade --cask
-- `bupg`: brew upgrade --greedy
 
-- `brp`: replace brew cache file by pre-downloaded file
-- `bmr`: using brew mirror
-- `bmrq`: reset brew git source to official repositories, `q` is for quit.
+- `bupg`: brew upgrade --greedy
+- `brp [cask]`: replace brew cache file by pre-downloaded file
 
 ### 5.2. Conda
 
