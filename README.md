@@ -257,7 +257,7 @@ Oxidizer aims to provide a unified interface for all package manager-related com
 | `*pn`  |     pin     |    ✅    |    ✅     |           |         |            |             |     ✅     |          |            |            |
 | `*upn` |    unpin    |    ✅    |    ✅     |           |         |            |             |     ✅     |          |            |            |
 | `*dp`  |   depends   |    ✅    |    ✅     |    ✅     |         |     ✅     |             |     ✅     |    ✅    |     ✅     |            |
-| `*rdp` |    needs    |          |           |    ✅     |         |            |             |     ✅     |          |            |            |
+| `*dpr` |    needs    |          |           |    ✅     |         |            |             |     ✅     |          |            |            |
 | `*xa`  |  add repo   |    ✅    |    ✅     |    ✅     |         |            |             |            |          |     ✅     |            |
 | `*xrm` | remove repo |    ✅    |    ✅     |    ✅     |         |            |             |            |          |     ✅     |            |
 | `*xls` |  list repo  |          |           |    ✅     |         |            |             |            |          |     ✅     |            |
