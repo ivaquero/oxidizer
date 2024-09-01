@@ -34,7 +34,7 @@ $Global:OX_OXYGEN = @{
     'oxpspu' = "$env:OXIDIZER\addons\ox-svc-pueue.ps1"
     'oxpuf'  = "$env:OXIDIZER\addons\ox-utils-files.ps1"
     'oxpufm' = "$env:OXIDIZER\addons\ox-utils-formats.ps1"
-    'oxpunw' = "$env:OXIDIZER\addons\ox-utils-.ps1"
+    'oxpunw' = "$env:OXIDIZER\addons\ox-utils-networks.ps1"
     'oxpxns' = "$env:OXIDIZER\addons\ox-xtra-notes.ps1"
 }
 
@@ -54,7 +54,7 @@ $Global:OX_OXIDE = @{}
 ##########################################################
 
 # load core plugins
-$Global:OX_CORE_PLUGINS = @('oxpow', 'oxpps', 'oxpuf')
+$Global:OX_CORE_PLUGINS = @('oxpow', 'oxpps', 'oxpuf', 'oxpunw')
 ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
     . $Global:OX_OXYGEN.$($core_plugin)
 }
