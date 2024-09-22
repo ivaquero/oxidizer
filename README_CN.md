@@ -71,7 +71,7 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
   - [x] 使用 [sd](https://github.com/chmln/sd) 替换 `sed`
   - [x] 使用 [tlrc](https://github.com/tldr-pages/tlrc) 替换 `tldr` 和 `man`
   - [x] 使用 [zoxide](https://github.com/ajeetdsouza/zoxide) 替换 `cd` 和 `z`
-  - [ ] 使用 [hyperfine](https://github.com/sharkdp/hyperfine) 替换 `time`
+  - [x] 使用 [hyperfine](https://github.com/sharkdp/hyperfine) 替换 `time`
   - [ ] 使用 [starship](https://github.com/starship/starship) 替换 `powerline10k` 和 `ohmyposh`
   - [ ] 使用 [tokei](https://github.com/XAMPPRocky/tokei) 替换 `cloc`
 
@@ -93,7 +93,7 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 ### 2.4. 其他实用的 Rust 工具
 
-- [x] [ouch](https://github.com/ouch-org/ouch)：终端无痛压缩 & 解压工具
+- [ ] [ouch](https://github.com/ouch-org/ouch)：终端无痛压缩 & 解压工具
 - [ ] [pueue](https://github.com/Nukesor/pueue)：命令行并行任务管理器
 - [ ] [kondo](https://github.com/tbillington/kondo)：项目依赖清理命令行工具
 - [ ] [navi](https://github.com/denisidoro/navi)：交互式 cheatsheet 命令行

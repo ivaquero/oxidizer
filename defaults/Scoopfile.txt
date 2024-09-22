@@ -1,8 +1,8 @@
 bat
 dust
 fd
+hyperfine
 lsd
-ouch
 ripgrep
 sd
 tlrc

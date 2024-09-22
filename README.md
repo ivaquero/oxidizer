@@ -81,7 +81,7 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
   - [x] Use [sd](https://github.com/chmln/sd) instead of `sed`
   - [x] Use [tlrc](https://github.com/tldr-pages/tlrc) instead of `tldr` or `man`
   - [x] Use [zoxide](https://github.com/ajeetdsouza/zoxide) instead of `cd` or `z`
-  - [ ] Use [hyperfine](https://github.com/sharkdp/hyperfine) instead of `time`
+  - [x] Use [hyperfine](https://github.com/sharkdp/hyperfine) instead of `time`
   - [ ] Use [starship](https://github.com/starship/starship) instead of `powerline10k` or `ohmyposh`
   - [ ] Use [tokei](https://github.com/XAMPPRocky/tokei) instead of `cloc`
 
@@ -103,7 +103,7 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 
 ### 2.4. Other Useful Rust Tools
 
-- [x] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
+- [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
 - [ ] [pueue](https://github.com/Nukesor/pueue): Command-line task management tool for sequential and parallel execution of long-running tasks
 - [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects.
 - [ ] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool

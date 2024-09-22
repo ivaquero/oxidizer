@@ -150,32 +150,19 @@ ccc() {
 # configuration
 case ${SHELL} in
 *zsh)
-    # completion
-    autoload -Uz compinit && compinit
-    compaudit | xargs chmod g-w
     # edit
     autoload -Uz edit-command-line
     zle -N edit-command-line
     # turn case sensitivity off
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-    # other options
-    zstyle ':completion:*' menu select
-    zstyle ":completion:*" file-sort change
-    zstyle ":completion:*" use-cache yes
-    # pasting with tabs doesn't perform completion
-    zstyle ':completion:' insert-tab pending
-    autoload -Uz edit-command-line
-    zle -N edit-command-line
-    # turn case sensitivity off
-    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-    # other options
-    zstyle ':completion:*' menu select
-    zstyle ':completion:*' file-sort change
-    zstyle ':completion:*' use-cache yes
     # pasting with tabs doesn't perform completion
     zstyle ':completion:' insert-tab pending
     # git colorization
     zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+    # other options
+    zstyle ':completion:*' menu select
+    zstyle ':completion:*' file-sort change
+    zstyle ':completion:*' use-cache yes
     ;;
 *bash)
     # turn case sensitivity off
