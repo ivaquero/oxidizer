@@ -103,10 +103,11 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 
 ### 2.4. Other Useful Rust Tools
 
+- [x] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
+- [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects.
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
 - [ ] [pueue](https://github.com/Nukesor/pueue): Command-line task management tool for sequential and parallel execution of long-running tasks
-- [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects.
-- [ ] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
+- [ ] [sniffnet](https://github.com/GyulyVGC/sniffnet): Application to monitor Internet traffic
 
 ### 2.5. Summary of Plugins
 

@@ -93,11 +93,11 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 
 ### 2.4. 其他实用的 Rust 工具
 
+- [x] [onefetch](https://github.com/o2sh/onefetch)：命令行 Git 信息工具
+- [ ] [kondo](https://github.com/tbillington/kondo)：项目依赖清理命令行工具
 - [ ] [ouch](https://github.com/ouch-org/ouch)：终端无痛压缩 & 解压工具
 - [ ] [pueue](https://github.com/Nukesor/pueue)：命令行并行任务管理器
-- [ ] [kondo](https://github.com/tbillington/kondo)：项目依赖清理命令行工具
-- [ ] [navi](https://github.com/denisidoro/navi)：交互式 cheatsheet 命令行
-- [ ] [onefetch](https://github.com/o2sh/onefetch)：命令行 Git 信息工具
+- [ ] [sniffnet](https://github.com/GyulyVGC/sniffnet)：网络流量监控工具
 
 ### 2.5. 插件总结
 

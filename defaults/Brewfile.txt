@@ -3,6 +3,7 @@ dust
 fd
 hyperfine
 lsd
+onefetch
 ripgrep
 sd
 tlrc

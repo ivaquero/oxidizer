@@ -159,6 +159,14 @@ function c { clear }
 function man { tdtlrc $args }
 function hf { hyperfine $args }
 
+# oxidizer
+# export config
+function epf { oxf $args }
+# import config
+function ipf { rdf $args }
+# initialize config
+function iif { clzf $args }
+
 ##########################################################
 # powershell
 ##########################################################
