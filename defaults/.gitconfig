@@ -25,7 +25,6 @@ colorMoved = default
 cf = config
 h = help
 ii = init
-ui = !gitui
 # summary
 cnt = rev-list --count HEAD
 sum = !onefetch
