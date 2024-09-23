@@ -29,7 +29,6 @@ $Global:OX_OXYGEN = @{
     'oxppnj'  = "$env:OXIDIZER\addons\ox-pkg-npm.ps1"
     'oxpptl'  = "$env:OXIDIZER\addons\ox-pkg-tlmgr.ps1"
     'oxpps'  = "$env:OXIDIZER\addons\ox-pkg-scoop.ps1"
-    'oxpsct' = "$env:OXIDIZER\addons\ox-svc-container.ps1"
     'oxpsol' = "$env:OXIDIZER\addons\ox-svc-ollama.ps1"
     'oxpspu' = "$env:OXIDIZER\addons\ox-svc-pueue.ps1"
     'oxpuf'  = "$env:OXIDIZER\addons\ox-utils-files.ps1"
