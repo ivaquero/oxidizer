@@ -18,7 +18,6 @@ $Global:OX_OXYGEN = @{
     'oxpow'  = "$env:OXIDIZER\addons\ox-os-windows.ps1"
     'oxpcbw' = "$env:OXIDIZER\addons\ox-cli-bitwarden.ps1"
     'oxpces' = "$env:OXIDIZER\addons\ox-cli-espanso.ps1"
-    'oxpcg'  = "$env:OXIDIZER\addons\ox-cli-git.ps1"
     'oxpcjr' = "$env:OXIDIZER\addons\ox-cli-jupyter.ps1"
     'oxpcvs' = "$env:OXIDIZER\addons\ox-cli-vscode.ps1"
     'oxpljl' = "$env:OXIDIZER\addons\ox-lang-julia.ps1"

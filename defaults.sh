@@ -32,7 +32,6 @@ export EDITOR_T='vi'
 # - oxpsol: ollama
 # - oxpspu: pueue
 # app cli
-# - oxpcg: git
 # - oxpcbw: bitwarden
 # - oxpces: espanso
 # - oxpcjr: jupyter (notebook, lab, book)
@@ -45,7 +44,6 @@ export EDITOR_T='vi'
 # - oxpxns: notes
 
 OX_PLUGINS=(
-    oxpcg
     oxpufm
 )
 
@@ -63,6 +61,18 @@ export OX_BACKUP=${HOME}/Documents/backup
 
 # the oxidizer backup path
 OX_OXIDE[bkox]=${OX_BACKUP}/shell/custom.sh
+
+##########################################################
+# git
+##########################################################
+
+# shellcheck disable=SC2155
+export GPG_TTY=$(tty)
+
+# default files
+OX_OXYGEN[oxg]=${OXIDIZER}/defaults/.gitconfig
+# system files
+OX_ELEMENT[g]=${HOME}/.gitconfig
 
 ##########################################################
 # vim & neovim

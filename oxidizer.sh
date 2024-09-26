@@ -15,7 +15,6 @@ declare -A OX_OXYGEN=(
     [oxpow]=${OXIDIZER}/plugins/ox-os-windows.sh
     [oxpcbw]=${OXIDIZER}/plugins/ox-cli-bitwarden.sh
     [oxpces]=${OXIDIZER}/plugins/ox-cli-espanso.sh
-    [oxpcg]=${OXIDIZER}/plugins/ox-cli-git.sh
     [oxpcjr]=${OXIDIZER}/plugins/ox-cli-jupyter.sh
     [oxpcvs]=${OXIDIZER}/plugins/ox-cli-vscode.sh
     [oxpljl]=${OXIDIZER}/plugins/ox-lang-julia.sh

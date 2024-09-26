@@ -57,7 +57,19 @@ $env:OX_BACKUP = "$HOME\Documents\backup"
 # shell
 $Global:OX_OXIDE.bkox = "$env:OX_BACKUP\shell\custom.ps1"
 
+##########################################################
+# git
+##########################################################
+
+# default files
+$Global:OX_OXYGEN.oxg = "$env:OXIDIZER\defaults\.gitconfig"
+# system files
+$Global:OX_ELEMENT.g = "$HOME\.gitconfig"
+
+##########################################################
 # terminal
+##########################################################
+
 if ( Test-Path "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" ) {
     $Global:OX_ELEMENT.wt = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
     $Global:OX_OXIDE.bkwt = "$env:OX_BACKUP\terminal\windows-terminal.jsonc"
