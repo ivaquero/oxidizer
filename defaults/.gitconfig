@@ -1,6 +1,4 @@
 [user]
-name = yourname
-email = youremail@outlook.com
 
 [credential]
 helper = store
@@ -25,6 +23,7 @@ colorMoved = default
 cf = config
 h = help
 ii = init
+ui = !lazygit
 # summary
 cnt = rev-list --count HEAD
 sum = !onefetch
@@ -41,6 +40,8 @@ br = branch
 br-ls = br --all
 br-rm = br --delete
 br-rm-rmt = br --delete --remotes
+br-clean = "!f(){ git branch -D $(git branch --list '${1}*') };f"
+default = "!f(){ git remote show origin | grep 'HEAD branch' | cut -d ' ' -f5; };f"
 # commit
 c = commit
 ci = c --interactive
@@ -72,15 +73,17 @@ lsfn = ls --full-name
 m = merge
 # pull
 p = pull
+pup = pull upstream
+sync = "!f(){ git pull upstream ${1} && git push origin ${1}; };f"
 # push
 ps = push
-pbl = push --set-upstream origin
+publish = "!f(){ git push --set-upstream origin ${1}; };f"
 # rebase
 rb = rebase
 rbi = rebase --interactive
 # reset
 undo = reset --soft HEAD^
-unstage = reset HEAD --
+squash = "!f(){ git reset --soft HEAD~${1}; };f"
 # revert
 rv = revert
 # status
