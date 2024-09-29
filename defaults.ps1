@@ -31,7 +31,6 @@ $env:EDITOR_T = 'vi'
 # - oxpsol: ollama
 # - oxpspu: pueue
 # app cli
-# - oxpcg: git
 # - oxpcbw: bitwarden
 # - oxpces: espanso
 # - oxpcjr: jupyter (notebook, lab, book)
@@ -42,7 +41,6 @@ $env:EDITOR_T = 'vi'
 # - oxpxns: notes
 
 $Global:OX_PLUGINS = @(
-    'oxpcg',
     'oxpufm',
     'oxpcvs'
 )
@@ -127,13 +125,13 @@ $Global:OX_CONDA_ENV = @{
 
 # predefined julia environments
 # set the length of key <= 3
-if ([string]::IsNullOrEmpty($env:JULIA_DEPOT_PATH)) {
-    $env:JULIA_DEPOT_PATH = "$HOME\.julia"
-}
-$Global:OX_JULIA_ENV = @{
-    b = "$env:JULIA_DEPOT_PATH\environments\v$(julia -v | rg -o '\d+\.\d+')"
-    # t = "tutorial"
-}
+# if ([string]::IsNullOrEmpty($env:JULIA_DEPOT_PATH)) {
+#     $env:JULIA_DEPOT_PATH = "$HOME\.julia"
+# }
+# $Global:OX_JULIA_ENV = @{
+#     b = "$env:JULIA_DEPOT_PATH\environments\v$(julia -v | rg -o '\d+\.\d+')"
+#     # t = "tutorial"
+# }
 
 # # julia env stats with bkjl, and should be consistent with OX_JULIA_ENV
 # $Global:OX_OXIDE.bkjlb = "$env:OX_BACKUP\julia\julia-base.txt"

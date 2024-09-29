@@ -56,7 +56,7 @@ if ($($env:OS).Contains("Windows")) {
             Write-Output "Installing $pkg"
             scoop install $pkg
         }
-        scoop install dark innounp busybox
+        scoop install busybox
     }
 }
 
