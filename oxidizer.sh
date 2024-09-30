@@ -41,6 +41,7 @@ declare -A OX_OXYGEN=(
 
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
+    [g]=${HOME}/.gitconfig
     [vi]=${HOME}/.vimrc
 )
 

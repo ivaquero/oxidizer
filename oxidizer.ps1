@@ -25,8 +25,8 @@ $Global:OX_OXYGEN = @{
     'oxplrs' = "$env:OXIDIZER\addons\ox-lang-rust.ps1"
     'oxppc'  = "$env:OXIDIZER\addons\ox-pkg-conda.ps1"
     'oxppcn' = "$env:OXIDIZER\addons\ox-pkg-conan.ps1"
-    'oxppnj'  = "$env:OXIDIZER\addons\ox-pkg-npm.ps1"
-    'oxpptl'  = "$env:OXIDIZER\addons\ox-pkg-tlmgr.ps1"
+    'oxppnj' = "$env:OXIDIZER\addons\ox-pkg-npm.ps1"
+    'oxpptl' = "$env:OXIDIZER\addons\ox-pkg-tlmgr.ps1"
     'oxpps'  = "$env:OXIDIZER\addons\ox-pkg-scoop.ps1"
     'oxpsol' = "$env:OXIDIZER\addons\ox-svc-ollama.ps1"
     'oxpspu' = "$env:OXIDIZER\addons\ox-svc-pueue.ps1"
@@ -42,6 +42,7 @@ $Global:OX_OXYGEN = @{
 
 $Global:OX_ELEMENT = @{
     'ox' = "$env:OXIDIZER\custom.ps1"
+    'g'  = "$HOME\.gitconfig"
     'vi' = "$HOME\.vimrc"
 }
 

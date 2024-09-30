@@ -83,6 +83,7 @@ OX_OXIDE[bkvi]=${OX_BACKUP}/shell/.vimrc
 ##########################################################
 # terminal
 ##########################################################
+
 case $(uname -a) in
 *Darwin* | *Ubuntu* | *Debian*)
     OX_ELEMENT[wz]=${HOME}/.config/wezterm/wezterm.lua
@@ -106,6 +107,80 @@ declare -A OX_PROXY=(
     [m]=7897
     [v]=1080
 )
+
+##########################################################
+# brew settings
+##########################################################
+
+case $(uname -a) in
+*Darwin* | *Ubuntu* | *Debian*)
+    export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_ENV_HINTS=1
+    export HOMEBREW_CLEANUP_MAX_AGE_DAYS="3"
+
+    # predefined brew services
+    # set the length of key <= 3
+    declare -A HOMEBREW_SERVICE=(
+        [pu]="pueue"
+        [pg]="postgresql@15"
+        [pd]="podman"
+    )
+    ;;
+esac
+
+##########################################################
+# pueue settings
+##########################################################
+
+# pueue demo
+upp() {
+    pueue group add up_all
+    pueue parallel 3 -g up_all
+    pueue add -g up_all 'brew update && brew upgrade'
+    pueue add -g up_all 'conda update --all --yes'
+    # or use predefined items in pueue_aliases
+    # pueue add -g up_all 'cup'
+}
+
+##########################################################
+# conda settings
+##########################################################
+
+# predefined conda environments
+# set the length of key <= 3
+declare -A OX_CONDA_ENV=(
+    [b]="base"
+    # [k]="kaggle"
+)
+
+# # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
+# OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
+
+##########################################################
+# julia settings
+##########################################################
+
+# predefined julia environments
+# set the length of key <= 3
+export JULIA_DEPOT_PATH=${JULIA_DEPOT_PATH:-"${HOME}/.julia"}
+declare -A OX_JULIA_ENV=(
+    [b]="${JULIA_DEPOT_PATH}/environments/v$(julia -v | rg -o "\d+\.\d+")"
+    # [t]="tutorial"
+)
+
+# # julia env stats with bkjl, and should be consistent with OX_JULIA_ENV
+# OX_OXIDE[bkjlb]=${OX_BACKUP}/julia/julia-base.txt
+
+##########################################################
+# others settings
+##########################################################
+
+# git
+OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
+OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
+# OX_OXIDE[bkesb]=${OX_BACKUP}/espanso/match/base.yml
+# vscode
+# OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.jsonc
 
 ##########################################################
 # common aliases
@@ -208,80 +283,6 @@ startup() {
     # start directory
     cd "${HOME}" || exit
 }
-
-##########################################################
-# brew settings
-##########################################################
-
-case $(uname -a) in
-*Darwin* | *Ubuntu* | *Debian*)
-    export HOMEBREW_NO_AUTO_UPDATE=1
-    export HOMEBREW_NO_ENV_HINTS=1
-    export HOMEBREW_CLEANUP_MAX_AGE_DAYS="3"
-
-    # predefined brew services
-    # set the length of key <= 3
-    declare -A HOMEBREW_SERVICE=(
-        [pu]="pueue"
-        [pg]="postgresql@15"
-        [pd]="podman"
-    )
-    ;;
-esac
-
-##########################################################
-# pueue settings
-##########################################################
-
-# pueue demo
-upp() {
-    pueue group add up_all
-    pueue parallel 3 -g up_all
-    pueue add -g up_all 'brew update && brew upgrade'
-    pueue add -g up_all 'conda update --all --yes'
-    # or use predefined items in pueue_aliases
-    # pueue add -g up_all 'cup'
-}
-
-##########################################################
-# conda settings
-##########################################################
-
-# predefined conda environments
-# set the length of key <= 3
-declare -A OX_CONDA_ENV=(
-    [b]="base"
-    # [k]="kaggle"
-)
-
-# # conda env stats with bkce, and should be consistent with OX_CONDA_ENV
-# OX_OXIDE[bkceb]=${OX_BACKUP}/conda/conda-base.txt
-
-##########################################################
-# julia settings
-##########################################################
-
-# predefined julia environments
-# set the length of key <= 3
-export JULIA_DEPOT_PATH=${JULIA_DEPOT_PATH:-"${HOME}/.julia"}
-declare -A OX_JULIA_ENV=(
-    [b]="${JULIA_DEPOT_PATH}/environments/v$(julia -v | rg -o "\d+\.\d+")"
-    # [t]="tutorial"
-)
-
-# # julia env stats with bkjl, and should be consistent with OX_JULIA_ENV
-# OX_OXIDE[bkjlb]=${OX_BACKUP}/julia/julia-base.txt
-
-##########################################################
-# others settings
-##########################################################
-
-# git
-OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
-OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
-# OX_OXIDE[bkesb]=${OX_BACKUP}/espanso/match/base.yml
-# vscode
-# OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.jsonc
 
 ##########################################################
 # notes apps
