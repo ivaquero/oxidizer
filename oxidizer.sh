@@ -78,7 +78,6 @@ for plugin in "${OX_PLUGINS[@]}"; do
 done
 
 # load core plugins
-
 declare -a OX_CORE_PLUGINS
 case $(uname -a) in
 *Darwin* | *Ubuntu* | *Debian* | *WSL*)

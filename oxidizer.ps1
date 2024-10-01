@@ -52,15 +52,16 @@ $Global:OX_OXIDE = @{}
 # Load Plugins
 ##########################################################
 
+. $Global:OX_ELEMENT.ox
+
 # load core plugins
 $Global:OX_CORE_PLUGINS = @('oxpow', 'oxpps', 'oxpuf', 'oxpunw')
 ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
     . $Global:OX_OXYGEN.$($core_plugin)
 }
 
-# load custom plugins
-. $Global:OX_ELEMENT.ox
 
+# load custom plugins
 ForEach ($plugin in $Global:OX_PLUGINS) {
     if (Test-Path $Global:OX_OXYGEN.$($plugin)) {
         . $Global:OX_OXYGEN.$($plugin)
