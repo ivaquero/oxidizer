@@ -155,6 +155,8 @@ $Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
 ##########################################################
 
 # shortcuts
+function .. { cd .. }
+function ... { cd ../.. }
 function cat { bat $args }
 function ls { lsd $args }
 function ll { lsd -l $args }
