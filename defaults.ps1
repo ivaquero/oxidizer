@@ -68,13 +68,13 @@ $Global:OX_ELEMENT.g = "$HOME\.gitconfig"
 # terminal
 ##########################################################
 
-if ( Test-Path "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" ) {
-    $Global:OX_ELEMENT.wt = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+$Global:OX_ELEMENT.wt = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+if ( Test-Path $Global:OX_ELEMENT.wt ) {
     $Global:OX_OXIDE.bkwt = "$env:OX_BACKUP\terminal\windows-terminal.jsonc"
 }
 else {
-    if ( !(Test-Path "$HOME\.wezterm.lua") ) {
-        $Global:OX_ELEMENT.wz = "$HOME\.wezterm.lua"
+    $Global:OX_ELEMENT.wz = "$HOME\.wezterm.lua"
+    if ( !(Test-Path $Global:OX_ELEMENT.wz) ) {
         New-Item -Path $Global:OX_ELEMENT.wz -ItemType File
     }
     $Global:OX_OXIDE.bkwz = "$env:OX_BACKUP\terminal\wezterm.lua"
