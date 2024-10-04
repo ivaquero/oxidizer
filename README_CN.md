@@ -280,21 +280,24 @@ bss pu
 - `ox-debians` `oxpd`：自启动，包含 `apt`
 - `ox-windows` `oxpw`：自启动，包含 `winget`、`wsl`·
 
-|  后缀  |  对应操作   | mas `m` | apt `a` | flatpak `f` | winget `w` | wsl `wl` |
-| :----: | :---------: | :-----: | :-----: | :---------: | :--------: | :------: |
-|  `*h`  |    help     |    ✅    |    ✅    |             |     ✅      |          |
-| `*is`  |   install   |    ✅    |    ✅    |      ✅      |     ✅      |    ✅     |
-| `*us`  |  uninstall  |    ✅    |    ✅    |      ✅      |     ✅      |          |
-| `*up`  |   update    |    ✅    |    ✅    |             |     ✅      |          |
-| `*ups` | update self |         |    ✅    |             |     ✅      |          |
-| `*ls`  |    list     |         |    ✅    |      ✅      |     ✅      |    ✅     |
-| `*lv`  |   leaves    |         |         |             |            |          |
-| `*sc`  |   search    |    ✅    |    ✅    |             |            |          |
-| `*cl`  |    clean    |         |    ✅    |             |            |          |
-| `*if`  |    info     |    ✅    |    ✅    |             |     ✅      |          |
-| `*st`  |   status    |    ✅    |         |             |            |          |
-| `*ck`  |    check    |         |    ✅    |             |            |          |
-| `*dp`  |   depends   |         |    ✅    |             |            |          |
+|  后缀  |  对应操作   | mas `m` | apt `a` | winget `w` | wsl `wsl` |
+| :----: | :---------: | :-----: | :-----: | :--------: | :-------: |  |
+|  `*h`  |    help     |    ✅    |    ✅    |     ✅      |     ✅     |
+| `*is`  |   install   |    ✅    |    ✅    |     ✅      |     ✅     |
+| `*us`  |  uninstall  |    ✅    |    ✅    |     ✅      |     ✅     |
+| `*up`  |   update    |    ✅    |    ✅    |     ✅      |     ✅     |
+| `*ups` | update self |         |    ✅    |     ✅      |     ✅     |
+| `*ls`  |    list     |         |    ✅    |     ✅      |     ✅     |
+| `*lv`  |   leaves    |         |         |            |           |
+| `*sc`  |   search    |    ✅    |    ✅    |            |           |
+| `*cl`  |    clean    |         |    ✅    |     ✅      |     ✅     |
+| `*if`  |    info     |    ✅    |    ✅    |     ✅      |           |
+| `*st`  |   status    |    ✅    |         |            |           |
+| `*ck`  |    check    |         |    ✅    |            |           |
+| `*dp`  |   depends   |         |    ✅    |            |           |
+| `*xa`  |  add repo   |         |    ✅    |     ✅      |           |
+| `*xrm` | remove repo |         |    ✅    |     ✅      |           |
+| `*xls` |  list repo  |         |    ✅    |     ✅      |           |
 
 ### 5.1. Homebrew 管理
 

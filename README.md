@@ -304,7 +304,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*ls`  |    list     |         |    ✅    |     ✅      |    ✅     |
 | `*lv`  |   leaves    |         |         |            |          |
 | `*sc`  |   search    |    ✅    |    ✅    |            |          |
-| `*cl`  |    clean    |         |    ✅    |            |    ✅     |
+| `*cl`  |    clean    |         |    ✅    |     ✅      |    ✅     |
 | `*if`  |    info     |    ✅    |    ✅    |     ✅      |          |
 | `*st`  |   status    |    ✅    |         |            |          |
 | `*ck`  |    check    |         |    ✅    |            |          |
