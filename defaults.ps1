@@ -167,7 +167,8 @@ function rr { rm -rf $args }
 function c { clear }
 
 # tools
-function man { tdtlrc $args }
+Remove-Item alias:man -Force -ErrorAction SilentlyContinue
+function man { tldr $args }
 function hf { hyperfine $args }
 
 # oxidizer
