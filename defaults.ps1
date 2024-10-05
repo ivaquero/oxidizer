@@ -68,7 +68,7 @@ $Global:OX_ELEMENT.g = "$HOME\.gitconfig"
 # terminal
 ##########################################################
 
-$Global:OX_ELEMENT.wt = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+$Global:OX_ELEMENT.wt = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 if ( Test-Path $Global:OX_ELEMENT.wt ) {
     $Global:OX_OXIDE.bkwt = "$env:OX_BACKUP\terminal\windows-terminal.jsonc"
 }

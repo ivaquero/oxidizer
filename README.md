@@ -182,7 +182,8 @@ The table below lists the information of specific configuration files:
 |  starship  |    `ss`    |       `starship.toml`        |  built-in   |
 |  wezterm   |    `wz`    |        `wezterm.lua`         | `custom.sh` |
 |   debian   |    `sc`    |   `/etc/apt/sources.list`    |   `oxpod`   |
-|   winget   |    `w`     |        `winget.json`         |   `oxpow`   |
+|   scoop    |    `w`     |        `config.json`         |   `oxpps`   |
+|   winget   |    `w`     |       `settings.json`        |   `oxpow`   |
 |    git     |    `gi`    |         `.gitignore`         |   `oxpbg`   |
 |    git     |    `g`     |         `.gitconfig`         |   `oxpbg`   |
 |   conda    |    `c`     |          `.condarc`          |   `oxppc`   |

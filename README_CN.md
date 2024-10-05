@@ -168,7 +168,8 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 |  starship  |  `ss`  |       `starship.toml`        |  built-in   |
 |  wezterm   |  `wz`  |        `wezterm.lua`         | `custom.sh` |
 |   debian   |  `sc`  |   `/etc/apt/sources.list`    |   `oxpod`   |
-|   winget   |  `w`   |        `winget.json`         |   `oxpow`   |
+|   scoop    |  `w`   |        `config.json`         |   `oxpps`   |
+|   winget   |  `w`   |       `settings.json`        |   `oxpow`   |
 |    git     |  `gi`  |         `.gitignore`         |   `oxpbg`   |
 |    git     |  `g`   |         `.gitconfig`         |   `oxpbg`   |
 |   conda    |  `c`   |          `.condarc`          |   `oxppc`   |
@@ -280,8 +281,8 @@ bss pu
 - `ox-debians` `oxpd`：自启动，包含 `apt`
 - `ox-windows` `oxpw`：自启动，包含 `winget`、`wsl`·
 
-|  后缀  |  对应操作   | mas `m` | apt `a` | winget `w` | wsl `wsl` |
-| :----: | :---------: | :-----: | :-----: | :--------: | :-------: |  |
+| 后缀  | 对应操作 | mas `m` | apt `a` | winget `w` | wsl `wsl` |
+| :---: | :------: | :-----: | :-----: | :--------: | :-------: ||
 |  `*h`  |    help     |    ✅    |    ✅    |     ✅      |     ✅     |
 | `*is`  |   install   |    ✅    |    ✅    |     ✅      |     ✅     |
 | `*us`  |  uninstall  |    ✅    |    ✅    |     ✅      |     ✅     |
