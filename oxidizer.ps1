@@ -78,7 +78,7 @@ $Global:OX_CORE_PLUGINS = @('oxps', 'oxput', 'oxpnw')
 # PowerShell Settings
 ##########################################################
 
-$Global:OX_ELEMENT.ps = $PROFILE
+$Global:OX_ELEMENT.ps = "$HOME\Documents\WindowsPowerShell\profile.ps1"
 $Global:OX_OXIDE.bkps = "$env:OX_BACKUP\shell\Profile.ps1"
 
 ##########################################################
