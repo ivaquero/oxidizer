@@ -1,4 +1,6 @@
 [user]
+user =
+email =
 
 [credential]
 helper = store
@@ -100,11 +102,6 @@ tg-annot = tg --annotate
 org-add = remote add origin
 org-add-url = remote set-url
 org-rnm = remote rename origin
-# filter-repo
-flt = filter-repo
-flt-id = flt --strip-blobs-with-ids
-flt-path = flt --invert-paths --path-glob
-flt-size = flt --strip-blobs-bigger-than
 
 # [http]
 # version = HTTP/1.1
