@@ -87,7 +87,6 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 - [ ] [yazi](https://github.com/sxyazi/yazi)：终端文件管理器
 - [ ] [kondo](https://github.com/tbillington/kondo)：项目依赖清理命令行工具
 - [ ] [ouch](https://github.com/ouch-org/ouch)：终端无痛压缩 & 解压工具
-- [ ] [pueue](https://github.com/Nukesor/pueue)：命令行并行任务管理器
 - [ ] [sniffnet](https://github.com/GyulyVGC/sniffnet)：网络流量监控工具
 
 ### 2.4. 插件总结
@@ -110,11 +109,10 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 | `oxpljl` |     编程语言     |             Julia              |            |
 | `oxplrb` |     编程语言     |        Ruby（包括 gem）        |            |
 | `oxplrs` |     编程语言     |   Rust（包括 cargo, rustup）   |            |
-| `oxpsc`  |       服务       |  Container（Docker & Podman）  |            |
-| `oxpsp`  |       服务       |             Pueue              |            |
 | `oxpcbw` | 软件的命令行界面 |           Bitwarden            |            |
 | `oxpces` | 软件的命令行界面 |            Espanso             |            |
 | `oxpcjr` | 软件的命令行界面 | Jupyter（notebook, lab, book） |            |
+| `oxpcol` | 软件的命令行界面 |             Ollama             |            |
 | `oxpcvs` | 软件的命令行界面 |             VSCode             |            |
 | `oxpuf`  |     系统工具     |            文件操作            |     ✓      |
 | `oxpufm` |     系统工具     |            格式转换            |            |
@@ -190,8 +188,6 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 |   vscode   | `vss_` |          `snippets`          |  `oxpcvs`   |
 |   vscode   | `vsx`  |      `vscode-pkgs.txt`       |  `oxpcvs`   |
 |  jupyter   |  `jr`  | `jupyter_notebook_config.py` |  `oxpcjr`   |
-|   pueue    |  `pu`  |         `pueue.yml`          |   `oxpsp`   |
-|   pueue    | `pua`  |     `pueue_aliases.yml`      |   `oxpsp`   |
 |   zellij   |  `zj`  |         `config.kdl`         |  `oxptzj`   |
 |   zellij   | `zjl_` |          `layouts`           |  `oxptzj`   |
 
@@ -240,24 +236,6 @@ Oxidizer 致力于为各个包管理器提供统一的接口，以减轻敲击�
 | `*xa`  |  add repo   |    ✅     |     ✅     |     ✅     |         |            |             |            |          |     ✅      |            |
 | `*xrm` | remove repo |    ✅     |     ✅     |     ✅     |         |            |             |            |          |     ✅      |            |
 | `*xls` |  list repo  |          |           |     ✅     |         |            |             |            |          |     ✅      |            |
-
-特别地，Oxidizer 提供两组后缀为`p`的实验性函数，用于并行安装和下载软件包
-
-- brew：`bisp`, `biscp`, `bupp`
-- scoop：`sisp`, `supp`
-
-例如，当需要安装 2 个及以上的包时，可以使用 `bisp [pkg1] [pkg1]` 代替 `bis [pkg1] [pkg1]`，进行并行下载安装。
-
-同理，`biscp`, `bupp` 分别为 `bisc`, `bup` 的并行版本。
-
-使用并行功能前，需要启动 pueue 服务
-
-```sh
-# All OS
-pueued -d
-# or macOS / Linux
-bss pu
-```
 
 一些包管理器还有项目管理功能
 

@@ -97,7 +97,6 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 - [ ] [yazi](https://github.com/sxyazi/yazi): Termianl file manager
 - [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
-- [ ] [pueue](https://github.com/Nukesor/pueue): Command-line task management tool for sequential and parallel execution of long-running tasks
 - [ ] [sniffnet](https://github.com/GyulyVGC/sniffnet): Application to monitor Internet traffic
 
 ### 2.4. Summary of Plugins
@@ -124,11 +123,10 @@ The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as 
 |   `oxpljl`   | Programming Language |             Julia              |       |
 |   `oxplrb`   | Programming Language |       Ruby (include gem)       |       |
 |   `oxplrs`   | Programming Language |  Rust (include cargo, rustup)  |       |
-|   `oxpsc`    |       Service        |  Container (Docker & Podman)   |       |
-|   `oxpsp`    |       Service        |             Pueue              |       |
 |   `oxpcbw`   |       App CLI        |           Bitwarden            |       |
 |   `oxpces`   |       App CLI        |            Espanso             |       |
 |   `oxpcjr`   |       App CLI        | Jupyter (notebook / lab, book) |       |
+|   `oxpcol`   |       App CLI        |             Ollama             |       |
 |   `oxpcvs`   |       App CLI        |             VSCode             |       |
 |   `oxpuf`    |     System Utils     |         File Operation         |   ✓   |
 |   `oxpufm`   |     System Utils     |       Formats Conversion       |       |
@@ -204,8 +202,6 @@ The table below lists the information of specific configuration files:
 |   vscode   |   `vss_`   |          `snippets`          |  `oxpcvs`   |
 |   vscode   |   `vsx`    |      `vscode-pkgs.txt`       |  `oxpcvs`   |
 |  jupyter   |    `jr`    | `jupyter_notebook_config.py` |  `oxpcjr`   |
-|   pueue    |    `pu`    |         `pueue.yml`          |   `oxpsp`   |
-|   pueue    |   `pua`    |     `pueue_aliases.yml`      |   `oxpsp`   |
 |   zellij   |    `zj`    |         `config.kdl`         |  `oxptzj`   |
 |   zellij   |   `zjl_`   |          `layouts`           |  `oxptzj`   |
 
@@ -254,24 +250,6 @@ Oxidizer aims to provide a unified interface for all package manager-related com
 | `*xa`  |  add repo   |    ✅     |     ✅     |     ✅     |         |            |             |            |          |     ✅      |            |
 | `*xrm` | remove repo |    ✅     |     ✅     |     ✅     |         |            |             |            |          |     ✅      |            |
 | `*xls` |  list repo  |          |           |     ✅     |         |            |             |            |          |     ✅      |            |
-
-Particularly, Oxidizer provides with two groups of experimental functions with suffix `p` for installing and downloading packages in parallel
-
-- brew: `bisp`, `biscp`, `bupp`
-- scoop: `sisp`, `supp`
-
-For example, when you have more than 1 packages to install, instead of using `bis [pkg1] [pkg2]` , you can use `bisp [pkg1] [pkg2]` then the packages will be downloaded and installed in parallel.
-
-Similarly, `biscp`, `bupp`, are the parallel version of `bisc`, `bup`, respectively.
-
-Before using parallel functions, `pueue` service need to be enabled by
-
-```sh
-# All OS
-pueued -d
-# or macOS / Linux
-bss pu
-```
 
 Some package managers also have functionality of project management
 

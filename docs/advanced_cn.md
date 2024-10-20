@@ -2,51 +2,51 @@
 
 ## 服务管理
 
-|  后缀  |     操作     | brew<br>services `bs` | pueue `pu` | espanso `es` | bitwarden `bw` |
-| :----: | :----------: | :-------------------: | :--------: | :----------: | :------------: |
-|  `*h`  |     help     |          ✅           |     ✅     |      ✅      |       ✅       |
-| `*cf`  |    config    |          ✅           |            |              |       ✅       |
-| `*df`  |     diff     |          ✅           |            |              |                |
-| `*cl`  |    clean     |          ✅           |     ✅     |      ✅      |                |
-| `*ls`  |     list     |          ✅           |            |      ✅      |       ✅       |
-| `*st`  |    status    |                       |     ✅     |      ✅      |                |
-|  `*s`  |    start     |          ✅           |     ✅     |      ✅      |                |
-| `*rs`  |   restart    |          ✅           |     ✅     |      ✅      |                |
-| `*pa`  |    pause     |          ✅           |     ✅     |              |                |
-| `*upa` |   unpause    |          ✅           |            |              |                |
-|  `*q`  | kill / stop  |          ✅           |     ✅     |      ✅      |                |
-|  `*a`  | add / create |                       |     ✅     |      ✅      |       ✅       |
-| `*rm`  |    remove    |          ✅           |     ✅     |              |       ✅       |
-| `*ed`  |     edit     |                       |     ✅     |      ✅      |                |
-| `*if`  |     info     |                       |            |      ✅      |                |
-| `*rt`  |    reset     |                       |     ✅     |              |                |
+|  后缀  |     操作     | brew<br>services `bs` | espanso `es` | bitwarden `bw` |
+| :----: | :----------: | :-------------------: | :----------: | :------------: |
+|  `*h`  |     help     |           ✅           |      ✅       |       ✅        |
+| `*cf`  |    config    |           ✅           |              |       ✅        |
+| `*df`  |     diff     |           ✅           |              |                |
+| `*cl`  |    clean     |           ✅           |      ✅       |                |
+| `*ls`  |     list     |           ✅           |      ✅       |       ✅        |
+| `*st`  |    status    |                       |      ✅       |                |
+|  `*s`  |    start     |           ✅           |      ✅       |                |
+| `*rs`  |   restart    |           ✅           |      ✅       |                |
+| `*pa`  |    pause     |           ✅           |              |                |
+| `*upa` |   unpause    |           ✅           |              |                |
+|  `*q`  | kill / stop  |           ✅           |      ✅       |                |
+|  `*a`  | add / create |                       |      ✅       |       ✅        |
+| `*rm`  |    remove    |           ✅           |              |       ✅        |
+| `*ed`  |     edit     |                       |      ✅       |                |
+| `*if`  |     info     |                       |      ✅       |                |
+| `*rt`  |    reset     |                       |              |                |
 
 ### 容器
 
 |  后缀  |     操作     | container `cic` | image `cti` |
 | :----: | :----------: | :-------------: | :---------: |
-|  `*h`  |     help     |       ✅        |     ✅      |
-| `*df`  |     diff     |       ✅        |     ✅      |
-| `*cl`  |    clean     |       ✅        |     ✅      |
-| `*ls`  |     list     |       ✅        |     ✅      |
-| `*st`  |    status    |       ✅        |             |
-|  `*s`  |    start     |       ✅        |             |
-| `*rs`  |   restart    |       ✅        |             |
-| `*pa`  |    pause     |       ✅        |             |
-| `*upa` |   unpause    |       ✅        |             |
-| `*pa`  |    pause     |       ✅        |             |
-|  `*q`  | kill / stop  |       ✅        |             |
-|  `*a`  | add / create |       ✅        |             |
-| `*rm`  |    remove    |       ✅        |     ✅      |
-| `*if`  |     info     |       ✅        |     ✅      |
-|  `*r`  |     run      |       ✅        |             |
-| `*at`  |    attach    |       ✅        |             |
-| `*ii`  |     init     |       ✅        |             |
-| `*up`  |    update    |                 |     ✅      |
-|  `*b`  |    build     |                 |     ✅      |
-| `*sc`  |    search    |                 |     ✅      |
-| `*pl`  |     pull     |                 |     ✅      |
-| `*ps`  |     push     |                 |     ✅      |
+|  `*h`  |     help     |        ✅        |      ✅      |
+| `*df`  |     diff     |        ✅        |      ✅      |
+| `*cl`  |    clean     |        ✅        |      ✅      |
+| `*ls`  |     list     |        ✅        |      ✅      |
+| `*st`  |    status    |        ✅        |             |
+|  `*s`  |    start     |        ✅        |             |
+| `*rs`  |   restart    |        ✅        |             |
+| `*pa`  |    pause     |        ✅        |             |
+| `*upa` |   unpause    |        ✅        |             |
+| `*pa`  |    pause     |        ✅        |             |
+|  `*q`  | kill / stop  |        ✅        |             |
+|  `*a`  | add / create |        ✅        |             |
+| `*rm`  |    remove    |        ✅        |      ✅      |
+| `*if`  |     info     |        ✅        |      ✅      |
+|  `*r`  |     run      |        ✅        |             |
+| `*at`  |    attach    |        ✅        |             |
+| `*ii`  |     init     |        ✅        |             |
+| `*up`  |    update    |                 |      ✅      |
+|  `*b`  |    build     |                 |      ✅      |
+| `*sc`  |    search    |                 |      ✅      |
+| `*pl`  |     pull     |                 |      ✅      |
+| `*ps`  |     push     |                 |      ✅      |
 
 ## 系统管理
 

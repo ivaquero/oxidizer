@@ -28,13 +28,11 @@ export EDITOR_T='vi'
 # - oxpljl: julia
 # - oxplrb: ruby (include gem)
 # - oxplrs: rust (include cargo)
-# services
-# - oxpsol: ollama
-# - oxpspu: pueue
 # app cli
 # - oxpcbw: bitwarden
 # - oxpces: espanso
 # - oxpcjr: jupyter (notebook, lab, book)
+# - oxpcol: ollama
 # - oxpcvs: vscode
 # system utils
 # - oxpufm: format conversion
