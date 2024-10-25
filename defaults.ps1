@@ -61,6 +61,9 @@ $Global:OX_OXIDE.bkox = "$env:OX_BACKUP\shell\custom.ps1"
 $Global:OX_OXYGEN.oxg = "$env:OXIDIZER\defaults\.gitconfig"
 # system files
 $Global:OX_ELEMENT.g = "$HOME\.gitconfig"
+# backup files
+$Global:OX_OXIDE.bkg = "$env:OX_BACKUP\.gitconfig"
+$Global:OX_OXIDE.bkgi = "$env:OX_BACKUP\git\.gitignore"
 
 ##########################################################
 # terminal
