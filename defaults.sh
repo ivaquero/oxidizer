@@ -71,6 +71,9 @@ export GPG_TTY=$(tty)
 OX_OXYGEN[oxg]=${OXIDIZER}/defaults/.gitconfig
 # system files
 OX_ELEMENT[g]=${HOME}/.gitconfig
+# backup files
+OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
+OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 
 ##########################################################
 # vim & neovim
@@ -119,26 +122,11 @@ case $(uname -a) in
     # predefined brew services
     # set the length of key <= 3
     declare -A HOMEBREW_SERVICE=(
-        [pu]="pueue"
         [pg]="postgresql@15"
         [pd]="podman"
     )
     ;;
 esac
-
-##########################################################
-# pueue settings
-##########################################################
-
-# pueue demo
-upp() {
-    pueue group add up_all
-    pueue parallel 3 -g up_all
-    pueue add -g up_all 'brew update && brew upgrade'
-    pueue add -g up_all 'conda update --all --yes'
-    # or use predefined items in pueue_aliases
-    # pueue add -g up_all 'cup'
-}
 
 ##########################################################
 # conda settings
@@ -173,9 +161,6 @@ declare -A OX_JULIA_ENV=(
 # others settings
 ##########################################################
 
-# git
-OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
-OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
 # OX_OXIDE[bkesb]=${OX_BACKUP}/espanso/match/base.yml
 # vscode
 # OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.jsonc

@@ -94,21 +94,6 @@ $Global:OX_PROXY = @{
 }
 
 ##########################################################
-# pueue settings
-##########################################################
-
-# pueue demo
-# function upp {
-#     pueue group add up_all
-#     pueue parallel 3 -g up_all
-#     pueue add -g up_all 'scoop update *; scoop upgrade'
-#     pueue add -g up_all 'conda update --all --yes'
-#     pueue add -g up_all 'tlmgr update --all'
-#     # or use predefined items in pueue_aliase
-#     # pueue add -g up_all 'tlup'
-# }
-
-##########################################################
 # conda settings
 ##########################################################
 
