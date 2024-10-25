@@ -127,20 +127,6 @@ $Global:OX_CONDA_ENV = @{
 # $Global:OX_OXIDE.bkjlb = "$env:OX_BACKUP\julia\julia-base.txt"
 
 ##########################################################
-# other settings
-##########################################################
-
-# git
-$Global:OX_OXIDE.bkg = "$env:OX_BACKUP\.gitconfig"
-$Global:OX_OXIDE.bkgi = "$env:OX_BACKUP\git\.gitignore"
-# vscode
-$Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"
-$Global:OX_OXIDE.bkvs = "$env:OX_BACKUP\vscode\settings.json"
-$Global:OX_OXIDE.bkvsk = "$env:OX_BACKUP\vscode\keybindings.json"
-$Global:OX_OXIDE.bkvss_ = "$env:OX_BACKUP\vscode\snippets"
-$Global:OX_OXIDE.bkvsx = "$env:OX_BACKUP\vscode\vscode-exts.txt"
-
-##########################################################
 # common aliases
 ##########################################################
 
