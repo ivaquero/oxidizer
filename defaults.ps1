@@ -127,6 +127,13 @@ $Global:OX_CONDA_ENV = @{
 # $Global:OX_OXIDE.bkjlb = "$env:OX_BACKUP\julia\julia-base.txt"
 
 ##########################################################
+# others settings
+##########################################################
+
+# zoxide
+$Global:OX_OXIDE.bkz = "$env:OX_BACKUP\apps\db.zo"
+
+##########################################################
 # common aliases
 ##########################################################
 

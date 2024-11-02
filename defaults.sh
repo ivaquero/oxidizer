@@ -161,9 +161,8 @@ declare -A OX_JULIA_ENV=(
 # others settings
 ##########################################################
 
-# OX_OXIDE[bkesb]=${OX_BACKUP}/espanso/match/base.yml
-# vscode
-# OX_OXIDE[bkvs]=${OX_BACKUP}/vscode/settings.jsonc
+# zoxide
+OX_OXIDE[bkz]=${OX_BACKUP}/apps/db.zo
 
 ##########################################################
 # common aliases
