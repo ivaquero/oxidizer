@@ -40,7 +40,7 @@ if ($($env:OS).Contains("Windows")) {
         Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
         Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
     }
-    $pkgs = cat "$env:OXIDIZER\defaults\Scoopfile.txt"
+    $pkgs = cat "$env:OXIDIZER\defaults\install.txt"
 
     ForEach ( $pkg in $pkgs ) {
         Switch ($pkg) {
@@ -50,13 +50,13 @@ if ($($env:OS).Contains("Windows")) {
             Default { $cmd = $pkg }
         }
         if (Get-Command $cmd -ErrorAction SilentlyContinue) {
-            Write-Output "$pkg Already Installed"
+            Write-Output "$pkg installed, skipping..."
         }
         else {
-            Write-Output "Installing $pkg"
+            Write-Output "$pkg not found, installing..."
             scoop install $pkg
         }
-        scoop install busybox
+        scoop install busybox sudo
     }
 }
 
