@@ -72,8 +72,8 @@ OX_OXYGEN[oxg]=${OXIDIZER}/defaults/.gitconfig
 # system files
 OX_ELEMENT[g]=${HOME}/.gitconfig
 # backup files
-OX_OXIDE[bkg]=${OX_BACKUP}/.gitconfig
-OX_OXIDE[bkgi]=${OX_BACKUP}/git/.gitignore
+OX_OXIDE[bkg]=${OX_BACKUP}/projects/.gitconfig
+OX_OXIDE[bkgi]=${OX_BACKUP}/projects/.gitignore
 
 ##########################################################
 # vim & neovim
