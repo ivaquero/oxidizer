@@ -42,7 +42,7 @@ brew tap "homebrew/bundle"
 
 printf "📦 Installing essential Oxidizer toolchains...\n"
 
-cat "${OXIDIZER}"/defaults/Brewfile.txt | while read -r pkg; do
+while read -r pkg; do
     case $pkg in
     ripgrep)
         cmd='rg'
@@ -60,7 +60,7 @@ cat "${OXIDIZER}"/defaults/Brewfile.txt | while read -r pkg; do
     if test ! "$(command -v "$cmd")"; then
         brew install "$pkg"
     fi
-done
+done <"${OXIDIZER}"/defaults/Brewfile.txt
 
 ###################################################
 # Install Zap
