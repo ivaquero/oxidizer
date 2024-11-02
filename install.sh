@@ -6,7 +6,7 @@ printf "📦 Installing Oxidizer\n"
 # Install Homebrew
 ###################################################
 
-if test ! "$(command -v brew)"; then
+if ! command -v brew >/dev/null 2>&1; then
     printf "📦 Homebrew not installed. Installing.\n"
     if [[ $(uname -s) = "Linux" ]] && [[ $(uname -m) = "aarch64" ]]; then
         printf "⚠️ Oxidizer doesn't support limited Linux-son-ARM yet."
@@ -57,7 +57,7 @@ while read -r pkg; do
         cmd=$pkg
         ;;
     esac
-    if test ! "$(command -v "$cmd")"; then
+    if ! command -v "$cmd" >/dev/null 2>&1; then
         brew install "$pkg"
     fi
 done <"${OXIDIZER}"/defaults/Brewfile.txt
