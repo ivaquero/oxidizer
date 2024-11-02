@@ -144,7 +144,7 @@ upox() {
 # fzf
 ##########################################################
 
-if test "$(command -v fzf)"; then
+if command -v fzf >/dev/null 2>&1; then
     case ${SHELL} in
     *zsh)
         source <(fzf --zsh)
@@ -159,7 +159,7 @@ fi
 # Starship
 ##########################################################
 
-if test "$(command -v starship)"; then
+if command -v starship >/dev/null 2>&1; then
     # system files
     export STARSHIP_CONFIG=${HOME}/.config/starship.toml
     OX_ELEMENT[ss]=${STARSHIP_CONFIG}
