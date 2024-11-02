@@ -58,7 +58,10 @@ while read -r pkg; do
         ;;
     esac
     if ! command -v "$cmd" >/dev/null 2>&1; then
+        printf "%s not exists, installing...\n" "$pkg"
         brew install "$pkg"
+    else
+        printf "%s exists, skipping...\n" "$pkg"
     fi
 done <"${OXIDIZER}"/defaults/Brewfile.txt
 
