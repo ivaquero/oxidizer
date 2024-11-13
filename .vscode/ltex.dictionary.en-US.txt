@@ -1,0 +1,9 @@
+conda
+julia
+conan
+rustup
+npm
+tlmgr
+init
+winget
+wsl

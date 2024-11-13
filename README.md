@@ -268,9 +268,9 @@ Some package managers also have functionality of project management
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
-- `ox-macos`: autoloaded, contains alias and functions for `mas`
-- `ox-debians`: autoloaded, contains alias and functions for `apt`
-- `ox-windows`: autoloaded, contains alias and functions for `winget` and `wsl`
+- `ox-os-macos`: autoloaded, contains alias and functions for `mas`
+- `ox-os-debians`: autoloaded, contains alias and functions for `apt`
+- `ox-os-windows`: autoloaded, contains alias and functions for `winget` and `wsl`
 
 | Suffix |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :--------: | :------: |
