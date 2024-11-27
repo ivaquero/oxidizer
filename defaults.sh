@@ -21,13 +21,13 @@ export EDITOR_T='vi'
 
 # package managers
 # - oxppc: conda
-# - oxppcn: conan (c++)
-# - oxppnj: npm + yarn
+# - oxpppx: pixi
+# - oxppnj: npm + pnpm
 # - oxpptl: tlmgr (texlive)
 # languages
 # - oxpljl: julia
-# - oxplrb: ruby (include gem)
-# - oxplrs: rust (include cargo)
+# - oxplrb: ruby (including gem)
+# - oxplrs: rust (including cargo)
 # app cli
 # - oxpcbw: bitwarden
 # - oxpces: espanso
