@@ -30,7 +30,6 @@ declare -A OX_OXYGEN=(
     [oxpuf]=${OXIDIZER}/plugins/ox-utils-files.sh
     [oxpufm]=${OXIDIZER}/plugins/ox-utils-formats.sh
     [oxpunw]=${OXIDIZER}/plugins/ox-utils-networks.sh
-    [oxptzj]=${OXIDIZER}/plugins/ox-term-zellij.sh
     [oxpxns]=${OXIDIZER}/plugins/ox-xtra-notes.sh
 )
 

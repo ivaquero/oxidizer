@@ -36,8 +36,6 @@ export EDITOR_T='vi'
 # - oxpcvs: vscode
 # system utils
 # - oxpufm: format conversion
-# terminal utils
-# - oxptzj: zellij
 # extra utils
 # - oxpxns: notes
 

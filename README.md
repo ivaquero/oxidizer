@@ -132,7 +132,6 @@ The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as 
 |   `oxpufm`   |     System Utils     |       Formats Conversion       |       |
 |   `oxpunw`   |     System Utils     |     Network Configuration      |   ✓   |
 |   `oxptwr`   |    Terminal Utils    |      Weather (wttr-based)      |       |
-|   `oxptzj`   |    Terminal Utils    |     Zellij (macOS & Linux)     |       |
 |   `oxpxns`   |     Extra Utils      | Notes Apps (Obsidian & Logseq) |       |
 
 To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/oxidizer/custom.sh`, like
@@ -198,8 +197,6 @@ The table below lists the information of specific configuration files:
 |   vscode   |   `vss_`   |          `snippets`          |  `oxpcvs`   |
 |   vscode   |   `vsx`    |      `vscode-pkgs.txt`       |  `oxpcvs`   |
 |  jupyter   |    `jr`    | `jupyter_notebook_config.py` |  `oxpcjr`   |
-|   zellij   |    `zj`    |         `config.kdl`         |  `oxptzj`   |
-|   zellij   |   `zjl_`   |          `layouts`           |  `oxptzj`   |
 
 > `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
 

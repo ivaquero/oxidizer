@@ -117,8 +117,6 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 | `oxpuf`  |     系统工具     |            文件操作            |     ✓      |
 | `oxpufm` |     系统工具     |            格式转换            |            |
 | `oxpunw` |     系统工具     |            网络配置            |     ✓      |
-| `oxptwr` |     终端工具     |       天气（基于 wttr）        |            |
-| `oxptzj` |     终端工具     |    Zellij（macOS & Linux）     |            |
 | `oxpxns` |       其他       | 笔记备份（Obsidian & Logseq）  |            |
 
 将对应的缩写放入 `~/oxidizer/custom.sh` 的 `OX_PLUGINS` 即可加载插件
@@ -184,8 +182,6 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 |   vscode   | `vss_` |          `snippets`          |  `oxpcvs`   |
 |   vscode   | `vsx`  |      `vscode-pkgs.txt`       |  `oxpcvs`   |
 |  jupyter   |  `jr`  | `jupyter_notebook_config.py` |  `oxpcjr`   |
-|   zellij   |  `zj`  |         `config.kdl`         |  `oxptzj`   |
-|   zellij   | `zjl_` |          `layouts`           |  `oxptzj`   |
 
 > `_` 表示文件夹，你可以详细查看每个相关文件缩写 these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
 
