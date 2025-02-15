@@ -250,7 +250,7 @@ tt() {
 }
 
 ##########################################################
-# startup commands
+# startup
 ##########################################################
 
 # installer downloaded path: works for function `brp()`
@@ -262,6 +262,17 @@ startup() {
     # start directory
     cd "${HOME}" || exit
 }
+
+##########################################################
+# docker
+##########################################################
+
+# docker
+OX_ELEMENT[dk]="$HOME/.docker/config.json"
+OX_OXIDE[bkdk]="$OX_BACKUP/docker/docker.json"
+# daemon
+OX_ELEMENT[dkd]="$HOME/.docker/daemon.json"
+OX_OXIDE[bkdkd]="$OX_BACKUP/docker/daemon.json"
 
 ##########################################################
 # notes apps

@@ -171,7 +171,7 @@ function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
 # startup & daily commands
 ##########################################################
 
-# donwload path
+# download path
 $env:OX_DOWNLOAD = "$HOME\Desktop"
 
 $Global:OX_STARTUP = 1
@@ -179,6 +179,17 @@ $Global:OX_STARTUP = 1
 function startup {
     Set-Location "$HOME\Desktop"
 }
+
+##########################################################
+# docker
+##########################################################
+
+# docker
+$Global:OX_ELEMENT.dk="$HOME/.docker/config.json"
+$Global:OX_OXIDE.bkdk="$env:OX_BACKUP/docker/docker.json"
+# daemon
+$Global:OX_ELEMENT.dkd="$HOME/.docker/daemon.json"
+$Global:OX_OXIDE.bkdkd="$env:OX_BACKUP/docker/daemon.json"
 
 ##########################################################
 # notes apps
