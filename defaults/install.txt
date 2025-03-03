@@ -8,3 +8,8 @@ onefetch
 ripgrep
 tlrc
 zoxide
+cmake
+fastfetch
+gh
+fzf
+

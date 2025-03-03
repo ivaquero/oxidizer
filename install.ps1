@@ -34,6 +34,9 @@ if ($($env:OS).Contains("Windows")) {
         scoop bucket add $bucket
     }
 
+    scoop bucket add main-plus https://github.com/Scoopforge/Main-Plus
+    scoop bucket add extras-plus https://github.com/Scoopforge/Extras-Plus
+
     if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         $env:OXIDIZER = "$HOME\oxidizer"
         Write-Output '# Oxidizer' >> $env:OX_SHELL
