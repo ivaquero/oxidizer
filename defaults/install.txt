@@ -12,4 +12,3 @@ cmake
 fastfetch
 gh
 fzf
-
