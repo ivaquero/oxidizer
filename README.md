@@ -94,7 +94,7 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 ### 2.3. Other Useful Rust Tools
 
 - [x] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
-- [ ] [yazi](https://github.com/sxyazi/yazi): Termianl file manager
+- [ ] [yazi](https://github.com/sxyazi/yazi): Terminal file manager
 - [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
 - [ ] [sniffnet](https://github.com/GyulyVGC/sniffnet): Application to monitor Internet traffic
@@ -113,7 +113,7 @@ The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as 
 |   `oxpom`    |     OS Shortcuts     |             macOS              |   ✓   |
 |   `oxpod`    |     OS Shortcuts     |      Debian-Based Systems      |   ✓   |
 |   `oxpor`    |     OS Shortcuts     |      RedHat-Based Systems      |   ✓   |
-|   `oxpow`    |     OS Shortcuts     |    Windows (include winget)    |   ✓   |
+|   `oxpow`    |     OS Shortcuts     |    Windows (include WinGet)    |   ✓   |
 |   `oxppb`    |   Package Manager    |    Homebrew (macOS & Linux)    |   ✓   |
 |   `oxpps`    |   Package Manager    |        Scoop (Windows)         |   ✓   |
 |   `oxppc`    |   Package Manager    |    Conda (Multi-Languages)     |       |
@@ -174,29 +174,29 @@ The table below lists the information of specific configuration files:
 
 |   Origin   | File Abbr. |             File             |  in Plugin  |
 | :--------: | :--------: | :--------------------------: | :---------: |
-|  oxidizer  |    `ox`    |         `custom.sh`          |             |
-|    zsh     |    `zs`    |           `.zshrc`           |  built-in   |
-|  starship  |    `ss`    |       `starship.toml`        |  built-in   |
-|  wezterm   |    `wz`    |        `wezterm.lua`         | `custom.sh` |
-|   debian   |    `sc`    |   `/etc/apt/sources.list`    |   `oxpod`   |
-|   scoop    |    `w`     |        `config.json`         |   `oxpps`   |
-|   winget   |    `w`     |       `settings.json`        |   `oxpow`   |
-|    git     |    `gi`    |         `.gitignore`         |   `oxpbg`   |
-|    git     |    `g`     |         `.gitconfig`         |   `oxpbg`   |
-|   conda    |    `c`     |          `.condarc`          |   `oxppc`   |
-| javascript |   `jsx`    |        `js-pkgs.txt`         |   `oxppn`   |
-|    npm     |    `n`     |           `.npmrc`           |   `oxppn`   |
-|   latex    |    `tl`    |        `texlive-pkgs`        |  `oxpptl`   |
-|   cargo    |    `cg`    |        `config.toml`         |   `oxlrs`   |
+|  Oxidizer  |    `ox`    |         `custom.sh`          |             |
+|    Zsh     |    `zs`    |           `.zshrc`           |  built-in   |
+|  Starship  |    `ss`    |       `starship.toml`        |  built-in   |
+|  WezTerm   |    `wz`    |        `wezterm.lua`         | `custom.sh` |
+|   Debian   |    `sc`    |   `/etc/apt/sources.list`    |   `oxpod`   |
+|   Scoop    |    `w`     |        `config.json`         |   `oxpps`   |
+|   WinGet   |    `w`     |       `settings.json`        |   `oxpow`   |
+|    Git     |    `gi`    |         `.gitignore`         |   `oxpbg`   |
+|    Git     |    `g`     |         `.gitconfig`         |   `oxpbg`   |
+|   Conda    |    `c`     |          `.condarc`          |   `oxppc`   |
+| JavaScript |   `jsx`    |        `js-pkgs.txt`         |   `oxppn`   |
+|    NPM     |    `n`     |           `.npmrc`           |   `oxppn`   |
+|   LaTeX    |    `tl`    |        `texlive-pkgs`        |  `oxpptl`   |
+|   Cargo    |    `cg`    |        `config.toml`         |   `oxlrs`   |
 |   rustup   |    `rs`    |       `settings.toml`        |   `oxlrs`   |
-|  espanso   |    `es`    |        `default.yml`         |  `oxpces`   |
-|  espanso   |   `esb`    |       `match/base.yml`       |  `oxpces`   |
-|  espanso   |   `esx_`   |       `match/packages`       |  `oxpces`   |
-|   vscode   |    `vs`    |       `settings.json`        |  `oxpcvs`   |
-|   vscode   |   `vsk`    |      `keybindings.json`      |  `oxpcvs`   |
-|   vscode   |   `vss_`   |          `snippets`          |  `oxpcvs`   |
-|   vscode   |   `vsx`    |      `vscode-pkgs.txt`       |  `oxpcvs`   |
-|  jupyter   |    `jr`    | `jupyter_notebook_config.py` |  `oxpcjr`   |
+|  Espanso   |    `es`    |        `default.yml`         |  `oxpces`   |
+|  Espanso   |   `esb`    |       `match/base.yml`       |  `oxpces`   |
+|  Espanso   |   `esx_`   |       `match/packages`       |  `oxpces`   |
+|   VSCode   |    `vs`    |       `settings.json`        |  `oxpcvs`   |
+|   VSCode   |   `vsk`    |      `keybindings.json`      |  `oxpcvs`   |
+|   VSCode   |   `vss_`   |          `snippets`          |  `oxpcvs`   |
+|   VSCode   |   `vsx`    |      `vscode-pkgs.txt`       |  `oxpcvs`   |
+|  Jupyter   |    `jr`    | `jupyter_notebook_config.py` |  `oxpcjr`   |
 
 > `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
 
@@ -262,9 +262,9 @@ Some package managers also have functionality of project management
 
 Some of the package managers shortcuts are included in corresponding system plugins.
 
-- `ox-os-macos`: autoloaded, contains alias and functions for `mas`
-- `ox-os-debians`: autoloaded, contains alias and functions for `apt`
-- `ox-os-windows`: autoloaded, contains alias and functions for `winget` and `wsl`
+- `ox-os-macos`: auto-loaded, contains alias and functions for `mas`
+- `ox-os-debians`: auto-loaded, contains alias and functions for `apt`
+- `ox-os-windows`: auto-loaded, contains alias and functions for `winget` and `wsl`
 
 | Suffix |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
 | :----: | :---------: | :-----: | :-----: | :--------: | :------: |

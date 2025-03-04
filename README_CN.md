@@ -99,7 +99,7 @@ Oxidizer 起初主要为非管理员用户设计，用于快速搭建跨平台�
 | `oxpom`  |   系统快捷操作   |             macOS              |     ✓      |
 | `oxpod`  |   系统快捷操作   |      Debian-Based Systems      |     ✓      |
 | `oxpor`  |   系统快捷操作   |      RedHat-Based Systems      |     ✓      |
-| `oxpow`  |   系统快捷操作   |     Windows（包括 winget）     |     ✓      |
+| `oxpow`  |   系统快捷操作   |     Windows（包括 WinGet）     |     ✓      |
 | `oxppb`  |     包管理器     |   Homebrew（macOS & Linux）    |     ✓      |
 | `oxpps`  |     包管理器     |        Scoop（Windows）        |     ✓      |
 | `oxppc`  |     包管理器     | Conda（多语言，主要是 Python） |            |
@@ -159,29 +159,29 @@ Oxidizer 通过 `Homebrew` 或 `Scoop` 管理包和软件，以绕过管理员�
 
 |    来源    |  代号  |           对应文件           |  定义扩展   |
 | :--------: | :----: | :--------------------------: | :---------: |
-|  oxidizer  |  `ox`  |         `custom.sh`          |             |
-|    zsh     |  `zs`  |           `.zshrc`           |  built-in   |
-|  starship  |  `ss`  |       `starship.toml`        |  built-in   |
-|  wezterm   |  `wz`  |        `wezterm.lua`         | `custom.sh` |
-|   debian   |  `sc`  |   `/etc/apt/sources.list`    |   `oxpod`   |
-|   scoop    |  `w`   |        `config.json`         |   `oxpps`   |
-|   winget   |  `w`   |       `settings.json`        |   `oxpow`   |
-|    git     |  `gi`  |         `.gitignore`         |   `oxpbg`   |
-|    git     |  `g`   |         `.gitconfig`         |   `oxpbg`   |
-|   conda    |  `c`   |          `.condarc`          |   `oxppc`   |
-| javascript | `jsx`  |        `js-pkgs.txt`         |   `oxppn`   |
-|    npm     |  `n`   |           `.npmrc`           |   `oxppn`   |
-|   latex    |  `tl`  |        `texlive-pkgs`        |  `oxpptl`   |
-|   cargo    |  `cg`  |        `config.toml`         |   `oxlrs`   |
+|  Oxidizer  |  `ox`  |         `custom.sh`          |             |
+|    Zsh     |  `zs`  |           `.zshrc`           |  built-in   |
+|  Starship  |  `ss`  |       `starship.toml`        |  built-in   |
+|  WezTerm   |  `wz`  |        `wezterm.lua`         | `custom.sh` |
+|   Debian   |  `sc`  |   `/etc/apt/sources.list`    |   `oxpod`   |
+|   Scoop    |  `w`   |        `config.json`         |   `oxpps`   |
+|   WinGet   |  `w`   |       `settings.json`        |   `oxpow`   |
+|    Git     |  `gi`  |         `.gitignore`         |   `oxpbg`   |
+|    Git     |  `g`   |         `.gitconfig`         |   `oxpbg`   |
+|   Conda    |  `c`   |          `.condarc`          |   `oxppc`   |
+| JavaScript | `jsx`  |        `js-pkgs.txt`         |   `oxppn`   |
+|    NPM     |  `n`   |           `.npmrc`           |   `oxppn`   |
+|   LaTeX    |  `tl`  |        `texlive-pkgs`        |  `oxpptl`   |
+|   Cargo    |  `cg`  |        `config.toml`         |   `oxlrs`   |
 |   rustup   |  `rs`  |       `settings.toml`        |   `oxlrs`   |
-|  espanso   |  `es`  |        `default.yml`         |  `oxpces`   |
-|  espanso   | `esb`  |       `match/base.yml`       |  `oxpces`   |
-|  espanso   | `esx_` |       `match/packages`       |  `oxpces`   |
-|   vscode   |  `vs`  |       `settings.json`        |  `oxpcvs`   |
-|   vscode   | `vsk`  |      `keybindings.json`      |  `oxpcvs`   |
-|   vscode   | `vss_` |          `snippets`          |  `oxpcvs`   |
-|   vscode   | `vsx`  |      `vscode-pkgs.txt`       |  `oxpcvs`   |
-|  jupyter   |  `jr`  | `jupyter_notebook_config.py` |  `oxpcjr`   |
+|  Espanso   |  `es`  |        `default.yml`         |  `oxpces`   |
+|  Espanso   | `esb`  |       `match/base.yml`       |  `oxpces`   |
+|  Espanso   | `esx_` |       `match/packages`       |  `oxpces`   |
+|   VSCode   |  `vs`  |       `settings.json`        |  `oxpcvs`   |
+|   VSCode   | `vsk`  |      `keybindings.json`      |  `oxpcvs`   |
+|   VSCode   | `vss_` |          `snippets`          |  `oxpcvs`   |
+|   VSCode   | `vsx`  |      `vscode-pkgs.txt`       |  `oxpcvs`   |
+|  Jupyter   |  `jr`  | `jupyter_notebook_config.py` |  `oxpcjr`   |
 
 > `_` 表示文件夹，你可以详细查看每个相关文件缩写 these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
 
