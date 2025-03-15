@@ -33,7 +33,6 @@ else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-brew tap homebrew/services
 brew tap homebrew/bundle
 brew tap brewforge/extras
 
