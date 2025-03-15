@@ -31,6 +31,8 @@ Temporary Items
 # Built Visual Studio Code Extensions
 *.vsix
 
+.vscode
+
 # oxidizer
 backup
 addons
