@@ -8,11 +8,7 @@ printf "📦 Installing Oxidizer\n"
 
 if ! command -v brew >/dev/null 2>&1; then
     printf "📦 Homebrew not installed. Installing.\n"
-    if [[ $(uname -s) = "Linux" ]] && [[ $(uname -m) = "aarch64" ]]; then
-        printf "⚠️ Oxidizer doesn't support limited Linux-son-ARM yet."
-        sleep 5
-        exit
-    elif [[ ${BREW_CN} ]]; then
+    if [[ ${BREW_CN} ]]; then
         /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -33,7 +29,6 @@ else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-brew tap homebrew/bundle
 brew tap brewforge/extras
 
 ###################################################
