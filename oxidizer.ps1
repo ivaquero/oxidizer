@@ -59,7 +59,6 @@ ForEach ($core_plugin in $Global:OX_CORE_PLUGINS) {
     . $Global:OX_OXYGEN.$($core_plugin)
 }
 
-
 # load custom plugins
 ForEach ($plugin in $Global:OX_PLUGINS) {
     if (Test-Path $Global:OX_OXYGEN.$($plugin)) {
@@ -69,9 +68,6 @@ ForEach ($plugin in $Global:OX_PLUGINS) {
         Write-Output "Plugin not found: $plugin"
     }
 }
-
-# load core plugins
-$Global:OX_CORE_PLUGINS = @('oxps', 'oxput', 'oxpnw')
 
 ##########################################################
 # PowerShell Settings

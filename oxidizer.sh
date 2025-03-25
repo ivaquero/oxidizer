@@ -49,18 +49,24 @@ declare -A OX_OXIDE
 # Load Plugins
 ##########################################################
 
-# load system plugin
+# load required plugin
 case $(uname -a) in
 *Darwin*)
     . "${OX_OXYGEN[oxpom]}"
+    . "${OX_OXYGEN[oxppb]}"
     ;;
 *Ubuntu* | *Debian* | *WSL*)
     . "${OX_OXYGEN[oxpod]}"
+    . "${OX_OXYGEN[oxppb]}"
     ;;
 *MINGW*)
     . "${OX_OXYGEN[oxpow]}"
+    . "${OX_OXYGEN[oxpps]}"
     ;;
 esac
+
+. "${OX_OXYGEN[oxpunw]}"
+. "${OX_OXYGEN[oxpuf]}"
 
 # load custom plugins
 declare -a OX_PLUGINS
@@ -73,21 +79,6 @@ for plugin in "${OX_PLUGINS[@]}"; do
     else
         echo "Plugin not found: ${plugin}"
     fi
-done
-
-# load core plugins
-declare -a OX_CORE_PLUGINS
-case $(uname -a) in
-*Darwin* | *Ubuntu* | *Debian* | *WSL*)
-    OX_CORE_PLUGINS=(oxppb oxpuf oxpunw)
-    ;;
-*MINGW*)
-    OX_CORE_PLUGINS=(oxpps oxpuf oxpunw)
-    ;;
-esac
-
-for core_plugin in "${OX_CORE_PLUGINS[@]}"; do
-    . "${OX_OXYGEN[$core_plugin]}"
 done
 
 ##########################################################
