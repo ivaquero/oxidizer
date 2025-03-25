@@ -49,6 +49,8 @@ declare -A OX_OXIDE
 # Load Plugins
 ##########################################################
 
+. "${OX_ELEMENT[ox]}"
+
 # load required plugin
 case $(uname -a) in
 *Darwin*)
@@ -70,8 +72,6 @@ esac
 
 # load custom plugins
 declare -a OX_PLUGINS
-
-. "${OX_ELEMENT[ox]}"
 
 for plugin in "${OX_PLUGINS[@]}"; do
     if [[ -f "${OX_OXYGEN[$plugin]}" ]]; then
