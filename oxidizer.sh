@@ -5,33 +5,7 @@ export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 # Oxidizer Configuration Files
 ##########################################################
 
-# plugins
-declare -A OX_OXYGEN=(
-    [oxd]=${OXIDIZER}/defaults.sh
-    [oxwz]=${OXIDIZER}/defaults/wezterm.lua
-    [oxpod]=${OXIDIZER}/plugins/ox-os-debians.sh
-    [oxpom]=${OXIDIZER}/plugins/ox-os-macos.sh
-    [oxpor]=${OXIDIZER}/plugins/ox-os-rehats.sh
-    [oxpow]=${OXIDIZER}/plugins/ox-os-windows.sh
-    [oxpcbw]=${OXIDIZER}/plugins/ox-cli-bitwarden.sh
-    [oxpces]=${OXIDIZER}/plugins/ox-cli-espanso.sh
-    [oxpcjr]=${OXIDIZER}/plugins/ox-cli-jupyter.sh
-    [oxpcol]=${OXIDIZER}/plugins/ox-cli-ollama.sh
-    [oxpcvs]=${OXIDIZER}/plugins/ox-cli-vscode.sh
-    [oxpljl]=${OXIDIZER}/plugins/ox-lang-julia.sh
-    [oxplrb]=${OXIDIZER}/plugins/ox-lang-ruby.sh
-    [oxplrs]=${OXIDIZER}/plugins/ox-lang-rust.sh
-    [oxppb]=${OXIDIZER}/plugins/ox-pkg-brew.sh
-    [oxppc]=${OXIDIZER}/plugins/ox-pkg-conda.sh
-    [oxppnj]=${OXIDIZER}/plugins/ox-pkg-npm.sh
-    [oxpppx]=${OXIDIZER}/plugins/ox-pkg-pixi.sh
-    [oxpps]=${OXIDIZER}/plugins/ox-pkg-scoop.sh
-    [oxpptl]=${OXIDIZER}/plugins/ox-pkg-tlmgr.sh
-    [oxpuf]=${OXIDIZER}/plugins/ox-utils-files.sh
-    [oxpufm]=${OXIDIZER}/plugins/ox-utils-formats.sh
-    [oxpunw]=${OXIDIZER}/plugins/ox-utils-networks.sh
-    [oxpxns]=${OXIDIZER}/plugins/ox-xtra-notes.sh
-)
+OX_OXYGEN=$(jq .plugin_file <"$OXIDIZER"/config.json)
 
 ##########################################################
 # System Configuration Files
@@ -52,34 +26,33 @@ declare -A OX_OXIDE
 # load required plugin
 case $(uname -a) in
 *Darwin*)
-    . "${OX_OXYGEN[oxpom]}"
-    . "${OX_OXYGEN[oxppb]}"
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxpom)"
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxppb)"
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    . "${OX_OXYGEN[oxpod]}"
-    . "${OX_OXYGEN[oxppb]}"
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxpod)"
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxppb)"
     ;;
 *MINGW*)
-    . "${OX_OXYGEN[oxpow]}"
-    . "${OX_OXYGEN[oxpps]}"
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxpow)"
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxpps)"
     ;;
 esac
 
-. "${OX_OXYGEN[oxpunw]}"
-. "${OX_OXYGEN[oxpuf]}"
+. "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxpunw)"
+. "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r .oxpuf)"
 
-# load custom plugins
-declare -a OX_PLUGINS
+# # load custom plugins
+# declare -a OX_PLUGINS
+
+# shellcheck disable=SC2002
+OX_PLUGINS=$(cat "$OXIDIZER"/config.json | jq .plugin_load | rg -o "\w+")
+
+echo "${OX_PLUGINS}" | while read -r line; do
+    . "$OXIDIZER"/"$(echo "$OX_OXYGEN" | jq -r ."$line")"
+done
 
 . "${OX_ELEMENT[ox]}"
-
-for plugin in "${OX_PLUGINS[@]}"; do
-    if [[ -f "${OX_OXYGEN[$plugin]}" ]]; then
-        . "${OX_OXYGEN[$plugin]}"
-    else
-        echo "Plugin not found: ${plugin}"
-    fi
-done
 
 ##########################################################
 # Shell Settings

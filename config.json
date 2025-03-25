@@ -1,0 +1,53 @@
+{
+    "system_config_file": {
+        "ox": "",
+        "g": ".gitconfig",
+        "vi": ".vimrc",
+        "zsh": {
+            "zs": ".zshrc"
+        }
+    },
+    "builtin_config_file": {
+        "oxc": ".condarc",
+        "oxg": ".gitconfig",
+        "oxwz": "wezterm.lua"
+    },
+    "plugin_file": {
+        "oxpod": "plugins/ox-os-debians.sh",
+        "oxpom": "plugins/ox-os-macos.sh",
+        "oxpor": "plugins/ox-os-rehats.sh",
+        "oxpow": "plugins/ox-os-windows.sh",
+        "oxpcbw": "plugins/ox-cli-bitwarden.sh",
+        "oxpces": "plugins/ox-cli-espanso.sh",
+        "oxpcjr": "plugins/ox-cli-jupyter.sh",
+        "oxpcol": "plugins/ox-cli-ollama.sh",
+        "oxpcvs": "plugins/ox-cli-vscode.sh",
+        "oxpljl": "plugins/ox-lang-julia.sh",
+        "oxplrb": "plugins/ox-lang-ruby.sh",
+        "oxplrs": "plugins/ox-lang-rust.sh",
+        "oxppb": "plugins/ox-pkg-brew.sh",
+        "oxppc": "plugins/ox-pkg-conda.sh",
+        "oxppnj": "plugins/ox-pkg-npm.sh",
+        "oxpppx": "plugins/ox-pkg-pixi.sh",
+        "oxpps": "plugins/ox-pkg-scoop.sh",
+        "oxpptl": "plugins/ox-pkg-tlmgr.sh",
+        "oxpuf": "plugins/ox-utils-files.sh",
+        "oxpufm": "plugins/ox-utils-formats.sh",
+        "oxpunw": "plugins/ox-utils-networks.sh",
+        "oxpxns": "plugins/ox-xtra-notes.sh"
+    },
+    "plugin_load": [
+        "oxpces",
+        "oxpcjr",
+        "oxpcol",
+        "oxpcvs",
+        "oxpljl",
+        "oxplrb",
+        "oxplrs",
+        "oxppc",
+        "oxppnj",
+        "oxpptl",
+        "oxpufm"
+    ],
+    "backup_config_file": {}
+}
