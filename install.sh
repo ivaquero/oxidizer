@@ -110,8 +110,11 @@ fi
 echo "${append_str}" >>"${OX_SHELL}"
 
 printf "⚙️ Adding Custom settings..."
+if [[ ! -f "${OXIDIZER}/"custom.json ]]; then
+    cp "${OXIDIZER}"/defaults/default.json "${OXIDIZER}/"custom.json
+fi
 if [[ ! -f "${OXIDIZER}/"custom.sh ]]; then
-    cp "${OXIDIZER}"/defaults.sh "${OXIDIZER}/"custom.sh
+    cp "${OXIDIZER}"/defaults/default.sh "${OXIDIZER}/"custom.sh
 fi
 
 # load zoxide

@@ -2,25 +2,25 @@
 
 A plugin in Oxidizer is referred as OX_OXYGEN, a key-value object whose key starts with `oxp`.
 
-For a Vim plugin on macOS / Linux, you can write
+For a Neovim plugin, in `config.json`, write
 
-```sh
-OX_OXYGEN[oxpvi]="plugin_path"
+```json
+{
+    "ox_plugins_plus": {
+        "cli_neovim": "plugin_path"
+    }
+}
 ```
 
-And add the _key of OX_OXYGEN_ into `OX_PLUGINS` object in `custom.sh` like
+And add the key of OX_OXYGEN into `OX_PLUGINS` object
 
-```sh
-OX_PLUGINS=(oxp1 oxp2 oxpvi)
+```json
+{
+    "plugin_load": [
+        "cli_neovim"
+    ]
+}
 ```
-
-For Windows users, do these similarly
-
-```powershell
-$Global:OX_OXYGEN.oxpvi = "plugin_path"
-```
-
-And add it into `OX_PLUGINS` object in `custom.ps1`
 
 ### Config Files
 
@@ -28,29 +28,30 @@ A system / software / tool configuration file in Oxidizer is referred as `OX_ELE
 
 ```sh
 # macOS / Linux
-OX_ELEMENT[vi]=$HOME/.vimrc
+OX_ELEMENT[nvi]=$HOME/.config/nvim/lua/config/init.lua
 # Windows
-$Global:OX_ELEMENT.vi = "$HOME/.vimrc"
+$Global:OX_ELEMENT.vi = "$HOME/.config/nvim/lua/config/init.lua"
 ```
 
-If you need to set a folder in OX*OXYGEN, plus a `*` as the suffix of the key.
+If you need to set a folder in OX_OXYGEN, plus a `_` as the suffix of the key.
 
 ```sh
 # macOS / Linux
-OX_ELEMENT[vi_]=$HOME/.vim
+OX_ELEMENT[nvi_]=$HOME/.config/nvim
 # Windows
-$Global:OX_ELEMENT.vi_ = "$HOME/vim"
+$Global:OX_ELEMENT.nvi_ = "$HOME/.config/nvim"
 ```
 
 ### Backup Files
 
-A backup file in Oxidizer is referred as OX_OXIDE whose key starts with `bk`, set it like
+A backup file in Oxidizer is referred as OX_OXIDE, in `config.json`, set it like
 
-```sh
-# macOS / Linux
-OX_OXIDE[bkvi]=$OX_BACKUP/.vimrc
-# Windows
-$Global:OX_OXIDE.bkvi = "$env:OX_BACKUP/.vimrc"
+```json
+{
+    "ox_oxide": {
+        "vi": ".vimrc"
+    }
+}
 ```
 
-Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be consistent: `oxvi`, `vi`, `bkvi` works, others don't.
+Do remember the key in `OX_OXYGEN`, `OX_ELEMENT`, `OX_OXIDE` must be identical.

@@ -9,39 +9,9 @@
 # basic settings
 ##########################################################
 
-# default editor, can be changed by function `ched()`
 $env:EDITOR = 'code'
 # terminal editor
 $env:EDITOR_T = 'vi'
-
-##########################################################
-# select ox-plugins
-##########################################################
-
-# package managers
-# - oxppc: conda
-# - oxpppx: pixi
-# - oxppnj: npm + pnpm
-# - oxpptl: tlmgr (texlive)
-# languages
-# - oxpljl: julia
-# - oxplrb: ruby (including gem)
-# - oxplrs: rust (including cargo)
-# app cli
-# - oxpcbw: bitwarden
-# - oxpces: espanso
-# - oxpcjr: jupyter (notebook, lab, book)
-# - oxpcol: ollama
-# - oxpcvs: vscode
-# system utils
-# - oxpufm: format conversion
-# extra utils
-# - oxpxns: notes
-
-$Global:OX_PLUGINS = @(
-    'oxpufm',
-    'oxpcvs'
-)
 
 ##########################################################
 # select initial and backup configurations
