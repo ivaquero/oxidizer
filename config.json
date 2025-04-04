@@ -1,33 +1,4 @@
 {
-    "builtin_config_file": {
-        "c": ".condarc",
-        "g": ".gitconfig",
-        "wz": "wezterm.lua"
-    },
-    "plugin_file": {
-        "os_debians": "plugins/ox-os-debians.sh",
-        "os_macos": "plugins/ox-os-macos.sh",
-        "os_rehats": "plugins/ox-os-rehats.sh",
-        "os_windows": "plugins/ox-os-windows.sh",
-        "utils_files": "plugins/ox-utils-files.sh",
-        "utils_formats": "plugins/ox-utils-formats.sh",
-        "utils_networks": "plugins/ox-utils-networks.sh",
-        "cli_bitwarden": "plugins/ox-cli-bitwarden.sh",
-        "cli_espanso": "plugins/ox-cli-espanso.sh",
-        "cli_jupyter": "plugins/ox-cli-jupyter.sh",
-        "cli_ollama": "plugins/ox-cli-ollama.sh",
-        "cli_vscode": "plugins/ox-cli-vscode.sh",
-        "lang_julia": "plugins/ox-lang-julia.sh",
-        "lang_ruby": "plugins/ox-lang-ruby.sh",
-        "lang_rust": "plugins/ox-lang-rust.sh",
-        "pkg_brew": "plugins/ox-pkg-brew.sh",
-        "pkg_conda": "plugins/ox-pkg-conda.sh",
-        "pkg_npm": "plugins/ox-pkg-npm.sh",
-        "pkg_pixi": "plugins/ox-pkg-pixi.sh",
-        "pkg_scoop": "plugins/ox-pkg-scoop.sh",
-        "pkg_tlmgr": "plugins/ox-pkg-tlmgr.sh",
-        "xtra_notes": "plugins/ox-xtra-notes.sh"
-    },
     "plugin_load": [
         "cli_espanso",
         "cli_jupyter",

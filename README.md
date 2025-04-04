@@ -7,16 +7,13 @@
 
 A Simple & Extensible Dotfile Manager That Unifies Your Terminal Operations
 
-<p align="left">
-<a href="README.md">English</a> |
-<a href="https://github.com/ivaquero/oxidizer/blob/master/README_CN.md">简体中文</a>
-</p>
+一个简单 & 可扩展的，用于统一终端操作的 dotfile 管理工具
 
 Let's Oxidize Development Environments
 
 ![oxidizer](https://raw.githubusercontent.com/ivaquero/backup/main/docs/oxidizer.png)
 
-## 1. Get Started
+## 1. Get Started 从这里开始
 
 For macOS / Linux (Intel)
 
@@ -25,13 +22,13 @@ export OXIDIZER=$HOME/oxidizer
 git clone --depth=1 https://github.com/ivaquero/oxidizer.git $OXIDIZER && bash oxidizer/install.sh
 ```
 
-Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux. For China mainland users, you may set `BREW_CN` variable to install Homebrew through domestic mirror
+Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux.
+
+- 对中国大陆用户，可设置 `BREW_CN` 变量来下载安装 Homebrew：
 
 ```sh
 export BREW_CN=1
 ```
-
-> Note that Oxidizer only support limited functionality on Linux-on-ARM yet.
 
 For Windows
 
@@ -40,25 +37,33 @@ $env:OXIDIZER = "$HOME\oxidizer"
 git clone --depth=1 https://github.com/ivaquero/oxidizer.git $env:OXIDIZER; . oxidizer\install.ps1
 ```
 
-Note that Scoop is an essential dependency for Oxidizer on Windows. For China mainland users, you may set `SCOOP_CN` variable to install Scoop through domestic mirror
+- 对中国大陆用户，可设置 `SCOOP_CN` 变量来下载安装
 
 ```powershell
 $env:scoop_mirror = 1
 ```
 
-> For Cmder users, you need to remove the `-Options ReadOnly` from `Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly` in the last line of `%CMDER_ROOT%\vendor\profile.ps1`.
+> For Cmderrs, you need to remove the `-Options ReadOnly` from `Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly` in the last line of `%CMDER_ROOT%\vendor\profile.ps1`.
+>
+> 对于 Cmder 用户，你需要删除`%CMDER_ROOT%\vendor\profile.ps1`的最后一行`Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly`中的`-Options ReadOnly`。
 
-After installation, you might personalize your preference in `custom.sh`, check [defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh). Open `custom.sh` or `custom.ps1` by following command
+After installation, you might personalize your preference in `custom.sh`, check [defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh). Open `custom.sh` | `custom.ps1` by following command
+
+安装之后，您可以在`custom.sh`中个性化您的系统环境（请参考[defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh)，通过一下命令打开
 
 ```bash
 edf ox
 ```
 
-To keep up the updates, simply use `upox` function.
+To keep up the updates, simply `upox` function.
 
-## 2. Motivation
+可使用 `upox` 命令来更新 Oxidizer
 
-Oxidizer is originally designed for **non-administrator** users. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
+## 2. Motivation 动机
+
+Oxidizer 的主要目标
+
+Oxidizer is originally designed for **non-administrator**rs. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
 
 - Cross-Platform (mainly Rust toolchains)
 - Minimal Dependencies & Minimal Installation
@@ -66,87 +71,103 @@ Oxidizer is originally designed for **non-administrator** users. It saves your t
 - Unified Interface & Smooth Usage
 - Super-Fast! (loading time < 1 s)
 
-### 2.1. CLI Tools Replacement
+Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平台统一的工作环境，避免重复和繁琐的环境配置劳动，其具有特点
+
+- 跨平台（主要基于 Rust 工具链）
+- 最少依赖 & 最少安装
+- 可扩展架构
+- 统一接口 & 丝滑操作
+- 超级快！（载入时间 < 1 秒）
+
+## 3. Tool Chains 工具链
+
+### 3.1. CLI Tools Replacement
 
 > ☑️ means required in the installation.
 
 - coreutils
-  - [x] Use [bat](https://github.com/sharkdp/bat) instead of `cat`
-  - [x] Use [lsd](https://github.com/Peltoche/lsd) instead of `ls`
-  - [ ] Use [uutils-coreutils](https://github.com/uutils/coreutils) instead of `coreutils`
+  - [x] [bat](https://github.com/sharkdp/bat) ⟶ `cat`
+  - [x] [lsd](https://github.com/Peltoche/lsd) ⟶ `ls`
+  - [ ] [uutils-coreutils](https://github.com/uutils/coreutils) ⟶ `coreutils`
 - non-coreutils
-  - [x] Use [dust](https://github.com/bootandy/dust) instead of `du`
-  - [x] Use [fd](https://github.com/sharkdp/fd) instead of `find`
-  - [x] Use [ripgrep](https://github.com/BurntSushi/ripgrep) instead of `grep`
-  - [x] Use [sd](https://github.com/chmln/sd) instead of `sed`
-  - [x] Use [tlrc](https://github.com/tldr-pages/tlrc) instead of `tldr` or `man`
-  - [x] Use [zoxide](https://github.com/ajeetdsouza/zoxide) instead of `cd` or `z`
-  - [x] Use [hyperfine](https://github.com/sharkdp/hyperfine) instead of `time`
-  - [ ] Use [starship](https://github.com/starship/starship) instead of `powerline10k` or `ohmyposh`
-  - [ ] Use [tokei](https://github.com/XAMPPRocky/tokei) instead of `cloc`
+  - [x] [dust](https://github.com/bootandy/dust) ⟶ `du`
+  - [x] [fd](https://github.com/sharkdp/fd) ⟶ `find`
+  - [x] [ripgrep](https://github.com/BurntSushi/ripgrep) ⟶ `grep`
+  - [x] [sd](https://github.com/chmln/sd) ⟶ `sed`
+  - [x] [tlrc](https://github.com/tldr-pages/tlrc) ⟶ `tldr` | `man`
+  - [x] [zoxide](https://github.com/ajeetdsouza/zoxide) ⟶ `cd` | `z`
+  - [x] [hyperfine](https://github.com/sharkdp/hyperfine) ⟶ `time`
+  - [ ] [starship](https://github.com/starship/starship) ⟶ `powerline10k` | `ohmyposh`
+  - [ ] [yazi](https://github.com/sxyazi/yazi) ⟶ `ranger`
+  - [ ] [tokei](https://github.com/XAMPPRocky/tokei) ⟶ `cloc`
 
-### 2.2. GUI Tools Replacement
+### 3.2. GUI Tools Replacement
 
-- [ ] Use [WezTerm](https://github.com/wez/wezterm) or [alacritty](https://github.com/alacritty/alacritty) instead of `iterm2` or `windows terminal`
+- [ ] [WezTerm](https://github.com/wez/wezterm) | [alacritty](https://github.com/alacritty/alacritty) ⟶ `iterm2` | `windows terminal`
 
 > `WezTerm` is more recommended because it has a built-in multiplexer.
 
-### 2.3. Other Useful Rust Tools
+### 3.3. Otherful Rust Tools
 
 - [x] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
-- [ ] [yazi](https://github.com/sxyazi/yazi): Terminal file manager
-- [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
-- [ ] [sniffnet](https://github.com/GyulyVGC/sniffnet): Application to monitor Internet traffic
+- [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects
 
-### 2.4. Summary of Plugins
+### 3.4. Summary of Plugins
 
-Oxidizer is designed to be extensible, you can personalize `OX_PLUGINS` in `custom.sh` to load the plugins by your need.
+Oxidizer is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
 The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as well as [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh).
 
-| Plugin Abbr. |       Category       |            Support             | Must? |
-| :----------: | :------------------: | :----------------------------: | :---: |
-|   `oxpbg`    |    Better to Have    |              Git               |       |
-|   `oxpom`    |     OS Shortcuts     |             macOS              |   ✓   |
-|   `oxpod`    |     OS Shortcuts     |      Debian-Based Systems      |   ✓   |
-|   `oxpor`    |     OS Shortcuts     |      RedHat-Based Systems      |   ✓   |
-|   `oxpow`    |     OS Shortcuts     |    Windows (include WinGet)    |   ✓   |
-|   `oxppb`    |   Package Manager    |    Homebrew (macOS & Linux)    |   ✓   |
-|   `oxpps`    |   Package Manager    |        Scoop (Windows)         |   ✓   |
-|   `oxppc`    |   Package Manager    |    Conda (Multi-Languages)     |       |
-|   `oxppn`    |   Package Manager    |        NPM (JavaScript)        |       |
-|   `oxpppx`   |   Package Manager    |     Pixi (Multi-Languages)     |       |
-|   `oxpptl`   |   Package Manager    |        tlmgr (TeXLive)         |       |
-|   `oxpljl`   | Programming Language |             Julia              |       |
-|   `oxplrb`   | Programming Language |       Ruby (include gem)       |       |
-|   `oxplrs`   | Programming Language |  Rust (include cargo, rustup)  |       |
-|   `oxpcbw`   |       App CLI        |           Bitwarden            |       |
-|   `oxpces`   |       App CLI        |            Espanso             |       |
-|   `oxpcjr`   |       App CLI        | Jupyter (notebook / lab, book) |       |
-|   `oxpcol`   |       App CLI        |             Ollama             |       |
-|   `oxpcvs`   |       App CLI        |             VSCode             |       |
-|   `oxpuf`    |     System Utils     |         File Operation         |   ✓   |
-|   `oxpufm`   |     System Utils     |       Formats Conversion       |       |
-|   `oxpunw`   |     System Utils     |     Network Configuration      |   ✓   |
-|   `oxptwr`   |    Terminal Utils    |      Weather (wttr-based)      |       |
-|   `oxpxns`   |     Extra Utils      | Notes Apps (Obsidian & Logseq) |       |
+插件位于 [oxplugins](https://github.com/ivaquero/oxplugins) 和  [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh)
 
-To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/oxidizer/custom.sh`, like
+To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/oxidizer/config.json`, like
 
-```sh
-OX_PLUGINS=(
-    oxpbg
-    oxpufm
-    oxplrs
-)
+```json
+{
+    "plugin_load": [
+        "cli_espanso",
+        "cli_jupyter",
+        "cli_ollama",
+        "cli_vscode",
+        "lang_julia",
+        "lang_ruby",
+        "lang_rust",
+        "pkg_conda",
+        "pkg_npm",
+        "pkg_tlmgr"
+    ]
+}
 ```
 
-Oxidizer uses `Homebrew` or `Scoop to` manage packages and software programs to bypass the requirement of administrator privilege.
+|      Filename       |    Category     |            Support             |
+| :-----------------: | :-------------: | :----------------------------: |
+|    `os_macos.sh`    |  OS Shortcuts   |             macOS              |
+|   `os_debians.sh`   |  OS Shortcuts   |      Debian-Based Systems      |
+|   `os_redhat.sh`    |  OS Shortcuts   |      RedHat-Based Systems      |
+|   `os_windows.sh`   |  OS Shortcuts   |    Windows (include winget)    |
+|    `pkg_brew.sh`    | Package Manager |    Homebrew (macOS & Linux)    |
+|   `pkg_scoop.sh`    | Package Manager |        Scoop (Windows)         |
+|   `pkg_conda.sh`    | Package Manager |    Conda (Multi-Languages)     |
+|    `pkg_npm.sh`     | Package Manager |    NPM + PNPM (JavaScript)     |
+|    `pkg_pixi.sh`    | Package Manager |     Pixi (Multi-Languages)     |
+|   `pkg_tlmgr.sh`    | Package Manager |        tlmgr (TeXLive)         |
+| `cli_bitwarden.sh`  |     App CLI     |           Bitwarden            |
+|  `cli_espanso.sh`   |     App CLI     |            Espanso             |
+|  `cli_jupyter.sh`   |     App CLI     | Jupyter (notebook, lab, book)  |
+|   `cli_ollama.sh`   |     App CLI     |             Ollama             |
+|   `cli_vscode.sh`   |     App CLI     |             VSCode             |
+|   `lang_julia.sh`   |    Language     |             Julia              |
+|   `lang_ruby.sh`    |    Language     |       Ruby (include gem)       |
+|   `lang_rust.sh`    |    Language     |  Rust (include cargo, rustup)  |
+|  `utils_files.sh`   |  System Utils   |         File Operation         |
+| `utils_formats.sh`  |  System Utils   |       Formats Conversion       |
+| `utils_networks.sh` |  System Utils   |     Network Configuration      |
+|   `xtra_notes.sh`   |   Extra Utils   | Notes Apps (Obsidian & Logseq) |
 
-## 3. File Management
+## 4. File Management 文件管理
 
 ![design](https://raw.githubusercontent.com/ivaquero/backup/master/docs/design.drawio.png)
 
@@ -168,58 +189,21 @@ Oxidizer uses `Homebrew` or `Scoop to` manage packages and software programs to 
 
 For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
-When you use `oxf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `edf ox`.
+When you `oxf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `edf ox`.
 
 The table below lists the information of specific configuration files:
 
-|   Origin   | File Abbr. |             File             |  in Plugin  |
-| :--------: | :--------: | :--------------------------: | :---------: |
-|  Oxidizer  |    `ox`    |         `custom.sh`          |             |
-|    Zsh     |    `zs`    |           `.zshrc`           |  built-in   |
-|  Starship  |    `ss`    |       `starship.toml`        |  built-in   |
-|  WezTerm   |    `wz`    |        `wezterm.lua`         | `custom.sh` |
-|   Debian   |    `sc`    |   `/etc/apt/sources.list`    |   `oxpod`   |
-|   Scoop    |    `w`     |        `config.json`         |   `oxpps`   |
-|   WinGet   |    `w`     |       `settings.json`        |   `oxpow`   |
-|    Git     |    `gi`    |         `.gitignore`         |   `oxpbg`   |
-|    Git     |    `g`     |         `.gitconfig`         |   `oxpbg`   |
-|   Conda    |    `c`     |          `.condarc`          |   `oxppc`   |
-| JavaScript |   `jsx`    |        `js-pkgs.txt`         |   `oxppn`   |
-|    NPM     |    `n`     |           `.npmrc`           |   `oxppn`   |
-|   LaTeX    |    `tl`    |        `texlive-pkgs`        |  `oxpptl`   |
-|   Cargo    |    `cg`    |        `config.toml`         |   `oxlrs`   |
-|   rustup   |    `rs`    |       `settings.toml`        |   `oxlrs`   |
-|  Espanso   |    `es`    |        `default.yml`         |  `oxpces`   |
-|  Espanso   |   `esb`    |       `match/base.yml`       |  `oxpces`   |
-|  Espanso   |   `esx_`   |       `match/packages`       |  `oxpces`   |
-|   VSCode   |    `vs`    |       `settings.json`        |  `oxpcvs`   |
-|   VSCode   |   `vsk`    |      `keybindings.json`      |  `oxpcvs`   |
-|   VSCode   |   `vss_`   |          `snippets`          |  `oxpcvs`   |
-|   VSCode   |   `vsx`    |      `vscode-pkgs.txt`       |  `oxpcvs`   |
-|  Jupyter   |    `jr`    | `jupyter_notebook_config.py` |  `oxpcjr`   |
+> `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` | `edf [Plugin Abbr.]`.
 
-> `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` or `edf [Plugin Abbr.]`.
-
-Oxidizer uses [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
+Oxidizers [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
 
 - `zpf`: compress file
 - `uzpf`: decompress file
 - `lzpf`: list items in the compressed file
 
-## 4. Software Information Management
+## 6. Package Management 包管理
 
-`back_*` and `up_*` work for `brew`, `scoop`, `conda`, `vscode` (only for windows), `julia`, `tlmgr`, `npm`. `clean_*` works for `brew` and `conda`.
-
-- `back_*`
-  - file: export package/extension info into `$OX_BACKUP` folder
-- `up_*`
-  - file: install packages/extensions by predefined files in `$OX_BACKUP`
-- `clean_*`
-  - file: clean package/extension info by predefined files in `$OX_BACKUP` folder
-
-## 5. Package Management
-
-Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-line users.
+Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-liners.
 
 | Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | pixi `px` | gem `rb` | tlmgr `tl` |
 | :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :-------: | :------: | :--------: |
@@ -285,7 +269,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*xrm` | remove repo |         |    ✅    |     ✅      |          |
 | `*xls` |  list repo  |         |    ✅    |     ✅      |          |
 
-### 5.1. Homebrew
+### 6.1. Homebrew
 
 - `bis`: brew install
 - `bris`: brew reinstall
@@ -298,7 +282,7 @@ suffix `c` is a flag to specify brew commands only work on casks
 
 - `brp [cask]`: replace brew cache file by pre-downloaded file
 
-### 5.2. Conda
+### 6.2. Conda
 
 Note that some shortcuts of the `ox-conda` plugin is based on the package `conda-tree` that you need to install
 
@@ -310,7 +294,7 @@ Besides the shortcuts mentioned above in **Package Management**, the conda plugi
 
 - `ceat`: activate environment
   - `$1` length = 0: activate `base` env
-  - `$1` length = 1 or 2: activate predefined env `OX_CONDA_ENV`
+  - `$1` length = 1 | 2: activate predefined env `OX_CONDA_ENV`
   - `$1` length > 2: activate new env
 
 `OX_CONDA_ENV` can be personalized in `custom.sh`
@@ -345,21 +329,32 @@ cls h
 - `cedf`: compare packages between conda environments
 - `cern`: renames an existing environment
 - `cesd`: change environment's `conda-forge subdir`
-  - `i`: for `osx-64` or `linux-64` or `win-64`
-  - `a`: for `osx-arm64` or `linux-aarch64` or `win-arm64`
+  - `i`: for `osx-64` | `linux-64` | `win-64`
+  - `a`: for `osx-arm64` | `linux-aarch64` | `win-arm64`
   - `p`: for `ppc64le`
   - `s`: for `linux-s390x`
 - `ceep`: export environment
 
-## 6. Project Management
+## 5. Software Information Management
 
-### 6.1. Git
+`back_*` and `up_*` work for `brew`, `scoop`, `conda`, `vscode` (only for windows), `julia`, `tlmgr`, `npm`. `clean_*` works for `brew` and `conda`.
+
+- `back_*`
+  - file: export package/extension info into `$OX_BACKUP` folder
+- `up_*`
+  - file: install packages/extensions by predefined files in `$OX_BACKUP`
+- `clean_*`
+  - file: clean package/extension info by predefined files in `$OX_BACKUP` folder
+
+## 7. Project Management **工程管理**
+
+### 7.1. Git
 
 - [x] `gclhs`: delete commit history
 
 for aliases, check `.gitconfig` in `defaults` folder by `edf oxg`
 
-## 7. Further Reading
+## 8. Further Reading
 
 - [Service Management](https://github.com/ivaquero/oxidizer/blob/master/docs/services.md)
 - [Project Management](https://github.com/ivaquero/oxidizer/blob/master/docs/projects.md)
@@ -367,11 +362,13 @@ for aliases, check `.gitconfig` in `defaults` folder by `edf oxg`
 - [System Management](https://github.com/ivaquero/oxidizer/blob/master/docs/systems.md)
 - [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md)
 
-## 8. Credits
+## 9. Credits 致谢
 
 - [Mario Catuogno's Clean-macOS](https://github.com/MarioCatuogno/Clean-macOS)
 - [Mike McQuaid's dotfiles](https://github.com/MikeMcQuaid/dotfiles)
 
-## 9. License
+## 10. License 许可
 
 This work is released under the GPL-v3 license.
+
+这个项目在 GPL-v3 许可下发布

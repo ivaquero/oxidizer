@@ -150,6 +150,34 @@ if command -v fzf >/dev/null 2>&1; then
 fi
 
 ##########################################################
+# Zoxide
+##########################################################
+
+export _ZO_DATA_DIR=${HOME}/.config/zoxide
+
+if [[ ! -d "$_ZO_DATA_DIR" ]]; then
+    mkdir -p -v "$_ZO_DATA_DIR"
+fi
+
+OX_ELEMENT[z]=${_ZO_DATA_DIR}/db.zo
+
+case ${SHELL} in
+*zsh)
+    eval "$(zoxide init zsh)"
+    ;;
+*bash)
+    eval "$(zoxide init bash)"
+    ;;
+esac
+
+alias zh="zoxide --help"
+alias zii="zoxide init"
+alias za="zoxide add"
+alias zrm="zoxide remove"
+alias zed="zoxide edit"
+alias zsc="zoxide query"
+
+##########################################################
 # Starship
 ##########################################################
 

@@ -6,7 +6,6 @@
 # shellcheck disable=SC2155
 export GPG_TTY=$(tty)
 
-# default editor, can be changed by function `ched()`
 export EDITOR='code'
 # terminal editor
 export EDITOR_T="vi"
