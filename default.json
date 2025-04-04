@@ -8,7 +8,6 @@
         "os_debians": "plugins/os_debians.sh",
         "os_macos": "plugins/os_macos.sh",
         "os_rehats": "plugins/os_rehats.sh",
-        "os_windows": "plugins/os_windows.sh",
         "utils_files": "plugins/utils_files.sh",
         "utils_formats": "plugins/utils_formats.sh",
         "utils_networks": "plugins/utils_networks.sh",
@@ -24,7 +23,6 @@
         "pkg_conda": "plugins/pkg_conda.sh",
         "pkg_npm": "plugins/pkg_npm.sh",
         "pkg_pixi": "plugins/pkg_pixi.sh",
-        "pkg_scoop": "plugins/pkg_scoop.sh",
         "pkg_tlmgr": "plugins/pkg_tlmgr.sh",
         "xtra_notes": "plugins/xtra_notes.sh"
     }
