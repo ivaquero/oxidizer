@@ -1,5 +1,4 @@
 {
-    "ox_plugins_plus": {},
     "plugin_load": [
         "cli_espanso",
         "cli_jupyter",
@@ -12,16 +11,31 @@
         "pkg_npm",
         "pkg_tlmgr"
     ],
+    "ox_plugins_plus": {
+        "": ""
+    },
+    "plugin_load_plus": [],
     "proxy_port": {
         "clash": 7890,
         "meta": 7898,
         "v2ray": 1080
+    },
+    "conda_env_shortcut": {
+        "b": "base",
+        "k": "kaggle",
+        "r": "ros",
+        "d": "dev"
+    },
+    "julia_env_shortcut": {
+        "t": "${HOME}/Documents/GitHub/blog-julia/pluto-deployment-environment"
     },
     "ox_oxide": {
         "b": "unix/Brewfile",
         "vi": "shell/.vimrc",
         "ss": "shell/starship.toml",
         "g": "../notes/.gitconfig",
+        "zs": "shell/.zshrc",
+        "bs": "shell/.bash_profile",
         "ox": "../notes/custom.sh",
         "z": "../notes/db.zo",
         "lg": "projects/lazygit.yml",

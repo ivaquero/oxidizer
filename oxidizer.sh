@@ -8,6 +8,10 @@ OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/default.json)
 # system configuration files
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
+    [zs]=${HOME}/.zshrc
+    [zshs]=${HOME}/.zsh_history
+    [bs]=${HOME}/.bash_profile
+    [bshs]=${HOME}/.bash_history
     [g]=${HOME}/.gitconfig
     [vi]=${HOME}/.vimrc
     [dk]=${HOME}/.docker/config.json
@@ -34,10 +38,6 @@ case $(uname -a) in
     fi
     ;;
 esac
-
-# backup configuration files
-OX_OXIDE=$(jq .ox_oxide <"$OXIDIZER"/config.json)
-OX_PLUGINS_PLUS=$(jq .ox_plugins_plus <"$OXIDIZER"/config.json)
 
 ##########################################################
 # Load Plugins
@@ -66,14 +66,25 @@ esac
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_formats)"
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_networks)"
 
+# backup configuration files
+OX_OXIDE=$(jq .ox_oxide <"$OXIDIZER"/config.json)
+OX_PLUGINS_PLUS=$(jq .ox_plugins_plus <"$OXIDIZER"/config.json)
+
 # # load custom plugins
 # shellcheck disable=SC2002
 OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/config.json | jq .plugin_load | rg -o "\w+")
 
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
     . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r ."$line")"
-    . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
 done
+
+# shellcheck disable=SC2002
+OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/config.json | jq .plugin_load_plus | rg -o "\w+")
+if [ -n "$OX_PLUGINS_LOADED_PLUS" ]; then
+    echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
+        . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
+    done
+fi
 
 ##########################################################
 # Shell Settings
@@ -105,6 +116,29 @@ case ${SHELL} in
     echo 'set completion-ignore-case On' >>"${HOME}"/.inputrc
     ;;
 esac
+
+# clean history
+ccc() {
+    case ${SHELL} in
+    *zsh)
+        local HISTSIZE=0 && history -p && reset && echo >"${OX_ELEMENT[zshs]}"
+        ;;
+    *bash)
+        local HISTSIZE=0 && history -c && reset && echo >"${OX_ELEMENT[bshs]}"
+        ;;
+    esac
+}
+
+tt() {
+    case ${SHELL} in
+    *zsh)
+        hyperfine --warmup 3 --shell zsh "source ${OX_ELEMENT[zs]}"
+        ;;
+    *bash)
+        hyperfine --warmup 3 --shell bash "source ${OX_ELEMENT[bs]}"
+        ;;
+    esac
+}
 
 ##########################################################
 # Oxidizer Management

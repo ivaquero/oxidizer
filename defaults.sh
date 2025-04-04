@@ -27,17 +27,6 @@ case $(uname -a) in
 esac
 
 ##########################################################
-# julia settings
-##########################################################
-
-# predefined julia environments
-# set the length of key <= 3
-declare -A OX_JULIA_ENV=(
-    [b]="${JULIA_DEPOT_PATH}/environments/v$(julia -v | rg -o "\d+\.\d+")"
-    # [t]="pluto-deployment-environment"
-)
-
-##########################################################
 # common aliases
 ##########################################################
 
@@ -81,34 +70,6 @@ alias -g wl="| wc -l"
 # others
 show_port() {
     lsof -i tcp:"$1"
-}
-
-##########################################################
-# shell
-##########################################################
-
-# clean history
-ccc() {
-    case ${SHELL} in
-    *zsh)
-        local HISTSIZE=0 && history -p && reset && echo >"${OX_ELEMENT[zshst]}"
-        ;;
-    *bash)
-        local HISTSIZE=0 && history -c && reset && echo >"${OX_ELEMENT[bshst]}"
-        ;;
-    esac
-}
-
-# test profile loading time
-tt() {
-    case ${SHELL} in
-    *zsh)
-        hyperfine --warmup 3 --shell zsh "source ${OX_ELEMENT[zs]}"
-        ;;
-    *bash)
-        hyperfine --warmup 3 --shell bash "source ${OX_ELEMENT[bs]}"
-        ;;
-    esac
 }
 
 ##########################################################
