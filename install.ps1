@@ -92,34 +92,13 @@ Write-Output ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
 Write-Output "Adding Custom settings..."
 
 if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
-    Copy-Item -R -v "$env:OXIDIZER\defaults.ps1" "$env:OXIDIZER\custom.ps1"
+    Copy-Item -R -v "$env:OXIDIZER\defaults\default.ps1" "$env:OXIDIZER\custom.ps1"
 }
 
 sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
 # sd "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
 # Write-Output $(cat $OX_SHELL | rg -o 'source .+')
-
-###################################################
-# Update Shell Settings
-###################################################
-
-$env:OX_SHELL = "$HOME/.bash_profile"
-
-Write-Output "Adding Oxidizer into $env:OX_SHELL..."
-
-if (!(Test-Path -Path $env:OX_SHELL)) {
-    New-Item -ItemType File -Force -Path $env:OX_SHELL
-}
-
-Write-Output "Adding Custom settings..."
-
-if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
-    Copy-Item -R -v "$env:OXIDIZER\defaults.sh" "$env:OXIDIZER\custom.sh"
-}
-
-# load zoxide
-sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.sh"
 
 ###################################################
 # Load Plugins
