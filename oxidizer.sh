@@ -2,8 +2,8 @@
 export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 # oxidizer configuration files
-OX_PLUGINS=$(jq .plugin_file <"$OXIDIZER"/default.json)
-OX_OXYGEN=$(jq .builtin_config_file <"$OXIDIZER"/default.json)
+OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/default.json)
+OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/default.json)
 
 # system configuration files
 declare -A OX_ELEMENT=(
@@ -36,7 +36,8 @@ case $(uname -a) in
 esac
 
 # backup configuration files
-OX_OXIDE=$(jq .backup_config_file <"$OXIDIZER"/config.json)
+OX_OXIDE=$(jq .ox_oxide <"$OXIDIZER"/config.json)
+OX_PLUGINS_PLUS=$(jq .ox_plugins_plus <"$OXIDIZER"/config.json)
 
 ##########################################################
 # Load Plugins
@@ -71,6 +72,7 @@ OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/config.json | jq .plugin_load | rg -o "\w+")
 
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
     . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r ."$line")"
+    . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
 done
 
 ##########################################################

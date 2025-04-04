@@ -1,10 +1,10 @@
 {
-    "builtin_config_file": {
+    "ox_oxygen": {
         "c": ".condarc",
         "g": ".gitconfig",
         "wz": "wezterm.lua"
     },
-    "plugin_file": {
+    "ox_plugins": {
         "os_debians": "plugins/os_debians.sh",
         "os_macos": "plugins/os_macos.sh",
         "os_rehats": "plugins/os_rehats.sh",

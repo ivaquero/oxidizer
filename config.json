@@ -1,4 +1,5 @@
 {
+    "ox_plugins_plus": {},
     "plugin_load": [
         "cli_espanso",
         "cli_jupyter",
@@ -16,7 +17,7 @@
         "meta": 7898,
         "v2ray": 1080
     },
-    "backup_config_file": {
+    "ox_oxide": {
         "b": "unix/Brewfile",
         "vi": "shell/.vimrc",
         "ss": "shell/starship.toml",
