@@ -2,8 +2,8 @@
 export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 # oxidizer configuration files
-OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/default.json)
-OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/default.json)
+OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/config.json)
+OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/config.json)
 
 # system configuration files
 declare -A OX_ELEMENT=(
@@ -14,7 +14,7 @@ declare -A OX_ELEMENT=(
     [bshs]=${HOME}/.bash_history
     [g]=${HOME}/.gitconfig
     [vi]=${HOME}/.vimrc
-    [dk]=${HOME}/.docker/config.json
+    [dk]=${HOME}/.docker/custom.json
     [dkd]=${HOME}/.docker/daemon.json
 )
 
@@ -67,19 +67,19 @@ esac
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_networks)"
 
 # backup configuration files
-OX_OXIDE=$(jq .ox_oxide <"$OXIDIZER"/config.json)
-OX_PLUGINS_PLUS=$(jq .ox_plugins_plus <"$OXIDIZER"/config.json)
+OX_OXIDE=$(jq .ox_oxide <"$OXIDIZER"/custom.json)
+OX_PLUGINS_PLUS=$(jq .ox_plugins_plus <"$OXIDIZER"/custom.json)
 
 # # load custom plugins
 # shellcheck disable=SC2002
-OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/config.json | jq .plugin_load | rg -o "\w+")
+OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/custom.json | jq .plugin_load | rg -o "\w+")
 
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
     . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r ."$line")"
 done
 
 # shellcheck disable=SC2002
-OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/config.json | jq .plugin_load_plus | rg -o "\w+")
+OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/custom.json | jq .plugin_load_plus | rg -o "\w+")
 if [ -n "$OX_PLUGINS_LOADED_PLUS" ]; then
     echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
         . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"

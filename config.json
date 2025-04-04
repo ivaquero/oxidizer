@@ -1,66 +1,29 @@
 {
-    "plugin_load": [
-        "cli_espanso",
-        "cli_jupyter",
-        "cli_ollama",
-        "cli_vscode",
-        "lang_julia",
-        "lang_ruby",
-        "lang_rust",
-        "pkg_conda",
-        "pkg_npm",
-        "pkg_tlmgr"
-    ],
-    "ox_plugins_plus": {
-        "": ""
+    "ox_oxygen": {
+        "c": "defaults/.condarc",
+        "g": "defaults/.gitconfig",
+        "wz": "defaults/wezterm.lua"
     },
-    "plugin_load_plus": [],
-    "proxy_port": {
-        "clash": 7890,
-        "meta": 7898,
-        "v2ray": 1080
-    },
-    "conda_env_shortcut": {
-        "b": "base",
-        "k": "kaggle",
-        "r": "ros",
-        "d": "dev"
-    },
-    "julia_env_shortcut": {
-        "t": "${HOME}/Documents/GitHub/blog-julia/pluto-deployment-environment"
-    },
-    "ox_oxide": {
-        "b": "unix/Brewfile",
-        "vi": "shell/.vimrc",
-        "ss": "shell/starship.toml",
-        "g": "../notes/.gitconfig",
-        "zs": "shell/.zshrc",
-        "bs": "shell/.bash_profile",
-        "ox": "../notes/custom.sh",
-        "z": "../notes/db.zo",
-        "lg": "projects/lazygit.yml",
-        "wz": "terminal/wezterm.lua",
-        "dk": "docker/docker.json",
-        "dkd": "docker/daemon.json",
-        "c": "conda/.condarc",
-        "ceb": "conda/conda-base.txt",
-        "cek": "conda/conda-kaggle.txt",
-        "cer": "conda/conda-ros.txt",
-        "ced": "conda/conda-dev.txt",
-        "jl": "julia/startup.jl",
-        "jlb": "julia/julia-base.txt",
-        "jlt": "julia/julia-tut.txt",
-        "es": "espanso/config/default.yml",
-        "esb": "espanso/match/base.yml",
-        "esx_": "espanso/match/packages",
-        "vs": "vscode/settings.json",
-        "vsk": "vscode/keybindings.json",
-        "vss_": "vscode/snippets",
-        "cg": "rust/config.toml",
-        "rs": "rust/settings.toml",
-        "nj": "javascript/.npmrc",
-        "vsx": "vscode/vscode-exts.txt",
-        "jsx": "javascript/js-pkgs.txt",
-        "tlx": "text/texlive-pkgs.txt"
+    "ox_plugins": {
+        "os_debians": "plugins/os_debians.sh",
+        "os_macos": "plugins/os_macos.sh",
+        "os_rehats": "plugins/os_rehats.sh",
+        "utils_files": "plugins/utils_files.sh",
+        "utils_formats": "plugins/utils_formats.sh",
+        "utils_networks": "plugins/utils_networks.sh",
+        "cli_bitwarden": "plugins/cli_bitwarden.sh",
+        "cli_espanso": "plugins/cli_espanso.sh",
+        "cli_jupyter": "plugins/cli_jupyter.sh",
+        "cli_ollama": "plugins/cli_ollama.sh",
+        "cli_vscode": "plugins/cli_vscode.sh",
+        "lang_julia": "plugins/lang_julia.sh",
+        "lang_ruby": "plugins/lang_ruby.sh",
+        "lang_rust": "plugins/lang_rust.sh",
+        "pkg_brew": "plugins/pkg_brew.sh",
+        "pkg_conda": "plugins/pkg_conda.sh",
+        "pkg_npm": "plugins/pkg_npm.sh",
+        "pkg_pixi": "plugins/pkg_pixi.sh",
+        "pkg_tlmgr": "plugins/pkg_tlmgr.sh",
+        "xtra_notes": "plugins/xtra_notes.sh"
     }
 }
