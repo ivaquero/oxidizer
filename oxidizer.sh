@@ -3,12 +3,10 @@ export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 # oxidizer configuration files
 OX_OXYGEN=$(jq .oxygen <"$OXIDIZER"/defaults/config.json)
-# shellcheck disable=SC2002
 # shellcheck disable=SC2155
-export OX_BACKUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .oxide_folder)
-# shellcheck disable=SC2002
+export OX_BACKUP=${HOME}/$(jq -r .oxide_folder <"$OXIDIZER"/custom.json)
 # shellcheck disable=SC2155
-export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folder)
+export OX_DOWNLOAD=${HOME}/$(jq -r .download_folder <"$OXIDIZER"/custom.json)
 
 # system configuration files
 declare -A OX_ELEMENT=(
@@ -34,15 +32,6 @@ Linux)
     ;;
 esac
 
-# backup configuration files
-backup_files=$(jq ".backup_files|keys" <"$OXIDIZER"/custom.json)
-
-OX_OXIDE=$(jq -r '.backup_files' <<<"$OXIDIZER"/custom.json)
-
-jq ".backup_files|keys" <"$OXIDIZER"/custom.json | while read -r line; do
-    OX_OXIDE["bk$line"]=$(echo "$backup_files" | jq -r ."$line")
-done
-
 ##########################################################
 # Load Plugins
 ##########################################################
@@ -65,16 +54,14 @@ esac
 . "$OXIDIZER"/"$(jq -r .plugins.utils_formats <"$OXIDIZER"/defaults/config.json)"
 . "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
 
-# shellcheck disable=SC2002
-OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/custom.json | jq .plugin_load | rg -o "\w+")
+OX_PLUGINS_LOADED=$(jq .plugin_load <"$OXIDIZER"/custom.json | rg -o "\w+")
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
     . "$OXIDIZER"/"$(jq -r .plugins."$line" <"$OXIDIZER"/defaults/config.json)"
 done
 
 # # load custom plugins
 OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
-# shellcheck disable=SC2002
-OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/custom.json | jq .plugin_load_plus | rg -o "\w+")
+OX_PLUGINS_LOADED_PLUS=$(jq .plugin_load_plus <"$OXIDIZER"/custom.json | rg -o "\w+")
 if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
     echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
         . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
@@ -227,9 +214,8 @@ if command -v starship >/dev/null 2>&1; then
     esac
 fi
 
-# shellcheck disable=SC2002
 # shellcheck disable=SC2155
-export OX_STARTUP=$(cat "$OXIDIZER"/custom.json | jq -r .startup_folder)
+export OX_STARTUP=$(jq -r .startup_folder <"$OXIDIZER"/custom.json)
 
 if [[ "${OX_STARTUP}" ]]; then
     cd "${HOME}/${OX_STARTUP}" || exit

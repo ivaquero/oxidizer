@@ -58,6 +58,10 @@ while read -r pkg; do
     fi
 done <"${OXIDIZER}"/defaults/install.txt
 
+if ! command -v jq >/dev/null 2>&1; then
+    brew install jq
+fi
+
 ###################################################
 # Install Zap
 ###################################################
@@ -121,7 +125,7 @@ fi
 sd '.* OX_STARTUP=.*' 'export OX_STARTUP=1' "${OXIDIZER}"/custom.sh
 # set path of oxidizer
 # echo "source OXIDIZER=${OXIDIZER}/oxidizer.sh" | xargs -I '{}' sd '' 'source OXIDIZER=.*' '{}' ${OX_SHELL}
-# echo $(cat ${OX_SHELL} | rg -o 'source .+')
+# echo "$(rg -o 'source .+' <${OX_SHELL})"
 
 ###################################################
 # Load Plugins
