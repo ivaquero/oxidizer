@@ -34,6 +34,15 @@ Linux)
     ;;
 esac
 
+# backup configuration files
+backup_files=$(jq ".backup_files|keys" <"$OXIDIZER"/custom.json)
+
+OX_OXIDE=$(jq -r '.backup_files' <<<"$OXIDIZER"/custom.json)
+
+jq ".backup_files|keys" <"$OXIDIZER"/custom.json | while read -r line; do
+    OX_OXIDE["bk$line"]=$(echo "$backup_files" | jq -r ."$line")
+done
+
 ##########################################################
 # Load Plugins
 ##########################################################
