@@ -1,104 +1,153 @@
 #!/bin/bash /bin/zsh
 export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
-##########################################################
-# Oxidizer Configuration Files
-##########################################################
+# oxidizer configuration files
+OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/defaults/config.json)
+OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/defaults/config.json)
+# shellcheck disable=SC2002
+# shellcheck disable=SC2155
+export OX_BACKUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .backup_folder)
+# shellcheck disable=SC2002
+# shellcheck disable=SC2155
+export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folder)
 
-# plugins
-declare -A OX_OXYGEN=(
-    [oxd]=${OXIDIZER}/defaults.sh
-    [oxwz]=${OXIDIZER}/defaults/wezterm.lua
-    [oxpod]=${OXIDIZER}/plugins/ox-os-debians.sh
-    [oxpom]=${OXIDIZER}/plugins/ox-os-macos.sh
-    [oxpor]=${OXIDIZER}/plugins/ox-os-rehats.sh
-    [oxpow]=${OXIDIZER}/plugins/ox-os-windows.sh
-    [oxpcbw]=${OXIDIZER}/plugins/ox-cli-bitwarden.sh
-    [oxpces]=${OXIDIZER}/plugins/ox-cli-espanso.sh
-    [oxpcjr]=${OXIDIZER}/plugins/ox-cli-jupyter.sh
-    [oxpcol]=${OXIDIZER}/plugins/ox-cli-ollama.sh
-    [oxpcvs]=${OXIDIZER}/plugins/ox-cli-vscode.sh
-    [oxpljl]=${OXIDIZER}/plugins/ox-lang-julia.sh
-    [oxplrb]=${OXIDIZER}/plugins/ox-lang-ruby.sh
-    [oxplrs]=${OXIDIZER}/plugins/ox-lang-rust.sh
-    [oxppb]=${OXIDIZER}/plugins/ox-pkg-brew.sh
-    [oxppc]=${OXIDIZER}/plugins/ox-pkg-conda.sh
-    [oxppnj]=${OXIDIZER}/plugins/ox-pkg-npm.sh
-    [oxpppx]=${OXIDIZER}/plugins/ox-pkg-pixi.sh
-    [oxpps]=${OXIDIZER}/plugins/ox-pkg-scoop.sh
-    [oxpptl]=${OXIDIZER}/plugins/ox-pkg-tlmgr.sh
-    [oxpuf]=${OXIDIZER}/plugins/ox-utils-files.sh
-    [oxpufm]=${OXIDIZER}/plugins/ox-utils-formats.sh
-    [oxpunw]=${OXIDIZER}/plugins/ox-utils-networks.sh
-    [oxpxns]=${OXIDIZER}/plugins/ox-xtra-notes.sh
-)
-
-##########################################################
-# System Configuration Files
-##########################################################
-
+# system configuration files
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
+    [zs]=${HOME}/.zshrc
+    [zshs]=${HOME}/.zsh_history
+    [bs]=${HOME}/.bash_profile
+    [bshs]=${HOME}/.bash_history
     [g]=${HOME}/.gitconfig
     [vi]=${HOME}/.vimrc
+    [dk]=${HOME}/.docker/custom.json
+    [dkd]=${HOME}/.docker/daemon.json
 )
 
-declare -A OX_OXIDE
+case $(uname -s) in
+Darwin)
+    OX_ELEMENT[lg]="${HOME}/Library/Application Support/lazygit/config.yml"
+    ;;
+Linux)
+    OX_ELEMENT[lg]="${HOME}/.config/lazygit/config.yml"
+    ;;
+esac
+
+case $(uname -a) in
+*Darwin* | *Ubuntu* | *Debian*)
+    OX_ELEMENT[wz]=${HOME}/.config/wezterm/wezterm.lua
+    ;;
+*MINGW*)
+    OX_ELEMENT[wz]=${HOME}/.wezterm.lua
+    if [[ -z "${OX_ELEMENT[wz]}" ]]; then
+        touch "${OX_ELEMENT[wz]}"
+    fi
+    ;;
+esac
 
 ##########################################################
 # Load Plugins
 ##########################################################
 
-. "${OX_ELEMENT[ox]}"
+# shellcheck disable=SC1091
+. "$OXIDIZER"/custom.sh
 
 # load required plugin
 case $(uname -a) in
 *Darwin*)
-    . "${OX_OXYGEN[oxpom]}"
-    . "${OX_OXYGEN[oxppb]}"
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_macos)"
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_brew)"
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    . "${OX_OXYGEN[oxpod]}"
-    . "${OX_OXYGEN[oxppb]}"
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_debian)"
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_brew)"
     ;;
 *MINGW*)
-    . "${OX_OXYGEN[oxpow]}"
-    . "${OX_OXYGEN[oxpps]}"
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_windows)"
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_scoop)"
     ;;
 esac
 
-. "${OX_OXYGEN[oxpunw]}"
-. "${OX_OXYGEN[oxpuf]}"
+. "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_files)"
+. "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_formats)"
+. "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_networks)"
 
-# load custom plugins
-declare -a OX_PLUGINS
+# backup configuration files
+OX_OXIDE=$(jq .backup_files <"$OXIDIZER"/custom.json)
+OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
 
-for plugin in "${OX_PLUGINS[@]}"; do
-    if [[ -f "${OX_OXYGEN[$plugin]}" ]]; then
-        . "${OX_OXYGEN[$plugin]}"
-    else
-        echo "Plugin not found: ${plugin}"
-    fi
+# # load custom plugins
+# shellcheck disable=SC2002
+OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/custom.json | jq .plugin_load | rg -o "\w+")
+
+echo "${OX_PLUGINS_LOADED}" | while read -r line; do
+    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r ."$line")"
 done
+
+# shellcheck disable=SC2002
+OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/custom.json | jq .plugin_load_plus | rg -o "\w+")
+if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
+    echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
+        . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
+    done
+fi
 
 ##########################################################
 # Shell Settings
 ##########################################################
 
+# shellcheck disable=SC2155
+export GPG_TTY=$(tty)
+
 export SHELLS=/private/etc/shells
 
 case ${SHELL} in
 *zsh)
-    OX_ELEMENT[zs]=${HOME}/.zshrc
-    OX_ELEMENT[zshst]=${HOME}/.zsh_history
-    OX_OXIDE[bkzs]=${OX_BACKUP}/shell/.zshrc
+    # edit
+    autoload -Uz edit-command-line
+    zle -N edit-command-line
+    # turn case sensitivity off
+    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+    # pasting with tabs doesn't perform completion
+    zstyle ':completion:' insert-tab pending
+    # git colorization
+    zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+    # other options
+    zstyle ':completion:*' menu select
+    zstyle ':completion:*' file-sort change
+    zstyle ':completion:*' use-cache yes
     ;;
 *bash)
-    OX_ELEMENT[bs]=${HOME}/.bash_profile
-    OX_ELEMENT[bshst]=${HOME}/.bash_history
-    OX_OXIDE[bkbs]=${OX_BACKUP}/shell/.bash_profile
+    # turn case sensitivity off
+    if [[ ! -e "${HOME}"/.inputrc ]]; then
+        echo '$include /etc/inputrc' >"${HOME}"/.inputrc
+    fi
+    echo 'set completion-ignore-case On' >>"${HOME}"/.inputrc
     ;;
 esac
+
+# clean history
+ccc() {
+    case ${SHELL} in
+    *zsh)
+        local HISTSIZE=0 && history -p && reset && echo >"${OX_ELEMENT[zshs]}"
+        ;;
+    *bash)
+        local HISTSIZE=0 && history -c && reset && echo >"${OX_ELEMENT[bshs]}"
+        ;;
+    esac
+}
+
+tt() {
+    case ${SHELL} in
+    *zsh)
+        hyperfine --warmup 3 --shell zsh "source ${OX_ELEMENT[zs]}"
+        ;;
+    *bash)
+        hyperfine --warmup 3 --shell bash "source ${OX_ELEMENT[bs]}"
+        ;;
+    esac
+}
 
 ##########################################################
 # Oxidizer Management
@@ -146,6 +195,34 @@ if command -v fzf >/dev/null 2>&1; then
 fi
 
 ##########################################################
+# Zoxide
+##########################################################
+
+export _ZO_DATA_DIR=${HOME}/.config/zoxide
+
+if [[ ! -d "$_ZO_DATA_DIR" ]]; then
+    mkdir -p -v "$_ZO_DATA_DIR"
+fi
+
+OX_ELEMENT[z]=${_ZO_DATA_DIR}/db.zo
+
+case ${SHELL} in
+*zsh)
+    eval "$(zoxide init zsh)"
+    ;;
+*bash)
+    eval "$(zoxide init bash)"
+    ;;
+esac
+
+alias zh="zoxide --help"
+alias zii="zoxide init"
+alias za="zoxide add"
+alias zrm="zoxide remove"
+alias zed="zoxide edit"
+alias zsc="zoxide query"
+
+##########################################################
 # Starship
 ##########################################################
 
@@ -153,8 +230,6 @@ if command -v starship >/dev/null 2>&1; then
     # system files
     export STARSHIP_CONFIG=${HOME}/.config/starship.toml
     OX_ELEMENT[ss]=${STARSHIP_CONFIG}
-    # backup files
-    OX_OXIDE[ss]=${OX_BACKUP}/shell/starship.toml
 
     case ${SHELL} in
     *zsh)
@@ -166,6 +241,10 @@ if command -v starship >/dev/null 2>&1; then
     esac
 fi
 
-if [[ ${OX_STARTUP} ]]; then
-    startup
+# shellcheck disable=SC2002
+# shellcheck disable=SC2155
+export OX_STARTUP=$(cat "$OXIDIZER"/custom.json | jq -r .startup_folder)
+
+if [[ "${OX_STARTUP}" ]]; then
+    cd "${HOME}/${OX_STARTUP}" || exit
 fi

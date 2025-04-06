@@ -1,0 +1,38 @@
+{
+    "description": {
+        "backup_folder": "backup root folder",
+        "backup_files": "backup files, add prefix `bk` to the identical key of `OX_ELEMENT`",
+        "startup_folder": "startup folder"
+    },
+    "plugin_load": [
+        "cli_vscode",
+        "lang_rust",
+        "pkg_conda"
+    ],
+    "plugins_plus": {
+        "": ""
+    },
+    "plugin_load_plus": [],
+    "proxy_port": {
+        "clash": 7890,
+        "meta": 7898,
+        "v2ray": 1080
+    },
+    "conda_env_shortcut": {
+        "b": "base"
+    },
+    "julia_env_shortcut": {
+        "t": ""
+    },
+    "startup_folder": "",
+    "download_folder": "/Downloads",
+    "backup_folder": "/Documents",
+    "backup_files": {
+        "b": "unix/Brewfile",
+        "vi": "shell/.vimrc",
+        "ss": "shell/starship.toml",
+        "g": "../notes/.gitconfig",
+        "zs": "shell/.zshrc",
+        "bs": "shell/.bash_profile"
+    }
+}
