@@ -31,8 +31,8 @@
     "backup_folder_win": "D:\\",
     "backup_files": {
         "bkox": "shell/custom.sh",
-        "bkoxw": "shell/custom.ps1",
-        "bkoxj": "shell/custom.json",
+        "bkwox": "shell/custom.ps1",
+        "bkjox": "shell/custom.json",
         "b": "unix/Brewfile",
         "vi": "shell/.vimrc",
         "ss": "shell/starship.toml",

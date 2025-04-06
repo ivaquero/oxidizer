@@ -14,7 +14,7 @@ export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folde
 # system configuration files
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
-    [oxj]=${OXIDIZER}/custom.json
+    [oj]=${OXIDIZER}/custom.json
     [zs]=${HOME}/.zshrc
     [zshs]=${HOME}/.zsh_history
     [bs]=${HOME}/.bash_profile

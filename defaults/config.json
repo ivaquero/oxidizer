@@ -1,8 +1,8 @@
 {
     "oxygen": {
         "oxox": "defaults/default.sh",
-        "oxoxw": "defaults/default.ps1",
-        "oxoxj": "defaults/default.json",
+        "oxwox": "defaults/default.ps1",
+        "oxjox": "defaults/default.json",
         "oxc": "defaults/.condarc",
         "oxg": "defaults/.gitconfig",
         "oxwz": "defaults/wezterm.lua"

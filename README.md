@@ -191,7 +191,7 @@ For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
 When you `epf zs` (export file), `~/.zshrc` will be copied and save in  folder backup folder
 
-As mentioned in **Get Started**, you can open `custom.json` simply by `edf oxj`.
+As mentioned in **Get Started**, you can open `custom.json` simply by `edf jox`.
 
 In the `custom.json`, edit the `backup_files` map to predefine the specific backup path, where `backup_folder` is the backup root path relative to `$HOME`. Note that the key should be set as `bk` + `[key in OX_ELEMENT]`.
 

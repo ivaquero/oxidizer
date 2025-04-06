@@ -24,8 +24,8 @@ $Global:OX_DOWNLOAD = $HOME + "/" + $Global:OX_CUSTOM.download_folder
 ##########################################################
 
 $Global:OX_ELEMENT = @{
-    'oxw' = "$env:OXIDIZER/custom.ps1"
-    'oxj' = "$env:OXIDIZER/custom.json"
+    'wox' = "$env:OXIDIZER/custom.ps1"
+    'jox' = "$env:OXIDIZER/custom.json"
     'g'   = "$HOME/.gitconfig"
     'vi'  = "$HOME/.vimrc"
     'ps'  = "$HOME/Documents\WindowsPowerShell\profile.ps1"
@@ -47,7 +47,7 @@ if ( !(Test-Path $Global:OX_ELEMENT.wz) ) {
 # Load Plugins
 ##########################################################
 
-. $Global:OX_ELEMENT.oxw
+. $Global:OX_ELEMENT.wox
 
 # load core plugins
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.os_windows)
