@@ -243,8 +243,8 @@ fi
 
 # shellcheck disable=SC2002
 # shellcheck disable=SC2155
-export OX_STARTUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .startup_folder)
+export OX_STARTUP=$(cat "$OXIDIZER"/custom.json | jq -r .startup_folder)
 
-if [[ -z ${OX_STARTUP} ]]; then
-    cd "${HOME}"/"${OX_STARTUP}" || exit
+if [[ "${OX_STARTUP}" ]]; then
+    cd "${HOME}/${OX_STARTUP}" || exit
 fi
