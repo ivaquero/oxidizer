@@ -3,28 +3,13 @@
 # basic settings
 ##########################################################
 
-# shellcheck disable=SC2155
-export GPG_TTY=$(tty)
-
 export EDITOR='code'
 # terminal editor
 export EDITOR_T="vi"
 
-# backup file path
-export OX_BACKUP="${HOME}"/backup
-
 ##########################################################
 # brew settings
 ##########################################################
-
-case $(uname -a) in
-*Darwin* | *Ubuntu* | *Debian*)
-    export HOMEBREW_NO_AUTO_UPDATE=1
-    export HOMEBREW_NO_AUTOREMOVE=1
-    export HOMEBREW_NO_ENV_HINTS=1
-    export HOMEBREW_CLEANUP_MAX_AGE_DAYS="3"
-    ;;
-esac
 
 ##########################################################
 # common aliases
@@ -50,7 +35,6 @@ alias own="sudo chown -R $(whoami)"
 # tools
 alias man="tldr"
 alias hf="hyperfine"
-alias tk="tokei"
 alias ff="fastfetch"
 alias g="git"
 # alias npm="pnpm"
@@ -66,22 +50,3 @@ alias iif="clzf"
 
 # personal
 alias -g wl="| wc -l"
-
-# others
-show_port() {
-    lsof -i tcp:"$1"
-}
-
-##########################################################
-# startup
-##########################################################
-
-# installer downloaded path: works for function `brp()`
-# use `which brp` to check `brp()` in details
-export OX_DOWNLOAD="${HOME}"/Documents
-export OX_STARTUP=1
-
-startup() {
-    # clear
-    cd "${HOME}"/Documents || exit
-}

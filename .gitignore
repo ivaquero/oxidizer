@@ -37,5 +37,5 @@ Temporary Items
 backup
 addons
 plugins
-custom.*
+custom*.*
 test.*

@@ -2,8 +2,14 @@
 export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 # oxidizer configuration files
-OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/config.json)
-OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/config.json)
+OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/defaults/config.json)
+OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/defaults/config.json)
+# shellcheck disable=SC2002
+# shellcheck disable=SC2155
+export OX_BACKUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .backup_folder)
+# shellcheck disable=SC2002
+# shellcheck disable=SC2155
+export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folder)
 
 # system configuration files
 declare -A OX_ELEMENT=(
@@ -67,8 +73,8 @@ esac
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_networks)"
 
 # backup configuration files
-OX_OXIDE=$(jq .ox_oxide <"$OXIDIZER"/custom.json)
-OX_PLUGINS_PLUS=$(jq .ox_plugins_plus <"$OXIDIZER"/custom.json)
+OX_OXIDE=$(jq .backup_files <"$OXIDIZER"/custom.json)
+OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
 
 # # load custom plugins
 # shellcheck disable=SC2002
@@ -80,7 +86,7 @@ done
 
 # shellcheck disable=SC2002
 OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/custom.json | jq .plugin_load_plus | rg -o "\w+")
-if [ -n "$OX_PLUGINS_LOADED_PLUS" ]; then
+if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
     echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
         . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
     done
@@ -89,6 +95,9 @@ fi
 ##########################################################
 # Shell Settings
 ##########################################################
+
+# shellcheck disable=SC2155
+export GPG_TTY=$(tty)
 
 export SHELLS=/private/etc/shells
 
@@ -232,6 +241,10 @@ if command -v starship >/dev/null 2>&1; then
     esac
 fi
 
-if [[ ${OX_STARTUP} ]]; then
-    startup
+# shellcheck disable=SC2002
+# shellcheck disable=SC2155
+export OX_STARTUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .startup_folder)
+
+if [[ -z ${OX_STARTUP} ]]; then
+    cd "${HOME}"/"${OX_STARTUP}" || exit
 fi

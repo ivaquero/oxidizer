@@ -1,8 +1,8 @@
 {
     "ox_oxygen": {
-        "c": "defaults/.condarc",
-        "g": "defaults/.gitconfig",
-        "wz": "defaults/wezterm.lua"
+        "oxc": "defaults/.condarc",
+        "oxg": "defaults/.gitconfig",
+        "oxwz": "defaults/wezterm.lua"
     },
     "ox_plugins": {
         "os_debians": "plugins/os_debians.sh",

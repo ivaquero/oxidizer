@@ -1,10 +1,15 @@
 {
+    "description": {
+        "backup_folder": "backup root folder",
+        "backup_files": "backup files, add prefix `bk` to the identical key of `OX_ELEMENT`",
+        "startup_folder": "startup folder"
+    },
     "plugin_load": [
         "cli_vscode",
         "lang_rust",
         "pkg_conda"
     ],
-    "ox_plugins_plus": {
+    "plugins_plus": {
         "": ""
     },
     "plugin_load_plus": [],
@@ -17,9 +22,12 @@
         "b": "base"
     },
     "julia_env_shortcut": {
-        "t": "$HOME/Documents/GitHub/blog-julia/pluto-deployment-environment"
+        "t": ""
     },
-    "ox_oxide": {
+    "startup_folder": "",
+    "download_folder": "/Downloads",
+    "backup_folder": "/Documents",
+    "backup_files": {
         "b": "unix/Brewfile",
         "vi": "shell/.vimrc",
         "ss": "shell/starship.toml",
