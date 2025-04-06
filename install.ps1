@@ -39,9 +39,9 @@ if ($($env:OS).Contains("Windows")) {
 
     if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         $env:OXIDIZER = "$HOME\oxidizer"
-        Write-Output '# Oxidizer' >> $env:OX_SHELL
-        Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
-        Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
+        Write-Output '# Oxidizer' >> $Global:OX_SHELL
+        Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $Global:OX_SHELL
+        Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $Global:OX_SHELL
     }
     $pkgs = cat "$env:OXIDIZER\defaults\install.txt"
 
@@ -93,6 +93,9 @@ Write-Output "Adding Custom settings..."
 
 if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
     Copy-Item -R -v "$env:OXIDIZER\defaults\default.ps1" "$env:OXIDIZER\custom.ps1"
+}
+if (!(Test-Path -Path "$env:OXIDIZER\custom.json")) {
+    Copy-Item -R -v "$env:OXIDIZER\defaults\default.json" "$env:OXIDIZER\custom.json"
 }
 
 sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"

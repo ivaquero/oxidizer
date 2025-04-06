@@ -2,7 +2,8 @@
     "description": {
         "backup_folder": "backup root folder",
         "backup_files": "backup files, add prefix `bk` to the identical key of `OX_ELEMENT`",
-        "startup_folder": "startup folder"
+        "startup_folder": "startup folder",
+        "proxy_ports": "proxy ports: c: clash, m: clash-meta, v: v2ray"
     },
     "plugin_load": [
         "cli_vscode",
@@ -13,10 +14,10 @@
         "": ""
     },
     "plugin_load_plus": [],
-    "proxy_port": {
-        "clash": 7890,
-        "meta": 7898,
-        "v2ray": 1080
+    "proxy_ports": {
+        "c": 7890,
+        "m": 7898,
+        "v": 1080
     },
     "conda_env_shortcut": {
         "b": "base"
@@ -25,9 +26,13 @@
         "t": ""
     },
     "startup_folder": "",
-    "download_folder": "/Downloads",
-    "backup_folder": "/Documents",
+    "download_folder": "Downloads",
+    "backup_folder": "Documents",
+    "backup_folder_win": "D:\\",
     "backup_files": {
+        "bkox": "shell/custom.sh",
+        "bkoxw": "shell/custom.ps1",
+        "bkoxj": "shell/custom.json",
         "b": "unix/Brewfile",
         "vi": "shell/.vimrc",
         "ss": "shell/starship.toml",

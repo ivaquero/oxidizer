@@ -178,28 +178,49 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 - `brf`
   - file: browse by `bat` / `cat`
   - folder: browse by `lsd` / `ls`
-- `rdf` (alias: `ipf`, means import file)
+- `ipf` (import file, alias: `rdf`)
   - reduce file: overwrite configuration file by backup (customized) file
-- `oxf` (alias: `epf`, means export file)
+- `epf` (export file, alias: `oxf`)
   - oxidize file: backup configuration file to backup folder
-- `clzf` (alias: `iif`, means initialize file)
+- `iif` (initialize file, alias: `clzf`)
   - catalyze file: overwrite configuration file by Oxidizer defaults
 - `ppgf`
   - propagate file: backup Oxidizer defaults to backup folder
 
 For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
-When you `oxf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `edf ox`.
+When you `epf zs` (export file), `~/.zshrc` will be copied and save in  folder backup folder
+
+As mentioned in **Get Started**, you can open `custom.json` simply by `edf oxj`.
+
+In the `custom.json`, edit the `backup_files` map to predefine the specific backup path, where `backup_folder` is the backup root path relative to `$HOME`. Note that the key should be set as `bk` + `[key in OX_ELEMENT]`.
+
+```json
+{
+ "backup_folder": "Documents",
+ "backup_files": {
+        "bkox": "shell/custom.sh",
+        "bkoxw": "shell/custom.ps1",
+        "bkoxj": "shell/custom.json",
+        "bkb": "unix/Brewfile",
+        "bkvi": "shell/.vimrc",
+        "bkss": "shell/starship.toml",
+        "bkg": "../notes/.gitconfig",
+        "bkzs": "shell/.zshrc",
+        "bkbs": "shell/.bash_profile"
+    }
+}
+```
 
 The table below lists the information of specific configuration files:
 
 > `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` | `edf [Plugin Abbr.]`.
 
-Oxidizers [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
+Oxidizer uses [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
 
 - `zpf`: compress file
-- `uzpf`: decompress file
-- `lzpf`: list items in the compressed file
+- `zpfr`: decompress file
+- `zpfls`: list items in the compressed file
 
 ## 6. Package Management 包管理
 

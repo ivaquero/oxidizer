@@ -2,8 +2,8 @@
 export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 # oxidizer configuration files
-OX_PLUGINS=$(jq .ox_plugins <"$OXIDIZER"/defaults/config.json)
-OX_OXYGEN=$(jq .ox_oxygen <"$OXIDIZER"/defaults/config.json)
+OX_OXYGEN=$(jq .oxygen <"$OXIDIZER"/defaults/config.json)
+OX_PLUGINS=$(jq .plugins <"$OXIDIZER"/defaults/config.json)
 # shellcheck disable=SC2002
 # shellcheck disable=SC2155
 export OX_BACKUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .backup_folder)
@@ -14,6 +14,7 @@ export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folde
 # system configuration files
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
+    [oxj]=${OXIDIZER}/custom.json
     [zs]=${HOME}/.zshrc
     [zshs]=${HOME}/.zsh_history
     [bs]=${HOME}/.bash_profile
@@ -22,6 +23,7 @@ declare -A OX_ELEMENT=(
     [vi]=${HOME}/.vimrc
     [dk]=${HOME}/.docker/custom.json
     [dkd]=${HOME}/.docker/daemon.json
+    [wz]=${HOME}/.wezterm.lua
 )
 
 case $(uname -s) in
@@ -33,24 +35,11 @@ Linux)
     ;;
 esac
 
-case $(uname -a) in
-*Darwin* | *Ubuntu* | *Debian*)
-    OX_ELEMENT[wz]=${HOME}/.config/wezterm/wezterm.lua
-    ;;
-*MINGW*)
-    OX_ELEMENT[wz]=${HOME}/.wezterm.lua
-    if [[ -z "${OX_ELEMENT[wz]}" ]]; then
-        touch "${OX_ELEMENT[wz]}"
-    fi
-    ;;
-esac
-
 ##########################################################
 # Load Plugins
 ##########################################################
 
-# shellcheck disable=SC1091
-. "$OXIDIZER"/custom.sh
+. "${OX_ELEMENT[ox]}"
 
 # load required plugin
 case $(uname -a) in
@@ -62,28 +51,20 @@ case $(uname -a) in
     . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_debian)"
     . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_brew)"
     ;;
-*MINGW*)
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_windows)"
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_scoop)"
-    ;;
 esac
 
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_files)"
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_formats)"
 . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_networks)"
 
-# backup configuration files
-OX_OXIDE=$(jq .backup_files <"$OXIDIZER"/custom.json)
-OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
-
-# # load custom plugins
 # shellcheck disable=SC2002
 OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/custom.json | jq .plugin_load | rg -o "\w+")
-
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
     . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r ."$line")"
 done
 
+# # load custom plugins
+OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
 # shellcheck disable=SC2002
 OX_PLUGINS_LOADED_PLUS=$(cat "$OXIDIZER"/custom.json | jq .plugin_load_plus | rg -o "\w+")
 if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
@@ -91,6 +72,9 @@ if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
         . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
     done
 fi
+
+# backup configuration files
+OX_OXIDE=$(jq .backup_files <"$OXIDIZER"/custom.json)
 
 ##########################################################
 # Shell Settings
@@ -170,12 +154,6 @@ upox() {
         git reset --hard origin/main
     fi
 
-    cd "${OXIDIZER}" || exit
-    ox_change=$(git diff defaults.sh)
-    if [[ -n "$ox_change" ]]; then
-        printf "\n\nDefaults changed, don't forget to update your custom.sh accordingly...\n"
-        printf "Compare the difference using 'edf oxd'"
-    fi
     cd "${HOME}" || exit
 }
 
