@@ -14,7 +14,7 @@ export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folde
 # system configuration files
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
-    [oj]=${OXIDIZER}/custom.json
+    [jox]=${OXIDIZER}/custom.json
     [zs]=${HOME}/.zshrc
     [zshs]=${HOME}/.zsh_history
     [bs]=${HOME}/.bash_profile
@@ -34,6 +34,15 @@ Linux)
     OX_ELEMENT[lg]="${HOME}/.config/lazygit/config.yml"
     ;;
 esac
+
+# backup configuration files
+backup_files=$(jq ".backup_files|keys" <"$OXIDIZER"/custom.json)
+
+OX_OXIDE=$(jq -r '.backup_files' <<<"$OXIDIZER"/custom.json)
+
+jq ".backup_files|keys" <"$OXIDIZER"/custom.json | while read -r line; do
+    OX_OXIDE["bk$line"]=$(echo "$backup_files" | jq -r ."$line")
+done
 
 ##########################################################
 # Load Plugins
@@ -72,9 +81,6 @@ if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
         . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
     done
 fi
-
-# backup configuration files
-OX_OXIDE=$(jq .backup_files <"$OXIDIZER"/custom.json)
 
 ##########################################################
 # Shell Settings

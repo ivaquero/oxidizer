@@ -101,8 +101,12 @@ function upox {
 # Shell Settings
 ##########################################################
 
-function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
-
+if ($env:OS) {
+    function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
+}
+else {
+    function tt { hyperfine --warmup 3 --shell pwsh '. $PROFILE' }
+}
 
 ##########################################################
 # Zoxide
