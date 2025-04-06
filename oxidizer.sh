@@ -3,10 +3,9 @@ export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
 
 # oxidizer configuration files
 OX_OXYGEN=$(jq .oxygen <"$OXIDIZER"/defaults/config.json)
-OX_PLUGINS=$(jq .plugins <"$OXIDIZER"/defaults/config.json)
 # shellcheck disable=SC2002
 # shellcheck disable=SC2155
-export OX_BACKUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .backup_folder)
+export OX_BACKUP=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .oxide_folder)
 # shellcheck disable=SC2002
 # shellcheck disable=SC2155
 export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folder)
@@ -14,7 +13,7 @@ export OX_DOWNLOAD=${HOME}/$(cat "$OXIDIZER"/custom.json | jq -r .download_folde
 # system configuration files
 declare -A OX_ELEMENT=(
     [ox]=${OXIDIZER}/custom.sh
-    [oj]=${OXIDIZER}/custom.json
+    [jox]=${OXIDIZER}/custom.json
     [zs]=${HOME}/.zshrc
     [zshs]=${HOME}/.zsh_history
     [bs]=${HOME}/.bash_profile
@@ -44,23 +43,23 @@ esac
 # load required plugin
 case $(uname -a) in
 *Darwin*)
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_macos)"
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_brew)"
+    . "$OXIDIZER"/"$(jq -r .plugins.os_macos <"$OXIDIZER"/defaults/config.json)"
+    . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
     ;;
 *Ubuntu* | *Debian* | *WSL*)
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .os_debian)"
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .pkg_brew)"
+    . "$OXIDIZER"/"$(jq -r .plugins.os_debian <"$OXIDIZER"/defaults/config.json)"
+    . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
     ;;
 esac
 
-. "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_files)"
-. "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_formats)"
-. "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r .utils_networks)"
+. "$OXIDIZER"/"$(jq -r .plugins.utils_files <"$OXIDIZER"/defaults/config.json)"
+. "$OXIDIZER"/"$(jq -r .plugins.utils_formats <"$OXIDIZER"/defaults/config.json)"
+. "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
 
 # shellcheck disable=SC2002
 OX_PLUGINS_LOADED=$(cat "$OXIDIZER"/custom.json | jq .plugin_load | rg -o "\w+")
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
-    . "$OXIDIZER"/"$(echo "$OX_PLUGINS" | jq -r ."$line")"
+    . "$OXIDIZER"/"$(jq -r .plugins."$line" <"$OXIDIZER"/defaults/config.json)"
 done
 
 # # load custom plugins
@@ -74,7 +73,7 @@ if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
 fi
 
 # backup configuration files
-OX_OXIDE=$(jq .backup_files <"$OXIDIZER"/custom.json)
+OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
 
 ##########################################################
 # Shell Settings

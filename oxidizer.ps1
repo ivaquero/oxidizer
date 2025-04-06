@@ -16,7 +16,7 @@ $Global:OX_CONFIG = Get-Content -Path "$env:OXIDIZER/defaults/config.json" | Con
 $Global:OX_OXYGEN = $Global:OX_CONFIG.oxygen
 $Global:OX_PLUGINS = $Global:OX_CONFIG.plugins_pwsh
 $Global:OX_CUSTOM = Get-Content -Path "$env:OXIDIZER/custom.json" | ConvertFrom-Json
-$Global:OX_BACKUP = $HOME + "/" + $Global:OX_CUSTOM.backup_folder
+$Global:OX_BACKUP = $HOME + "/" + $Global:OX_CUSTOM.oxide_folder
 $Global:OX_DOWNLOAD = $HOME + "/" + $Global:OX_CUSTOM.download_folder
 
 ##########################################################
@@ -70,7 +70,7 @@ ForEach ($plugin in $Global:OX_PLUGINS_LOADED) {
 $Global:OX_PLUGINS_PLUS = $Global:OX_CUSTOM.plugins_plus
 
 # backup configuration files
-$Global:OX_OXIDE = $Global:OX_CUSTOM.backup_files
+$Global:OX_OXIDE = $Global:OX_CUSTOM.oxides
 
 ##########################################################
 # Oxidizer Management
@@ -101,8 +101,12 @@ function upox {
 # Shell Settings
 ##########################################################
 
-function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
-
+if ($env:OS) {
+    function tt { hyperfine --warmup 3 --shell powershell '. $PROFILE' }
+}
+else {
+    function tt { hyperfine --warmup 3 --shell pwsh '. $PROFILE' }
+}
 
 ##########################################################
 # Zoxide

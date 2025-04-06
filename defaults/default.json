@@ -1,7 +1,7 @@
 {
     "description": {
-        "backup_folder": "backup root folder",
-        "backup_files": "backup files, add prefix `bk` to the identical key of `OX_ELEMENT`",
+        "oxide_folder": "backup root folder",
+        "oxides": "backup files, add prefix `bk` to the identical key of `OX_ELEMENT`",
         "startup_folder": "startup folder",
         "proxy_ports": "proxy ports: c: clash, m: clash-meta, v: v2ray"
     },
@@ -27,17 +27,17 @@
     },
     "startup_folder": "",
     "download_folder": "Downloads",
-    "backup_folder": "Documents",
-    "backup_folder_win": "D:\\",
-    "backup_files": {
+    "oxide_folder": "Documents",
+    "oxide_folder_win": "D:\\",
+    "oxides": {
         "bkox": "shell/custom.sh",
         "bkwox": "shell/custom.ps1",
         "bkjox": "shell/custom.json",
-        "b": "unix/Brewfile",
-        "vi": "shell/.vimrc",
-        "ss": "shell/starship.toml",
-        "g": "../notes/.gitconfig",
-        "zs": "shell/.zshrc",
-        "bs": "shell/.bash_profile"
+        "bkb": "unix/Brewfile",
+        "bkvi": "shell/.vimrc",
+        "bkss": "shell/starship.toml",
+        "bkg": "../notes/.gitconfig",
+        "bkzs": "shell/.zshrc",
+        "bkbs": "shell/.bash_profile"
     }
 }

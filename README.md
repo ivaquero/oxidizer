@@ -193,12 +193,12 @@ When you `epf zs` (export file), `~/.zshrc` will be copied and save in  folder b
 
 As mentioned in **Get Started**, you can open `custom.json` simply by `edf jox`.
 
-In the `custom.json`, edit the `backup_files` map to predefine the specific backup path, where `backup_folder` is the backup root path relative to `$HOME`. Note that the key should be set as `bk` + `[key in OX_ELEMENT]`.
+In the `custom.json`, edit the `oxides` map to predefine the specific backup path, where `oxide_folder` is the backup root path relative to `$HOME`. Note that the key should be set as `bk` + `[key in OX_ELEMENT]`.
 
 ```json
 {
- "backup_folder": "Documents",
- "backup_files": {
+ "oxide_folder": "Documents",
+ "oxides": {
         "bkox": "shell/custom.sh",
         "bkoxw": "shell/custom.ps1",
         "bkoxj": "shell/custom.json",
