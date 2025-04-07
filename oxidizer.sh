@@ -57,17 +57,14 @@ esac
 . "$OXIDIZER"/"$(jq -r .plugins.utils_formats <"$OXIDIZER"/defaults/config.json)"
 . "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
 
-OX_PLUGINS_LOADED=$(jq .plugins_load <"$OXIDIZER"/custom.json | rg -o "\w+")
-echo "${OX_PLUGINS_LOADED}" | while read -r line; do
-    . "$OXIDIZER"/"$(jq -r .plugins."$line" <"$OXIDIZER"/defaults/config.json)"
+for plugin in $(jq -r ".plugins_load |.[]" <"$OXIDIZER"/custom.json); do
+    . "$OXIDIZER"/"$(jq -r .plugins."$plugin" <"$OXIDIZER"/defaults/config.json)"
 done
 
 # # load custom plugins
-OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
-OX_PLUGINS_LOADED_PLUS=$(jq .plugins_load_plus <"$OXIDIZER"/custom.json | rg -o "\w+")
-if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
-    echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
-        . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
+if [[ -n $(jq .plugins_plus <"$OXIDIZER"/custom.json) ]]; then
+    for plugin in $(jq -r ".plugins_load_plus |.[]" <"$OXIDIZER"/custom.json); do
+        . "$OXIDIZER"/"$(jq -r .plugins_plus."$plugin" <"$OXIDIZER"/defaults/config.json)"
     done
 fi
 
@@ -153,21 +150,6 @@ upox() {
 }
 
 ##########################################################
-# fzf
-##########################################################
-
-if command -v fzf >/dev/null 2>&1; then
-    case ${SHELL} in
-    *zsh)
-        source <(fzf --zsh)
-        ;;
-    *bash)
-        eval "$(fzf --bash)"
-        ;;
-    esac
-fi
-
-##########################################################
 # Zoxide
 ##########################################################
 
@@ -213,6 +195,25 @@ if command -v starship >/dev/null 2>&1; then
         ;;
     esac
 fi
+
+##########################################################
+# fzf
+##########################################################
+
+if command -v fzf >/dev/null 2>&1; then
+    case ${SHELL} in
+    *zsh)
+        source <(fzf --zsh)
+        ;;
+    *bash)
+        eval "$(fzf --bash)"
+        ;;
+    esac
+fi
+
+##########################################################
+# Startup
+##########################################################
 
 # shellcheck disable=SC2155
 export OX_STARTUP=$(jq -r .startup_folder <"$OXIDIZER"/custom.json)

@@ -10,5 +10,4 @@ tlrc
 zoxide
 cmake
 fastfetch
-fzf
 gh
