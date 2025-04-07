@@ -5,7 +5,7 @@
         "startup_folder": "startup folder",
         "proxy_ports": "proxy ports: c: clash, m: clash-meta, v: v2ray"
     },
-    "plugin_load": [
+    "plugins_load": [
         "cli_vscode",
         "lang_rust",
         "pkg_conda"
@@ -13,7 +13,7 @@
     "plugins_plus": {
         "": ""
     },
-    "plugin_load_plus": [],
+    "plugins_load_plus": [],
     "proxy_ports": {
         "c": 7890,
         "m": 7898,

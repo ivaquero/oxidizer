@@ -32,6 +32,9 @@ Linux)
     ;;
 esac
 
+# backup configuration files
+OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
+
 ##########################################################
 # Load Plugins
 ##########################################################
@@ -54,22 +57,19 @@ esac
 . "$OXIDIZER"/"$(jq -r .plugins.utils_formats <"$OXIDIZER"/defaults/config.json)"
 . "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
 
-OX_PLUGINS_LOADED=$(jq .plugin_load <"$OXIDIZER"/custom.json | rg -o "\w+")
+OX_PLUGINS_LOADED=$(jq .plugins_load <"$OXIDIZER"/custom.json | rg -o "\w+")
 echo "${OX_PLUGINS_LOADED}" | while read -r line; do
     . "$OXIDIZER"/"$(jq -r .plugins."$line" <"$OXIDIZER"/defaults/config.json)"
 done
 
 # # load custom plugins
 OX_PLUGINS_PLUS=$(jq .plugins_plus <"$OXIDIZER"/custom.json)
-OX_PLUGINS_LOADED_PLUS=$(jq .plugin_load_plus <"$OXIDIZER"/custom.json | rg -o "\w+")
+OX_PLUGINS_LOADED_PLUS=$(jq .plugins_load_plus <"$OXIDIZER"/custom.json | rg -o "\w+")
 if [[ -n "$OX_PLUGINS_LOADED_PLUS" ]]; then
     echo "${OX_PLUGINS_LOADED_PLUS}" | while read -r line; do
         . "$(echo "$OX_PLUGINS_PLUS" | jq -r ."$line")"
     done
 fi
-
-# backup configuration files
-OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
 
 ##########################################################
 # Shell Settings

@@ -43,6 +43,9 @@ if ( !(Test-Path $Global:OX_ELEMENT.wz) ) {
     New-Item -Path $Global:OX_ELEMENT.wz -ItemType File
 }
 
+# backup configuration files
+$Global:OX_OXIDE = $Global:OX_CUSTOM.oxides
+
 ##########################################################
 # Load Plugins
 ##########################################################
@@ -56,21 +59,20 @@ if ( !(Test-Path $Global:OX_ELEMENT.wz) ) {
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_formats)
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_networks)
 
-$Global:OX_PLUGINS_LOADED = $(cat "$env:OXIDIZER/custom.json" | jq .plugin_load | rg -o "\w+")
-ForEach ($plugin in $Global:OX_PLUGINS_LOADED) {
+$Global:OX_PLUGINS_LOAD = $(echo $Global:OX_CUSTOM.plugins_load | rg -o "\w+")
+ForEach ($plugin in $Global:OX_PLUGINS_LOAD) {
     $plugin_path = "$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.$plugin
-    if (Test-Path $plugin_path) {
-        . $plugin_path
-    }
-    else {
-        echo "Plugin not found: $plugin"
-    }
+    . $plugin_path
 }
 # load custom plugins
 $Global:OX_PLUGINS_PLUS = $Global:OX_CUSTOM.plugins_plus
-
-# backup configuration files
-$Global:OX_OXIDE = $Global:OX_CUSTOM.oxides
+$Global:OX_PLUGINS_LOAD_PLUS = $(echo $Global:OX_CUSTOM.plugins_load_plus | rg -o "\w+")
+if ($Global:OX_PLUGINS_LOAD_PLUS) {
+    ForEach ($plugin in $Global:OX_PLUGINS_LOAD_PLUS) {
+        $plugin_path = "$env:OXIDIZER" + "/" + $Global:OX_PLUGINS_PLUS.$plugin
+        . $plugin_path
+    }
+}
 
 ##########################################################
 # Oxidizer Management
