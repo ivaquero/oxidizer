@@ -9,18 +9,20 @@ export OX_BACKUP=${HOME}/$(jq -r .oxide_folder <"$OXIDIZER"/custom.json)
 export OX_DOWNLOAD=${HOME}/$(jq -r .download_folder <"$OXIDIZER"/custom.json)
 
 # system configuration files
-declare -A OX_ELEMENT=(
-    [ox]=${OXIDIZER}/custom.sh
-    [jox]=${OXIDIZER}/custom.json
-    [zs]=${HOME}/.zshrc
-    [zshs]=${HOME}/.zsh_history
-    [bs]=${HOME}/.bash_profile
-    [bshs]=${HOME}/.bash_history
-    [g]=${HOME}/.gitconfig
-    [vi]=${HOME}/.vimrc
-    [dk]=${HOME}/.docker/custom.json
-    [dkd]=${HOME}/.docker/daemon.json
-    [wz]=${HOME}/.wezterm.lua
+declare -A OX_ELEMENT
+
+OX_ELEMENT=(
+    [ox]="${OXIDIZER}/custom.sh"
+    [jox]="${OXIDIZER}/custom.json"
+    [zs]="${HOME}/.zshrc"
+    [zshs]="${HOME}/.zsh_history"
+    [bs]="${HOME}/.bash_profile"
+    [bshs]="${HOME}/.bash_history"
+    [g]="${HOME}/.gitconfig"
+    [vi]="${HOME}/.vimrc"
+    [dk]="${HOME}/.docker/custom.json"
+    [dkd]="${HOME}/.docker/daemon.json"
+    [wz]="${HOME}/.wezterm.lua"
 )
 
 case $(uname -s) in
@@ -50,6 +52,10 @@ case $(uname -a) in
 *Ubuntu* | *Debian* | *WSL*)
     . "$OXIDIZER"/"$(jq -r .plugins.os_debian <"$OXIDIZER"/defaults/config.json)"
     . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
+    ;;
+*MINGW*)
+    . "$OXIDIZER"/"$(jq -r .plugins.os_windows <"$OXIDIZER"/defaults/config.json)"
+    . "$OXIDIZER"/"$(jq -r .plugins.pkg_scoop <"$OXIDIZER"/defaults/config.json)"
     ;;
 esac
 
@@ -115,14 +121,16 @@ ccc() {
 }
 
 tt() {
+    local shell_file
     case ${SHELL} in
     *zsh)
-        hyperfine --warmup 3 --shell zsh "source ${OX_ELEMENT[zs]}"
+        shell_file="${OX_ELEMENT[zs]}"
         ;;
     *bash)
-        hyperfine --warmup 3 --shell bash "source ${OX_ELEMENT[bs]}"
+        shell_file="${OX_ELEMENT[bs]}"
         ;;
     esac
+    hyperfine --warmup 3 --shell "${SHELL}" "source ${shell_file}"
 }
 
 ##########################################################
@@ -153,12 +161,7 @@ upox() {
 # Zoxide
 ##########################################################
 
-export _ZO_DATA_DIR=${HOME}/.config/zoxide
-
-if [[ ! -d "$_ZO_DATA_DIR" ]]; then
-    mkdir -p -v "$_ZO_DATA_DIR"
-fi
-
+export _ZO_DATA_DIR=${_ZO_DATA_DIR:-"${HOME}/.config/zoxide"}
 OX_ELEMENT[z]=${_ZO_DATA_DIR}/db.zo
 
 case ${SHELL} in
@@ -170,7 +173,6 @@ case ${SHELL} in
     ;;
 esac
 
-alias zh="zoxide --help"
 alias zii="zoxide init"
 alias za="zoxide add"
 alias zrm="zoxide remove"
@@ -183,7 +185,7 @@ alias zsc="zoxide query"
 
 if command -v starship >/dev/null 2>&1; then
     # system files
-    export STARSHIP_CONFIG=${HOME}/.config/starship.toml
+    export STARSHIP_CONFIG=${STARSHIP_CONFIG:-"${HOME}/.config/starship.toml"}
     OX_ELEMENT[ss]=${STARSHIP_CONFIG}
 
     case ${SHELL} in
