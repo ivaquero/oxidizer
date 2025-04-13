@@ -9,8 +9,6 @@ A Simple & Extensible Dotfile Manager That Unifies Your Terminal Operations
 
 一个简单 & 可扩展的，用于统一终端操作的 dotfile 管理工具
 
-Let's Oxidize Development Environments
-
 ![oxidizer](https://raw.githubusercontent.com/ivaquero/backup/main/docs/oxidizer.png)
 
 ## 1. Get Started 从这里开始
