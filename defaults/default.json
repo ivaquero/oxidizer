@@ -11,7 +11,7 @@
         "pkg_conda"
     ],
     "plugins_plus": {
-        "": ""
+        "your_plugin": "its_path"
     },
     "plugins_load_plus": [],
     "proxy_ports": {
@@ -20,15 +20,19 @@
         "v": 1080
     },
     "conda_env_shortcut": {
-        "b": "base"
+        "b": "base",
+        "env_alias": "its_path"
     },
     "julia_env_shortcut": {
-        "t": ""
+        "env_alias": "its_path"
+    },
+    "julia_env_shortcuts_win": {
+        "env_alias": "its_path"
     },
     "startup_folder": "",
     "download_folder": "Downloads",
     "oxide_folder": "Documents",
-    "oxide_folder_win": "D:\\",
+    "oxide_folder_win": "D:/",
     "oxides": {
         "bkox": "shell/custom.sh",
         "bkwox": "shell/custom.ps1",

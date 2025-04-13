@@ -12,10 +12,10 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
 ##########################################################
 
 # plugins
-$Global:OX_CONFIG = Get-Content -Path "$env:OXIDIZER/defaults/config.json" | ConvertFrom-Json
+$Global:OX_CONFIG = cat "$env:OXIDIZER/defaults/config.json" | ConvertFrom-Json
 $Global:OX_OXYGEN = $Global:OX_CONFIG.oxygen
 $Global:OX_PLUGINS = $Global:OX_CONFIG.plugins_pwsh
-$Global:OX_CUSTOM = Get-Content -Path "$env:OXIDIZER/custom.json" | ConvertFrom-Json
+$Global:OX_CUSTOM = cat "$env:OXIDIZER/custom.json" | ConvertFrom-Json
 $Global:OX_BACKUP = $HOME + "/" + $Global:OX_CUSTOM.oxide_folder
 $Global:OX_DOWNLOAD = $HOME + "/" + $Global:OX_CUSTOM.download_folder
 
@@ -149,7 +149,7 @@ if (Get-Command starship -ErrorAction SilentlyContinue) {
 
 $Global:OX_STARTUP = $Global:OX_CUSTOM.startup_folder
 if ($Global:OX_STARTUP) {
-    cd "$Global:OX_STARTUP" || exit
+    cd "$Global:OX_STARTUP"
 }
 
 ##########################################################
