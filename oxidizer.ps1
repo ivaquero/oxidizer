@@ -1,9 +1,11 @@
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     if ($env:OS) {
         $env:OXIDIZER = "$HOME\oxidizer"
+        $Global:OX_PREFIX = ""
     }
     else {
         $env:OXIDIZER = "$env:HOME/Documents/GitHub/oxidizer"
+        $env:OXIDIZER = "$HOME/"
     }
 }
 
@@ -16,8 +18,8 @@ $Global:OX_CONFIG = cat "$env:OXIDIZER/defaults/config.json" | ConvertFrom-Json
 $Global:OX_OXYGEN = $Global:OX_CONFIG.oxygen
 $Global:OX_PLUGINS = $Global:OX_CONFIG.plugins_pwsh
 $Global:OX_CUSTOM = cat "$env:OXIDIZER/custom.json" | ConvertFrom-Json
-$Global:OX_BACKUP = $HOME + "/" + $Global:OX_CUSTOM.oxide_folder
-$Global:OX_DOWNLOAD = $HOME + "/" + $Global:OX_CUSTOM.download_folder
+$Global:OX_BACKUP = $Global:OX_PREFIX + $Global:OX_CUSTOM.oxide_folder_win
+$Global:OX_DOWNLOAD = $Global:OX_PREFIX + $Global:OX_CUSTOM.download_folder
 
 ##########################################################
 # System Configuration Files
