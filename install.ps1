@@ -39,9 +39,9 @@ if ($($env:OS).Contains("Windows")) {
 
     if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         $env:OXIDIZER = "$HOME\oxidizer"
-        Write-Output '# Oxidizer' >> $env:OX_SHELL
-        Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
-        Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
+        Write-Output '# oxidizer' >> $Global:OX_SHELL
+        Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $Global:OX_SHELL
+        Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $Global:OX_SHELL
     }
     $pkgs = cat "$env:OXIDIZER\defaults\install.txt"
 
@@ -69,13 +69,13 @@ if ($($env:OS).Contains("Windows")) {
 
 Remove-Item alias:cp -Force -ErrorAction SilentlyContinue
 
-Write-Output "Adding Oxidizer into $PROFILE..."
+Write-Output "Adding oxidizer into $PROFILE..."
 
 if (!(Test-Path -Path $PROFILE)) {
     New-Item -ItemType File -Force -Path $PROFILE
 }
 
-Write-Output '# Oxidizer' >> $PROFILE
+Write-Output '# oxidizer' >> $PROFILE
 
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     if ($($env:OS).Contains("Windows")) {
@@ -93,6 +93,9 @@ Write-Output "Adding Custom settings..."
 
 if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
     Copy-Item -R -v "$env:OXIDIZER\defaults\default.ps1" "$env:OXIDIZER\custom.ps1"
+}
+if (!(Test-Path -Path "$env:OXIDIZER\custom.json")) {
+    Copy-Item -R -v "$env:OXIDIZER\defaults\default.json" "$env:OXIDIZER\custom.json"
 }
 
 sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
@@ -123,6 +126,6 @@ if ($($env:OS).Contains("Windows")) {
 
 . $PROFILE
 
-Write-Output "Oxidizer installation complete!"
+Write-Output "oxidizer installation complete!"
 Write-Output "Don't forget to restart your terminal and hit 'edf ox' to tweak your preferences.\n"
 Write-Output "Finally, run 'upox' function to activate the plugins. Enjoy!"

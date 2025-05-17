@@ -79,13 +79,14 @@ pup = pull upstream
 sync = "!f(){ git pull upstream ${1} && git push origin ${1}; };f"
 # push
 ps = push
-publish = "!f(){ git push --set-upstream origin ${1}; };f"
+publish = push -u origin
 # rebase
 rb = rebase
 rbi = rebase --interactive
 # reset
 undo = reset --soft HEAD^
-squash = "!f(){ git reset --soft HEAD~${1}; };f"
+squash = reset --soft
+squash-n = "!f(){ git reset --soft HEAD~${1}; };f"
 # revert
 rv = revert
 # status

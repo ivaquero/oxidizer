@@ -1,6 +1,6 @@
 ## Writing A Plugin
 
-A plugin in Oxidizer is referred as OX_OXYGEN, a key-value object whose key starts with `oxp`.
+A plugin in oxidizer is referred as OX_OXYGEN, a key-value object whose key starts with `oxp`.
 
 For a Neovim plugin, in `config.json`, write
 
@@ -24,7 +24,7 @@ And add the key of OX_OXYGEN into `OX_PLUGINS` object
 
 ### Config Files
 
-A system / software / tool configuration file in Oxidizer is referred as `OX_ELEMENT`, set it like what you do with `OX_OXYGEN`
+A system / software / tool configuration file in oxidizer is referred as `OX_ELEMENT`, set it like what you do with `OX_OXYGEN`
 
 ```sh
 # macOS / Linux
@@ -44,7 +44,7 @@ $Global:OX_ELEMENT.nvi_ = "$HOME/.config/nvim"
 
 ### Backup Files
 
-A backup file in Oxidizer is referred as OX_OXIDE, in `config.json`, set it like
+A backup file in oxidizer is referred as OX_OXIDE, in `config.json`, set it like
 
 ```json
 {

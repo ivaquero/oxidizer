@@ -13,7 +13,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   job1:
-    name: Test Oxidizer on macOS
+    name: Test oxidizer on macOS
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -29,7 +29,7 @@ jobs:
           bash -e install.sh
 
   job2:
-    name: Test Oxidizer on Linux
+    name: Test oxidizer on Linux
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -45,7 +45,7 @@ jobs:
           bash -e install.sh
 
   job3:
-    name: Test Oxidizer on ${{ matrix.os }}
+    name: Test oxidizer on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

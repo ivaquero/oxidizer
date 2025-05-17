@@ -1,19 +1,106 @@
-# Oxidizer
+# oxidizer
 
 [![CI](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml/badge.svg)](https://github.com/ivaquero/oxidizer/actions/workflows/main.yml)
 [![license](https://img.shields.io/github/license/ivaquero/oxidizer)](https://github.com/ivaquero/oxidizer/blob/master/LICENSE)
 ![code size](https://img.shields.io/github/languages/code-size/ivaquero/oxidizer.svg)
 ![repo size](https://img.shields.io/github/repo-size/ivaquero/oxidizer.svg)
 
-A Simple & Extensible Dotfile Manager That Unifies Your Terminal Operations
+A Simple & Extensible Dotfile and Computing Environments Manager That Facilitates Your Terminal Operations
 
-一个简单 & 可扩展的，用于统一终端操作的 dotfile 管理工具
-
-Let's Oxidize Development Environments
+一个简单 & 可扩展的，用于简化操作的 dotfile 和计算环境管理工具
 
 ![oxidizer](https://raw.githubusercontent.com/ivaquero/backup/main/docs/oxidizer.png)
 
-## 1. Get Started 从这里开始
+## 1. Motivation 动机
+
+oxidizer is originally designed for **non-administrator** users. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
+
+- Cross-Platform (mainly Rust toolchains)
+- Minimal Dependencies & Minimal Installation
+- Extensible Architecture
+- Unified Interface & Smooth Usage
+- Barely affect loading (loading time < 1 s)
+
+oxidizer 起初主要为**非管理员用户**设计（在实验室的不同计算机上反复搭建环境真的很烦），用于快速搭建跨平台统一的工作环境，避免重复和繁琐的环境配置劳动，其具有特点
+
+- 跨平台（主要基于 Rust 工具链）
+- 最少依赖 & 最少安装
+- 可扩展架构
+- 统一接口 & 丝滑操作
+- 几乎不影响加载！（载入时间 < 1 秒）
+
+Although this toy program uses a lot of rust-based CLI, its name just came out of the pattern "element-oxidizer-oxide" when I was a student in biochemistry.
+
+虽然这个玩具程序使用了很多基于 rust 的 CLI，但它的名字只是在我还是生化专业的学生时从模式"单质 - 氧化剂 - 氧化物"中冒出来的。
+
+## 2. File Management 文件管理
+
+![design](https://raw.githubusercontent.com/ivaquero/backup/master/docs/design.drawio.png)
+
+Based on the name origin of the program, the program creates 3 main variables
+
+- OX_ELEMENT: config files of softwares
+- OX_OXIDE: backup of the config files
+- OX_OXYGEN: config files in oxidizer
+
+根据程序的名称起源，程序会创建 3 个主要变量
+
+- OX_ELEMENT: 软件的配置文件
+- OX_OXIDE: 配置文件的备份
+- OX_OXYGEN: oxidizer 自带的配置文件
+
+- `rff`
+  - refresh file by `source`
+- `edf`
+  - edit file by `$EDITOR` (default: VSCode)
+- `brf`
+  - file: browse by `bat` / `cat`
+  - folder: browse by `lsd` / `ls`
+- `ipf` (import file, alias: `rdf`)
+  - reduce file: overwrite configuration file by backup (customized) file
+- `epf` (export file, alias: `oxf`)
+  - oxidize file: backup configuration file to backup folder
+- `iif` (initialize file, alias: `clzf`)
+  - catalyze file: overwrite configuration file by oxidizer defaults
+- `ppgf`
+  - propagate file: backup oxidizer defaults to backup folder
+
+For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
+
+When you `epf zs` (export file), `~/.zshrc` will be copied and save in  folder backup folder
+
+As mentioned in **Get Started**, you can open `custom.json` simply by `edf jox`.
+
+In the `custom.json`, edit the `oxides` map to predefine the specific backup path, where `oxide_folder` is the backup root path relative to `$HOME`. Note that the key should be set as `bk` + `[key in OX_ELEMENT]`.
+
+```json
+{
+ "oxide_folder": "Documents",
+ "oxides": {
+        "bkox": "shell/custom.sh",
+        "bkoxw": "shell/custom.ps1",
+        "bkoxj": "shell/custom.json",
+        "bkb": "unix/Brewfile",
+        "bkvi": "shell/.vimrc",
+        "bkss": "shell/starship.toml",
+        "bkg": "../notes/.gitconfig",
+        "bkzs": "shell/.zshrc",
+        "bkbs": "shell/.bash_profile"
+    }
+}
+```
+
+The table below lists the information of specific configuration files:
+
+> `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` | `edf [Plugin Abbr.]`.
+
+oxidizer uses [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
+
+- `zpf`: compress file
+- `zpfr`: decompress file
+- `zpfls`: list items in the compressed file
+
+## 3. Installation 安装
 
 For macOS / Linux (Intel)
 
@@ -22,7 +109,7 @@ export OXIDIZER=$HOME/oxidizer
 git clone --depth=1 https://github.com/ivaquero/oxidizer.git $OXIDIZER && bash oxidizer/install.sh
 ```
 
-Note that Homebrew is an essential dependency for Oxidizer on macOS / Linux.
+Note that Homebrew is an essential dependency for oxidizer on macOS / Linux.
 
 - 对中国大陆用户，可设置 `BREW_CN` 变量来下载安装 Homebrew：
 
@@ -57,13 +144,13 @@ edf ox
 
 To keep up the updates, simply `upox` function.
 
-可使用 `upox` 命令来更新 Oxidizer
+可使用 `upox` 命令来更新 oxidizer
 
 ## 2. Motivation 动机
 
 Oxidizer 的主要目标
 
-Oxidizer is originally designed for **non-administrator**rs. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
+Oxidizer is originally designed for **non-administrator** users. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
 
 - Cross-Platform (mainly Rust toolchains)
 - Minimal Dependencies & Minimal Installation
@@ -81,7 +168,7 @@ Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平�
 
 ## 3. Tool Chains 工具链
 
-### 3.1. CLI Tools Replacement
+### 4.1. CLI Tools Replacement
 
 > ☑️ means required in the installation.
 
@@ -97,25 +184,26 @@ Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平�
   - [x] [tlrc](https://github.com/tldr-pages/tlrc) ⟶ `tldr` | `man`
   - [x] [zoxide](https://github.com/ajeetdsouza/zoxide) ⟶ `cd` | `z`
   - [x] [hyperfine](https://github.com/sharkdp/hyperfine) ⟶ `time`
+  - [ ] [choose](https://github.com/theryangeary/choose) ⟶ `cut`
   - [ ] [starship](https://github.com/starship/starship) ⟶ `powerline10k` | `ohmyposh`
   - [ ] [yazi](https://github.com/sxyazi/yazi) ⟶ `ranger`
   - [ ] [tokei](https://github.com/XAMPPRocky/tokei) ⟶ `cloc`
 
-### 3.2. GUI Tools Replacement
+### 4.2. GUI Tools Replacement
 
 - [ ] [WezTerm](https://github.com/wez/wezterm) | [alacritty](https://github.com/alacritty/alacritty) ⟶ `iterm2` | `windows terminal`
 
 > `WezTerm` is more recommended because it has a built-in multiplexer.
 
-### 3.3. Otherful Rust Tools
+### 4.3. Otherful Rust Tools
 
 - [x] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
 - [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects
 
-### 3.4. Summary of Plugins
+### 4.4. Summary of Plugins
 
-Oxidizer is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
+oxidizer is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
@@ -167,43 +255,9 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 | `utils_networks.sh` |  System Utils   |     Network Configuration      |
 |    `xtra_notes`     |   Extra Utils   | Notes Apps (Obsidian & Logseq) |
 
-## 4. File Management 文件管理
+## 5. Package Management 包管理
 
-![design](https://raw.githubusercontent.com/ivaquero/backup/master/docs/design.drawio.png)
-
-- `rff`
-  - refresh file by `source`
-- `edf`
-  - edit file by `$EDITOR` (default: VSCode)
-- `brf`
-  - file: browse by `bat` / `cat`
-  - folder: browse by `lsd` / `ls`
-- `rdf` (alias: `ipf`, means import file)
-  - reduce file: overwrite configuration file by backup (customized) file
-- `oxf` (alias: `epf`, means export file)
-  - oxidize file: backup configuration file to backup folder
-- `clzf` (alias: `iif`, means initialize file)
-  - catalyze file: overwrite configuration file by Oxidizer defaults
-- `ppgf`
-  - propagate file: backup Oxidizer defaults to backup folder
-
-For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
-
-When you `oxf zs`, `~/.zshrc` will be copied and save in `$OX_BACKUP/shell` folder, where `$OX_BACKUP` is the backup path that can be personalized in `$OXIDIZER/custom.sh`. As mentioned in **Get Started**, you can open `custom.sh` simply by `edf ox`.
-
-The table below lists the information of specific configuration files:
-
-> `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` | `edf [Plugin Abbr.]`.
-
-Oxidizers [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
-
-- `zpf`: compress file
-- `uzpf`: decompress file
-- `lzpf`: list items in the compressed file
-
-## 6. Package Management 包管理
-
-Oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-liners.
+oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-liners.
 
 | Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | pixi `px` | gem `rb` | tlmgr `tl` |
 | :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :-------: | :------: | :--------: |
@@ -269,7 +323,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 | `*xrm` | remove repo |         |    ✅    |     ✅      |          |
 | `*xls` |  list repo  |         |    ✅    |     ✅      |          |
 
-### 6.1. Homebrew
+### 5.1. Homebrew
 
 - `bis`: brew install
 - `bris`: brew reinstall
@@ -282,7 +336,7 @@ suffix `c` is a flag to specify brew commands only work on casks
 
 - `brp [cask]`: replace brew cache file by pre-downloaded file
 
-### 6.2. Conda
+### 5.2. Conda
 
 Note that some shortcuts of the `ox-conda` plugin is based on the package `conda-tree` that you need to install
 
@@ -335,7 +389,7 @@ cls h
   - `s`: for `linux-s390x`
 - `ceep`: export environment
 
-## 5. Software Information Management
+## 6. Software Information Management
 
 `back_*` and `up_*` work for `brew`, `scoop`, `conda`, `vscode` (only for windows), `julia`, `tlmgr`, `npm`. `clean_*` works for `brew` and `conda`.
 

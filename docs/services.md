@@ -1,6 +1,6 @@
 ## Service Management
 
-Oxidizer's task & service management follows the same philosophy of package management, _i.e._ to provide unified interfaces to facilitate workflows.
+oxidizer's task & service management follows the same philosophy of package management, _i.e._ to provide unified interfaces to facilitate workflows.
 
 | Suffix |    Action    | brew<br>services `bs` | espanso `es` | bitwarden `bw` |
 | :----: | :----------: | :-------------------: | :----------: | :------------: |

@@ -1,6 +1,6 @@
 #!/bin/bash /bin/zsh
 export OXIDIZER=${OXIDIZER:-"${HOME}/oxidizer"}
-printf "📦 Installing Oxidizer\n"
+printf "📦 Installing oxidizer\n"
 
 ###################################################
 # Install Homebrew
@@ -35,7 +35,7 @@ brew tap brewforge/extras
 # Install Packages
 ###################################################
 
-printf "📦 Installing essential Oxidizer toolchains...\n"
+printf "📦 Installing essential oxidizer toolchains...\n"
 
 while read -r pkg; do
     case $pkg in
@@ -57,6 +57,10 @@ while read -r pkg; do
         brew install "$pkg"
     fi
 done <"${OXIDIZER}"/defaults/install.txt
+
+if ! command -v jq >/dev/null 2>&1; then
+    brew install jq
+fi
 
 ###################################################
 # Install Zap
@@ -93,12 +97,12 @@ case ${SHELL} in
 esac
 
 ###################################################
-# Inject Oxidizer
+# Inject oxidizer
 ###################################################
 
-printf '⚙️ Adding Oxidizer into %s...\n' "${OX_SHELL}"
+printf '⚙️ Adding oxidizer into %s...\n' "${OX_SHELL}"
 
-echo "# Oxidizer" >>"${OX_SHELL}"
+echo "# oxidizer" >>"${OX_SHELL}"
 
 if [[ -z ${OXIDIZER} ]]; then
     OXIDIZER="${HOME}/oxidizer"
@@ -121,7 +125,7 @@ fi
 sd '.* OX_STARTUP=.*' 'export OX_STARTUP=1' "${OXIDIZER}"/custom.sh
 # set path of oxidizer
 # echo "source OXIDIZER=${OXIDIZER}/oxidizer.sh" | xargs -I '{}' sd '' 'source OXIDIZER=.*' '{}' ${OX_SHELL}
-# echo $(cat ${OX_SHELL} | rg -o 'source .+')
+# echo "$(rg -o 'source .+' <${OX_SHELL})"
 
 ###################################################
 # Load Plugins
@@ -133,6 +137,6 @@ git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plug
 # Editor
 ###################################################
 
-printf "🎉 Oxidizer installation complete!\n"
+printf "🎉 oxidizer installation complete!\n"
 printf "💡 Don't forget to restart your terminal and hit 'edf ox' to tweak your preferences.\n"
 printf "😀 Finally, run 'upox' function to activate the plugins. Enjoy!\n"
