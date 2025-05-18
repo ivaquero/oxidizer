@@ -96,8 +96,8 @@ function upox {
     }
     else {
         if ( $args[0] -eq "-f" ) {
-            rm -rf "${OXIDIZER}"/plugins
-            git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
+            Remove-Item "$env:OXIDIZER\addons\*.*"
+            git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER\addons
         }
         Set-Location "$env:OXIDIZER\addons"
         Write-Output "`n`nUpdating oxidizer Plugins...`n"
