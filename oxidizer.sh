@@ -149,6 +149,10 @@ upox() {
         git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
     else
         printf "\n\nUpdating oxidizer Plugins...\n"
+        if [[ $1 == "-f" ]]; then
+            rm -rf "${OXIDIZER}"/plugins
+            git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
+        fi
         cd "${OXIDIZER}"/plugins || exit
         git fetch origin main
         git reset --hard origin/main

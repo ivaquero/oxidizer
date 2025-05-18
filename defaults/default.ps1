@@ -12,14 +12,14 @@ $env:EDITOR_T = 'vi'
 ##########################################################
 
 # shortcuts
-function .. { cd .. }
-function ... { cd ../.. }
+function .. { Set-Location .. }
+function ... { Set-Location ../.. }
 function cat { bat $args }
 function ls { lsd $args }
 function ll { lsd -l $args }
 function la { lsd -a $args }
 function lla { lsd -la $args }
-function e { echo $args }
+function e { Write-Output $args }
 function rr { rm -rf $args }
 function c { clear }
 

@@ -39,9 +39,9 @@ if ($($env:OS).Contains("Windows")) {
 
     if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         $env:OXIDIZER = "$HOME\oxidizer"
-        Write-Output '# oxidizer' >> $Global:OX_SHELL
-        Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $Global:OX_SHELL
-        Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $Global:OX_SHELL
+        Write-Output '# oxidizer' >> $env:OX_SHELL
+        Write-Output 'export OXIDIZER=${HOME}/oxidizer' >> $env:OX_SHELL
+        Write-Output 'source ${OXIDIZER}/oxidizer.sh' >> $env:OX_SHELL
     }
     $pkgs = cat "$env:OXIDIZER\defaults\install.txt"
 
@@ -98,7 +98,7 @@ if (!(Test-Path -Path "$env:OXIDIZER\custom.json")) {
     Copy-Item -R -v "$env:OXIDIZER\defaults\default.json" "$env:OXIDIZER\custom.json"
 }
 
-sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
+sd ".* OX_STARTUP = .*" "$env:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
 # sd "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
 # Write-Output $(cat $OX_SHELL | rg -o 'source .+')
@@ -109,9 +109,12 @@ sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
 
 Set-Location $env:OXIDIZER
 
-git clone --depth=1 https://github.com/ivaquero/oxplugins.git ./plugins
-
-git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
+if ($($env:OS).Contains("Windows")) {
+    git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
+}
+else {
+    git clone --depth=1 https://github.com/ivaquero/oxplugins.git ./plugins
+}
 
 ###################################################
 # Extras Steps
