@@ -25,12 +25,13 @@ colorMoved = default
 cf = config
 h = help
 ii = init
+ig = ignore
 ui = !lazygit
 # summary
 cnt = rev-list --count HEAD
 sum = !onefetch
-# helper
-cmpr = repack -a -d -f --depth=300 --window=300 --window-memory=1g
+graph = log --graph --oneline --decorate --all
+graph2 = log --graph --abbrev-commit --decorate --date=relative --all
 # clone
 cln = clone
 cln-clean = cln --depth 1 --no-checkout
@@ -43,7 +44,6 @@ br-ls = br --all
 br-rm = br --delete
 br-rm-rmt = br --delete --remotes
 br-clean = "!f(){ git branch -D $(git branch --list '${1}*') };f"
-default = "!f(){ git remote show origin | grep 'HEAD branch' | cut -d ' ' -f5; };f"
 # commit
 c = commit
 ci = c --interactive
@@ -55,6 +55,7 @@ cl = clean
 cl-ign = !git rm -rf --cached . && git add .
 ls-blob = !"git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | grep 'blob' | sort -k 2 -n"
 ls-blob-10 = !"git ls-blob | tail -n 10"
+cmpr = repack -a -d -f --depth=300 --window=300 --window-memory=1g
 # diff
 df = diff
 # fetch
@@ -80,13 +81,13 @@ sync = "!f(){ git pull upstream ${1} && git push origin ${1}; };f"
 # push
 ps = push
 publish = push -u origin
-# rebase
-rb = rebase
-rbi = rebase --interactive
 # reset
 undo = reset --soft HEAD^
 squash = reset --soft
 squash-n = "!f(){ git reset --soft HEAD~${1}; };f"
+# rebase
+rb = rebase
+rbi = rebase --interactive
 # revert
 rv = revert
 # status
@@ -100,9 +101,9 @@ tg-cl = tg --cleanup
 tg-edit = tg --edit
 tg-annot = tg --annotate
 # origin
-org-add = remote add origin
-org-add-url = remote set-url
-org-rnm = remote rename origin
+ori-add = remote add origin
+ori-add-url = remote set-url
+ori-rnm = remote rename origin
 
 # [http]
 # version = HTTP/1.1
