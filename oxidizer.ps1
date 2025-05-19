@@ -34,8 +34,9 @@ $env:OX_ELEMENT = @{
     'g'   = "$HOME/.gitconfig"
     'vi'  = "$HOME/.vimrc"
     'ps'  = "$HOME/Documents\WindowsPowerShell\profile.ps1"
-    'dk'  = "$HOME/.docker/custom.json"
-    'dkd' = "$HOME/.docker/daemon.json"
+    'dr'  = "$HOME/.docker/custom.json"
+    'drd' = "$HOME/.docker/daemon.json"
+    'pm'  = "$HOME/.config/containers/containers.conf"
 }
 
 if ( Test-Path "$env:LOCALAPPDATA\Packages\Microsoft.windowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" ) {

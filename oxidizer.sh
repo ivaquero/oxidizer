@@ -20,8 +20,9 @@ OX_ELEMENT=(
     [bshs]="${HOME}/.bash_history"
     [g]="${HOME}/.gitconfig"
     [vi]="${HOME}/.vimrc"
-    [dk]="${HOME}/.docker/custom.json"
-    [dkd]="${HOME}/.docker/daemon.json"
+    [dr]="${HOME}/.docker/custom.json"
+    [drd]="${HOME}/.docker/daemon.json"
+    [pm]="${HOME}/.config/containers/containers.conf"
     [wz]="${HOME}/.wezterm.lua"
 )
 
