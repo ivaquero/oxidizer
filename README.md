@@ -197,9 +197,7 @@ Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平�
 
 ### 4.3. Otherful Rust Tools
 
-- [x] [onefetch](https://github.com/o2sh/onefetch): Command-line Git information tool
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
-- [ ] [kondo](https://github.com/tbillington/kondo): A tool to clean dependencies and build artefacts from your projects
 
 ### 4.4. Summary of Plugins
 
