@@ -15,7 +15,7 @@ $env:EDITOR_T = 'vi'
 function .. { Set-Location .. }
 function ... { Set-Location ../.. }
 function cat { bat $args }
-function ls { lsd $args }
+# function ls { lsd $args }
 function ll { lsd -l $args }
 function la { lsd -a $args }
 function lla { lsd -la $args }

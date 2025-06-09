@@ -4,7 +4,6 @@ dust
 fd
 hyperfine
 lsd
-onefetch
 ripgrep
 tlrc
 zoxide

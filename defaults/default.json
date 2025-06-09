@@ -35,11 +35,11 @@
         "bkox": "shell/custom.sh",
         "bkwox": "shell/custom.ps1",
         "bkjox": "shell/custom.json",
-        "bkb": "unix/Brewfile",
         "bkvi": "shell/.vimrc",
         "bkss": "shell/starship.toml",
-        "bkg": "../notes/.gitconfig",
         "bkzs": "shell/.zshrc",
-        "bkbs": "shell/.bash_profile"
+        "bkbs": "shell/.bash_profile",
+        "bkb": "unix/Brewfile",
+        "bkg": "../notes/.gitconfig"
     }
 }
