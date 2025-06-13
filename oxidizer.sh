@@ -16,7 +16,6 @@ OX_ELEMENT=(
     [jox]="${OXIDIZER}/custom.json"
     [zs]="${HOME}/.zshrc"
     [zshs]="${HOME}/.zsh_history"
-    [bs]="${HOME}/.bashrc"
     [bshs]="${HOME}/.bash_history"
     [g]="${HOME}/.gitconfig"
     [vi]="${HOME}/.vimrc"
@@ -25,6 +24,14 @@ OX_ELEMENT=(
     [pm]="${HOME}/.config/containers/containers.conf"
     [wz]="${HOME}/.wezterm.lua"
 )
+
+if [[ -f "${HOME}/.bashrc" ]]; then
+    OX_ELEMENT[bs]=${HOME}/.bashrc
+elif [[ -f "${HOME}/.bash_profile" ]]; then
+    OX_ELEMENT[bs]=${HOME}/.profile
+elif [[ -f "${HOME}/.profile" ]]; then
+    OX_ELEMENT[bs]=${HOME}/.profile
+fi
 
 case $(uname -s) in
 Darwin)

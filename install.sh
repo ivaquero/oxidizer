@@ -91,7 +91,10 @@ case ${SHELL} in
         export OX_SHELL=${HOME}/.bashrc
     elif [[ -f "${HOME}/.bash_profile" ]]; then
         export OX_SHELL=${HOME}/.profile
+    elif [[ -f "${HOME}/.profile" ]]; then
+        export OX_SHELL=${HOME}/.profile
     fi
+
     echo 'export BASH_SILENCE_DEPRECATION_WARNING=1' >>"${OX_SHELL}"
     ;;
 esac
