@@ -33,8 +33,6 @@ alias man="tldr"
 alias hf="hyperfine"
 alias ff="fastfetch"
 alias g="git"
-# alias npm="pnpm"
-alias p="ipython"
 
 # oxidizer
 # export config
@@ -45,4 +43,4 @@ alias ipf="rdf"
 alias iif="clzf"
 
 # personal
-alias -g wl="| wc -l"
+# alias -g wl="| wc -l"

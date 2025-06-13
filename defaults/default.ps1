@@ -27,6 +27,8 @@ function c { clear }
 Remove-Item alias:man -Force -ErrorAction SilentlyContinue
 function man { tldr $args }
 function hf { hyperfine $args }
+function ff { fastfetch $args }
+function g { git $args }
 
 # oxidizer
 # export config

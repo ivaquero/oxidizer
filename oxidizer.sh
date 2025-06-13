@@ -16,7 +16,7 @@ OX_ELEMENT=(
     [jox]="${OXIDIZER}/custom.json"
     [zs]="${HOME}/.zshrc"
     [zshs]="${HOME}/.zsh_history"
-    [bs]="${HOME}/.bash_profile"
+    [bs]="${HOME}/.bashrc"
     [bshs]="${HOME}/.bash_history"
     [g]="${HOME}/.gitconfig"
     [vi]="${HOME}/.vimrc"
@@ -44,15 +44,20 @@ OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
 
 . "${OX_ELEMENT[ox]}"
 
-# load required plugin
+# load core plugins
+if command -v brew >/dev/null 2>&1; then
+    . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
+fi
+
 case $(uname -a) in
 *Darwin*)
     . "$OXIDIZER"/"$(jq -r .plugins.os_macos <"$OXIDIZER"/defaults/config.json)"
-    . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
     ;;
-*Ubuntu* | *Debian* | *WSL*)
+*Ubuntu* | *Debian*)
     . "$OXIDIZER"/"$(jq -r .plugins.os_debian <"$OXIDIZER"/defaults/config.json)"
-    . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
+    ;;
+*Redhat*)
+    . "$OXIDIZER"/"$(jq -r .plugins.os_redhat <"$OXIDIZER"/defaults/config.json)"
     ;;
 *MINGW*)
     . "$OXIDIZER"/"$(jq -r .plugins.os_windows <"$OXIDIZER"/defaults/config.json)"
@@ -64,6 +69,7 @@ esac
 . "$OXIDIZER"/"$(jq -r .plugins.utils_formats <"$OXIDIZER"/defaults/config.json)"
 . "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
 
+# load plugins
 for plugin in $(jq -r ".plugins_load |.[]" <"$OXIDIZER"/custom.json); do
     . "$OXIDIZER"/"$(jq -r .plugins."$plugin" <"$OXIDIZER"/defaults/config.json)"
 done

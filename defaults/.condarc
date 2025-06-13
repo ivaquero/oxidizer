@@ -1,6 +1,8 @@
 # channel
 channels:
   - conda-forge
+# custom_channels:
+#   conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 
 # path
 envs_dirs:

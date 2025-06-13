@@ -59,7 +59,7 @@ if ($($env:OS).Contains("Windows")) {
             Write-Output "$pkg not found, installing..."
             scoop install $pkg
         }
-        scoop install busybox sudo
+        scoop install busybox sudo scoop-completion
     }
 }
 

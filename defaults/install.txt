@@ -10,3 +10,4 @@ zoxide
 cmake
 fastfetch
 gh
+pandoc

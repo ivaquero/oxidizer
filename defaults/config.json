@@ -8,9 +8,9 @@
         "oxwz": "defaults/wezterm.lua"
     },
     "plugins": {
-        "os_debians": "plugins/os_debians.sh",
+        "os_debian": "plugins/os_debian.sh",
         "os_macos": "plugins/os_macos.sh",
-        "os_rehats": "plugins/os_rehats.sh",
+        "os_rehat": "plugins/os_rehat.sh",
         "os_windows": "plugins/os_windows.sh",
         "utils_files": "plugins/utils_files.sh",
         "utils_formats": "plugins/utils_formats.sh",

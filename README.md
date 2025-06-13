@@ -231,7 +231,7 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 |      Filename       |    Category     |            Support             |
 | :-----------------: | :-------------: | :----------------------------: |
 |     `os_macos`      |  OS Shortcuts   |             macOS              |
-|    `os_debians`     |  OS Shortcuts   |      Debian-Based Systems      |
+|     `os_debian`     |  OS Shortcuts   |      Debian-Based Systems      |
 |     `os_redhat`     |  OS Shortcuts   |      RedHat-Based Systems      |
 |    `os_windows`     |  OS Shortcuts   |    Windows (include winget)    |
 |     `pkg_brew`      | Package Manager |    Homebrew (macOS & Linux)    |

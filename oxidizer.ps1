@@ -59,17 +59,21 @@ $Global:OX_OXIDE = $Global:OX_CUSTOM.oxides
 . $Global:OX_ELEMENT.wox
 
 # load core plugins
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
+    . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.pkg_scoop)
+}
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.os_windows)
-. ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.pkg_scoop)
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_files)
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_formats)
 . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_networks)
 
+# load plugins
 $Global:OX_PLUGINS_LOAD = $(Write-Output $Global:OX_CUSTOM.plugins_load | rg -o "\w+")
 ForEach ($plugin in $Global:OX_PLUGINS_LOAD) {
     $plugin_path = "$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.$plugin
     . $plugin_path
 }
+
 # load custom plugins
 $Global:OX_PLUGINS_PLUS = $Global:OX_CUSTOM.plugins_plus
 $Global:OX_PLUGINS_LOAD_PLUS = $(Write-Output $Global:OX_CUSTOM.plugins_load_plus | rg -o "\w+")

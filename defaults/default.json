@@ -6,7 +6,8 @@
         "proxy_ports": "proxy ports: c: clash, m: clash-meta, v: v2ray"
     },
     "plugins_load": [
-        "cli_ollama"
+        "cli_ollama",
+        "cli_vscode"
     ],
     "plugins_plus": {
         "your_plugin": "its_path"
@@ -17,11 +18,11 @@
         "m": 7898,
         "v": 1080
     },
-    "conda_env_shortcut": {
+    "conda_env_shortcuts": {
         "b": "base",
         "env_alias": "its_path"
     },
-    "julia_env_shortcut": {
+    "julia_env_shortcuts": {
         "env_alias": "its_path"
     },
     "julia_env_shortcuts_win": {
@@ -30,7 +31,7 @@
     "startup_folder": "",
     "download_folder": "Downloads",
     "oxide_folder": "Documents",
-    "oxide_folder_win": "D:/",
+    "oxide_folder_win": "D:/backup",
     "oxides": {
         "bkox": "shell/custom.sh",
         "bkwox": "shell/custom.ps1",
