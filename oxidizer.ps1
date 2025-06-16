@@ -3,7 +3,7 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         $env:OXIDIZER = "$HOME/oxidizer"
     }
     else {
-        $env:OXIDIZER = "$env:HOME/Documents/GitHub/oxidizer"
+        $env:OXIDIZER = "$env:HOME/oxidizer"
     }
 }
 

@@ -87,6 +87,10 @@ if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
         $env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
     }
 }
+else {
+    Write-Output '
+        $env:OXIDIZER = "$env:OXIDIZER"' >> $PROFILE
+}
 
 Write-Output ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
 Write-Output "Adding Custom settings..."

@@ -63,7 +63,7 @@ if ! command -v jq >/dev/null 2>&1; then
 fi
 
 ###################################################
-# Install Zap
+# Tap Linux fonts
 ###################################################
 
 if [[ $(uname -s) = "Linux" ]]; then
