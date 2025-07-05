@@ -29,8 +29,7 @@ $Global:OX_DOWNLOAD = $Global:OX_PREFIX + $Global:OX_CUSTOM.download_folder
 ##########################################################
 
 $Global:OX_ELEMENT = @{
-    'wox' = "$env:OXIDIZER/custom.ps1"
-    'jox' = "$env:OXIDIZER/custom.json"
+    'ox'  = "$env:OXIDIZER/custom.json"
     'g'   = "$HOME/.gitconfig"
     'vi'  = "$HOME/.vimrc"
     'ps'  = "$HOME/Documents\WindowsPowerShell\profile.ps1"
@@ -42,7 +41,7 @@ $Global:OX_ELEMENT = @{
 if ( Test-Path "$env:LOCALAPPDATA\Packages\Microsoft.windowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" ) {
     $Global:OX_ELEMENT.wt = "$env:LOCALAPPDATA\Packages\Microsoft.windowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 }
-else { $Global:OX_ELEMENT.wt = "C:\Scoop\apps\windows-terminal/current\settings\settings.json" }
+else { $Global:OX_ELEMENT.wt = 'C:\Scoop\apps\windows-terminal/current\settings\settings.json' }
 
 $Global:OX_ELEMENT.wz = "$HOME/.wezterm.lua"
 if ( !(Test-Path $Global:OX_ELEMENT.wz) ) {
@@ -56,30 +55,28 @@ $Global:OX_OXIDE = $Global:OX_CUSTOM.oxides
 # Load Plugins
 ##########################################################
 
-. $Global:OX_ELEMENT.wox
-
 # load core plugins
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
-    . ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.pkg_scoop)
+    . ("$env:OXIDIZER" + '/' + $Global:OX_PLUGINS.pkg_scoop)
 }
-. ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.os_windows)
-. ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_files)
-. ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_formats)
-. ("$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.utils_networks)
+. ("$env:OXIDIZER" + '/' + $Global:OX_PLUGINS.os_windows)
+. ("$env:OXIDIZER" + '/' + $Global:OX_PLUGINS.utils_files)
+. ("$env:OXIDIZER" + '/' + $Global:OX_PLUGINS.utils_formats)
+. ("$env:OXIDIZER" + '/' + $Global:OX_PLUGINS.utils_networks)
 
 # load plugins
-$Global:OX_PLUGINS_LOAD = $(Write-Output $Global:OX_CUSTOM.plugins_load | rg -o "\w+")
-ForEach ($plugin in $Global:OX_PLUGINS_LOAD) {
-    $plugin_path = "$env:OXIDIZER" + "/" + $Global:OX_PLUGINS.$plugin
+$Global:OX_PLUGINS_LOAD = $(Write-Output $Global:OX_CUSTOM.plugins_load | rg -o '\w+')
+foreach ($plugin in $Global:OX_PLUGINS_LOAD) {
+    $plugin_path = "$env:OXIDIZER" + '/' + $Global:OX_PLUGINS.$plugin
     . $plugin_path
 }
 
 # load custom plugins
 $Global:OX_PLUGINS_PLUS = $Global:OX_CUSTOM.plugins_plus
-$Global:OX_PLUGINS_LOAD_PLUS = $(Write-Output $Global:OX_CUSTOM.plugins_load_plus | rg -o "\w+")
+$Global:OX_PLUGINS_LOAD_PLUS = $(Write-Output $Global:OX_CUSTOM.plugins_load_plus | rg -o '\w+')
 if ($Global:OX_PLUGINS_LOAD_PLUS) {
-    ForEach ($plugin in $Global:OX_PLUGINS_LOAD_PLUS) {
-        $plugin_path = "$env:OXIDIZER" + "/" + $Global:OX_PLUGINS_PLUS.$plugin
+    foreach ($plugin in $Global:OX_PLUGINS_LOAD_PLUS) {
+        $plugin_path = "$env:OXIDIZER" + '/' + $Global:OX_PLUGINS_PLUS.$plugin
         . $plugin_path
     }
 }
@@ -100,7 +97,7 @@ function upox {
         git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER/addons
     }
     else {
-        if ( $args[0] -eq "-f" ) {
+        if ( $args[0] -eq '-f' ) {
             Remove-Item "$env:OXIDIZER/addons/*.*"
             git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER/addons
         }
@@ -175,5 +172,5 @@ if ($env:OS) {
     Set-PSReadLineKeyHandler -Key Tab -Function Complete
     Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
     Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-    Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
+    Set-PSReadLineKeyHandler -Key 'Ctrl+z' -Function Undo
 }

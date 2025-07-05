@@ -1,12 +1,12 @@
-if ($($env:OS).Contains("Windows")) {
+if ($($env:OS).Contains('Windows')) {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
-        Write-Output "Scoop Already Installed"
+        Write-Output 'Scoop Already Installed'
     }
     else {
-        Write-Output "Scoop Not Found. Installing..."
+        Write-Output 'Scoop Not Found. Installing...'
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Confirm
 
-        $f_scoop = Join-Path $HOME "install.ps1"
+        $f_scoop = Join-Path $HOME 'install.ps1'
 
         if ( $env:scoop_mirror ) {
             Invoke-WebRequest 'https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1' -UseBasicParsing -OutFile $f_scoop
@@ -24,13 +24,13 @@ if ($($env:OS).Contains("Windows")) {
 
     # add additional buckets
     if ( $env:scoop_mirror ) {
-        $scoopBuckets = @("nerd-fonts https://gitee.com/scoop-bucket/nerd-fonts", "extras https://gitee.com/scoop-bucket/extras.git")
+        $scoopBuckets = @('nerd-fonts https://gitee.com/scoop-bucket/nerd-fonts', 'extras https://gitee.com/scoop-bucket/extras.git')
     }
     else {
-        $scoopBuckets = @("nerd-fonts", "extras")
+        $scoopBuckets = @('nerd-fonts', 'extras')
     }
 
-    ForEach ( $bucket in $scoopBuckets ) {
+    foreach ( $bucket in $scoopBuckets ) {
         scoop bucket add $bucket
     }
 
@@ -45,12 +45,12 @@ if ($($env:OS).Contains("Windows")) {
     }
     $pkgs = cat "$env:OXIDIZER\defaults\install.txt"
 
-    ForEach ( $pkg in $pkgs ) {
-        Switch ($pkg) {
-            ripgrep { $cmd = "rg" }
-            tlrc { $cmd = "tldr" }
-            zoxide { $cmd = "z" }
-            Default { $cmd = $pkg }
+    foreach ( $pkg in $pkgs ) {
+        switch ($pkg) {
+            ripgrep { $cmd = 'rg' }
+            tlrc { $cmd = 'tldr' }
+            zoxide { $cmd = 'z' }
+            default { $cmd = $pkg }
         }
         if (Get-Command $cmd -ErrorAction SilentlyContinue) {
             Write-Output "$pkg installed, skipping..."
@@ -78,7 +78,7 @@ if (!(Test-Path -Path $PROFILE)) {
 Write-Output '# oxidizer' >> $PROFILE
 
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
-    if ($($env:OS).Contains("Windows")) {
+    if ($($env:OS).Contains('Windows')) {
         Write-Output '
         $env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
     }
@@ -93,16 +93,12 @@ else {
 }
 
 Write-Output ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
-Write-Output "Adding Custom settings..."
+Write-Output 'Adding Custom settings...'
 
-if (!(Test-Path -Path "$env:OXIDIZER\custom.sh")) {
-    Copy-Item -R -v "$env:OXIDIZER\defaults\default.ps1" "$env:OXIDIZER\custom.ps1"
-}
 if (!(Test-Path -Path "$env:OXIDIZER\custom.json")) {
     Copy-Item -R -v "$env:OXIDIZER\defaults\default.json" "$env:OXIDIZER\custom.json"
 }
 
-sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
 # set path of oxidizer
 # sd "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
 # Write-Output $(cat $OX_SHELL | rg -o 'source .+')
@@ -113,7 +109,7 @@ sd ".* OX_STARTUP = .*" "$Global:OX_STARTUP=1" "$env:OXIDIZER\custom.ps1"
 
 Set-Location $env:OXIDIZER
 
-if ($($env:OS).Contains("Windows")) {
+if ($($env:OS).Contains('Windows')) {
     git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
 }
 else {
@@ -124,15 +120,15 @@ else {
 # Extras Steps
 ###################################################
 
-if ($($env:OS).Contains("Windows")) {
+if ($($env:OS).Contains('Windows')) {
     if (Get-Command code -ErrorAction SilentlyContinue) {
         scoop install vscode
-        reg import "C:\Scoop\apps\vscode\current\install-associations.reg"
+        reg import 'C:\Scoop\apps\vscode\current\install-associations.reg'
     }
 }
 
 . $PROFILE
 
-Write-Output "oxidizer installation complete!"
+Write-Output 'oxidizer installation complete!'
 Write-Output "Don't forget to restart your terminal and hit 'edf ox' to tweak your preferences.\n"
 Write-Output "Finally, run 'upox' function to activate the plugins. Enjoy!"

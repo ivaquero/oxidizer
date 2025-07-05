@@ -33,14 +33,12 @@
     "oxide_folder": "Documents",
     "oxide_folder_win": "D:/backup",
     "oxides": {
-        "bkox": "shell/custom.sh",
-        "bkwox": "shell/custom.ps1",
-        "bkjox": "shell/custom.json",
-        "bkvi": "shell/.vimrc",
-        "bkss": "shell/starship.toml",
-        "bkzs": "shell/.zshrc",
-        "bkbs": "shell/.bash_profile",
-        "bkb": "unix/Brewfile",
-        "bkg": "../notes/.gitconfig"
+        "bkox": "terminal/custom.json",
+        "bkvi": "terminal/.vimrc",
+        "bkss": "terminal/starship.toml",
+        "bkzs": "terminal/.zshrc",
+        "bkbs": "terminal/.bash_profile",
+        "bkg": "terminal/.gitconfig",
+        "bkb": "unix/Brewfile"
     }
 }

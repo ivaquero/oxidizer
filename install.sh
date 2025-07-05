@@ -120,12 +120,7 @@ printf "⚙️ Adding Custom settings..."
 if [[ ! -f "${OXIDIZER}/"custom.json ]]; then
     cp "${OXIDIZER}"/defaults/default.json "${OXIDIZER}/"custom.json
 fi
-if [[ ! -f "${OXIDIZER}/"custom.sh ]]; then
-    cp "${OXIDIZER}"/defaults/default.sh "${OXIDIZER}/"custom.sh
-fi
 
-# load zoxide
-sd '.* OX_STARTUP=.*' 'export OX_STARTUP=1' "${OXIDIZER}"/custom.sh
 # set path of oxidizer
 # echo "source OXIDIZER=${OXIDIZER}/oxidizer.sh" | xargs -I '{}' sd '' 'source OXIDIZER=.*' '{}' ${OX_SHELL}
 # echo "$(rg -o 'source .+' <${OX_SHELL})"

@@ -69,7 +69,7 @@ For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
 When you `epf zs` (export file), `~/.zshrc` will be copied and save in  folder backup folder
 
-As mentioned in **Get Started**, you can open `custom.json` simply by `edf jox`.
+As mentioned in **Get Started**, you can open `custom.json` simply by `edf ox`.
 
 In the `custom.json`, edit the `oxides` map to predefine the specific backup path, where `oxide_folder` is the backup root path relative to `$HOME`. Note that the key should be set as `bk` + `[key in OX_ELEMENT]`.
 
@@ -77,8 +77,8 @@ In the `custom.json`, edit the `oxides` map to predefine the specific backup pat
 {
  "oxide_folder": "Documents",
  "oxides": {
-        "bkox": "shell/custom.sh",
-        "bkoxw": "shell/custom.ps1",
+        "bkox": "shell/custom.json",
+        "bkoxw": "shell/custom.json",
         "bkoxj": "shell/custom.json",
         "bkb": "unix/Brewfile",
         "bkvi": "shell/.vimrc",
@@ -134,9 +134,9 @@ $env:scoop_mirror = 1
 >
 > 对于 Cmder 用户，你需要删除`%CMDER_ROOT%\vendor\profile.ps1`的最后一行`Set-Item -Path function:\prompt -Value $Prompt -Options ReadOnly`中的`-Options ReadOnly`。
 
-After installation, you might personalize your preference in `custom.sh`, check [defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh). Open `custom.sh` | `custom.ps1` by following command
+After installation, you might personalize your preference in `custom.json`, check [defaults.json](https://github.com/ivaquero/oxidizer/blob/master/defaults.json). Open `custom.json` by following command
 
-安装之后，您可以在`custom.sh`中个性化您的系统环境（请参考[defaults.sh](https://github.com/ivaquero/oxidizer/blob/master/defaults.sh)，通过一下命令打开
+安装之后，您可以在`custom.json`中个性化您的系统环境（请参考[defaults.json](https://github.com/ivaquero/oxidizer/blob/master/defaults.json)，通过一下命令打开
 
 ```bash
 edf ox
@@ -349,7 +349,7 @@ Besides the shortcuts mentioned above in **Package Management**, the conda plugi
   - `$1` length = 1 | 2: activate predefined env `OX_CONDA_ENV`
   - `$1` length > 2: activate new env
 
-`OX_CONDA_ENV` can be personalized in `custom.sh`
+`OX_CONDA_ENV` can be personalized in `custom.json`
 
 For example, assume your environment's name is `hello`, you can set
 

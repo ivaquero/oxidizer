@@ -12,8 +12,7 @@ export OX_DOWNLOAD=${HOME}/$(jq -r .download_folder <"$OXIDIZER"/custom.json)
 declare -A OX_ELEMENT
 
 OX_ELEMENT=(
-    [ox]="${OXIDIZER}/custom.sh"
-    [jox]="${OXIDIZER}/custom.json"
+    [ox]="${OXIDIZER}/custom.json"
     [zs]="${HOME}/.zshrc"
     [zshs]="${HOME}/.zsh_history"
     [bshs]="${HOME}/.bash_history"
@@ -48,8 +47,6 @@ OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
 ##########################################################
 # Load Plugins
 ##########################################################
-
-. "${OX_ELEMENT[ox]}"
 
 # load core plugins
 if command -v brew >/dev/null 2>&1; then
