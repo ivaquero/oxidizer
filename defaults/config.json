@@ -1,10 +1,11 @@
 {
     "oxygen": {
-        "oxox": "defaults/default.sh",
-        "oxwox": "defaults/default.ps1",
-        "oxjox": "defaults/default.json",
+        "oxash": "defaults/aliases.sh",
+        "oxaps": "defaults/aliases.ps1",
+        "oxox": "defaults/default.json",
         "oxc": "defaults/.condarc",
         "oxg": "defaults/.gitconfig",
+        "oxgi": "defaults/.gitignore",
         "oxwz": "defaults/wezterm.lua"
     },
     "plugins": {

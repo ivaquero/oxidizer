@@ -11,10 +11,3 @@ Icon
 
 # Local History for Visual Studio Code
 .history/
-.vscode
-
-# oxidizer
-addons
-plugins
-custom.*
-test.*
