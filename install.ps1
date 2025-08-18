@@ -59,9 +59,15 @@ if ($($env:OS).Contains('Windows')) {
             Write-Output "$pkg not found, installing..."
             scoop install $pkg
         }
-        scoop install busybox sudo scoop-completion
+        scoop install busybox sudo scoop-completion scoop-search
     }
 }
+
+Write-Output '
+if (Get-Command scoop -ErrorAction SilentlyContinue ) {
+    Import-Module scoop-completion
+    Invoke-Expression (&scoop-search --hook)
+}' >> $PROFILE
 
 ###################################################
 # Update PowerShell Settings
