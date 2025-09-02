@@ -19,7 +19,7 @@ jobs:
       matrix:
         os: [macos-15, macos-13]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -35,7 +35,7 @@ jobs:
       matrix:
         os: [ubuntu-22.04]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -51,7 +51,7 @@ jobs:
       matrix:
         os: [windows-latest]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Test on Windows
         run: |
           $env:OXIDIZER = '.'
