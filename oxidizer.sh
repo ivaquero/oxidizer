@@ -74,7 +74,7 @@ esac
 . "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
 
 # load plugins
-for plugin in $(jq -r ".plugins_load |.[]" <"$OXIDIZER"/custom.json); do
+for plugin in $(jq -r ".plugins_load | .[]" <"$OXIDIZER"/custom.json); do
     . "$OXIDIZER"/"$(jq -r .plugins."$plugin" <"$OXIDIZER"/defaults/config.json)"
 done
 
