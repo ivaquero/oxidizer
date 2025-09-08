@@ -64,10 +64,10 @@ if ($($env:OS).Contains('Windows')) {
     }
 }
 
-Write-Output '
 if (Get-Command scoop -ErrorAction SilentlyContinue ) {
-    Import-Module scoop-completion
-    Invoke-Expression (&scoop-search --hook)}' >> $PROFILE
+    Write-Output 'Import-Module scoop-completion' >> $PROFILE
+    Write-Output 'Invoke-Expression (&scoop-search --hook)' >> $PROFILE
+}
 
 ###################################################
 # Update PowerShell Settings
