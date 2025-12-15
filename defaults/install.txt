@@ -7,7 +7,5 @@ lsd
 ripgrep
 tlrc
 zoxide
-cmake
 fastfetch
-gh
 pandoc

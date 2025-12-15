@@ -7,6 +7,7 @@ if ($($env:OS).Contains('Windows')) {
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Confirm
 
         $f_scoop = Join-Path $HOME 'install.ps1'
+        $dir_scoop = 'C:\Scoop'
 
         if ( $env:scoop_mirror ) {
             Invoke-WebRequest 'https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1' -UseBasicParsing -OutFile $f_scoop
@@ -16,8 +17,8 @@ if ($($env:OS).Contains('Windows')) {
         else {
             Invoke-WebRequest 'https://raw.githubusercontent.com/ScoopInstaller/Install/master/install.ps1' -UseBasicParsing -OutFile $f_scoop
         }
-        if ( $env:scoop_test ) { & $f_scoop -RunAsAdmin -ScoopDir 'C:\Scoop' }
-        else { & $f_scoop -ScoopDir 'C:\Scoop' }
+        if ( $env:scoop_test ) { & $f_scoop -RunAsAdmin -ScoopDir $dir_scoop }
+        else { & $f_scoop -ScoopDir $dir_scoop }
     }
 
     scoop install aria2 7zip
@@ -63,11 +64,10 @@ if ($($env:OS).Contains('Windows')) {
     }
 }
 
-Write-Output '
 if (Get-Command scoop -ErrorAction SilentlyContinue ) {
-    Import-Module scoop-completion
-    Invoke-Expression (&scoop-search --hook)
-}' >> $PROFILE
+    Write-Output 'Import-Module scoop-completion' >> $PROFILE
+    Write-Output 'Invoke-Expression (&scoop-search --hook)' >> $PROFILE
+}
 
 ###################################################
 # Update PowerShell Settings
@@ -105,10 +105,6 @@ if (!(Test-Path -Path "$env:OXIDIZER\custom.json")) {
     Copy-Item -R -v "$env:OXIDIZER\defaults\default.json" "$env:OXIDIZER\custom.json"
 }
 
-# set path of oxidizer
-# sd "s| = .*\oxidizer.ps1| = $env:OXIDIZER\oxidizer.ps1|" $OX_SHELL
-# Write-Output $(cat $OX_SHELL | rg -o 'source .+')
-
 ###################################################
 # Load Plugins
 ###################################################
@@ -118,9 +114,7 @@ Set-Location $env:OXIDIZER
 if ($($env:OS).Contains('Windows')) {
     git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git ./addons
 }
-else {
-    git clone --depth=1 https://github.com/ivaquero/oxplugins.git ./plugins
-}
+else { git clone --depth=1 https://github.com/ivaquero/oxplugins.git ./plugins }
 
 ###################################################
 # Extras Steps
@@ -129,7 +123,9 @@ else {
 if ($($env:OS).Contains('Windows')) {
     if (Get-Command code -ErrorAction SilentlyContinue) {
         scoop install vscode
-        reg import 'C:\Scoop\apps\vscode\current\install-associations.reg'
+        reg import "$dir_scoop\apps\vscode\current\install-associations.reg"
+        reg import "$dir_scoop\apps\vscode\current\install-context.reg"
+        reg import "$dir_scoop\apps\vscode\current\install-github-integration.reg"
     }
 }
 

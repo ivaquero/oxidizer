@@ -50,6 +50,6 @@
         "pkg_npm": "addons/pkg_npm.ps1",
         "pkg_pixi": "addons/pkg_pixi.ps1",
         "pkg_tlmgr": "addons/pkg_tlmgr.ps1",
-        "xtra_notes": "addons/xtra_notesps1h"
+        "xtra_notes": "addons/xtra_notes.ps1"
     }
 }

@@ -9,7 +9,15 @@ printf "📦 Installing oxidizer\n"
 if ! command -v brew >/dev/null 2>&1; then
     printf "📦 Homebrew not installed. Installing.\n"
     if [[ ${BREW_CN} ]]; then
-        /bin/bash -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+        git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
+        /bin/bash brew-install/install.sh
+        rm -rf brew-install
+        export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+        brew tap --custom-remote homebrew/core https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+
+        if [[ $(uname -s) = "Darwin" ]]; then
+            brew tap --custom-remote homebrew/cask https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+        fi
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
@@ -23,7 +31,7 @@ if [[ $(uname -s) = "Darwin" ]]; then
     else
         eval "$(/usr/local/Homebrew/bin/brew shellenv)"
     fi
-else
+elif [[ $(uname -s) = "Linux" ]]; then
     printf "📦 Activating Homebrew on Linux...\n"
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
