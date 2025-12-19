@@ -67,7 +67,7 @@ Based on the name origin of the program, the program creates 3 main variables
 
 For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
-When you `epf zs` (export file), `~/.zshrc` will be copied and save in  folder backup folder
+When you `epf zs` (export file), `~/.zshrc` will be copied and save in folder backup folder
 
 As mentioned in **Get Started**, you can open `custom.json` simply by `edf ox`.
 
@@ -203,11 +203,13 @@ Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平�
 
 oxidizer is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
 
+You can check available builtin plugins by function `lsox`.
+
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
 The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as well as [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh).
 
-插件位于 [oxplugins](https://github.com/ivaquero/oxplugins) 和  [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh)
+插件位于 [oxplugins](https://github.com/ivaquero/oxplugins) 和 [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh)
 
 To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/oxidizer/config.json`, like
 
@@ -229,7 +231,7 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 ```
 
 |      Filename       |    Category     |            Support             |
-| :-----------------: | :-------------: | :----------------------------: |
+|:-------------------:|:---------------:|:------------------------------:|
 |     `os_macos`      |  OS Shortcuts   |             macOS              |
 |     `os_debian`     |  OS Shortcuts   |      Debian-Based Systems      |
 |     `os_redhat`     |  OS Shortcuts   |      RedHat-Based Systems      |
@@ -258,7 +260,7 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 oxidizer aims to provide a unified interface for all package manager-related commands to reduce typing and memory burden of command-liners.
 
 | Suffix |   Action    | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | pixi `px` | gem `rb` | tlmgr `tl` |
-| :----: | :---------: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :-------: | :------: | :--------: |
+|:------:|:-----------:|:--------:|:---------:|:---------:|:-------:|:----------:|:-----------:|:----------:|:---------:|:--------:|:----------:|
 |  `*h`  |    help     |    ✅     |           |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |     ✅     |    ✅     |     ✅      |
 | `*cf`  |   config    |    ✅     |           |     ✅     |    ✅    |            |             |            |     ✅     |          |            |
 | `*is`  |   install   |    ✅     |     ✅     |     ✅     |    ✅    |     ✅      |      ✅      |     ✅      |     ✅     |    ✅     |     ✅      |
@@ -283,7 +285,7 @@ oxidizer aims to provide a unified interface for all package manager-related com
 Some package managers also have functionality of project management
 
 | Suffix | Action  | brew `b` | scoop `s` | conda `c` | npm `n` | cargo `cg` | rustup `rs` | julia `jl` | pixi `px` | gem `rb` |
-| :----: | :-----: | :------: | :-------: | :-------: | :-----: | :--------: | :---------: | :--------: | :-------: | :------: |
+|:------:|:-------:|:--------:|:---------:|:---------:|:-------:|:----------:|:-----------:|:----------:|:---------:|:--------:|
 | `*ii`  |  init   |          |           |     ✅     |    ✅    |     ✅      |             |            |     ✅     |          |
 | `*cr`  | create  |    ✅     |     ✅     |           |    ✅    |     ✅      |             |            |           |          |
 |  `*b`  |  build  |          |           |           |         |     ✅      |             |     ✅      |           |    ✅     |
@@ -303,7 +305,7 @@ Some of the package managers shortcuts are included in corresponding system plug
 - `ox-os-windows`: auto-loaded, contains alias and functions for `winget` and `wsl`
 
 | Suffix |   Action    | mas `m` | apt `a` | winget `w` | wsl `wl` |
-| :----: | :---------: | :-----: | :-----: | :--------: | :------: |
+|:------:|:-----------:|:-------:|:-------:|:----------:|:--------:|
 |  `*h`  |    help     |    ✅    |    ✅    |     ✅      |    ✅     |
 | `*is`  |   install   |    ✅    |    ✅    |     ✅      |    ✅     |
 | `*us`  |  uninstall  |    ✅    |    ✅    |     ✅      |    ✅     |

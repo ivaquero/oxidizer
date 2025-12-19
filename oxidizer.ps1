@@ -110,6 +110,11 @@ function upox {
     Set-Location $HOME
 }
 
+function lsox {
+    Write-Output 'Available Plugins:\n'
+    Write-Output "$Global:OX_PLUGINS" | sd '; ' '","' | sd '=' '\":\"' | sd '@\{' '{"' | sd '\}' '"}' | jq -r 'keys[]'
+}
+
 ##########################################################
 # Shell Settings
 ##########################################################

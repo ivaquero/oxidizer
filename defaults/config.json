@@ -1,7 +1,7 @@
 {
     "oxygen": {
-        "oxash": "defaults/aliases.sh",
-        "oxaps": "defaults/aliases.ps1",
+        "oxab": "defaults/aliases.sh",
+        "oxap": "defaults/aliases.ps1",
         "oxox": "defaults/default.json",
         "oxc": "defaults/.condarc",
         "oxg": "defaults/.gitconfig",
@@ -21,6 +21,7 @@
         "cli_jupyter": "plugins/cli_jupyter.sh",
         "cli_ollama": "plugins/cli_ollama.sh",
         "cli_vscode": "plugins/cli_vscode.sh",
+        "cli_ros": "plugins/cli_ros.sh",
         "lang_julia": "plugins/lang_julia.sh",
         "lang_ruby": "plugins/lang_ruby.sh",
         "lang_rust": "plugins/lang_rust.sh",
@@ -42,6 +43,7 @@
         "cli_jupyter": "addons/cli_jupyter.ps1",
         "cli_ollama": "addons/cli_ollama.ps1",
         "cli_vscode": "addons/cli_vscode.ps1",
+        "cli_ros": "addons/cli_ros.ps1",
         "lang_julia": "addons/lang_julia.ps1",
         "lang_ruby": "addons/lang_ruby.ps1",
         "lang_rust": "addons/lang_rust.ps1",

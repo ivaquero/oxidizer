@@ -172,6 +172,11 @@ upox() {
     cd "${HOME}" || exit
 }
 
+lsox() {
+    print "Available Plugins:\n"
+    jq -r .plugins <"$OXIDIZER"/defaults/config.json | jq -r 'keys[]'
+}
+
 ##########################################################
 # Zoxide
 ##########################################################
