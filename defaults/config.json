@@ -18,20 +18,17 @@
         "utils_networks": "plugins/utils_networks.sh",
         "cli_bitwarden": "plugins/cli_bitwarden.sh",
         "cli_espanso": "plugins/cli_espanso.sh",
-        "cli_jupyter": "plugins/cli_jupyter.sh",
         "cli_ollama": "plugins/cli_ollama.sh",
-        "cli_vscode": "plugins/cli_vscode.sh",
         "cli_ros": "plugins/cli_ros.sh",
+        "cli_vscode": "plugins/cli_vscode.sh",
         "lang_julia": "plugins/lang_julia.sh",
         "lang_ruby": "plugins/lang_ruby.sh",
         "lang_rust": "plugins/lang_rust.sh",
         "pkg_brew": "plugins/pkg_brew.sh",
         "pkg_conda": "plugins/pkg_conda.sh",
         "pkg_npm": "plugins/pkg_npm.sh",
-        "pkg_pixi": "plugins/pkg_pixi.sh",
         "pkg_scoop": "plugins/pkg_scoop.sh",
-        "pkg_tlmgr": "plugins/pkg_tlmgr.sh",
-        "xtra_notes": "plugins/xtra_notes.sh"
+        "pkg_tlmgr": "plugins/pkg_tlmgr.sh"
     },
     "plugins_pwsh": {
         "os_windows": "addons/os_windows.ps1",
@@ -40,7 +37,6 @@
         "utils_networks": "addons/utils_networks.ps1",
         "cli_bitwarden": "addons/cli_bitwarden.ps1",
         "cli_espanso": "addons/cli_espanso.ps1",
-        "cli_jupyter": "addons/cli_jupyter.ps1",
         "cli_ollama": "addons/cli_ollama.ps1",
         "cli_vscode": "addons/cli_vscode.ps1",
         "cli_ros": "addons/cli_ros.ps1",
@@ -50,8 +46,6 @@
         "pkg_scoop": "addons/pkg_scoop.ps1",
         "pkg_conda": "addons/pkg_conda.ps1",
         "pkg_npm": "addons/pkg_npm.ps1",
-        "pkg_pixi": "addons/pkg_pixi.ps1",
-        "pkg_tlmgr": "addons/pkg_tlmgr.ps1",
-        "xtra_notes": "addons/xtra_notes.ps1"
+        "pkg_tlmgr": "addons/pkg_tlmgr.ps1"
     }
 }
