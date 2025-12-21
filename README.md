@@ -203,8 +203,6 @@ Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平�
 
 oxidizer is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
 
-You can check available builtin plugins by function `lsox`.
-
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 
 The plugins are hosted in [oxplugins](https://github.com/ivaquero/oxplugins) as well as [oxplugins-powershell](https://github.com/ivaquero/oxplugins-pwsh).
@@ -217,11 +215,9 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 {
     "plugin_load": [
         "cli_espanso",
-        "cli_jupyter",
         "cli_ollama",
         "cli_vscode",
         "lang_julia",
-        "lang_ruby",
         "lang_rust",
         "pkg_conda",
         "pkg_npm",
@@ -229,6 +225,8 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
     ]
 }
 ```
+
+You can check available builtin plugins by function `lsox`.
 
 |      Filename       |    Category     |           Support            |
 |:-------------------:|:---------------:|:----------------------------:|
