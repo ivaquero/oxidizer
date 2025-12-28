@@ -2,6 +2,7 @@ sd
 bat
 dust
 fd
+fresh-editor
 hyperfine
 lsd
 ripgrep

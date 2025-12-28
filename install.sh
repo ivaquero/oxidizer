@@ -47,6 +47,9 @@ printf "📦 Installing essential oxidizer toolchains...\n"
 
 while read -r pkg; do
     case $pkg in
+    fresh-editor)
+        cmd='fresh'
+        ;;
     ripgrep)
         cmd='rg'
         ;;

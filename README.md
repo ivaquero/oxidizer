@@ -13,7 +13,7 @@ A Simple & Extensible Dotfile and Computing Environments Manager That Facilitate
 
 ## 1. Motivation 动机
 
-oxidizer is originally designed for **non-administrator** users. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
+`oxidizer` is originally designed for **non-administrator** users. It saves your time from repetitive and tedious setups of coding environments, and it aims to provide with following features:
 
 - Cross-Platform (mainly Rust toolchains)
 - Minimal Dependencies & Minimal Installation
@@ -21,7 +21,7 @@ oxidizer is originally designed for **non-administrator** users. It saves your t
 - Unified Interface & Smooth Usage
 - Barely affect loading (loading time < 1 s)
 
-oxidizer 起初主要为**非管理员用户**设计（在实验室的不同计算机上反复搭建环境真的很烦），用于快速搭建跨平台统一的工作环境，避免重复和繁琐的环境配置劳动，其具有特点
+`oxidizer` 起初主要为**非管理员用户**设计（在实验室的不同计算机上反复搭建环境真的很烦），用于快速搭建跨平台统一的工作环境，避免重复和繁琐的环境配置劳动，其具有特点
 
 - 跨平台（主要基于 Rust 工具链）
 - 最少依赖 & 最少安装
@@ -41,13 +41,13 @@ Based on the name origin of the program, the program creates 3 main variables
 
 - OX_ELEMENT: config files of softwares
 - OX_OXIDE: backup of the config files
-- OX_OXYGEN: config files in oxidizer
+- OX_OXYGEN: config files in `oxidizer`
 
 根据程序的名称起源，程序会创建 3 个主要变量
 
 - OX_ELEMENT: 软件的配置文件
 - OX_OXIDE: 配置文件的备份
-- OX_OXYGEN: oxidizer 自带的配置文件
+- OX_OXYGEN: `oxidizer` 自带的配置文件
 
 - `rff`
   - refresh file by `source`
@@ -61,9 +61,9 @@ Based on the name origin of the program, the program creates 3 main variables
 - `epf` (export file, alias: `oxf`)
   - oxidize file: backup configuration file to backup folder
 - `iif` (initialize file, alias: `clzf`)
-  - catalyze file: overwrite configuration file by oxidizer defaults
+  - catalyze file: overwrite configuration file by `oxidizer` defaults
 - `ppgf`
-  - propagate file: backup oxidizer defaults to backup folder
+  - propagate file: backup `oxidizer` defaults to backup folder
 
 For example, if you want to edit `~/.zshrc`, you can type `edf zs`.
 
@@ -94,7 +94,7 @@ The table below lists the information of specific configuration files:
 
 > `_` denotes a folder, and you can check these abbreviations closely by `brf [Plugin Abbr.]` | `edf [Plugin Abbr.]`.
 
-oxidizer uses [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
+`oxidizer` uses [ouch](https://github.com/ouch-org/ouch) to deal with compression and decompression, and provides with 3 shortcuts
 
 - `zpf`: compress file
 - `zpfr`: decompress file
@@ -144,7 +144,7 @@ edf ox
 
 To keep up the updates, simply `upox` function.
 
-可使用 `upox` 命令来更新 oxidizer
+可使用 `upox` 命令来更新 `oxidizer`
 
 ## 2. Motivation 动机
 
@@ -197,11 +197,12 @@ Oxidizer 起初主要为**非管理员用户**设计，用于快速搭建跨平�
 
 ### 4.3. Otherful Rust Tools
 
+- [x] [fresh-editor](https://sinelaw.github.io/fresh): A terminal text editor you can just use.
 - [ ] [ouch](https://github.com/ouch-org/ouch): Painless compression and decompression tool
 
 ### 4.4. Summary of Plugins
 
-oxidizer is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
+`oxidizer` is designed to be extensible, you can personalize `plugin_load` in `config.json` to load the plugins by your need.
 
 Of course, you are allowed to write your own plugins, see [Writing A Plugin](https://github.com/ivaquero/oxidizer/blob/master/docs/plugins.md) for details.
 

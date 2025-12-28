@@ -48,6 +48,7 @@ if ($($env:OS).Contains('Windows')) {
 
     foreach ( $pkg in $pkgs ) {
         switch ($pkg) {
+            fresh-editor { $cmd = 'fresh' }
             ripgrep { $cmd = 'rg' }
             tlrc { $cmd = 'tldr' }
             zoxide { $cmd = 'z' }

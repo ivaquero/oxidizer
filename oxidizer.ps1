@@ -82,40 +82,6 @@ if ($Global:OX_PLUGINS_LOAD_PLUS) {
 }
 
 ##########################################################
-# oxidizer Management
-##########################################################
-
-# update oxidizer
-function upox {
-    Set-Location $env:OXIDIZER
-    Write-Output "Updating oxidizer...`n"
-    git fetch origin master
-    git reset --hard origin/master
-
-    if (!(Test-Path -Path "$env:OXIDIZER/addons")) {
-        Write-Output "`n`nCloning oxidizer Plugins...`n"
-        git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER/addons
-    }
-    else {
-        if ( $args[0] -eq '-f' ) {
-            Remove-Item "$env:OXIDIZER/addons/*.*"
-            git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER/addons
-        }
-        Set-Location "$env:OXIDIZER/addons"
-        Write-Output "`n`nUpdating oxidizer Plugins...`n"
-        git fetch origin main
-        git reset --hard origin/main
-    }
-
-    Set-Location $HOME
-}
-
-function lsox {
-    Write-Output 'Available Plugins:\n'
-    Write-Output "$Global:OX_PLUGINS" | sd '; ' '","' | sd '=' '\":\"' | sd '@\{' '{"' | sd '\}' '"}' | jq -r 'keys[]'
-}
-
-##########################################################
 # Shell Settings
 ##########################################################
 
@@ -166,6 +132,52 @@ if (Get-Command starship -ErrorAction SilentlyContinue) {
 $Global:OX_STARTUP = $Global:OX_CUSTOM.startup_folder
 if ($Global:OX_STARTUP) {
     Set-Location "$Global:OX_STARTUP"
+}
+
+##########################################################
+# oxidizer Management
+##########################################################
+
+# update oxidizer
+function upox {
+    Set-Location $env:OXIDIZER
+    Write-Output "Updating oxidizer...`n"
+    git fetch origin master
+    git reset --hard origin/master
+
+    if (!(Test-Path -Path "$env:OXIDIZER/addons")) {
+        Write-Output "`n`nCloning oxidizer Plugins...`n"
+        git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER/addons
+    }
+    else {
+        if ( $args[0] -eq '-f' ) {
+            Remove-Item "$env:OXIDIZER/addons/*.*"
+            git clone --depth=1 https://github.com/ivaquero/oxplugins-pwsh.git $env:OXIDIZER/addons
+        }
+        Set-Location "$env:OXIDIZER/addons"
+        Write-Output "`n`nUpdating oxidizer Plugins...`n"
+        git fetch origin main
+        git reset --hard origin/main
+    }
+
+    Set-Location $HOME
+}
+
+function lsoxp {
+    Write-Output 'Available Plugins:\n'
+    Write-Output "$Global:OX_PLUGINS" | sd '; ' '","' | sd '=' '\":\"' | sd '@\{' '{"' | sd '\}' '"}' | jq -r 'keys[]'
+}
+
+function lsox {
+    Write-Output $Global:OX_OXYGEN
+}
+
+function lsoxsy {
+    Write-Output $Global:OX_ELEMENT | sort
+}
+
+function lsoxbk {
+    Write-Output $Global:OX_OXIDE
 }
 
 ##########################################################
