@@ -165,7 +165,7 @@ function upox {
 
 function lsoxp {
     Write-Output "Available Plugins:`n"
-    Write-Output "$Global:OX_PLUGINS" | rg -o \w+_\w+= | sd '=' '' | sort
+    Write-Output "$Global:OX_PLUGINS" | rg -o '\w+_\w+\.' | sd '\.' ' ' | sort
 }
 
 function lsox {
