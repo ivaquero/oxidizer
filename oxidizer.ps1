@@ -164,8 +164,8 @@ function upox {
 }
 
 function lsoxp {
-    Write-Output 'Available Plugins:'
-    Write-Output "$Global:OX_PLUGINS" | sd '; ' '","' | sd '=' '\":\"' | sd '@\{' '{"' | sd '\}' '"}' | jq -r 'keys[]'
+    Write-Output "Available Plugins:`n"
+    Write-Output "$Global:OX_PLUGINS" | rg -o \w+_\w+= | sd '=' '' | sort
 }
 
 function lsox {
