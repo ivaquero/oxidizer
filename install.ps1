@@ -133,5 +133,5 @@ if ($($env:OS).Contains('Windows')) {
 . $PROFILE
 
 Write-Output 'oxidizer installation complete!'
-Write-Output "Don't forget to restart your terminal and hit 'edf ox' to tweak your preferences.\n"
+Write-Output "Don't forget to restart your terminal and hit 'edf ox' to tweak your preferences."
 Write-Output "Finally, run 'upox' function to activate the plugins. Enjoy!"
