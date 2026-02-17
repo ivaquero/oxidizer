@@ -229,26 +229,27 @@ To load a plugin, simply add its abbreviation into the `OX_PLUGINS` array of `~/
 
 You can check available builtin plugins by function `lsox`.
 
-|      Filename       |    Category     |           Support            |
-|:-------------------:|:---------------:|:----------------------------:|
-|     `os_macos`      |  OS Shortcuts   |            macOS             |
-|     `os_debian`     |  OS Shortcuts   |     Debian-Based Systems     |
-|     `os_redhat`     |  OS Shortcuts   |     RedHat-Based Systems     |
-|    `os_windows`     |  OS Shortcuts   |   Windows (include winget)   |
-|     `pkg_brew`      | Package Manager |   Homebrew (macOS & Linux)   |
-|     `pkg_scoop`     | Package Manager |       Scoop (Windows)        |
-|     `pkg_conda`     | Package Manager |   Conda (Multi-Languages)    |
-|      `pkg_npm`      | Package Manager |   NPM + PNPM (JavaScript)    |
-|     `pkg_tlmgr`     | Package Manager |       tlmgr (TeXLive)        |
-|   `cli_bitwarden`   |     App CLI     |          Bitwarden           |
-|    `cli_espanso`    |     App CLI     |           Espanso            |
-|    `cli_ollama`     |     App CLI     |            Ollama            |
-|    `cli_vscode`     |     App CLI     |            VSCode            |
-|    `lang_julia`     |    Language     |            Julia             |
-|     `lang_rust`     |    Language     | Rust (include cargo, rustup) |
-|    `utils_files`    |  System Utils   |        File Operation        |
-|   `utils_formats`   |  System Utils   |      Formats Conversion      |
-| `utils_networks.sh` |  System Utils   |    Network Configuration     |
+|     Filename     |    Category     |           Support            |
+|:----------------:|:---------------:|:----------------------------:|
+|    `os_macos`    |  OS Shortcuts   |            macOS             |
+|   `os_debian`    |  OS Shortcuts   |     Debian-Based Systems     |
+|   `os_redhat`    |  OS Shortcuts   |     RedHat-Based Systems     |
+|   `os_windows`   |  OS Shortcuts   |   Windows (include winget)   |
+|    `pkg_brew`    | Package Manager |   Homebrew (macOS & Linux)   |
+|   `pkg_scoop`    | Package Manager |       Scoop (Windows)        |
+|   `pkg_conda`    | Package Manager |   Conda (Multi-Languages)    |
+|    `pkg_npm`     | Package Manager |   NPM + PNPM (JavaScript)    |
+|   `pkg_tlmgr`    | Package Manager |       tlmgr (TeXLive)        |
+| `cli_bitwarden`  |     App CLI     |          Bitwarden           |
+|  `cli_espanso`   |     App CLI     |           Espanso            |
+|   `cli_ollama`   |     App CLI     |            Ollama            |
+|   `cli_vscode`   |     App CLI     |            VSCode            |
+| `cli_multiplex`  |    App Utils    |        Zellij & TMux         |
+|   `lang_julia`   |    Language     |            Julia             |
+|   `lang_rust`    |    Language     | Rust (include cargo, rustup) |
+|  `utils_files`   |  System Utils   |        File Operation        |
+| `utils_formats`  |  System Utils   |      Formats Conversion      |
+| `utils_networks` |  System Utils   |    Network Configuration     |
 
 ## 5. Package Management 包管理
 

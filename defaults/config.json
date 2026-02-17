@@ -21,6 +21,7 @@
         "cli_ollama": "plugins/cli_ollama.sh",
         "cli_ros": "plugins/cli_ros.sh",
         "cli_vscode": "plugins/cli_vscode.sh",
+        "cli_multiplex": "plugins/cli_multiplex.sh",
         "lang_julia": "plugins/lang_julia.sh",
         "lang_rust": "plugins/lang_rust.sh",
         "pkg_brew": "plugins/pkg_brew.sh",
