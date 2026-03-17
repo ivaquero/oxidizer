@@ -66,8 +66,9 @@ if ($($env:OS).Contains('Windows')) {
 }
 
 if (Get-Command scoop -ErrorAction SilentlyContinue ) {
-    Write-Output 'Import-Module scoop-completion' >> $PROFILE
-    Write-Output 'Invoke-Expression (&scoop-search --hook)' >> $PROFILE
+    Write-Output 'Append the following lines to your profile'
+    Write-Output 'Import-Module scoop-completion'
+    Write-Output 'Invoke-Expression (&scoop-search --hook)'
 }
 
 ###################################################
