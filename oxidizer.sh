@@ -1,38 +1,82 @@
-#!/bin/bash /bin/zsh
+#!/usr/bin/env bash
 export OXIDIZER=${OXIDIZER:-"$HOME/oxidizer"}
 
-# oxidizer configuration files
-OX_OXYGEN=$(jq .oxygen <"$OXIDIZER"/defaults/config.json)
-# shellcheck disable=SC2155
-export OX_BACKUP=$HOME/$(jq -r .oxide_folder <"$OXIDIZER"/custom.json)
-# shellcheck disable=SC2155
-export OX_DOWNLOAD=$HOME/$(jq -r .download_folder <"$OXIDIZER"/custom.json)
+DEFAULT_CONFIG="${OXIDIZER}/defaults/config.json"
+CUSTOM_CONFIG="${OXIDIZER}/custom.json"
 
-# system configuration files
-declare -A OX_ELEMENT
-
-OX_ELEMENT=(
-    [ox]="${OXIDIZER}/custom.json"
-    [zs]="$HOME/.zshrc"
-    [zsh]="${HOME}/.zsh_history"
-    [bsh]="${HOME}/.bash_history"
-    [g]="$HOME/.gitconfig"
-    [vi]="$HOME/.vimrc"
-    [dr]="$HOME/.docker/custom.json"
-    [drd]="$HOME/.docker/daemon.json"
-    [ct]="$HOME/.config/containers/containers.conf"
-    [wz]="$HOME/.wezterm.lua"
-)
-
-if [[ -f "$HOME/.bashrc" ]]; then
-    OX_ELEMENT[bs]=$HOME/.bashrc
-elif [[ -f "$HOME/.bash_profile" ]]; then
-    OX_ELEMENT[bs]=$HOME/.profile
-elif [[ -f "$HOME/.profile" ]]; then
-    OX_ELEMENT[bs]=$HOME/.profile
+if ! command -v jq >/dev/null 2>&1; then
+    printf 'oxidizer: jq is required but was not found in PATH.\n' >&2
+    return 1 2>/dev/null || exit 1
 fi
 
-case $(uname -s) in
+json_get() {
+    local expression="$1"
+    local file="$2"
+    jq -r "${expression} // empty" <"$file"
+}
+
+source_plugin_file() {
+    local plugin_rel_path="$1"
+    local plugin_file="${OXIDIZER}/${plugin_rel_path}"
+
+    if [[ -z "$plugin_rel_path" ]]; then
+        return 1
+    fi
+
+    if [[ ! -f "$plugin_file" ]]; then
+        printf 'oxidizer: skip missing plugin file: %s\n' "$plugin_file" >&2
+        return 1
+    fi
+
+    # shellcheck source=/dev/null
+    . "$plugin_file"
+}
+
+source_plugin_key() {
+    local key="$1"
+    local map="${2:-plugins}"
+    local config_file="${3:-$DEFAULT_CONFIG}"
+    local plugin_rel_path
+
+    plugin_rel_path="$(jq -r --arg map "$map" --arg key "$key" '.[$map][$key] // empty' <"$config_file")"
+    source_plugin_file "$plugin_rel_path"
+}
+
+# oxidizer configuration files
+OX_OXYGEN_KEYS="$(jq -r '.oxygen | keys[]?' <"$DEFAULT_CONFIG")"
+export OX_BACKUP="$HOME/$(json_get '.oxide_folder' "$CUSTOM_CONFIG")"
+export OX_DOWNLOAD="$HOME/$(json_get '.download_folder' "$CUSTOM_CONFIG")"
+
+# system configuration files
+if [[ -n ${ZSH_VERSION:-} ]]; then
+    typeset -gA OX_ELEMENT
+else
+    declare -A OX_ELEMENT
+fi
+
+OX_ELEMENT[ox]="${CUSTOM_CONFIG}"
+OX_ELEMENT[zs]="$HOME/.zshrc"
+OX_ELEMENT[zsh]="$HOME/.zsh_history"
+OX_ELEMENT[bsh]="$HOME/.bash_history"
+OX_ELEMENT[g]="$HOME/.gitconfig"
+OX_ELEMENT[vi]="$HOME/.vimrc"
+OX_ELEMENT[dr]="$HOME/.docker/custom.json"
+OX_ELEMENT[drd]="$HOME/.docker/daemon.json"
+OX_ELEMENT[ct]="$HOME/.config/containers/containers.conf"
+OX_ELEMENT[wz]="$HOME/.wezterm.lua"
+
+if [[ -f "$HOME/.bashrc" ]]; then
+    OX_ELEMENT[bs]="$HOME/.bashrc"
+elif [[ -f "$HOME/.bash_profile" ]]; then
+    OX_ELEMENT[bs]="$HOME/.bash_profile"
+elif [[ -f "$HOME/.profile" ]]; then
+    OX_ELEMENT[bs]="$HOME/.profile"
+fi
+
+OS_NAME="$(uname -s)"
+OS_INFO="$(uname -a)"
+
+case "$OS_NAME" in
 Darwin)
     OX_ELEMENT[lg]="$HOME/Library/Application Support/lazygit/config.yml"
     ;;
@@ -42,7 +86,7 @@ Linux)
 esac
 
 # backup configuration files
-OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
+OX_OXIDE="$(jq -c '.oxides // {}' <"$CUSTOM_CONFIG")"
 
 ##########################################################
 # Load Plugins
@@ -50,49 +94,52 @@ OX_OXIDE=$(jq .oxides <"$OXIDIZER"/custom.json)
 
 # load core plugins
 if command -v brew >/dev/null 2>&1; then
-    . "$OXIDIZER"/"$(jq -r .plugins.pkg_brew <"$OXIDIZER"/defaults/config.json)"
+    source_plugin_key "pkg_brew" "plugins" "$DEFAULT_CONFIG"
 fi
 
-case $(uname -a) in
+case "$OS_INFO" in
 *Darwin*)
-    . "$OXIDIZER"/"$(jq -r .plugins.os_macos <"$OXIDIZER"/defaults/config.json)"
+    source_plugin_key "os_macos" "plugins" "$DEFAULT_CONFIG"
     ;;
 *Ubuntu* | *Debian*)
-    . "$OXIDIZER"/"$(jq -r .plugins.os_debian <"$OXIDIZER"/defaults/config.json)"
+    source_plugin_key "os_debian" "plugins" "$DEFAULT_CONFIG"
     ;;
-*Redhat*)
-    . "$OXIDIZER"/"$(jq -r .plugins.os_redhat <"$OXIDIZER"/defaults/config.json)"
+*RedHat* | *Redhat*)
+    source_plugin_key "os_redhat" "plugins" "$DEFAULT_CONFIG" || source_plugin_key "os_rehat" "plugins" "$DEFAULT_CONFIG"
     ;;
 *MINGW*)
-    . "$OXIDIZER"/"$(jq -r .plugins.os_windows <"$OXIDIZER"/defaults/config.json)"
-    . "$OXIDIZER"/"$(jq -r .plugins.pkg_scoop <"$OXIDIZER"/defaults/config.json)"
+    source_plugin_key "os_windows" "plugins" "$DEFAULT_CONFIG"
+    source_plugin_key "pkg_scoop" "plugins" "$DEFAULT_CONFIG"
     ;;
 esac
 
-. "$OXIDIZER"/"$(jq -r .plugins.utils_files <"$OXIDIZER"/defaults/config.json)"
-. "$OXIDIZER"/"$(jq -r .plugins.utils_formats <"$OXIDIZER"/defaults/config.json)"
-. "$OXIDIZER"/"$(jq -r .plugins.utils_networks <"$OXIDIZER"/defaults/config.json)"
+source_plugin_key "utils_files" "plugins" "$DEFAULT_CONFIG"
+source_plugin_key "utils_formats" "plugins" "$DEFAULT_CONFIG"
+source_plugin_key "utils_networks" "plugins" "$DEFAULT_CONFIG"
 
 # load plugins
-for plugin in $(jq -r ".plugins_load | .[]" <"$OXIDIZER"/custom.json); do
-    . "$OXIDIZER"/"$(jq -r .plugins."$plugin" <"$OXIDIZER"/defaults/config.json)"
-done
+while IFS= read -r plugin; do
+    [[ -n "$plugin" ]] || continue
+    source_plugin_key "$plugin" "plugins" "$DEFAULT_CONFIG"
+done < <(jq -r '.plugins_load[]?' <"$CUSTOM_CONFIG")
 
-# # load custom plugins
-if [[ -n $(jq .plugins_plus <"$OXIDIZER"/custom.json) ]]; then
-    for plugin in $(jq -r ".plugins_load_plus |.[]" <"$OXIDIZER"/custom.json); do
-        . "$OXIDIZER"/"$(jq -r .plugins_plus."$plugin" <"$OXIDIZER"/defaults/config.json)"
-    done
-fi
+# load custom plugins
+while IFS= read -r plugin; do
+    [[ -n "$plugin" ]] || continue
+    source_plugin_key "$plugin" "plugins_plus" "$CUSTOM_CONFIG"
+done < <(jq -r '.plugins_load_plus[]?' <"$CUSTOM_CONFIG")
 
 ##########################################################
 # Shell Settings
 ##########################################################
 
-# shellcheck disable=SC2155
-export GPG_TTY=$(tty)
+export GPG_TTY="$(tty)"
 
-export SHELLS=/private/etc/shells
+if [[ -f /private/etc/shells ]]; then
+    export SHELLS=/private/etc/shells
+elif [[ -f /etc/shells ]]; then
+    export SHELLS=/etc/shells
+fi
 
 case ${SHELL} in
 *zsh)
@@ -112,10 +159,12 @@ case ${SHELL} in
     ;;
 *bash)
     # turn case sensitivity off
-    if [[ ! -e "$HOME"/.inputrc ]]; then
-        echo '$include /etc/inputrc' >"$HOME"/.inputrc
+    if [[ ! -e "$HOME/.inputrc" ]]; then
+        printf '%s\n' '$include /etc/inputrc' >"$HOME/.inputrc"
     fi
-    echo 'set completion-ignore-case On' >>"$HOME"/.inputrc
+    if ! grep -Fxq 'set completion-ignore-case On' "$HOME/.inputrc"; then
+        printf '%s\n' 'set completion-ignore-case On' >>"$HOME/.inputrc"
+    fi
     ;;
 esac
 
@@ -123,16 +172,24 @@ esac
 ccc() {
     case ${SHELL} in
     *zsh)
-        local HISTSIZE=0 && history -p && reset && echo >"${OX_ELEMENT[zsh]}"
+        local HISTSIZE=0
+        history -p && reset && : >"${OX_ELEMENT[zsh]}"
         ;;
     *bash)
-        local HISTSIZE=0 && history -c && reset && echo >"${OX_ELEMENT[bsh]}"
+        local HISTSIZE=0
+        history -c && reset && : >"${OX_ELEMENT[bsh]}"
         ;;
     esac
 }
 
 tt() {
     local shell_file
+
+    if ! command -v hyperfine >/dev/null 2>&1; then
+        printf 'oxidizer: hyperfine is not installed.\n' >&2
+        return 1
+    fi
+
     case ${SHELL} in
     *zsh)
         shell_file="${OX_ELEMENT[zs]}"
@@ -141,6 +198,12 @@ tt() {
         shell_file="${OX_ELEMENT[bs]}"
         ;;
     esac
+
+    if [[ -z "$shell_file" || ! -f "$shell_file" ]]; then
+        printf 'oxidizer: shell profile is missing: %s\n' "$shell_file" >&2
+        return 1
+    fi
+
     hyperfine --warmup 3 --shell "${SHELL}" "source ${shell_file}"
 }
 
@@ -149,22 +212,24 @@ tt() {
 ##########################################################
 
 export _ZO_DATA_DIR=${_ZO_DATA_DIR:-"$HOME/.config/zoxide"}
-OX_ELEMENT[z]=${_ZO_DATA_DIR}/db.zo
+OX_ELEMENT[z]="${_ZO_DATA_DIR}/db.zo"
 
-case ${SHELL} in
-*zsh)
-    eval "$(zoxide init zsh)"
-    ;;
-*bash)
-    eval "$(zoxide init bash)"
-    ;;
-esac
+if command -v zoxide >/dev/null 2>&1; then
+    case ${SHELL} in
+    *zsh)
+        eval "$(zoxide init zsh)"
+        ;;
+    *bash)
+        eval "$(zoxide init bash)"
+        ;;
+    esac
 
-alias zii="zoxide init"
-alias za="zoxide add"
-alias zrm="zoxide remove"
-alias zed="zoxide edit"
-alias zsc="zoxide query"
+    alias zii="zoxide init"
+    alias za="zoxide add"
+    alias zrm="zoxide remove"
+    alias zed="zoxide edit"
+    alias zsc="zoxide query"
+fi
 
 ##########################################################
 # Starship
@@ -173,7 +238,7 @@ alias zsc="zoxide query"
 if command -v starship >/dev/null 2>&1; then
     # system files
     export STARSHIP_CONFIG=${STARSHIP_CONFIG:-"$HOME/.config/starship.toml"}
-    OX_ELEMENT[ss]=${STARSHIP_CONFIG}
+    OX_ELEMENT[ss]="${STARSHIP_CONFIG}"
 
     case ${SHELL} in
     *zsh)
@@ -206,54 +271,60 @@ fi
 
 # update oxidizer
 upox() {
-    cd "${OXIDIZER}" || exit
+    local force_reclone="$1"
+
+    if ! command -v git >/dev/null 2>&1; then
+        printf 'oxidizer: git is required for upox.\n' >&2
+        return 1
+    fi
+
+    cd "${OXIDIZER}" || return 1
     printf "Updating oxidizer...\n"
     git fetch origin master
     git reset --hard origin/master
 
-    if [[ ! -d "${OXIDIZER}"/plugins ]]; then
+    if [[ ! -d "${OXIDIZER}/plugins" ]]; then
         printf "\n\nCloning oxidizer Plugins...\n"
-        git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
+        git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}/plugins"
     else
         printf "\n\nUpdating oxidizer Plugins...\n"
-        if [[ $1 == "-f" ]]; then
-            rm -rf "${OXIDIZER}"/plugins
-            git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}"/plugins
+        if [[ "$force_reclone" == "-f" ]]; then
+            rm -rf "${OXIDIZER}/plugins"
+            git clone --depth=1 https://github.com/ivaquero/oxplugins.git "${OXIDIZER}/plugins"
         fi
-        cd "${OXIDIZER}"/plugins || exit
+        cd "${OXIDIZER}/plugins" || return 1
         git fetch origin main
         git reset --hard origin/main
     fi
 
-    cd "$HOME" || exit
+    cd "$HOME" || return 1
 }
 
 lsoxp() {
-    print "Available Plugins:\n"
-    jq -r .plugins <"$OXIDIZER"/defaults/config.json | jq -r 'keys[]'
+    printf "Available Plugins:\n"
+    jq -r '.plugins | keys[]' <"$DEFAULT_CONFIG"
 }
 
 lsox() {
-    for key in "${OX_OXYGEN[@]}"; do
-        echo "$key"
-    done
+    printf '%s\n' "$OX_OXYGEN_KEYS"
 }
 
 lsoxsy() {
-    echo "${OX_ELEMENT[@]}" | sd '/Users' '\n/Users' | sort
+    printf '%s\n' "${OX_ELEMENT[@]}" | sort
 }
 
 lsoxbk() {
-    echo "$OX_OXIDE"
+    printf '%s\n' "$OX_OXIDE"
 }
 
 ##########################################################
 # Startup
 ##########################################################
 
-# shellcheck disable=SC2155
-export OX_STARTUP=$(jq -r .startup_folder <"$OXIDIZER"/custom.json)
+export OX_STARTUP="$(json_get '.startup_folder' "$CUSTOM_CONFIG")"
 
-if [[ "${OX_STARTUP}" ]]; then
-    cd "$HOME/${OX_STARTUP}" || exit
+if [[ -n "${OX_STARTUP}" ]]; then
+    if ! cd "$HOME/${OX_STARTUP}"; then
+        printf 'oxidizer: startup folder not found: %s\n' "$HOME/${OX_STARTUP}" >&2
+    fi
 fi

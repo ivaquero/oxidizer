@@ -33,12 +33,13 @@
     "oxide_folder": "Documents",
     "oxide_folder_win": "D:/backup",
     "oxides": {
-        "bkox": "terminal/custom.json",
-        "bkvi": "terminal/.vimrc",
-        "bkss": "terminal/starship.toml",
-        "bkzs": "terminal/.zshrc",
-        "bkbs": "terminal/.bash_profile",
-        "bkg": "terminal/.gitconfig",
-        "bkb": "unix/Brewfile"
+        "bkvi": "unix/.vimrc",
+        "bkzs": "unix/.zshrc",
+        "bkbs": "unix/.bash_profile",
+        "bkb": "unix/Brewfile",
+        "bkox": "projects/custom.json",
+        "bkg": "projects/.gitconfig",
+        "bklg": "projects/lazygit.yml",
+        "bkss": "projects/starship.toml"
     }
 }
