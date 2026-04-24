@@ -173,7 +173,7 @@ function lsox {
     Write-Output $Global:OX_OXYGEN
 }
 
-function lsoxsy {
+function lsoxsys {
     Write-Output $Global:OX_ELEMENT | sort
 }
 

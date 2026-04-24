@@ -62,7 +62,6 @@ OX_ELEMENT[g]="$HOME/.gitconfig"
 OX_ELEMENT[vi]="$HOME/.vimrc"
 OX_ELEMENT[dr]="$HOME/.docker/custom.json"
 OX_ELEMENT[drd]="$HOME/.docker/daemon.json"
-OX_ELEMENT[ct]="$HOME/.config/containers/containers.conf"
 OX_ELEMENT[wz]="$HOME/.wezterm.lua"
 
 if [[ -f "$HOME/.bashrc" ]]; then
@@ -309,7 +308,7 @@ lsox() {
     printf '%s\n' "$OX_OXYGEN_KEYS"
 }
 
-lsoxsy() {
+lsoxsys() {
     printf '%s\n' "${OX_ELEMENT[@]}" | sort
 }
 
