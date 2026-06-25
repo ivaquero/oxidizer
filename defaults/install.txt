@@ -10,3 +10,7 @@ tlrc
 zoxide
 fastfetch
 pandoc
+mise
+uv
+ruff
+pnpm
