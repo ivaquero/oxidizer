@@ -61,14 +61,13 @@ if ($($env:OS).Contains('Windows')) {
             Write-Output "$pkg not found, installing..."
             scoop install $pkg
         }
-        scoop install busybox sudo scoop-completion scoop-search
+        scoop install microsoft-coreutils scoop-completion
     }
 }
 
 if (Get-Command scoop -ErrorAction SilentlyContinue ) {
     Write-Output 'Append the following lines to your profile'
     Write-Output 'Import-Module scoop-completion'
-    Write-Output 'Invoke-Expression (&scoop-search --hook)'
 }
 
 ###################################################
