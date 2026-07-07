@@ -61,14 +61,15 @@ if ($($env:OS).Contains('Windows')) {
             Write-Output "$pkg not found, installing..."
             scoop install $pkg
         }
-        scoop install microsoft-coreutils scoop-completion
+        scoop install busybox scoop-completion scoop-search
     }
 }
 
+Write-Output "
 if (Get-Command scoop -ErrorAction SilentlyContinue ) {
-    Write-Output 'Append the following lines to your profile'
-    Write-Output 'Import-Module scoop-completion'
-}
+    Import-Module scoop-completion
+    . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
+}" >> $PROFILE
 
 ###################################################
 # Update PowerShell Settings
@@ -87,16 +88,16 @@ Write-Output '# oxidizer' >> $PROFILE
 if ([string]::IsNullOrEmpty($env:OXIDIZER)) {
     if ($($env:OS).Contains('Windows')) {
         Write-Output '
-        $env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
+$env:OXIDIZER = "$HOME\oxidizer"' >> $PROFILE
     }
     else {
         Write-Output '
-        $env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
+$env:OXIDIZER = "$env:HOME\oxidizer"' >> $PROFILE
     }
 }
 else {
     Write-Output '
-        $env:OXIDIZER = "$env:OXIDIZER"' >> $PROFILE
+$env:OXIDIZER = "$env:OXIDIZER"' >> $PROFILE
 }
 
 Write-Output ". $env:OXIDIZER\oxidizer.ps1" >> $PROFILE
