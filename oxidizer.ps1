@@ -104,6 +104,7 @@ else {
     $env:_ZO_DATA_DIR = "$HOME/.config/zoxide"
 }
 
+$_ZO_DATA_DIR = "$Global:OX_BACKUP\win"
 if (!(Test-Path -Path $env:_ZO_DATA_DIR)) {
     mkdir "$env:_ZO_DATA_DIR"
 }
